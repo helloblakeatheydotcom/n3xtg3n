@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>NextGen Input Types</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="form-components.css" />
+</head>
+<body>
+  <header class="page-header">
+    <div class="page-label">Input</div>
+    <div class="page-title">Types</div>
+  </header>
+
+  <section class="card">
+    <div class="demo-grid">
+      <div class="demo-cell demo-cell--input">
+        <div class="field-body">
+          <label class="field-label" for="full-name">Full Name</label>
+          <div class="field-input-wrapper">
+            <input id="full-name" type="text" class="field-input" value="Blake Zimmerman" />
+          </div>
+        </div>
+        <div class="field-caption">Text Input</div>
+      </div>
+
+      <div class="demo-cell demo-cell--input demo-cell--textarea">
+        <div class="field-body">
+          <label class="field-label" for="parent-input">Parent Input</label>
+          <textarea id="parent-input" class="field-textarea" placeholder="Enter parent narrative...">Joe and Angie provided insight into Jeffrey’s daily struggles at home with keeping up…</textarea>
+        </div>
+        <div class="field-caption">Text Area</div>
+      </div>
+
+      <div class="demo-cell demo-cell--input">
+        <div class="field-body">
+          <label class="field-label" for="meeting-date">Meeting Date</label>
+          <div class="field-input-wrapper">
+            <input id="meeting-date" type="date" class="field-input" />
+          </div>
+        </div>
+        <div class="field-caption">Date</div>
+      </div>
+
+      <div class="demo-cell demo-cell--input">
+        <div class="field-body">
+          <label class="field-label" for="iep-type">IEP Type</label>
+          <div class="field-input-wrapper field-select-wrapper">
+            <select id="iep-type" class="field-select">
+              <option>Revision Without a Meeting</option>
+              <option>Annual Review</option>
+              <option>Initial IEP</option>
+              <option>Reevaluation</option>
+            </select>
+          </div>
+        </div>
+        <div class="field-caption">Select List</div>
+      </div>
+
+      <div class="demo-cell demo-cell--input">
+        <div class="field-body">
+          <label class="field-label" for="service-minutes">Service Minutes</label>
+          <div class="field-input-wrapper number-stepper">
+            <input id="service-minutes" type="number" class="field-input" value="35" step="1" />
+            <div class="stepper-controls">
+              <button type="button" class="step-btn step-up" aria-label="Increase">▲</button>
+              <button type="button" class="step-btn step-down" aria-label="Decrease">▼</button>
+            </div>
+          </div>
+        </div>
+        <div class="field-caption">Number with Stepper</div>
+      </div>
+
+      <div class="demo-cell demo-cell--input">
+        <div class="field-body">
+          <label class="field-label" for="home-phone">Home Phone</label>
+          <div class="field-input-wrapper">
+            <input id="home-phone" type="tel" class="field-input phone-input" value="+1 (864) 867-5309" />
+          </div>
+        </div>
+        <div class="field-caption">Phone Number</div>
+      </div>
+
+      <div class="demo-cell demo-cell--input">
+        <div class="field-body">
+          <label class="field-label" for="start-time">Start Time</label>
+          <div class="field-input-wrapper">
+            <input id="start-time" type="time" class="field-input" />
+          </div>
+        </div>
+        <div class="field-caption">Time Picker</div>
+      </div>
+    </div>
+  </section>
+
+  <header class="page-header mt-40">
+    <div class="page-label">Input</div>
+    <div class="page-title">States</div>
+  </header>
+
+  <section class="card states-demo">
+    <div class="demo-grid">
+      <div class="demo-cell demo-cell--input demo-cell--fullwidth demo-cell--interactive">
+        <div class="field-body">
+          <label class="field-label" for="state-interactive">
+            Student Name<span class="required-asterisk">*</span>
+          </label>
+          <div class="field-input-wrapper">
+            <input id="state-interactive" type="text" class="field-input" placeholder="Enter student name" />
+          </div>
+          <div class="field-helper-slot">
+            <p class="field-helper">Enter the full legal name as it appears on the student record.</p>
+          </div>
+          <div class="field-error field-error--live" id="state-interactive-error" aria-live="polite"></div>
+        </div>
+        <div class="field-caption">Interactive required field</div>
+      </div>
+
+      <div class="demo-cell demo-cell--input">
+        <div class="field-body">
+          <label class="field-label" for="state-default">
+            Student Name <span class="optional">(optional)</span>
+          </label>
+          <div class="field-input-wrapper">
+            <input id="state-default" type="text" class="field-input" placeholder="Enter student name" />
+          </div>
+          <div class="field-helper-slot">
+            <p class="field-helper">Helper text for optional field.</p>
+          </div>
+        </div>
+        <div class="field-caption">Default</div>
+      </div>
+
+      <div class="demo-cell demo-cell--input">
+        <div class="field-body is-error">
+          <label class="field-label" for="state-error">
+            Student Name<span class="required-asterisk">*</span>
+          </label>
+          <div class="field-input-wrapper">
+            <input id="state-error" type="text" class="field-input" placeholder="Enter student name" />
+          </div>
+          <div class="field-helper-slot"></div>
+          <div class="field-error">This field is required.</div>
+        </div>
+        <div class="field-caption">Error</div>
+      </div>
+
+      <div class="demo-cell demo-cell--input">
+        <div class="field-body is-hover">
+          <label class="field-label" for="state-hover">
+            Student Name <span class="optional">(optional)</span>
+          </label>
+          <div class="field-input-wrapper">
+            <input id="state-hover" type="text" class="field-input" placeholder="Enter student name" />
+          </div>
+          <div class="field-helper-slot">
+            <p class="field-helper">Hover state for demonstration.</p>
+          </div>
+        </div>
+        <div class="field-caption">Hover</div>
+      </div>
+
+      <div class="demo-cell demo-cell--input">
+        <div class="field-body is-error is-error-hover">
+          <label class="field-label" for="state-error-hover">
+            Student Name<span class="required-asterisk">*</span>
+          </label>
+          <div class="field-input-wrapper">
+            <input id="state-error-hover" type="text" class="field-input" placeholder="Enter student name" />
+          </div>
+          <div class="field-helper-slot">
+            <p class="field-helper">Hover + error with tinted background.</p>
+          </div>
+          <div class="field-error">This field is required.</div>
+        </div>
+        <div class="field-caption">Error Hover</div>
+      </div>
+
+      <div class="demo-cell demo-cell--input">
+        <div class="field-body is-focus">
+          <label class="field-label" for="state-focused">
+            Student Name <span class="optional">(optional)</span>
+          </label>
+          <div class="field-input-wrapper">
+            <input id="state-focused" type="text" class="field-input" value="Blak" />
+          </div>
+          <div class="field-helper-slot">
+            <p class="field-helper">Focused state with 2px outline.</p>
+          </div>
+        </div>
+        <div class="field-caption">Focused</div>
+      </div>
+
+      <div class="demo-cell demo-cell--input">
+        <div class="field-body is-error is-error-focus">
+          <label class="field-label" for="state-error-focused">
+            Student Name<span class="required-asterisk">*</span>
+          </label>
+          <div class="field-input-wrapper">
+            <input id="state-error-focused" type="text" class="field-input" />
+          </div>
+          <div class="field-helper-slot">
+            <p class="field-helper">Focused + error (no tinted background).</p>
+          </div>
+          <div class="field-error">This field is required.</div>
+        </div>
+        <div class="field-caption">Error Focused</div>
+      </div>
+
+      <div class="demo-cell demo-cell--input">
+        <div class="field-body is-disabled">
+          <label class="field-label" for="state-disabled">
+            Student Name <span class="readonly">(read only)</span>
+          </label>
+          <div class="field-input-wrapper">
+            <input id="state-disabled" type="text" class="field-input" value="Blake Zimmerman" readonly />
+            <svg class="field-icon-lock" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17 11V7a5 5 0 0 0-10 0v4H5a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7a2 2 0 0 0-2-2h-2zm-8-4a3 3 0 0 1 6 0v4H9V7z"/>
+            </svg>
+          </div>
+          <div class="field-helper-slot">
+            <p class="field-helper">View-only value, not editable.</p>
+          </div>
+        </div>
+        <div class="field-caption">Disabled (view only)</div>
+      </div>
+
+      <div class="demo-cell demo-cell--input">
+        <div class="field-body is-disabled is-alert">
+          <label class="field-label" for="state-alert">
+            Student Name<span class="required-asterisk">*</span>
+            <span class="readonly">(read only)</span>
+          </label>
+          <div class="field-input-wrapper">
+            <input id="state-alert" type="text" class="field-input" readonly />
+            <svg class="field-icon-alert" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
+              <path fill="var(--alert-icon)" d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0Z" />
+              <rect x="11" y="6.5" width="2" height="9" rx="1" fill="#000000" />
+              <circle cx="12" cy="17.5" r="1" fill="#000000" />
+            </svg>
+            <svg class="field-icon-lock" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17 11V7a5 5 0 0 0-10 0v4H5a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7a2 2 0 0 0-2-2h-2zm-8-4a3 3 0 0 1 6 0v4H9V7z"/>
+            </svg>
+          </div>
+          <div class="field-helper-slot">
+            <p class="field-helper">Alert view-only state with iconography.</p>
+          </div>
+        </div>
+        <div class="field-caption">Alert (view only)</div>
+      </div>
+    </div>
+  </section>
+
+  <header class="page-header mt-40">
+    <div class="page-label">Checkbox</div>
+    <div class="page-title">States</div>
+  </header>
+
+  <section class="card">
+    <div class="demo-grid">
+      <div class="demo-cell demo-cell--panel demo-cell--interactive">
+        <div class="choice-group">
+          <label class="field-label">Stocking Stuffers</label>
+          <div class="field-helper-slot">
+            <p class="field-helper">Choose what you’d like in your stocking this year.</p>
+          </div>
+
+          <div class="choice-options">
+            <label class="choice-option">
+              <input type="checkbox" />
+              <div>
+                <div class="choice-label">Apple sauce</div>
+                <div class="choice-desc">A single-serving cup of cinnamon apple goodness.</div>
+              </div>
+            </label>
+
+            <label class="choice-option">
+              <input type="checkbox" checked />
+              <div>
+                <div class="choice-label">Peppermint patties</div>
+                <div class="choice-desc">Classic dark chocolate and mint, unwrapped and ready.</div>
+              </div>
+            </label>
+
+            <label class="choice-option">
+              <input type="checkbox" />
+              <div>
+                <div class="choice-label">Orange cranberry muffin</div>
+                <div class="choice-desc">Freshly baked, with a hint of orange zest.</div>
+              </div>
+            </label>
+
+            <label class="choice-option">
+              <input type="checkbox" />
+              <div>
+                <div class="choice-label">Puppy dog</div>
+                <div class="choice-desc">Included here for illustrative purposes only. 🙂</div>
+              </div>
+            </label>
+          </div>
+        </div>
+        <div class="field-caption">Interactive field</div>
+      </div>
+
+      <div class="demo-cell demo-cell--panel demo-cell--static">
+        <div class="choice-group">
+          <label class="field-label">Stocking Stuffers</label>
+          <div class="field-helper-slot"><p class="field-helper">Default state (no hover, no selection).</p></div>
+          <div class="choice-options">
+            <label class="choice-option">
+              <input type="checkbox" />
+              <span class="choice-label">Apple sauce</span>
+            </label>
+            <label class="choice-option">
+              <input type="checkbox" />
+              <span class="choice-label">Peppermint patties</span>
+            </label>
+          </div>
+        </div>
+        <div class="field-caption">Default</div>
+      </div>
+
+      <div class="demo-cell demo-cell--panel demo-cell--static demo-cell--hover">
+        <div class="choice-group">
+          <label class="field-label">Stocking Stuffers</label>
+          <div class="field-helper-slot"><p class="field-helper">First option in hover state.</p></div>
+          <div class="choice-options">
+            <label class="choice-option">
+              <input type="checkbox" />
+              <span class="choice-label">Apple sauce</span>
+            </label>
+            <label class="choice-option">
+              <input type="checkbox" />
+              <span class="choice-label">Peppermint patties</span>
+            </label>
+          </div>
+        </div>
+        <div class="field-caption">Hover</div>
+      </div>
+
+      <div class="demo-cell demo-cell--panel demo-cell--static demo-cell--selected">
+        <div class="choice-group">
+          <label class="field-label">Stocking Stuffers</label>
+          <div class="field-helper-slot"><p class="field-helper">First option selected.</p></div>
+          <div class="choice-options">
+            <label class="choice-option">
+              <input type="checkbox" checked />
+              <span class="choice-label">Apple sauce</span>
+            </label>
+            <label class="choice-option">
+              <input type="checkbox" />
+              <span class="choice-label">Peppermint patties</span>
+            </label>
+          </div>
+        </div>
+        <div class="field-caption">Selected</div>
+      </div>
+
+      <div class="demo-cell demo-cell--panel demo-cell--static demo-cell--selected-hover">
+        <div class="choice-group">
+          <label class="field-label">Stocking Stuffers</label>
+          <div class="field-helper-slot"><p class="field-helper">Selected + hover emphasis.</p></div>
+          <div class="choice-options">
+            <label class="choice-option">
+              <input type="checkbox" checked />
+              <span class="choice-label">Apple sauce</span>
+            </label>
+            <label class="choice-option">
+              <input type="checkbox" />
+              <span class="choice-label">Peppermint patties</span>
+            </label>
+          </div>
+        </div>
+        <div class="field-caption">Selected Hover</div>
+      </div>
+
+      <div class="demo-cell demo-cell--panel demo-cell--static demo-cell--error">
+        <div class="error-wrap">
+          <div class="choice-group">
+            <label class="field-label">Stocking Stuffers</label>
+            <div class="field-helper-slot"><p class="field-helper">At least one choice is required.</p></div>
+            <div class="choice-options">
+              <label class="choice-option">
+                <input type="checkbox" />
+                <span class="choice-label">Apple sauce</span>
+              </label>
+              <label class="choice-option">
+                <input type="checkbox" />
+                <span class="choice-label">Peppermint patties</span>
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="field-caption">Error</div>
+      </div>
+      <div class="demo-cell"></div>
+    </div>
+  </section>
+
+  <header class="page-header mt-40">
+    <div class="page-label">Radio</div>
+    <div class="page-title">States</div>
+  </header>
+
+  <section class="card">
+    <div class="demo-grid">
+      <div class="demo-cell demo-cell--panel demo-cell--interactive">
+        <div class="choice-group">
+          <label class="field-label">Holiday Drinks</label>
+          <div class="field-helper-slot">
+            <p class="field-helper">Pick the drink you’d most like with your stocking.</p>
+          </div>
+          <div class="choice-options">
+            <label class="choice-option">
+              <input type="radio" name="drink" />
+              <div>
+                <div class="choice-label">Hot chocolate</div>
+                <div class="choice-desc">Rich and creamy, topped with marshmallows.</div>
+              </div>
+            </label>
+            <label class="choice-option">
+              <input type="radio" name="drink" checked />
+              <div>
+                <div class="choice-label">Spiced cider</div>
+                <div class="choice-desc">Warm apple cider with cinnamon and cloves.</div>
+              </div>
+            </label>
+            <label class="choice-option">
+              <input type="radio" name="drink" />
+              <div>
+                <div class="choice-label">Peppermint mocha</div>
+                <div class="choice-desc">Espresso, chocolate, and a hint of peppermint.</div>
+              </div>
+            </label>
+          </div>
+        </div>
+        <div class="field-caption">Interactive field</div>
+      </div>
+
+      <div class="demo-cell demo-cell--panel demo-cell--static">
+        <div class="choice-group">
+          <label class="field-label">Holiday Drinks</label>
+          <div class="field-helper-slot"><p class="field-helper">Default state (no hover, no selection).</p></div>
+          <div class="choice-options">
+            <label class="choice-option">
+              <input type="radio" />
+              <span class="choice-label">Hot chocolate</span>
+            </label>
+            <label class="choice-option">
+              <input type="radio" />
+              <span class="choice-label">Spiced cider</span>
+            </label>
+          </div>
+        </div>
+        <div class="field-caption">Default</div>
+      </div>
+
+      <div class="demo-cell demo-cell--panel demo-cell--static demo-cell--hover">
+        <div class="choice-group">
+          <label class="field-label">Holiday Drinks</label>
+          <div class="field-helper-slot"><p class="field-helper">First option in hover state.</p></div>
+          <div class="choice-options">
+            <label class="choice-option">
+              <input type="radio" />
+              <span class="choice-label">Hot chocolate</span>
+            </label>
+            <label class="choice-option">
+              <input type="radio" />
+              <span class="choice-label">Spiced cider</span>
+            </label>
+          </div>
+        </div>
+        <div class="field-caption">Hover</div>
+      </div>
+
+      <div class="demo-cell demo-cell--panel demo-cell--static demo-cell--selected">
+        <div class="choice-group">
+          <label class="field-label">Holiday Drinks</label>
+          <div class="field-helper-slot"><p class="field-helper">First option selected.</p></div>
+          <div class="choice-options">
+            <label class="choice-option">
+              <input type="radio" checked />
+              <span class="choice-label">Hot chocolate</span>
+            </label>
+            <label class="choice-option">
+              <input type="radio" />
+              <span class="choice-label">Spiced cider</span>
+            </label>
+          </div>
+        </div>
+        <div class="field-caption">Selected</div>
+      </div>
+
+      <div class="demo-cell demo-cell--panel demo-cell--static demo-cell--selected-hover">
+        <div class="choice-group">
+          <label class="field-label">Holiday Drinks</label>
+          <div class="field-helper-slot"><p class="field-helper">Selected + hover emphasis.</p></div>
+          <div class="choice-options">
+            <label class="choice-option">
+              <input type="radio" checked />
+              <span class="choice-label">Hot chocolate</span>
+            </label>
+            <label class="choice-option">
+              <input type="radio" />
+              <span class="choice-label">Spiced cider</span>
+            </label>
+          </div>
+        </div>
+        <div class="field-caption">Selected Hover</div>
+      </div>
+
+      <div class="demo-cell demo-cell--panel demo-cell--static demo-cell--error">
+        <div class="error-wrap">
+          <div class="choice-group">
+            <label class="field-label">Holiday Drinks</label>
+            <div class="field-helper-slot"><p class="field-helper">A choice is required.</p></div>
+            <div class="choice-options">
+              <label class="choice-option">
+                <input type="radio" />
+                <span class="choice-label">Hot chocolate</span>
+              </label>
+              <label class="choice-option">
+                <input type="radio" />
+                <span class="choice-label">Spiced cider</span>
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="field-caption">Error</div>
+      </div>
+      <div class="demo-cell"></div>
+    </div>
+  </section>
+  <script src="form-components.js"></script>
+</body>
+</html>
