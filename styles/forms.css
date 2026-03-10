@@ -1,0 +1,389 @@
+.field-body {
+  width: 100%;
+  max-width: 360px;
+}
+
+.field-label {
+  display: block;
+  margin-bottom: var(--space-2);
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--field-label-color);
+}
+
+.field-helper-slot {
+  margin-top: var(--space-1);
+  min-height: 20px;
+}
+
+.field-helper {
+  margin: 0;
+  font-size: 13px;
+  line-height: 20px;
+  color: var(--field-helper-color);
+}
+
+.field-error {
+  margin-top: var(--space-1);
+  font-size: 13px;
+  line-height: 20px;
+  color: var(--field-error-color);
+}
+
+.field-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.field-input,
+.field-textarea,
+.field-select {
+  width: 100%;
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--field-text-color);
+  border-radius: var(--radius-field);
+  border: 1px solid var(--field-border-color);
+  padding: var(--field-padding-y) var(--field-padding-x);
+  background-color: var(--field-bg);
+  outline: none;
+  transition: all 0.08s ease;
+}
+
+.field-input,
+.field-select {
+  height: var(--field-height);
+}
+
+.field-textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.field-caption {
+  width: 100%;
+  margin-top: var(--space-4);
+  text-align: center;
+  font-weight: 500;
+  font-size: 13px;
+  color: var(--color-text-caption);
+}
+
+.card:not(.states-demo) .field-input:not([aria-invalid="true"]):hover:not(:focus),
+.card:not(.states-demo) .field-select:not([aria-invalid="true"]):hover:not(:focus),
+.card:not(.states-demo) .field-textarea:not([aria-invalid="true"]):hover:not(:focus),
+.states-demo .demo-cell--interactive .field-input:not([aria-invalid="true"]):hover:not(:focus) {
+  border-color: var(--field-border-focus);
+  background-color: var(--field-bg-hover);
+}
+
+.field-input:focus,
+.field-select:focus,
+.field-textarea:focus {
+  border-color: var(--field-border-focus);
+  border-width: 2px;
+  background-color: var(--color-surface);
+}
+
+.field-input[aria-invalid="true"] {
+  border-color: var(--color-danger);
+}
+
+.field-input[aria-invalid="true"]:hover:not(:focus) {
+  border-color: var(--color-danger);
+  background-color: var(--color-danger-bg);
+}
+
+.field-input[aria-invalid="true"]:focus {
+  border-color: var(--color-danger);
+  background-color: var(--color-surface);
+}
+
+.is-hover .field-input {
+  border-color: var(--field-border-focus);
+  background-color: var(--field-bg-hover);
+}
+
+.is-focus .field-input {
+  border: 2px solid var(--field-border-focus);
+  background-color: var(--color-surface);
+}
+
+.is-error .field-input {
+  border: 1px solid var(--color-danger);
+  background-color: var(--color-surface);
+}
+
+.is-error-hover .field-input {
+  border: 1px solid var(--color-danger);
+  background-color: var(--color-danger-bg);
+}
+
+.is-error-focus .field-input {
+  border: 2px solid var(--color-danger);
+  background-color: var(--color-surface);
+}
+
+.is-disabled .field-input {
+  border: 1px solid var(--color-disabled-border);
+  background-color: var(--color-disabled-bg);
+  color: var(--color-disabled-text);
+}
+
+.is-alert .field-input {
+  border: 1px solid var(--color-warning-border);
+  background-color: var(--color-warning-bg);
+}
+
+.states-demo .demo-cell:not(.demo-cell--interactive) .field-input {
+  pointer-events: none;
+}
+
+.field-icon-lock,
+.field-icon-alert {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  pointer-events: none;
+  right: 10px;
+}
+
+.field-icon-lock {
+  color: var(--color-disabled-icon);
+}
+
+.field-icon-alert {
+  right: 32px;
+  color: var(--color-warning-icon);
+}
+
+.field-select {
+  appearance: none;
+  padding-right: 32px;
+}
+
+.field-select-wrapper::after {
+  content: "";
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  border-left: 2px solid var(--color-text-secondary);
+  border-bottom: 2px solid var(--color-text-secondary);
+  transform: translateY(-50%) rotate(-45deg);
+  pointer-events: none;
+}
+
+.number-stepper .field-input {
+  padding-right: 40px;
+  -moz-appearance: textfield;
+}
+
+.number-stepper .field-input::-webkit-outer-spin-button,
+.number-stepper .field-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.stepper-controls {
+  position: absolute;
+  right: 4px;
+  top: 4px;
+  bottom: 4px;
+  width: 28px;
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid var(--color-divider);
+  border-radius: 0 var(--radius-field) var(--radius-field) 0;
+  overflow: hidden;
+  background: #F9FAFB;
+}
+
+.step-btn {
+  flex: 1;
+  border: none;
+  cursor: pointer;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #667085;
+  font-size: 10px;
+}
+
+.step-btn:hover {
+  background: #EEF2FF;
+}
+
+.choice-group {
+  width: 100%;
+  max-width: 360px;
+}
+
+.choice-options {
+  margin-top: var(--space-3);
+  margin-left: var(--choice-group-offset-x);
+}
+
+.choice-option {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--choice-option-gap);
+  margin-bottom: var(--choice-option-spacing-y);
+  font-size: 14px;
+  line-height: 20px;
+  cursor: pointer;
+}
+
+.choice-label {
+  color: var(--choice-label-color);
+}
+
+.choice-desc {
+  margin-top: 2px;
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--choice-desc-color);
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  appearance: none;
+  width: var(--choice-control-size);
+  height: var(--choice-control-size);
+  margin-top: 2px;
+  border: 1px solid var(--choice-control-border);
+  background-color: var(--choice-control-bg);
+  cursor: pointer;
+  position: relative;
+  flex-shrink: 0;
+}
+
+input[type="checkbox"] {
+  border-radius: 4px;
+}
+
+input[type="radio"] {
+  border-radius: 50%;
+}
+
+input[type="checkbox"]::after {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 0;
+  width: 5px;
+  height: 9px;
+  border: 2px solid #FFFFFF;
+  border-top: 0;
+  border-left: 0;
+  transform: scale(0) rotate(45deg);
+  transition: transform 0.1s;
+}
+
+input[type="radio"]::after {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+  transform: scale(0);
+  transition: transform 0.1s;
+}
+
+input[type="checkbox"]:checked,
+input[type="radio"]:checked {
+  background-color: var(--choice-control-checked-bg);
+  border-color: var(--choice-control-checked-border);
+}
+
+input[type="checkbox"]:checked::after,
+input[type="radio"]:checked::after {
+  transform: scale(1) rotate(45deg);
+}
+
+input[type="radio"]:checked::after {
+  transform: scale(1);
+}
+
+input[type="checkbox"]:focus-visible,
+input[type="radio"]:focus-visible {
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: 2px;
+}
+
+.choice-option:hover .choice-label {
+  color: var(--choice-label-hover);
+}
+
+.choice-option:hover input:not(:checked) {
+  border-color: var(--choice-control-hover-border);
+  background-color: var(--color-surface);
+}
+
+.choice-option:hover input:checked {
+  background-color: var(--choice-control-hover-checked);
+  border-color: var(--choice-control-hover-checked);
+}
+
+.demo-cell--static .choice-option {
+  pointer-events: none;
+}
+
+.demo-cell--hover .choice-option:first-child .choice-label {
+  color: var(--choice-label-hover);
+}
+
+.demo-cell--hover .choice-option:first-child input {
+  border-color: var(--choice-control-hover-border);
+  background-color: var(--color-surface);
+}
+
+.demo-cell--selected .choice-option:first-child input {
+  background-color: var(--choice-control-checked-bg);
+  border-color: var(--choice-control-checked-border);
+}
+
+.demo-cell--selected-hover .choice-option:first-child .choice-label {
+  color: var(--choice-label-hover);
+}
+
+.demo-cell--selected-hover .choice-option:first-child input {
+  background-color: var(--choice-control-hover-checked);
+  border-color: var(--choice-control-hover-checked);
+}
+
+.demo-cell--error .error-wrap {
+  border-left: 3px solid var(--color-danger);
+  padding-left: var(--space-4);
+  margin-left: calc(-1 * var(--space-4));
+}
+
+.demo-cell--error .field-helper {
+  color: var(--color-danger);
+}
+
+.demo-cell--error input {
+  border-color: var(--color-danger);
+}
+
+.demo-cell--error input:checked {
+  background-color: var(--color-danger);
+  border-color: var(--color-danger);
+}
+
+.optional,
+.readonly {
+  margin-left: var(--space-1);
+  font-weight: 400;
+  color: var(--color-text-muted);
+}
+
+.required-asterisk {
+  color: var(--color-danger);
+}

@@ -1,0 +1,89 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: var(--space-8);
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  background: var(--color-page-bg);
+  color: var(--color-text-primary);
+}
+
+body.panel-page {
+  padding: var(--space-10) var(--space-6);
+}
+
+.mt-40 {
+  margin-top: var(--space-10);
+}
+
+.page-header {
+  margin-bottom: var(--space-6);
+}
+
+.page-label,
+.page-kicker {
+  margin: 0 0 var(--space-1);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.page-label {
+  font-family: Tahoma, system-ui, sans-serif;
+}
+
+.page-title {
+  margin: 0;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.2;
+  color: var(--color-text-primary);
+}
+
+.panel-page .page-header,
+.panel-page .layout-shell {
+  width: 100%;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.panel-page .page-header {
+  margin-bottom: var(--space-5);
+}
+
+.panel-page .page-title {
+  margin-top: 6px;
+  font-size: 28px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 800px) {
+  body {
+    padding: var(--space-6) var(--space-4);
+  }
+
+  body.panel-page {
+    padding: var(--space-6) 14px;
+  }
+
+  .panel-page .page-title {
+    font-size: 24px;
+  }
+}
