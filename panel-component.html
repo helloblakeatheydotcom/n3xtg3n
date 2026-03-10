@@ -19,57 +19,303 @@
     <h1 class="page-title">Panel</h1>
   </header>
 
-  <main class="layout-shell">
-    <section class="panel-stack" aria-label="Panel examples">
-      <article class="panel" data-collapsible-panel>
-        <header class="panel-header">
-          <div class="panel-left">
-            <span class="panel-icon" aria-hidden="true">
-              <svg viewBox="0 0 20 20" focusable="false" aria-hidden="true">
-                <path d="M4 5.5h12M4 10h12M4 14.5h8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-              </svg>
-            </span>
-            <h2 class="panel-title">Student Services</h2>
+  <main class="layout-shell panel-docs">
+    <div class="panel-tabs" role="tablist" aria-label="Panel documentation tabs">
+      <button
+        id="tab-btn-examples"
+        class="panel-tab is-active"
+        type="button"
+        role="tab"
+        aria-selected="true"
+        aria-controls="tab-examples"
+        data-tab-target="tab-examples"
+      >
+        Examples
+      </button>
+      <button
+        id="tab-btn-anatomy"
+        class="panel-tab"
+        type="button"
+        role="tab"
+        aria-selected="false"
+        aria-controls="tab-anatomy"
+        data-tab-target="tab-anatomy"
+      >
+        Anatomy and Specs
+      </button>
+    </div>
+
+    <section id="tab-examples" class="tab-panel" role="tabpanel" aria-labelledby="tab-btn-examples">
+      <div class="panel-stack" aria-label="Panel examples">
+        <section class="example-block" aria-label="Standard panel example">
+          <h2 class="panel-example-title">Standard Panel</h2>
+          <article class="panel" data-collapsible-panel data-panel-id="example-standard">
+            <header class="panel-header">
+              <div class="panel-left">
+                <span class="panel-icon panel-icon--square" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                    <path d="M3 5h18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                    <path d="M3 12h18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                    <path d="M3 19h18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                  </svg>
+                </span>
+                <h3 class="panel-title">Generic Panel Title</h3>
+              </div>
+
+              <button class="panel-toggle" type="button" aria-expanded="true" aria-controls="panel-standard-content">
+                <span class="sr-only">Collapse section</span>
+                <svg class="panel-chevron" viewBox="0 0 14 7" focusable="false" aria-hidden="true">
+                  <path d="M1 1 7 6 13 1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+            </header>
+
+            <div id="panel-standard-content" class="panel-content" role="region" aria-label="Standard panel content">
+              <div class="panel-body">
+                <p class="body-copy">Generic panel information text.</p>
+                <p class="body-copy">Body content goes here.</p>
+              </div>
+
+              <footer class="panel-footer">
+                <button class="footer-action" type="button">Button Text</button>
+              </footer>
+            </div>
+          </article>
+          <p class="example-caption">The standard panel is the most common layout pattern. It includes a header, body, and optional footer. Panels may be collapsed when sections of content are optional or frequently hidden. Collapsed/Expanded state should persist when possible.</p>
+        </section>
+
+        <section class="example-block" aria-label="Panel without footer example">
+          <h2 class="panel-example-title">Panel Without Footer</h2>
+          <article class="panel" data-collapsible-panel data-panel-id="example-no-footer">
+            <header class="panel-header">
+              <div class="panel-left">
+                <span class="panel-icon panel-icon--square" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                    <rect x="5" y="5" width="14" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="2"/>
+                  </svg>
+                </span>
+                <h3 class="panel-title">Generic Panel Title</h3>
+              </div>
+
+              <button class="panel-toggle" type="button" aria-expanded="true" aria-controls="panel-no-footer-content">
+                <span class="sr-only">Collapse section</span>
+                <svg class="panel-chevron" viewBox="0 0 14 7" focusable="false" aria-hidden="true">
+                  <path d="M1 1 7 6 13 1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+            </header>
+
+            <div id="panel-no-footer-content" class="panel-content" role="region" aria-label="Panel without footer content">
+              <div class="panel-body">
+                <p class="body-copy">Generic panel information text.</p>
+                <p class="body-copy">Body content goes here.</p>
+              </div>
+            </div>
+          </article>
+          <p class="example-caption">Panels do not require a footer. Use this variant when no actions are required. Body padding remains consistent even without a footer. Footer space should not be simulated with empty containers.</p>
+        </section>
+
+        <section class="example-block" aria-label="Static panel example">
+          <h2 class="panel-example-title">Static Panel</h2>
+          <article class="panel" aria-label="Static panel">
+            <header class="panel-header">
+              <div class="panel-left">
+                <span class="panel-icon panel-icon--square" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                    <circle cx="12" cy="12" r="7" fill="none" stroke="currentColor" stroke-width="2"/>
+                  </svg>
+                </span>
+                <h3 class="panel-title">Generic Panel Title</h3>
+              </div>
+
+              <div class="panel-actions" aria-hidden="true"></div>
+            </header>
+
+            <div class="panel-body">
+              <p class="body-copy">Generic panel information text.</p>
+              <p class="body-copy">Body content goes here.</p>
+            </div>
+          </article>
+          <p class="example-caption">Panels may be static and not allow collapse/expand behavior when sections of content are important and never collapsed.</p>
+        </section>
+
+        <section class="example-block" aria-label="Panel with form content example">
+          <h2 class="panel-example-title">Panel With Form Content</h2>
+          <article class="panel" data-collapsible-panel data-panel-id="example-form-content">
+            <header class="panel-header">
+              <div class="panel-left">
+                <span class="panel-icon panel-icon--tall" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M14 2v6h6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M16 13H8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" />
+                    <path d="M16 17H8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" />
+                    <path d="M10 9H8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" />
+                  </svg>
+                </span>
+                <h3 class="panel-title">Generic Panel Title</h3>
+              </div>
+
+              <button class="panel-toggle" type="button" aria-expanded="true" aria-controls="panel-form-content">
+                <span class="sr-only">Collapse section</span>
+                <svg class="panel-chevron" viewBox="0 0 14 7" focusable="false" aria-hidden="true">
+                  <path d="M1 1 7 6 13 1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+            </header>
+
+            <div id="panel-form-content" class="panel-content" role="region" aria-label="Panel with form fields">
+              <div class="panel-body">
+                <form class="panel-form-grid" aria-label="IEP Overview fields" novalidate>
+                  <div class="field-body field-body--full">
+                    <label class="field-label" for="iep-type">
+                      IEP Type<span class="required-asterisk">*</span>
+                    </label>
+                    <div class="field-input-wrapper field-select-wrapper">
+                      <select id="iep-type" class="field-select" required data-error-target="iep-type-error">
+                        <option value="">Select IEP type</option>
+                        <option>Initial IEP</option>
+                        <option>Annual Review</option>
+                        <option>Revision Without a Meeting</option>
+                        <option>Reevaluation</option>
+                      </select>
+                    </div>
+                    <div class="field-error" id="iep-type-error" aria-live="polite"></div>
+                  </div>
+                  <div class="panel-form-spacer" aria-hidden="true"></div>
+                  <div class="panel-form-spacer" aria-hidden="true"></div>
+
+                  <div class="field-body field-body--full">
+                    <label class="field-label" for="iep-meeting-date">
+                      IEP Meeting Date<span class="required-asterisk">*</span>
+                    </label>
+                    <div class="field-input-wrapper">
+                      <input id="iep-meeting-date" type="date" class="field-input" required data-error-target="iep-meeting-date-error" />
+                    </div>
+                    <div class="field-error" id="iep-meeting-date-error" aria-live="polite"></div>
+                  </div>
+
+                  <div class="field-body field-body--full">
+                    <label class="field-label" for="iep-start-date">
+                      IEP Start Date<span class="required-asterisk">*</span>
+                    </label>
+                    <div class="field-input-wrapper">
+                      <input id="iep-start-date" type="date" class="field-input" required data-error-target="iep-start-date-error" />
+                    </div>
+                    <div class="field-error" id="iep-start-date-error" aria-live="polite"></div>
+                  </div>
+
+                  <div class="field-body field-body--full">
+                    <label class="field-label" for="iep-end-date">
+                      IEP End Date<span class="required-asterisk">*</span>
+                    </label>
+                    <div class="field-input-wrapper">
+                      <input id="iep-end-date" type="date" class="field-input" required data-error-target="iep-end-date-error" />
+                    </div>
+                    <div class="field-error" id="iep-end-date-error" aria-live="polite"></div>
+                  </div>
+                </form>
+              </div>
+
+              <footer class="panel-footer">
+                <button class="footer-action" type="button">Button Text</button>
+              </footer>
+            </div>
+          </article>
+          <p class="example-caption">Panels commonly contain grouped form fields. Maintain consisten vertical spacing between fields. Panels should not introduce additional layout complexity.</p>
+        </section>
+      </div>
+    </section>
+
+    <section id="tab-anatomy" class="tab-panel" role="tabpanel" aria-labelledby="tab-btn-anatomy" hidden>
+      <div class="specs-stack">
+        <section class="specs-block">
+          <h2 class="panel-example-title">Annotated Diagram</h2>
+          <div class="anatomy-layout">
+            <div class="anatomy-panel">
+              <div class="anatomy-header">
+                <div class="anatomy-icon">Icon</div>
+                <div class="anatomy-title">Panel Title</div>
+                <div class="anatomy-actions">Actions</div>
+              </div>
+              <div class="anatomy-body">Panel Body</div>
+              <div class="anatomy-footer">Panel Footer</div>
+            </div>
+            <div class="component-structure">
+              <h3 class="spec-subtitle">Component Structure</h3>
+              <ul class="component-tree">
+                <li><code>Panel</code>
+                  <ul>
+                    <li><code>Header</code> (optional)
+                      <ul>
+                        <li><code>Icon</code> (optional)</li>
+                        <li><code>Title</code></li>
+                        <li><code>Actions</code> (optional)</li>
+                      </ul>
+                    </li>
+                    <li><code>Body</code> (required)</li>
+                    <li><code>Footer</code> (optional)</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
           </div>
+          <p class="example-caption">Header and footer are optional, actions appear on the right side of the header and footer.</p>
+        </section>
 
-          <button class="panel-toggle" type="button" aria-expanded="true" aria-controls="panel-services-content">
-            <span class="sr-only">Collapse section</span>
-            <svg class="panel-chevron" viewBox="0 0 14 7" focusable="false" aria-hidden="true">
-              <path d="M1 1 7 6 13 1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </button>
-        </header>
+        <section class="specs-block">
+          <h2 class="panel-example-title">Spacing Tokens and Values</h2>
+          <table class="spec-table">
+            <thead>
+              <tr><th>Section</th><th>Spec</th><th>Token</th><th>Value</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Panel</td><td>Border</td><td><code>--color-panel-border</code></td><td>1px solid #EEF2F7</td></tr>
+              <tr><td>Panel</td><td>Radius</td><td><code>--radius-panel</code></td><td>8px</td></tr>
+              <tr><td>Panel</td><td>Shadow</td><td><code>--shadow-panel</code></td><td>0 1px 3px rgba(0,0,0,0.06)</td></tr>
+              <tr><td>Header</td><td>Padding</td><td><code>--panel-header-padding-y/x</code></td><td>20px / 24px</td></tr>
+              <tr><td>Header</td><td>Gap (icon-title)</td><td><code>--panel-header-gap</code></td><td>12px</td></tr>
+              <tr><td>Header</td><td>Min height</td><td>rule</td><td>64px</td></tr>
+              <tr><td>Header</td><td>Icon container size</td><td>rule</td><td>24px x 24px</td></tr>
+              <tr><td>Header</td><td>Icon container shape</td><td>rule</td><td>Circle (50% radius)</td></tr>
+              <tr><td>Header</td><td>Icon fits</td><td>rules</td><td>Square 14x14, Tall 14x16, Wide 15x12</td></tr>
+              <tr><td>Body</td><td>Padding</td><td><code>--panel-body-padding-top/x/bottom</code></td><td>16px / 24px / 32px</td></tr>
+              <tr><td>Footer</td><td>Padding</td><td><code>--panel-footer-padding-y/x</code></td><td>10px / 24px</td></tr>
+              <tr><td>Footer</td><td>Min height</td><td><code>--panel-footer-min-height</code></td><td>56px</td></tr>
+              <tr><td>Stack</td><td>Panel spacing</td><td><code>--panel-stack-gap</code></td><td>32px</td></tr>
+            </tbody>
+          </table>
+        </section>
 
-        <div id="panel-services-content" class="panel-content" role="region" aria-label="Student Services content">
-          <div class="panel-body">
-            <p class="body-copy">Use this panel body to hold grouped form fields and supporting information for a section.</p>
-            <p class="body-copy">Width is controlled by the layout container. The panel stays flexible at 100% up to a max-width reference of 1100px.</p>
-          </div>
+        <section class="specs-block">
+          <h2 class="panel-example-title">Visual Tokens</h2>
+          <table class="spec-table">
+            <thead>
+              <tr><th>Category</th><th>Role</th><th>Token</th><th>Value</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Color</td><td>Panel background</td><td><code>--color-panel-bg</code></td><td>#FFFFFF</td></tr>
+              <tr><td>Color</td><td>Panel border</td><td><code>--color-panel-border</code></td><td>#EEF2F7</td></tr>
+              <tr><td>Color</td><td>Icon background</td><td><code>--panel-icon-bg</code></td><td>#DCE9FF</td></tr>
+              <tr><td>Color</td><td>Icon color</td><td><code>--panel-icon-color</code></td><td>#3D63DD</td></tr>
+              <tr><td>Color</td><td>Title color</td><td><code>--panel-title-color</code></td><td>#111827</td></tr>
+              <tr><td>Color</td><td>Body color</td><td><code>--panel-body-color</code></td><td>#374151</td></tr>
+              <tr><td>Typography</td><td>Title text</td><td>rule</td><td>600 / 16px / 24px</td></tr>
+              <tr><td>Typography</td><td>Body text</td><td>rule</td><td>400 / 14px / 1.6</td></tr>
+            </tbody>
+          </table>
+        </section>
 
-          <footer class="panel-footer">
-            <button class="footer-action" type="button">Save Changes</button>
-          </footer>
-        </div>
-      </article>
-
-      <article class="panel" aria-label="Static panel">
-        <header class="panel-header">
-          <div class="panel-left">
-            <span class="panel-icon" aria-hidden="true">
-              <svg viewBox="0 0 20 20" focusable="false" aria-hidden="true">
-                <circle cx="10" cy="10" r="4" fill="currentColor" />
-              </svg>
-            </span>
-            <h2 class="panel-title">Accommodations</h2>
-          </div>
-
-          <div class="panel-actions" aria-hidden="true"></div>
-        </header>
-
-        <div class="panel-body">
-          <p class="body-copy">This is a standard static panel variant with the same container, header, body, and footer rhythm.</p>
-        </div>
-      </article>
+        <section class="specs-block">
+          <h2 class="panel-example-title">Interaction</h2>
+          <ul class="spec-list">
+            <li>Collapsible panels rotate the chevron 180 degrees between expanded and collapsed states.</li>
+            <li>Body content hides when collapsed.</li>
+            <li><code>aria-expanded</code> is updated on the toggle control.</li>
+            <li>Hover behavior applies a slightly darker border color.</li>
+          </ul>
+        </section>
+      </div>
     </section>
   </main>
 

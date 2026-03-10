@@ -104,7 +104,7 @@
   --panel-header-gap: var(--space-3);
   --panel-body-padding-top: var(--space-4);
   --panel-body-padding-x: var(--space-6);
-  --panel-body-padding-bottom: var(--space-6);
+  --panel-body-padding-bottom: var(--space-8);
   --panel-footer-padding-y: 10px;
   --panel-footer-padding-x: var(--space-6);
   --panel-footer-min-height: 56px;

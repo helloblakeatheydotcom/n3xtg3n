@@ -76,6 +76,9 @@
 .card:not(.states-demo) .field-input:not([aria-invalid="true"]):hover:not(:focus),
 .card:not(.states-demo) .field-select:not([aria-invalid="true"]):hover:not(:focus),
 .card:not(.states-demo) .field-textarea:not([aria-invalid="true"]):hover:not(:focus),
+.panel .field-input:not([aria-invalid="true"]):hover:not(:focus),
+.panel .field-select:not([aria-invalid="true"]):hover:not(:focus),
+.panel .field-textarea:not([aria-invalid="true"]):hover:not(:focus),
 .states-demo .demo-cell--interactive .field-input:not([aria-invalid="true"]):hover:not(:focus) {
   border-color: var(--field-border-focus);
   background-color: var(--field-bg-hover);
@@ -89,16 +92,22 @@
   background-color: var(--color-surface);
 }
 
-.field-input[aria-invalid="true"] {
+.field-input[aria-invalid="true"],
+.field-select[aria-invalid="true"],
+.field-textarea[aria-invalid="true"] {
   border-color: var(--color-danger);
 }
 
-.field-input[aria-invalid="true"]:hover:not(:focus) {
+.field-input[aria-invalid="true"]:hover:not(:focus),
+.field-select[aria-invalid="true"]:hover:not(:focus),
+.field-textarea[aria-invalid="true"]:hover:not(:focus) {
   border-color: var(--color-danger);
   background-color: var(--color-danger-bg);
 }
 
-.field-input[aria-invalid="true"]:focus {
+.field-input[aria-invalid="true"]:focus,
+.field-select[aria-invalid="true"]:focus,
+.field-textarea[aria-invalid="true"]:focus {
   border-color: var(--color-danger);
   background-color: var(--color-surface);
 }
