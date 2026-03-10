@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NextGen Panel Component</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="components.css" />
+</head>
+<body>
+  <header class="page-header">
+    <p class="page-kicker">Component</p>
+    <h1 class="page-title">Panel</h1>
+  </header>
+
+  <main class="layout-shell">
+    <section class="panel-stack" aria-label="Panel examples">
+      <article class="panel" data-collapsible-panel>
+        <header class="panel-header">
+          <div class="panel-left">
+            <span class="panel-icon" aria-hidden="true">
+              <svg viewBox="0 0 20 20" focusable="false" aria-hidden="true">
+                <path d="M4 5.5h12M4 10h12M4 14.5h8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+              </svg>
+            </span>
+            <h2 class="panel-title">Student Services</h2>
+          </div>
+
+          <button class="panel-toggle" type="button" aria-expanded="true" aria-controls="panel-services-content">
+            <span class="sr-only">Collapse section</span>
+            <svg class="panel-chevron" viewBox="0 0 14 7" focusable="false" aria-hidden="true">
+              <path d="M1 1 7 6 13 1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </header>
+
+        <div id="panel-services-content" class="panel-content" role="region" aria-label="Student Services content">
+          <div class="panel-body">
+            <p class="body-copy">Use this panel body to hold grouped form fields and supporting information for a section.</p>
+            <p class="body-copy">Width is controlled by the layout container. The panel stays flexible at 100% up to a max-width reference of 1100px.</p>
+          </div>
+
+          <footer class="panel-footer">
+            <button class="footer-action" type="button">Save Changes</button>
+          </footer>
+        </div>
+      </article>
+
+      <article class="panel" aria-label="Static panel">
+        <header class="panel-header">
+          <div class="panel-left">
+            <span class="panel-icon" aria-hidden="true">
+              <svg viewBox="0 0 20 20" focusable="false" aria-hidden="true">
+                <circle cx="10" cy="10" r="4" fill="currentColor" />
+              </svg>
+            </span>
+            <h2 class="panel-title">Accommodations</h2>
+          </div>
+
+          <div class="panel-actions" aria-hidden="true"></div>
+        </header>
+
+        <div class="panel-body">
+          <p class="body-copy">This is a standard static panel variant with the same container, header, body, and footer rhythm.</p>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <script src="panel-component.js"></script>
+</body>
+</html>
