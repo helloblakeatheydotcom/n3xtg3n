@@ -75,7 +75,7 @@
 }
 
 .panel:hover {
-  border-color: #DDE3EC;
+  border-color: var(--panel-hover-border-color);
 }
 
 .panel-header {

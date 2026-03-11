@@ -110,6 +110,7 @@
   --panel-footer-min-height: 56px;
   --panel-stack-gap: var(--space-8);
   --panel-footer-divider-color: var(--color-divider);
+  --panel-hover-border-color: #DDE3EC;
   --panel-title-color: var(--color-text-primary);
   --panel-title-font-weight: 600;
   --panel-title-font-size: 16px;
