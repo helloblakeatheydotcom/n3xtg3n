@@ -109,8 +109,16 @@
   --panel-footer-padding-x: var(--space-6);
   --panel-footer-min-height: 56px;
   --panel-stack-gap: var(--space-8);
+  --panel-footer-divider-color: var(--color-divider);
   --panel-title-color: var(--color-text-primary);
-  --panel-body-color: var(--color-text-body);
+  --panel-title-font-weight: 600;
+  --panel-title-font-size: 16px;
+  --panel-title-line-height: 24px;
+  --panel-body-color: #374151;
+  --panel-body-font-weight: 400;
+  --panel-body-font-size: 14px;
+  --panel-body-line-height: 1.6;
+  --panel-secondary-text-color: #6B7280;
   --panel-icon-bg: var(--color-info-bg);
   --panel-icon-color: var(--color-info-fg);
 }

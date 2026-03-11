@@ -153,7 +153,7 @@
                     <path d="M10 9H8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" />
                   </svg>
                 </span>
-                <h3 class="panel-title">Generic Panel Title</h3>
+                <h3 class="panel-title">IEP Overview</h3>
               </div>
 
               <button class="panel-toggle" type="button" aria-expanded="true" aria-controls="panel-form-content">
@@ -166,6 +166,7 @@
 
             <div id="panel-form-content" class="panel-content" role="region" aria-label="Panel with form fields">
               <div class="panel-body">
+                <p class="body-copy panel-form-intro">Enter the type of IEP, the Meeting Date, Start Date, and End Date for this IEP.</p>
                 <form class="panel-form-grid" aria-label="IEP Overview fields" novalidate>
                   <div class="field-body field-body--full">
                     <label class="field-label" for="iep-type">
@@ -290,18 +291,39 @@
         <section class="specs-block">
           <h2 class="panel-example-title">Visual Tokens</h2>
           <table class="spec-table">
+            <caption class="spec-table-title">Surface</caption>
             <thead>
-              <tr><th>Category</th><th>Role</th><th>Token</th><th>Value</th></tr>
+              <tr><th>Role</th><th>Token</th><th>Value</th></tr>
             </thead>
             <tbody>
-              <tr><td>Color</td><td>Panel background</td><td><code>--color-panel-bg</code></td><td>#FFFFFF</td></tr>
-              <tr><td>Color</td><td>Panel border</td><td><code>--color-panel-border</code></td><td>#EEF2F7</td></tr>
-              <tr><td>Color</td><td>Icon background</td><td><code>--panel-icon-bg</code></td><td>#DCE9FF</td></tr>
-              <tr><td>Color</td><td>Icon color</td><td><code>--panel-icon-color</code></td><td>#3D63DD</td></tr>
-              <tr><td>Color</td><td>Title color</td><td><code>--panel-title-color</code></td><td>#111827</td></tr>
-              <tr><td>Color</td><td>Body color</td><td><code>--panel-body-color</code></td><td>#374151</td></tr>
-              <tr><td>Typography</td><td>Title text</td><td>rule</td><td>600 / 16px / 24px</td></tr>
-              <tr><td>Typography</td><td>Body text</td><td>rule</td><td>400 / 14px / 1.6</td></tr>
+              <tr><td>Panel background</td><td><code>--color-panel-bg</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#FFFFFF"></span>#FFFFFF</span></td></tr>
+              <tr><td>Panel border</td><td><code>--color-panel-border</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#EEF2F7"></span>#EEF2F7</span></td></tr>
+              <tr><td>Footer divider</td><td><code>--panel-footer-divider-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#E5E7EB"></span>#E5E7EB</span></td></tr>
+            </tbody>
+          </table>
+
+          <table class="spec-table">
+            <caption class="spec-table-title">Typography</caption>
+            <thead>
+              <tr><th>Role</th><th>Token</th><th>Value</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Title text color</td><td><code>--panel-title-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#111827"></span>#111827</span></td></tr>
+              <tr><td>Title text style</td><td><code>--panel-title-font-weight / --panel-title-font-size / --panel-title-line-height</code></td><td>600 / 16px / 24px</td></tr>
+              <tr><td>Body text color</td><td><code>--panel-body-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#374151"></span>#374151</span></td></tr>
+              <tr><td>Body text style</td><td><code>--panel-body-font-weight / --panel-body-font-size / --panel-body-line-height</code></td><td>400 / 14px / 1.6</td></tr>
+              <tr><td>Secondary text</td><td><code>--panel-secondary-text-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#6B7280"></span>#6B7280</span></td></tr>
+            </tbody>
+          </table>
+
+          <table class="spec-table">
+            <caption class="spec-table-title">Icon</caption>
+            <thead>
+              <tr><th>Role</th><th>Token</th><th>Value</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Icon background</td><td><code>--panel-icon-bg</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#DCE9FF"></span>#DCE9FF</span></td></tr>
+              <tr><td>Icon color</td><td><code>--panel-icon-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#3D63DD"></span>#3D63DD</span></td></tr>
             </tbody>
           </table>
         </section>
