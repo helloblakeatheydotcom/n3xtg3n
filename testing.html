@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Draft Components</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles/tokens.css" />
+  <link rel="stylesheet" href="styles/base.css" />
+  <link rel="stylesheet" href="styles/panels.css" />
+  <style>
+    .draft-components {
+      display: grid;
+      gap: var(--space-6);
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .page-intro {
+      margin: 0;
+      max-width: 720px;
+      color: var(--color-text-secondary);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .draft-components .panel-header {
+      cursor: pointer;
+    }
+
+    .draft-components .panel-actions {
+      width: auto;
+      height: auto;
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+    }
+
+    .panel-link-button,
+    .panel-menu-toggle,
+    .panel-toggle {
+      position: relative;
+      z-index: 1;
+      border: 1px solid transparent;
+      background: transparent;
+      color: var(--color-text-secondary);
+      font: inherit;
+      cursor: pointer;
+    }
+
+    .panel-link-button {
+      display: inline-flex;
+      align-items: center;
+      min-height: 32px;
+      padding: 0 10px;
+      border-radius: 4px;
+      color: var(--color-info-fg);
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .panel-link-button:hover,
+    .panel-link-button:focus-visible,
+    .panel-menu-toggle:hover,
+    .panel-menu-toggle:focus-visible,
+    .panel-toggle:hover,
+    .panel-toggle:focus-visible {
+      background: #f7faff;
+      border-color: #dbe7f5;
+      outline: none;
+    }
+
+    .panel-menu {
+      position: relative;
+    }
+
+    .panel-menu-toggle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 4px;
+    }
+
+    .draft-components .panel-toggle {
+      width: 32px;
+      height: 32px;
+      border-radius: 4px;
+    }
+
+    .meatball-icon {
+      display: inline-flex;
+      gap: 3px;
+      align-items: center;
+    }
+
+    .meatball-icon span {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: currentColor;
+      display: block;
+    }
+
+    .panel-menu-list {
+      position: absolute;
+      top: calc(100% + 8px);
+      right: 0;
+      min-width: 200px;
+      margin: 0;
+      padding: 8px;
+      list-style: none;
+      border: 1px solid var(--color-panel-border);
+      border-radius: var(--radius-panel);
+      background: var(--color-surface);
+      box-shadow: 0 12px 24px rgba(17, 24, 39, 0.12);
+      z-index: 10;
+    }
+
+    .panel-menu-list[hidden] {
+      display: none;
+    }
+
+    .panel-menu-item {
+      width: 100%;
+      padding: 10px 12px;
+      border: 0;
+      border-radius: var(--radius-button);
+      background: transparent;
+      color: var(--color-text-primary);
+      font: inherit;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .panel-menu-item:hover,
+    .panel-menu-item:focus-visible {
+      background: #f7faff;
+      outline: none;
+    }
+  </style>
+</head>
+<body class="panel-page">
+  <header class="page-header">
+    <p class="page-kicker">COMPONENT</p>
+    <h1 class="page-title">Draft Components</h1>
+    <p class="page-intro">This page is for testing different versions of components before they are finalized.</p>
+  </header>
+
+  <main class="draft-components">
+    <article class="panel" data-collapsible-panel data-panel-id="draft-standard-panel">
+      <header class="panel-header">
+        <div class="panel-left">
+          <span class="panel-icon panel-icon--square" aria-hidden="true">
+            <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+              <path d="M3 5h18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+              <path d="M3 12h18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+              <path d="M3 19h18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            </svg>
+          </span>
+          <h2 class="panel-title">Special Ed Services</h2>
+        </div>
+
+        <div class="panel-actions">
+          <a class="panel-link-button" href="#create-doc">Create Doc</a>
+          <div class="panel-menu">
+            <button class="panel-menu-toggle" type="button" aria-haspopup="menu" aria-expanded="false" aria-controls="draft-panel-menu">
+              <span class="meatball-icon" aria-hidden="true">
+                <span></span>
+                <span></span>
+                <span></span>
+              </span>
+              <span class="sr-only">Open panel menu</span>
+            </button>
+            <ul id="draft-panel-menu" class="panel-menu-list" role="menu" hidden>
+              <li role="none"><button class="panel-menu-item" type="button" role="menuitem">Show Errors</button></li>
+              <li role="none"><button class="panel-menu-item" type="button" role="menuitem">Clear Section</button></li>
+              <li role="none"><button class="panel-menu-item" type="button" role="menuitem">View Draft</button></li>
+              <li role="none"><button class="panel-menu-item" type="button" role="menuitem">Edit All Services</button></li>
+            </ul>
+          </div>
+          <button class="panel-toggle" type="button" aria-expanded="true" aria-controls="draft-standard-panel-content">
+            <span class="sr-only">Collapse section</span>
+            <svg class="panel-chevron" viewBox="0 0 14 7" focusable="false" aria-hidden="true">
+              <path d="M1 1 7 6 13 1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+        </div>
+      </header>
+
+      <div id="draft-standard-panel-content" class="panel-content" role="region" aria-label="Standard panel content">
+        <div class="panel-body">
+          <p class="body-copy">Use this panel to test the default panel structure, spacing, and collapse behavior.</p>
+          <p class="body-copy">Replace this content with draft component variations as needed.</p>
+        </div>
+
+        <footer class="panel-footer">
+          <button class="footer-action" type="button">Button Text</button>
+        </footer>
+      </div>
+    </article>
+  </main>
+
+  <script src="panel-component.js"></script>
+  <script>
+    const draftPanel = document.querySelector('[data-panel-id="draft-standard-panel"]');
+    const draftPanelHeader = draftPanel ? draftPanel.querySelector('.panel-header') : null;
+    const draftPanelToggle = draftPanel ? draftPanel.querySelector('.panel-toggle') : null;
+    const draftPanelMenuToggle = draftPanel ? draftPanel.querySelector('.panel-menu-toggle') : null;
+    const draftPanelMenu = document.getElementById('draft-panel-menu');
+    const draftPanelLink = draftPanel ? draftPanel.querySelector('.panel-link-button') : null;
+
+    if (draftPanelHeader && draftPanelToggle) {
+      draftPanelHeader.addEventListener('click', (event) => {
+        if (event.target.closest('.panel-link-button, .panel-menu-toggle, .panel-menu-list, .panel-toggle')) {
+          return;
+        }
+        draftPanelToggle.click();
+      });
+    }
+
+    if (draftPanelLink) {
+      draftPanelLink.addEventListener('click', (event) => {
+        event.preventDefault();
+      });
+    }
+
+    if (draftPanelMenuToggle && draftPanelMenu) {
+      const closeMenu = () => {
+        draftPanelMenu.hidden = true;
+        draftPanelMenuToggle.setAttribute('aria-expanded', 'false');
+      };
+
+      draftPanelMenuToggle.addEventListener('click', (event) => {
+        event.stopPropagation();
+        const isExpanded = draftPanelMenuToggle.getAttribute('aria-expanded') === 'true';
+        draftPanelMenu.hidden = isExpanded;
+        draftPanelMenuToggle.setAttribute('aria-expanded', String(!isExpanded));
+      });
+
+      draftPanelMenu.addEventListener('click', (event) => {
+        event.stopPropagation();
+      });
+
+      document.addEventListener('click', (event) => {
+        if (!event.target.closest('.panel-menu')) {
+          closeMenu();
+        }
+      });
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+          closeMenu();
+        }
+      });
+    }
+  </script>
+</body>
+</html>
