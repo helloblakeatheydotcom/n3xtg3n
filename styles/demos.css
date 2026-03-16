@@ -9,6 +9,16 @@
   overflow: hidden;
 }
 
+.panel-docs-page .page-header,
+.panel-docs-page .layout-shell {
+  max-width: 1280px;
+}
+
+.panel-docs-page #tab-examples .panel-stack {
+  width: 100%;
+  max-width: 1100px;
+}
+
 .demo-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -42,6 +52,203 @@
   grid-row: span 2;
 }
 
+.docs-sections {
+  display: grid;
+  gap: var(--space-8);
+}
+
+.docs-section {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.docs-section-header {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.docs-lead {
+  margin: 0;
+  max-width: 760px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--color-text-secondary);
+}
+
+.docs-lead--full {
+  max-width: none;
+}
+
+.docs-grid {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.docs-grid--two {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.docs-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-panel);
+  padding: var(--space-5);
+  display: grid;
+  gap: var(--space-4);
+  align-content: start;
+}
+
+.docs-card-title {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.docs-card-caption {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+}
+
+.docs-anatomy-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(260px, 0.9fr);
+  gap: var(--space-5);
+  align-items: start;
+}
+
+.docs-anatomy-panel {
+  border: 1px dashed var(--color-border-strong);
+  border-radius: var(--radius-panel);
+  overflow: hidden;
+  background: var(--color-surface);
+}
+
+.docs-anatomy-header,
+.docs-anatomy-body,
+.docs-anatomy-footer {
+  padding: var(--space-4) var(--space-6);
+}
+
+.docs-anatomy-header {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: var(--space-3);
+  align-items: center;
+  border-bottom: 1px dashed var(--color-border-strong);
+}
+
+.docs-anatomy-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  color: var(--panel-icon-color);
+  background: var(--panel-icon-bg);
+}
+
+.docs-anatomy-title {
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.docs-anatomy-actions {
+  font-size: 13px;
+  color: var(--color-text-muted);
+}
+
+.docs-anatomy-body {
+  min-height: 96px;
+  color: var(--color-text-secondary);
+}
+
+.docs-anatomy-footer {
+  border-top: 1px dashed var(--color-border-strong);
+  color: var(--color-text-secondary);
+}
+
+.docs-parts-card {
+  align-content: start;
+}
+
+.docs-part-list {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.docs-part-item strong {
+  display: block;
+  margin-bottom: 2px;
+  font-size: 14px;
+  color: var(--color-text-primary);
+}
+
+.docs-part-item p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+}
+
+.docs-list {
+  margin: 0;
+  padding-left: 18px;
+  display: grid;
+  gap: var(--space-2);
+  color: var(--color-text-body);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.docs-token-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-4);
+}
+
+.docs-token-card {
+  align-content: start;
+}
+
+.docs-token-table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-button);
+  overflow: hidden;
+}
+
+.docs-token-table th,
+.docs-token-table td {
+  text-align: left;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--color-divider);
+  font-size: 13px;
+  vertical-align: middle;
+}
+
+.docs-token-table th {
+  background: #F8FAFC;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.docs-token-table tr:last-child td {
+  border-bottom: 0;
+}
+
+.docs-token-table code {
+  font-size: 12px;
+  background: #F3F4F6;
+  border-radius: 4px;
+  padding: 2px 6px;
+}
+
 @media (max-width: 800px) {
   .demo-grid {
     grid-template-columns: 1fr;
@@ -59,5 +266,11 @@
   .demo-cell--fullwidth,
   .demo-cell--interactive {
     grid-column: auto;
+  }
+
+  .docs-grid--two,
+  .docs-token-grid,
+  .docs-anatomy-grid {
+    grid-template-columns: 1fr;
   }
 }

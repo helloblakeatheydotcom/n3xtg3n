@@ -18,7 +18,36 @@ const setStoredExpanded = (panelId, expanded) => {
   }
 };
 
+const HEADER_INTERACTIVE_SELECTOR = [
+  '.panel-link-button',
+  '.panel-menu-toggle',
+  '.panel-menu-list',
+  '.panel-menu-item',
+  '.panel-toggle',
+].join(', ');
+
+const panelMenus = Array.from(document.querySelectorAll('.panel-menu'));
+
+const closePanelMenu = (menuRoot) => {
+  if (!menuRoot) return;
+
+  const toggle = menuRoot.querySelector('.panel-menu-toggle');
+  const menu = menuRoot.querySelector('.panel-menu-list');
+
+  if (!toggle || !menu) return;
+
+  toggle.setAttribute('aria-expanded', 'false');
+  menu.hidden = true;
+};
+
+const closeAllPanelMenus = (exceptMenu = null) => {
+  panelMenus.forEach((menuRoot) => {
+    if (menuRoot !== exceptMenu) closePanelMenu(menuRoot);
+  });
+};
+
 document.querySelectorAll('[data-collapsible-panel]').forEach((panel) => {
+  const header = panel.querySelector('.panel-header');
   const toggle = panel.querySelector('.panel-toggle');
   const content = panel.querySelector('.panel-content');
   const panelId = panel.getAttribute('data-panel-id');
@@ -44,6 +73,52 @@ document.querySelectorAll('[data-collapsible-panel]').forEach((panel) => {
     const expanded = toggle.getAttribute('aria-expanded') !== 'false';
     setExpanded(!expanded, true);
   });
+
+  if (header) {
+    header.addEventListener('click', (event) => {
+      if (event.target.closest(HEADER_INTERACTIVE_SELECTOR)) return;
+      toggle.click();
+    });
+  }
+});
+
+panelMenus.forEach((menuRoot) => {
+  const toggle = menuRoot.querySelector('.panel-menu-toggle');
+  const menu = menuRoot.querySelector('.panel-menu-list');
+
+  if (!toggle || !menu) return;
+
+  closePanelMenu(menuRoot);
+
+  toggle.addEventListener('click', (event) => {
+    event.stopPropagation();
+
+    const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+    closeAllPanelMenus(menuRoot);
+
+    toggle.setAttribute('aria-expanded', String(!isExpanded));
+    menu.hidden = isExpanded;
+  });
+
+  menu.addEventListener('click', (event) => {
+    event.stopPropagation();
+
+    if (event.target.closest('.panel-menu-item')) {
+      closePanelMenu(menuRoot);
+    }
+  });
+});
+
+document.addEventListener('click', (event) => {
+  if (!event.target.closest('.panel-menu')) {
+    closeAllPanelMenus();
+  }
+});
+
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') {
+    closeAllPanelMenus();
+  }
 });
 
 const tabs = Array.from(document.querySelectorAll('[data-tab-target]'));
