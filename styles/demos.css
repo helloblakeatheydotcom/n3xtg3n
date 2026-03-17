@@ -249,6 +249,51 @@
   padding: 2px 6px;
 }
 
+.card-docs-page .page-header,
+.card-docs-page .layout-shell {
+  max-width: 1200px;
+}
+
+.card-stack {
+  display: grid;
+  gap: var(--space-6);
+}
+
+.card-grid-demo {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-4);
+}
+
+.card-grid-demo--stack {
+  grid-template-columns: 1fr;
+}
+
+.card-anatomy-panel {
+  border: 1px dashed var(--color-border-strong);
+  border-radius: var(--card-radius);
+  background: var(--color-surface);
+  overflow: hidden;
+}
+
+.card-anatomy-inner {
+  display: grid;
+  gap: var(--space-3);
+  padding: var(--card-padding);
+}
+
+.card-anatomy-metadata,
+.card-anatomy-footer {
+  padding-top: var(--space-3);
+  border-top: 1px dashed var(--color-border-strong);
+  color: var(--color-text-secondary);
+  font-size: 13px;
+}
+
+.card-actions--visible {
+  opacity: 1;
+}
+
 @media (max-width: 800px) {
   .demo-grid {
     grid-template-columns: 1fr;
@@ -271,6 +316,10 @@
   .docs-grid--two,
   .docs-token-grid,
   .docs-anatomy-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card-grid-demo {
     grid-template-columns: 1fr;
   }
 }
