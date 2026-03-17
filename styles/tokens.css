@@ -137,7 +137,7 @@
   --card-body-color: var(--color-text-body);
   --card-body-font-size: 13px;
   --card-body-line-height: 1.5;
-  --card-eyebrow-color: var(--color-text-muted);
+  --card-eyebrow-color: var(--color-text-helper);
   --card-meta-color: var(--color-text-helper);
   --card-footer-border-color: var(--color-divider);
   --card-badge-bg: var(--color-accent-tint);
