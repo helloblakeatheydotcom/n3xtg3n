@@ -43,6 +43,9 @@
   --color-warning-bg: #FFF7D6;
   --color-warning-border: #F4C735;
   --color-warning-icon: #FFCF09;
+  --color-alert-bg: #FFF8EC;
+  --color-alert-border: #E8D7A8;
+  --color-alert-icon: #B7791F;
 
   /* Disabled */
   --color-disabled-border: #E4E7EC;

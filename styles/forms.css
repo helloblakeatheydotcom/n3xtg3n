@@ -17,6 +17,13 @@
   min-height: 20px;
 }
 
+.field-body.is-error .field-helper-slot,
+.field-body:has(.field-input[aria-invalid="true"]) .field-helper-slot,
+.field-body:has(.field-select[aria-invalid="true"]) .field-helper-slot,
+.field-body:has(.field-textarea[aria-invalid="true"]) .field-helper-slot {
+  display: none;
+}
+
 .field-helper {
   margin: 0;
   font-size: 13px;
@@ -52,6 +59,13 @@
   background-color: var(--field-bg);
   outline: none;
   transition: all 0.08s ease;
+}
+
+.field-input::placeholder,
+.field-textarea::placeholder {
+  color: #9CA3AF;
+  font-weight: 400;
+  opacity: 1;
 }
 
 .field-input,
@@ -144,8 +158,10 @@
 }
 
 .is-alert .field-input {
-  border: 1px solid var(--color-warning-border);
-  background-color: var(--color-warning-bg);
+  border: 1px solid var(--color-alert-border);
+  background-color: var(--color-alert-bg);
+  color: var(--color-text-primary);
+  padding-right: 56px;
 }
 
 .states-demo .demo-cell:not(.demo-cell--interactive) .field-input {
@@ -167,7 +183,7 @@
 
 .field-icon-alert {
   right: 32px;
-  color: var(--color-warning-icon);
+  color: var(--color-alert-icon);
 }
 
 .field-select {

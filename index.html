@@ -4,59 +4,405 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>EdPlan NextGen UI Specs</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
+    :root {
+      --page-bg: #f7f8fc;
+      --surface: rgba(255, 255, 255, 0.88);
+      --surface-strong: #ffffff;
+      --border: rgba(124, 92, 255, 0.16);
+      --border-strong: rgba(124, 92, 255, 0.28);
+      --text-primary: #111827;
+      --text-secondary: #5b6472;
+      --text-muted: #7a8291;
+      --accent: #7c5cff;
+      --accent-deep: #5e46d9;
+      --accent-soft: #f3efff;
+      --accent-wash: rgba(124, 92, 255, 0.14);
+      --teal-wash: rgba(61, 99, 221, 0.14);
+      --shadow: 0 24px 60px rgba(17, 24, 39, 0.08);
+      --card-shadow: 0 12px 30px rgba(17, 24, 39, 0.06);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f3f4f6;
-      color: #111827;
       min-height: 100vh;
+      padding: 40px 24px 56px;
+      font-family: "Inter", system-ui, sans-serif;
+      color: var(--text-primary);
+      background:
+        radial-gradient(circle at top left, rgba(124, 92, 255, 0.16), transparent 34%),
+        radial-gradient(circle at top right, rgba(61, 99, 221, 0.14), transparent 30%),
+        linear-gradient(180deg, #fbfbfe 0%, var(--page-bg) 100%);
+    }
+
+    .shell {
+      width: min(1160px, 100%);
+      margin: 0 auto;
       display: grid;
-      place-items: center;
-      padding: 24px;
+      gap: 28px;
     }
-    .card {
-      width: min(560px, 100%);
-      background: #fff;
-      border: 1px solid #e5e7eb;
-      border-radius: 10px;
-      padding: 24px;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 36px;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(248, 245, 255, 0.92));
+      box-shadow: var(--shadow);
     }
-    h1 {
-      margin: 0 0 8px;
-      font-size: 22px;
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: -60px;
+      top: -70px;
+      width: 240px;
+      height: 240px;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(124, 92, 255, 0.2), rgba(124, 92, 255, 0));
+      pointer-events: none;
     }
-    p {
-      margin: 0 0 16px;
-      color: #4b5563;
-      line-height: 1.45;
+
+    .hero-kicker {
+      margin: 0 0 10px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent-deep);
     }
-    .link-row {
+
+    .hero h1 {
+      margin: 0 0 12px;
+      max-width: 720px;
+      font-size: clamp(32px, 5vw, 48px);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+    }
+
+    .hero-copy {
+      margin: 0;
+      max-width: 700px;
+      color: var(--text-secondary);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    .hero-meta {
+      margin-top: 24px;
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
     }
-    a {
-      display: inline-block;
-      text-decoration: none;
-      background: #111827;
-      color: #fff;
-      padding: 10px 14px;
-      border-radius: 8px;
+
+    .hero-chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      padding: 0 12px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.72);
+      color: var(--text-secondary);
+      font-size: 13px;
       font-weight: 600;
     }
-    a:hover { background: #1f2937; }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      font-size: 22px;
+      line-height: 1.2;
+    }
+
+    .section-copy {
+      margin: 6px 0 0;
+      color: var(--text-secondary);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .component-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .component-card {
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      gap: 16px;
+      padding: 22px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: var(--surface);
+      backdrop-filter: blur(10px);
+      box-shadow: var(--card-shadow);
+    }
+
+    .component-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 4px;
+      border-radius: 20px 0 0 20px;
+      background: linear-gradient(180deg, var(--card-accent, var(--accent)), rgba(124, 92, 255, 0.22));
+    }
+
+    .component-card--forms { --card-accent: #3d63dd; }
+    .component-card--panels { --card-accent: #7c5cff; }
+    .component-card--cards { --card-accent: #13a08e; }
+    .component-card--drafts { --card-accent: #dd8a19; }
+
+    .component-top {
+      display: flex;
+      align-items: start;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .component-badge {
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      padding: 0 10px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent-deep);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .component-badge--blue {
+      background: rgba(61, 99, 221, 0.12);
+      color: #2f57d4;
+    }
+
+    .component-badge--teal {
+      background: rgba(19, 160, 142, 0.12);
+      color: #0d7b6f;
+    }
+
+    .component-badge--amber {
+      background: rgba(221, 138, 25, 0.14);
+      color: #a86405;
+    }
+
+    .component-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-muted);
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .component-status::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--card-accent, var(--accent));
+      box-shadow: 0 0 0 6px color-mix(in srgb, var(--card-accent, var(--accent)) 14%, transparent);
+    }
+
+    .component-card h3 {
+      margin: 0;
+      font-size: 22px;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+
+    .component-description {
+      margin: 0;
+      color: var(--text-secondary);
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    .component-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .meta-pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      padding: 0 10px;
+      border: 1px solid rgba(17, 24, 39, 0.08);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.86);
+      color: var(--text-secondary);
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .component-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      width: fit-content;
+      gap: 10px;
+      min-height: 40px;
+      padding: 0 14px;
+      border-radius: 10px;
+      background: var(--text-primary);
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      transition: transform 0.16s ease, box-shadow 0.16s ease, background-color 0.16s ease;
+    }
+
+    .component-link:hover,
+    .component-link:focus-visible {
+      background: #1f2937;
+      box-shadow: 0 10px 24px rgba(17, 24, 39, 0.12);
+      transform: translateY(-1px);
+      outline: none;
+    }
+
+    .component-link span {
+      font-size: 16px;
+      line-height: 1;
+    }
+
+    @media (max-width: 860px) {
+      .component-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 28px 22px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      body {
+        padding: 24px 14px 40px;
+      }
+
+      .section-head {
+        align-items: start;
+        flex-direction: column;
+      }
+
+      .component-top {
+        flex-direction: column;
+      }
+    }
   </style>
 </head>
 <body>
-  <main class="card">
-    <h1>EdPlan NextGen Design Specs</h1>
-    <p>Open a specification page.</p>
-    <div class="link-row">
-      <a href="form-components.html">Open Form Components</a>
-      <a href="panel-component.html">Open Panel Component</a>
-    </div>
+  <main class="shell">
+    <section class="hero">
+      <p class="hero-kicker">EdPlan NextGen</p>
+      <h1>Component documentation, drafts, and working specs in one place.</h1>
+      <p class="hero-copy">Use this index as the front door to the design-system pages. It links to the current shared component specs as well as the draft testing surface where new patterns are explored before they move into the system.</p>
+      <div class="hero-meta">
+        <span class="hero-chip">Shared components</span>
+        <span class="hero-chip">Draft explorations</span>
+        <span class="hero-chip">Design system docs</span>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div>
+          <h2>Browse Components</h2>
+          <p class="section-copy">Open the component guides below to review examples, anatomy, specs, and current draft work.</p>
+        </div>
+      </div>
+
+      <div class="component-grid">
+        <article class="component-card component-card--forms">
+          <div class="component-top">
+            <span class="component-badge component-badge--blue">Inputs</span>
+            <span class="component-status">Live guide</span>
+          </div>
+          <div>
+            <h3>Form Components</h3>
+            <p class="component-description">Field patterns, choices, helper text, validation states, and the shared form system used across entry screens.</p>
+          </div>
+          <div class="component-meta">
+            <span class="meta-pill">Fields</span>
+            <span class="meta-pill">Validation</span>
+            <span class="meta-pill">Choices</span>
+          </div>
+          <a class="component-link" href="form-components.html">Open guide <span aria-hidden="true">→</span></a>
+        </article>
+
+        <article class="component-card component-card--panels">
+          <div class="component-top">
+            <span class="component-badge">Sections</span>
+            <span class="component-status">Live guide</span>
+          </div>
+          <div>
+            <h3>Panel Component</h3>
+            <p class="component-description">Structured section containers with headers, optional actions, collapse behavior, and panel-specific spacing and interaction rules.</p>
+          </div>
+          <div class="component-meta">
+            <span class="meta-pill">Collapsible</span>
+            <span class="meta-pill">Header actions</span>
+            <span class="meta-pill">Forms in panel</span>
+          </div>
+          <a class="component-link" href="panel-component.html">Open guide <span aria-hidden="true">→</span></a>
+        </article>
+
+        <article class="component-card component-card--cards">
+          <div class="component-top">
+            <span class="component-badge component-badge--teal">Summaries</span>
+            <span class="component-status">New guide</span>
+          </div>
+          <div>
+            <h3>Card Component</h3>
+            <p class="component-description">Compact summary surfaces for metadata, actions, standards, and lightweight content blocks with a quieter, denser hierarchy than panels.</p>
+          </div>
+          <div class="component-meta">
+            <span class="meta-pill">Metadata cards</span>
+            <span class="meta-pill">Action states</span>
+            <span class="meta-pill">Grid layouts</span>
+          </div>
+          <a class="component-link" href="card-components.html">Open guide <span aria-hidden="true">→</span></a>
+        </article>
+
+        <article class="component-card component-card--drafts">
+          <div class="component-top">
+            <span class="component-badge component-badge--amber">Drafts</span>
+            <span class="component-status">Work in progress</span>
+          </div>
+          <div>
+            <h3>Testing Surface</h3>
+            <p class="component-description">A staging area for draft component variants, denser record-row explorations, and in-progress interaction experiments before promotion into shared docs.</p>
+          </div>
+          <div class="component-meta">
+            <span class="meta-pill">Draft rows</span>
+            <span class="meta-pill">Panel variants</span>
+            <span class="meta-pill">In progress</span>
+          </div>
+          <a class="component-link" href="testing.html">Open testing page <span aria-hidden="true">→</span></a>
+        </article>
+      </div>
+    </section>
   </main>
 </body>
 </html>

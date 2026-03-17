@@ -159,6 +159,7 @@
   padding: 0;
   font: inherit;
   cursor: pointer;
+  transition: background-color 0.16s ease, border-color 0.16s ease, color 0.16s ease, opacity 0.16s ease;
 }
 
 .panel-link-button {
@@ -171,13 +172,15 @@
   font-size: 14px;
   font-weight: 600;
   text-decoration: none;
+  opacity: 0.9;
 }
 
 .panel-link-button:hover,
 .panel-link-button:focus-visible {
   background: var(--color-accent-tint-hover);
-  border-color: var(--color-accent-border-focus);
-  color: var(--color-accent);
+  border-color: var(--color-accent-border-hover);
+  color: var(--color-accent-active);
+  opacity: 1;
   outline: none;
 }
 
@@ -193,6 +196,7 @@
   align-items: center;
   justify-content: center;
   border-radius: var(--radius-field);
+  opacity: 0.84;
 }
 
 .panel-menu-toggle:hover,
@@ -200,7 +204,9 @@
 .panel-toggle:hover,
 .panel-toggle:focus-visible {
   background: var(--color-accent-tint-hover);
-  border-color: var(--color-accent-border-focus);
+  border-color: var(--color-accent-border-hover);
+  color: var(--color-text-primary);
+  opacity: 1;
   outline: none;
 }
 
@@ -209,6 +215,12 @@
 .panel-menu-item:focus-visible,
 .panel-toggle:focus-visible {
   box-shadow: 0 0 0 3px var(--color-focus-ring);
+}
+
+.panel-link-button:focus-visible,
+.panel-menu-toggle:focus-visible,
+.panel-toggle:focus-visible {
+  border-color: var(--color-accent-border-focus);
 }
 
 .meatball-icon {
