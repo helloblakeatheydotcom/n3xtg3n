@@ -176,15 +176,32 @@
   line-height: 1.4;
 }
 
+.card-body + .card-meta {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--card-footer-border-color);
+}
+
 .card-meta-item {
   display: inline-flex;
   align-items: center;
+  gap: 4px;
 }
 
 .card-meta-item + .card-meta-item::before {
   content: "\2022";
   margin: 0 6px;
   color: var(--color-border-strong);
+}
+
+.card-meta-label {
+  color: var(--card-meta-color);
+  font-weight: 500;
+}
+
+.card-meta-value {
+  color: var(--card-body-color);
+  font-weight: 600;
 }
 
 .card-footer {
@@ -204,9 +221,9 @@
   border-radius: 999px;
   background: var(--card-badge-bg);
   color: var(--card-badge-color);
-  font-size: 12px;
-  font-weight: 600;
-  line-height: 1;
+  font-size: var(--card-badge-font-size);
+  font-weight: var(--card-badge-font-weight);
+  line-height: var(--card-badge-line-height);
 }
 
 .card-list {

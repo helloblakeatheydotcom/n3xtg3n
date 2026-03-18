@@ -1,0 +1,304 @@
+.record-row-list {
+  display: grid;
+  border-top: 1px solid var(--record-row-border-color);
+  border-bottom: 1px solid var(--record-row-border-color);
+}
+
+.record-row {
+  position: relative;
+  padding: var(--record-row-padding-y) var(--record-row-padding-right) var(--record-row-padding-y) var(--record-row-padding-left);
+  cursor: pointer;
+  transition: background-color 0.16s ease;
+}
+
+.record-row + .record-row {
+  border-top: 1px solid var(--record-row-border-color);
+}
+
+.record-row::before {
+  content: "";
+  position: absolute;
+  left: var(--record-row-rail-inset-left);
+  top: var(--record-row-padding-y);
+  bottom: var(--record-row-padding-y);
+  width: var(--record-row-rail-width);
+  border-radius: 999px;
+  background: var(--record-row-hover-rail-color);
+  opacity: 0;
+  transition: opacity 0.16s ease;
+}
+
+.record-row:hover::before {
+  opacity: 1;
+}
+
+.record-row:hover,
+.record-row:focus-within {
+  background: var(--record-row-hover-bg);
+}
+
+.record-row:has(.record-row-selection input:checked) {
+  background: var(--record-row-selected-bg);
+}
+
+.record-row-main {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: var(--record-row-content-gap);
+  align-items: start;
+}
+
+.record-row--no-selection .record-row-main {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.record-row-content {
+  min-width: 0;
+}
+
+.record-row-selection {
+  display: flex;
+  align-items: flex-start;
+  padding-top: var(--record-row-checkbox-offset-top);
+}
+
+.record-row-selection input {
+  margin: 0;
+  pointer-events: none;
+}
+
+.record-row-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 0;
+}
+
+.record-row-metahead {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.record-row-eyebrow {
+  margin: 0;
+  font-size: 11px;
+  line-height: 16px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-helper);
+}
+
+.record-row-badge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 20px;
+  padding: 0 8px;
+  border-radius: 999px;
+  background: var(--record-row-badge-bg);
+  color: var(--record-row-badge-color);
+  font-size: var(--record-row-badge-font-size);
+  line-height: var(--record-row-badge-line-height);
+  font-weight: var(--record-row-badge-font-weight);
+  white-space: nowrap;
+}
+
+.record-row-badge--cobalt {
+  background: #DBEAFE;
+  color: #1D4ED8;
+}
+
+.record-row-badge--teal {
+  background: #CCFBF1;
+  color: #0F6B62;
+}
+
+.record-row-badge--emerald {
+  background: #D1FAE5;
+  color: #065F46;
+}
+
+.record-row-badge--amber {
+  background: #FEF3C7;
+  color: #92400E;
+}
+
+.record-row-badge--rose {
+  background: #FCE7F3;
+  color: #9D174D;
+}
+
+.record-row-badge--purple {
+  background: #EDE9FF;
+  color: #4C2FBD;
+}
+
+.record-row-actions {
+  display: flex;
+  gap: 4px;
+  opacity: 0;
+  transition: opacity 0.12s ease;
+  align-self: flex-start;
+}
+
+.record-row:hover .record-row-actions,
+.record-row:focus-within .record-row-actions {
+  opacity: 1;
+}
+
+.record-row-action-button {
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--record-row-action-icon-color);
+  padding: 0;
+  cursor: pointer;
+  transition: border-color 0.14s ease, background-color 0.14s ease, color 0.14s ease;
+}
+
+.record-row-action-button svg {
+  width: 16px;
+  height: 16px;
+  display: block;
+  flex: none;
+  overflow: visible;
+}
+
+.record-row-action-button:hover,
+.record-row-action-button:focus-visible {
+  background: var(--record-row-action-icon-hover-bg);
+  border-color: var(--record-row-action-icon-hover-border);
+}
+
+.record-row-action-button:focus-visible {
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: 2px;
+}
+
+.record-row-action-button--edit:hover,
+.record-row-action-button--edit:focus-visible {
+  color: var(--record-row-action-icon-edit-color);
+}
+
+.record-row-action-button--delete:hover,
+.record-row-action-button--delete:focus-visible {
+  color: var(--record-row-action-icon-delete-color);
+}
+
+.record-row-title {
+  margin: 0 0 1px;
+  font-size: var(--record-row-title-font-size);
+  font-weight: 600;
+  line-height: var(--record-row-title-line-height);
+  color: var(--color-text-primary);
+}
+
+.record-row-line {
+  margin: 0;
+  font-size: var(--record-row-line-font-size);
+  line-height: 1.35;
+  color: var(--record-row-line-color);
+}
+
+.record-row-line + .record-row-line {
+  margin-top: 2px;
+}
+
+.record-row-line--stack {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.record-row-meta-label {
+  color: var(--record-row-meta-color);
+  font-weight: 500;
+}
+
+.record-row-meta-value {
+  color: var(--record-row-line-color);
+  font-weight: 600;
+}
+
+.record-row-line--meta {
+  color: var(--record-row-meta-color);
+}
+
+.record-row-separator {
+  color: var(--record-row-meta-color);
+}
+
+.record-row-panel-body {
+  display: grid;
+  gap: var(--space-5);
+}
+
+.record-row-description {
+  margin: 0;
+  max-width: 680px;
+  color: var(--color-text-secondary);
+}
+
+.record-row-field-footer {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.record-row-empty {
+  padding: 18px;
+  color: var(--color-text-helper);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.record-row-group {
+  display: grid;
+}
+
+.record-row-group + .record-row-group {
+  border-top: 1px solid var(--record-row-border-color);
+}
+
+.record-row-group-header {
+  margin: 0;
+  padding: 12px 18px;
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+@media (max-width: 640px) {
+  .record-row {
+    padding-left: var(--record-row-mobile-padding-left);
+    padding-right: 14px;
+  }
+
+  .record-row::before {
+    left: 12px;
+  }
+
+  .record-row-main {
+    grid-template-columns: 1fr;
+  }
+
+  .record-row-selection {
+    padding-top: 0;
+  }
+
+  .record-row-actions {
+    opacity: 1;
+  }
+}

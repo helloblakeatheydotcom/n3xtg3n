@@ -29,30 +29,264 @@
       line-height: 1.6;
     }
 
-    .draft-record-panel .panel-header {
-      padding-top: 14px;
-      padding-bottom: 14px;
-      cursor: default;
+    .draft-components .panel-title {
+      font-size: 18px;
+      line-height: 24px;
     }
 
-    .draft-record-panel .panel-title {
-      font-size: 15px;
-      line-height: 20px;
+    .draft-plp-panel .panel-body {
+      display: grid;
+      gap: var(--space-6);
     }
 
-    .draft-record-add {
-      color: var(--color-accent-active);
+    .draft-plp-panel .panel-form {
+      display: grid;
+      gap: var(--space-6);
+    }
+
+    .draft-plp-panel .choice-group {
+      max-width: none;
+    }
+
+    .draft-plp-panel .field-label {
+      font-size: 14px;
+      font-weight: 600;
+      color: #111827;
+    }
+
+    .draft-plp-panel .field-input,
+    .draft-plp-panel .field-textarea,
+    .draft-plp-panel .field-select {
+      color: #4B5563;
+      font-weight: 400;
+    }
+
+    .draft-plp-panel .choice-label {
+      color: #4B5563;
+      font-weight: 400;
+    }
+
+    .draft-plp-panel .panel-body .field-textarea:not([aria-invalid="true"]):hover:not(:focus) {
+      background-color: var(--field-bg);
+      border-color: var(--field-border-focus);
+    }
+
+    .draft-areas-field {
+      padding-bottom: var(--space-5);
+      border-bottom: 1px solid var(--color-divider);
+    }
+
+    .draft-subsection {
+      position: relative;
+      background: var(--color-surface);
+      padding-left: 14px;
+      padding-bottom: var(--space-5);
+      border-bottom: 1px solid var(--color-divider);
+      overflow: hidden;
+    }
+
+    .draft-subsection:last-of-type {
+      padding-bottom: 0;
+      border-bottom: 0;
+    }
+
+    .draft-subsection::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 8px;
+      bottom: calc(var(--space-5) + 8px);
+      width: 3px;
+      border-radius: 999px;
+      background: var(--section-rail-color, #2563EB);
+      opacity: 0.75;
+    }
+
+    .draft-subsection:last-of-type::before {
+      bottom: 8px;
+    }
+
+    .draft-subsection--reading {
+      --section-rail-color: #2563EB;
+    }
+
+    .draft-subsection--fine-motor {
+      --section-rail-color: #0891B2;
+    }
+
+    .draft-subsection--written-expression {
+      --section-rail-color: #D97706;
+    }
+
+    .draft-subsection-toggle {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 14px 18px;
+      border: 0;
+      background: transparent;
+      color: var(--color-text-primary);
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .draft-subsection-toggle:hover {
+      background: #F9FAFB;
+    }
+
+    .draft-subsection-title {
+      margin: 0;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 24px;
+    }
+
+    .draft-subsection-heading {
+      display: grid;
+      gap: 2px;
+      min-width: 0;
+    }
+
+    .draft-subsection-meta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
       font-size: 13px;
+      line-height: 18px;
+      color: var(--color-text-helper);
+    }
+
+    .draft-subsection-meta-separator {
+      color: var(--color-text-helper);
+    }
+
+    .draft-subsection-toggle .panel-chevron {
+      transition: transform 0.16s ease;
+    }
+
+    .draft-subsection-toggle[aria-expanded="false"] .panel-chevron {
+      transform: rotate(-90deg);
+    }
+
+    .draft-subsection-content {
+      padding: 10px 18px 18px;
+      display: grid;
+      gap: var(--space-5);
+    }
+
+    .draft-subsection-content[hidden] {
+      display: none;
+    }
+
+    .draft-textarea-grid {
+      display: grid;
+      gap: 28px;
+    }
+
+    .draft-textarea-grid .field-body {
+      max-width: none;
+    }
+
+    .draft-textarea-grid .field-textarea {
+      min-height: 84px;
+    }
+
+    .draft-goals {
+      display: grid;
+      gap: var(--space-3);
+      padding-top: var(--space-5);
+      border-top: 1px solid var(--color-divider);
+    }
+
+    .draft-goals-title {
+      margin: 0;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 20px;
+      color: #111827;
+    }
+
+    .draft-goal-card .card-body {
+      gap: 4px;
+    }
+
+    .draft-goal-card .card-body {
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--color-divider);
+    }
+
+    .draft-goal-card .card-meta {
+      margin-top: 10px;
+      gap: 4px 0;
+    }
+
+    .draft-goal-card .card-meta-item + .card-meta-item::before {
+      margin: 0 10px;
+    }
+
+    .draft-goal-card .card-meta-item {
+      gap: 4px;
+    }
+
+    .draft-meta-label {
+      color: var(--color-text-helper);
+      font-weight: 500;
+    }
+
+    .draft-meta-value {
+      color: var(--color-text-body);
       font-weight: 600;
     }
 
+    .draft-goal-objectives {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--color-text-body);
+      font-size: 12px;
+      line-height: 16px;
+      font-weight: 600;
+    }
+
+    .draft-goal-objectives svg {
+      width: 14px;
+      height: 14px;
+      flex: none;
+    }
+
+    .draft-goal-card .card-badge--active {
+      background: #ECFDF3;
+      color: #027A48;
+    }
+
+    .draft-goal-card .card-badge--progressing {
+      background: #EEF2FF;
+      color: #4338CA;
+    }
+
+    .draft-record-panel .panel-body {
+      display: grid;
+      gap: var(--space-5);
+    }
+
+    .draft-record-panel .body-copy {
+      margin: 0;
+      max-width: 640px;
+    }
+
     .record-row-list {
-      padding: 0;
+      display: grid;
+      border-top: 1px solid var(--color-divider);
+      border-bottom: 1px solid var(--color-divider);
     }
 
     .record-row {
       position: relative;
       padding: 10px 18px 10px 28px;
+      cursor: pointer;
+      transition: background-color 0.16s ease;
     }
 
     .record-row + .record-row {
@@ -72,15 +306,22 @@
       transition: opacity 0.16s ease;
     }
 
-    .record-row:hover::before,
-    .record-row.is-selected::before,
-    .record-row:focus-within::before {
+    .record-row:hover::before {
       opacity: 1;
+    }
+
+    .record-row:hover,
+    .record-row:focus-within {
+      background: var(--color-surface);
+    }
+
+    .record-row:has(.record-selection input:checked) {
+      background: #F9FAFB;
     }
 
     .record-row-main {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) auto;
+      grid-template-columns: auto minmax(0, 1fr) auto;
       gap: 10px;
       align-items: start;
     }
@@ -90,7 +331,21 @@
     }
 
     .record-row .card-top-row {
-      margin-bottom: 2px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 0;
+    }
+
+    .record-row .card-top-meta {
+      display: inline-flex;
+      align-items: center;
+      min-width: 0;
+    }
+
+    .record-row .card-eyebrow {
+      line-height: 16px;
     }
 
     .record-row .card-title-row {
@@ -122,11 +377,32 @@
     }
 
     .record-row .card-actions {
-      align-self: center;
+      align-self: flex-start;
+    }
+
+    .record-selection {
+      display: flex;
+      align-items: flex-start;
+      padding-top: 2px;
+      order: -1;
+    }
+
+    .record-selection input {
+      margin: 0;
+      pointer-events: none;
+    }
+
+    .record-section-footer {
+      display: grid;
+      gap: var(--space-3);
+    }
+
+    .draft-record-panel .card-badge--academic {
+      background: #ECFDF3;
+      color: #027A48;
     }
 
     .record-row:hover .card-actions,
-    .record-row.is-selected .card-actions,
     .record-row:focus-within .card-actions {
       opacity: 1;
     }
@@ -158,158 +434,621 @@
   </header>
 
   <main class="draft-components">
-    <section class="panel draft-record-panel" aria-label="Record rows inside panel">
-      <div class="panel-header">
-        <div class="panel-title">Related Services</div>
-        <div class="draft-record-add">+ Add Service</div>
+    <article class="panel draft-plp-panel" data-collapsible-panel data-panel-id="draft-present-levels">
+      <header class="panel-header">
+        <div class="panel-left">
+          <span class="panel-icon panel-icon--square" aria-hidden="true">
+            <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+              <path d="M4 6h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+              <path d="M4 12h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+              <path d="M4 18h10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            </svg>
+          </span>
+          <h2 class="panel-title">Present Levels of Performance</h2>
+        </div>
+
+        <button class="panel-toggle" type="button" aria-expanded="true" aria-controls="draft-present-levels-content">
+          <span class="sr-only">Collapse section</span>
+          <svg class="panel-chevron" viewBox="0 0 14 7" focusable="false" aria-hidden="true">
+            <path d="M1 1 7 6 13 1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </button>
+      </header>
+
+      <div id="draft-present-levels-content" class="panel-content" role="region" aria-label="Present levels of performance content">
+        <div class="panel-body">
+          <form class="panel-form" aria-label="Present levels of performance fields">
+            <div class="choice-group draft-areas-field">
+              <label class="field-label">Areas of Need</label>
+              <div class="choice-options">
+                <label class="choice-option">
+                  <input type="checkbox" name="areas-of-need" value="reading" required />
+                  <span class="choice-label">Reading</span>
+                </label>
+                <label class="choice-option">
+                  <input type="checkbox" name="areas-of-need" value="fine-motor-skills" />
+                  <span class="choice-label">Fine Motor Skills</span>
+                </label>
+                <label class="choice-option">
+                  <input type="checkbox" name="areas-of-need" value="written-expression" />
+                  <span class="choice-label">Written Expression</span>
+                </label>
+              </div>
+            </div>
+
+            <section class="draft-subsection draft-subsection--reading" aria-label="Reading section">
+              <button class="draft-subsection-toggle" type="button" aria-expanded="true" aria-controls="draft-reading-content">
+                <span class="draft-subsection-heading">
+                  <span class="draft-subsection-title">Reading</span>
+                  <span class="draft-subsection-meta">
+                    <span>2 active goals</span>
+                    <span class="draft-subsection-meta-separator" aria-hidden="true">&bull;</span>
+                    <span>Last updated Mar 16, 2026</span>
+                  </span>
+                </span>
+                <svg class="panel-chevron" viewBox="0 0 14 7" focusable="false" aria-hidden="true">
+                  <path d="M1 1 7 6 13 1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </button>
+
+              <div id="draft-reading-content" class="draft-subsection-content">
+                <div class="draft-textarea-grid">
+                  <div class="field-body">
+                    <label class="field-label" for="reading-strengths">Student Strengths</label>
+                    <div class="field-input-wrapper">
+                      <textarea id="reading-strengths" class="field-textarea" placeholder="Describe notable reading strengths.">The student demonstrates strong listening comprehension and can retell key details from grade-level passages when provided structured prompts.</textarea>
+                    </div>
+                  </div>
+
+                  <div class="field-body">
+                    <label class="field-label" for="reading-current-level">Current Level of Performance</label>
+                    <div class="field-input-wrapper">
+                      <textarea id="reading-current-level" class="field-textarea" placeholder="Describe current reading performance.">Benchmark data shows the student reads instructional text at approximately a late second-grade level with improved accuracy when vocabulary is previewed in advance.</textarea>
+                    </div>
+                  </div>
+
+                  <div class="field-body">
+                    <label class="field-label" for="reading-curriculum-impact">How the Disability Affects Involvement and Progress in the Curriculum</label>
+                    <div class="field-input-wrapper">
+                      <textarea id="reading-curriculum-impact" class="field-textarea" placeholder="Describe curriculum impact.">Reading comprehension needs limit independent access to core ELA assignments and reduce the student&apos;s ability to complete multi-step written responses without targeted support.</textarea>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="draft-goals">
+                  <p class="draft-goals-title">Related Goals</p>
+
+                  <article class="card-component draft-goal-card">
+                    <div class="card-top-row">
+                      <div class="card-top-meta">
+                        <span class="card-eyebrow">Goal</span>
+                        <span class="card-badge card-badge--active">Active</span>
+                      </div>
+                      <div class="card-actions" aria-label="Goal actions">
+                        <button class="card-action-button card-action-button--edit" type="button">
+                          <span class="sr-only">Edit Reading Comprehension goal</span>
+                          <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                            <path d="M12 20h9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                            <path d="M16.5 3.5a2.1 2.1 0 1 1 3 3L7 19l-4 1 1-4Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+                          </svg>
+                        </button>
+                        <button class="card-action-button card-action-button--delete" type="button">
+                          <span class="sr-only">Delete Reading Comprehension goal</span>
+                          <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                            <path d="M3 6h18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                            <path d="M8 6V4h8v2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M19 6l-1 14H6L5 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+                            <path d="M10 11v6M14 11v6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+                    <div class="card-title-row">
+                      <h3 class="card-title">Reading Comprehension</h3>
+                    </div>
+                    <div class="card-body">
+                      <p>Answer inferential and literal questions using evidence from grade-level text with improved independence.</p>
+                    </div>
+                    <div class="card-meta">
+                      <span class="card-meta-item"><span class="draft-meta-label">Baseline</span><span class="draft-meta-value">62%</span></span>
+                      <span class="card-meta-item"><span class="draft-meta-label">Target</span><span class="draft-meta-value">80%</span></span>
+                      <span class="card-meta-item"><span class="draft-meta-label">Due</span><span class="draft-meta-value">Apr 04, 2026</span></span>
+                      <span class="card-meta-item draft-goal-objectives">
+                        <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                          <path d="M9 6h11" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                          <path d="M9 12h11" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                          <path d="M9 18h11" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                          <circle cx="5" cy="6" r="1.25" fill="currentColor" />
+                          <circle cx="5" cy="12" r="1.25" fill="currentColor" />
+                          <circle cx="5" cy="18" r="1.25" fill="currentColor" />
+                        </svg>
+                        <span>3 Objectives</span>
+                      </span>
+                    </div>
+                  </article>
+
+                  <article class="card-component draft-goal-card">
+                    <div class="card-top-row">
+                      <div class="card-top-meta">
+                        <span class="card-eyebrow">Goal</span>
+                        <span class="card-badge card-badge--progressing">Progressing</span>
+                      </div>
+                      <div class="card-actions" aria-label="Goal actions">
+                        <button class="card-action-button card-action-button--edit" type="button">
+                          <span class="sr-only">Edit Reading Fluency goal</span>
+                          <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                            <path d="M12 20h9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                            <path d="M16.5 3.5a2.1 2.1 0 1 1 3 3L7 19l-4 1 1-4Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+                          </svg>
+                        </button>
+                        <button class="card-action-button card-action-button--delete" type="button">
+                          <span class="sr-only">Delete Reading Fluency goal</span>
+                          <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                            <path d="M3 6h18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                            <path d="M8 6V4h8v2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M19 6l-1 14H6L5 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+                            <path d="M10 11v6M14 11v6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+                    <div class="card-title-row">
+                      <h3 class="card-title">Reading Fluency</h3>
+                    </div>
+                    <div class="card-body">
+                      <p>Increase oral reading fluency while maintaining accuracy across connected grade-level passages.</p>
+                    </div>
+                    <div class="card-meta">
+                      <span class="card-meta-item"><span class="draft-meta-label">Baseline</span><span class="draft-meta-value">74 WPM</span></span>
+                      <span class="card-meta-item"><span class="draft-meta-label">Target</span><span class="draft-meta-value">105 WPM</span></span>
+                      <span class="card-meta-item"><span class="draft-meta-label">Due</span><span class="draft-meta-value">Apr 04, 2026</span></span>
+                      <span class="card-meta-item"><span class="draft-meta-label">Monitoring</span><span class="draft-meta-value">Weekly</span></span>
+                      <span class="card-meta-item draft-goal-objectives">
+                        <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                          <path d="M9 6h11" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                          <path d="M9 12h11" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                          <path d="M9 18h11" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                          <circle cx="5" cy="6" r="1.25" fill="currentColor" />
+                          <circle cx="5" cy="12" r="1.25" fill="currentColor" />
+                          <circle cx="5" cy="18" r="1.25" fill="currentColor" />
+                        </svg>
+                        <span>2 Objectives</span>
+                      </span>
+                    </div>
+                  </article>
+                </div>
+              </div>
+            </section>
+
+            <section class="draft-subsection draft-subsection--fine-motor" aria-label="Fine motor skills section">
+              <button class="draft-subsection-toggle" type="button" aria-expanded="true" aria-controls="draft-fine-motor-content">
+                <span class="draft-subsection-heading">
+                  <span class="draft-subsection-title">Fine Motor Skills</span>
+                  <span class="draft-subsection-meta">
+                    <span>2 active goals</span>
+                    <span class="draft-subsection-meta-separator" aria-hidden="true">&bull;</span>
+                    <span>Last updated Mar 16, 2026</span>
+                  </span>
+                </span>
+                <svg class="panel-chevron" viewBox="0 0 14 7" focusable="false" aria-hidden="true">
+                  <path d="M1 1 7 6 13 1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </button>
+
+              <div id="draft-fine-motor-content" class="draft-subsection-content">
+                <div class="draft-textarea-grid">
+                  <div class="field-body">
+                    <label class="field-label" for="fine-motor-strengths">Student Strengths</label>
+                    <div class="field-input-wrapper">
+                      <textarea id="fine-motor-strengths" class="field-textarea" placeholder="Describe notable fine motor strengths.">The student is motivated during hands-on tasks and demonstrates persistence when using adapted tools and visual models.</textarea>
+                    </div>
+                  </div>
+
+                  <div class="field-body">
+                    <label class="field-label" for="fine-motor-current-level">Current Level of Performance</label>
+                    <div class="field-input-wrapper">
+                      <textarea id="fine-motor-current-level" class="field-textarea" placeholder="Describe current fine motor performance.">Classroom observation indicates reduced pencil control and slower written output during longer assignments, especially when copying from the board.</textarea>
+                    </div>
+                  </div>
+
+                  <div class="field-body">
+                    <label class="field-label" for="fine-motor-curriculum-impact">How the Disability Affects Involvement and Progress in the Curriculum</label>
+                    <div class="field-input-wrapper">
+                      <textarea id="fine-motor-curriculum-impact" class="field-textarea" placeholder="Describe curriculum impact.">Fine motor challenges affect note-taking, written responses, and the student&apos;s ability to complete classroom tasks efficiently without accommodations or occupational therapy support.</textarea>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="draft-goals">
+                  <p class="draft-goals-title">Related Goals</p>
+
+                  <article class="card-component draft-goal-card">
+                    <div class="card-top-row">
+                      <div class="card-top-meta">
+                        <span class="card-eyebrow">Goal</span>
+                        <span class="card-badge card-badge--active">Active</span>
+                      </div>
+                      <div class="card-actions" aria-label="Goal actions">
+                        <button class="card-action-button card-action-button--edit" type="button">
+                          <span class="sr-only">Edit Written Output goal</span>
+                          <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                            <path d="M12 20h9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                            <path d="M16.5 3.5a2.1 2.1 0 1 1 3 3L7 19l-4 1 1-4Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+                          </svg>
+                        </button>
+                        <button class="card-action-button card-action-button--delete" type="button">
+                          <span class="sr-only">Delete Written Output goal</span>
+                          <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                            <path d="M3 6h18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                            <path d="M8 6V4h8v2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M19 6l-1 14H6L5 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+                            <path d="M10 11v6M14 11v6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+                    <div class="card-title-row">
+                      <h3 class="card-title">Written Output</h3>
+                    </div>
+                    <div class="card-body">
+                      <p>Improve legibility and endurance for written assignments using consistent spacing, sizing, and line orientation.</p>
+                    </div>
+                    <div class="card-meta">
+                      <span class="card-meta-item"><span class="draft-meta-label">Baseline</span><span class="draft-meta-value">50% legible</span></span>
+                      <span class="card-meta-item"><span class="draft-meta-label">Target</span><span class="draft-meta-value">85%</span></span>
+                      <span class="card-meta-item"><span class="draft-meta-label">Due</span><span class="draft-meta-value">May 15, 2026</span></span>
+                      <span class="card-meta-item draft-goal-objectives">
+                        <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                          <path d="M9 6h11" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                          <path d="M9 12h11" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                          <path d="M9 18h11" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                          <circle cx="5" cy="6" r="1.25" fill="currentColor" />
+                          <circle cx="5" cy="12" r="1.25" fill="currentColor" />
+                          <circle cx="5" cy="18" r="1.25" fill="currentColor" />
+                        </svg>
+                        <span>4 Objectives</span>
+                      </span>
+                    </div>
+                  </article>
+
+                  <article class="card-component draft-goal-card">
+                    <div class="card-top-row">
+                      <div class="card-top-meta">
+                        <span class="card-eyebrow">Goal</span>
+                        <span class="card-badge card-badge--active">Active</span>
+                      </div>
+                      <div class="card-actions" aria-label="Goal actions">
+                        <button class="card-action-button card-action-button--edit" type="button">
+                          <span class="sr-only">Edit Fine Motor Control goal</span>
+                          <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                            <path d="M12 20h9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                            <path d="M16.5 3.5a2.1 2.1 0 1 1 3 3L7 19l-4 1 1-4Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+                          </svg>
+                        </button>
+                        <button class="card-action-button card-action-button--delete" type="button">
+                          <span class="sr-only">Delete Fine Motor Control goal</span>
+                          <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                            <path d="M3 6h18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                            <path d="M8 6V4h8v2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M19 6l-1 14H6L5 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+                            <path d="M10 11v6M14 11v6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+                    <div class="card-title-row">
+                      <h3 class="card-title">Fine Motor Control</h3>
+                    </div>
+                    <div class="card-body">
+                      <p>Use classroom tools with improved grasp, pressure control, and accuracy during cutting and tracing activities.</p>
+                    </div>
+                    <div class="card-meta">
+                      <span class="card-meta-item"><span class="draft-meta-label">Baseline</span><span class="draft-meta-value">Emerging</span></span>
+                      <span class="card-meta-item"><span class="draft-meta-label">Target</span><span class="draft-meta-value">Independent</span></span>
+                      <span class="card-meta-item"><span class="draft-meta-label">Due</span><span class="draft-meta-value">May 15, 2026</span></span>
+                      <span class="card-meta-item"><span class="draft-meta-label">OT Monitoring</span><span class="draft-meta-value">Monthly</span></span>
+                      <span class="card-meta-item draft-goal-objectives">
+                        <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                          <path d="M9 6h11" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                          <path d="M9 12h11" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                          <path d="M9 18h11" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                          <circle cx="5" cy="6" r="1.25" fill="currentColor" />
+                          <circle cx="5" cy="12" r="1.25" fill="currentColor" />
+                          <circle cx="5" cy="18" r="1.25" fill="currentColor" />
+                        </svg>
+                        <span>3 Objectives</span>
+                      </span>
+                    </div>
+                  </article>
+                </div>
+              </div>
+            </section>
+
+            <section class="draft-subsection draft-subsection--written-expression" aria-label="Written expression section">
+              <button class="draft-subsection-toggle" type="button" aria-expanded="true" aria-controls="draft-written-expression-content">
+                <span class="draft-subsection-heading">
+                  <span class="draft-subsection-title">Written Expression</span>
+                  <span class="draft-subsection-meta">
+                    <span>2 active goals</span>
+                    <span class="draft-subsection-meta-separator" aria-hidden="true">&bull;</span>
+                    <span>Last updated Mar 16, 2026</span>
+                  </span>
+                </span>
+                <svg class="panel-chevron" viewBox="0 0 14 7" focusable="false" aria-hidden="true">
+                  <path d="M1 1 7 6 13 1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </button>
+
+              <div id="draft-written-expression-content" class="draft-subsection-content">
+                <div class="draft-textarea-grid">
+                  <div class="field-body">
+                    <label class="field-label" for="written-expression-strengths">Student Strengths</label>
+                    <div class="field-input-wrapper">
+                      <textarea id="written-expression-strengths" class="field-textarea" placeholder="Describe notable written expression strengths.">The student generates strong verbal ideas before writing and responds well to graphic organizers, sentence starters, and teacher conferencing.</textarea>
+                    </div>
+                  </div>
+
+                  <div class="field-body">
+                    <label class="field-label" for="written-expression-current-level">Current Level of Performance</label>
+                    <div class="field-input-wrapper">
+                      <textarea id="written-expression-current-level" class="field-textarea" placeholder="Describe current written expression performance.">Writing samples show difficulty organizing multi-sentence responses independently, with inconsistent capitalization, punctuation, and elaboration of details.</textarea>
+                    </div>
+                  </div>
+
+                  <div class="field-body">
+                    <label class="field-label" for="written-expression-curriculum-impact">How the Disability Affects Involvement and Progress in the Curriculum</label>
+                    <div class="field-input-wrapper">
+                      <textarea id="written-expression-curriculum-impact" class="field-textarea" placeholder="Describe curriculum impact.">Written expression needs affect the student&apos;s ability to communicate understanding in classroom assignments, constructed responses, and longer written tasks across content areas.</textarea>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="draft-goals">
+                  <p class="draft-goals-title">Related Goals</p>
+
+                  <article class="card-component draft-goal-card">
+                    <div class="card-top-row">
+                      <div class="card-top-meta">
+                        <span class="card-eyebrow">Goal</span>
+                        <span class="card-badge card-badge--active">Active</span>
+                      </div>
+                      <div class="card-actions" aria-label="Goal actions">
+                        <button class="card-action-button card-action-button--edit" type="button">
+                          <span class="sr-only">Edit Paragraph Writing goal</span>
+                          <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                            <path d="M12 20h9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                            <path d="M16.5 3.5a2.1 2.1 0 1 1 3 3L7 19l-4 1 1-4Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+                          </svg>
+                        </button>
+                        <button class="card-action-button card-action-button--delete" type="button">
+                          <span class="sr-only">Delete Paragraph Writing goal</span>
+                          <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                            <path d="M3 6h18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                            <path d="M8 6V4h8v2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M19 6l-1 14H6L5 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+                            <path d="M10 11v6M14 11v6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+                    <div class="card-title-row">
+                      <h3 class="card-title">Paragraph Writing</h3>
+                    </div>
+                    <div class="card-body">
+                      <p>Develop organized paragraph responses with a topic sentence, supporting details, and an appropriate concluding statement.</p>
+                    </div>
+                    <div class="card-meta">
+                      <span class="card-meta-item"><span class="draft-meta-label">Baseline</span><span class="draft-meta-value">1 of 4 elements</span></span>
+                      <span class="card-meta-item"><span class="draft-meta-label">Target</span><span class="draft-meta-value">4 of 4 elements</span></span>
+                      <span class="card-meta-item"><span class="draft-meta-label">Due</span><span class="draft-meta-value">Jun 01, 2026</span></span>
+                      <span class="card-meta-item draft-goal-objectives">
+                        <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                          <path d="M9 6h11" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                          <path d="M9 12h11" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                          <path d="M9 18h11" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                          <circle cx="5" cy="6" r="1.25" fill="currentColor" />
+                          <circle cx="5" cy="12" r="1.25" fill="currentColor" />
+                          <circle cx="5" cy="18" r="1.25" fill="currentColor" />
+                        </svg>
+                        <span>2 Objectives</span>
+                      </span>
+                    </div>
+                  </article>
+
+                  <article class="card-component draft-goal-card">
+                    <div class="card-top-row">
+                      <div class="card-top-meta">
+                        <span class="card-eyebrow">Goal</span>
+                        <span class="card-badge card-badge--progressing">Progressing</span>
+                      </div>
+                      <div class="card-actions" aria-label="Goal actions">
+                        <button class="card-action-button card-action-button--edit" type="button">
+                          <span class="sr-only">Edit Written Conventions goal</span>
+                          <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                            <path d="M12 20h9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                            <path d="M16.5 3.5a2.1 2.1 0 1 1 3 3L7 19l-4 1 1-4Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+                          </svg>
+                        </button>
+                        <button class="card-action-button card-action-button--delete" type="button">
+                          <span class="sr-only">Delete Written Conventions goal</span>
+                          <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                            <path d="M3 6h18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                            <path d="M8 6V4h8v2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M19 6l-1 14H6L5 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+                            <path d="M10 11v6M14 11v6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+                    <div class="card-title-row">
+                      <h3 class="card-title">Written Conventions</h3>
+                    </div>
+                    <div class="card-body">
+                      <p>Use capitalization, punctuation, and spacing conventions more accurately in daily written work and teacher-assigned prompts.</p>
+                    </div>
+                    <div class="card-meta">
+                      <span class="card-meta-item"><span class="draft-meta-label">Baseline</span><span class="draft-meta-value">58%</span></span>
+                      <span class="card-meta-item"><span class="draft-meta-label">Target</span><span class="draft-meta-value">85%</span></span>
+                      <span class="card-meta-item"><span class="draft-meta-label">Due</span><span class="draft-meta-value">Jun 01, 2026</span></span>
+                      <span class="card-meta-item"><span class="draft-meta-label">Probe</span><span class="draft-meta-value">Biweekly</span></span>
+                      <span class="card-meta-item draft-goal-objectives">
+                        <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                          <path d="M9 6h11" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                          <path d="M9 12h11" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                          <path d="M9 18h11" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                          <circle cx="5" cy="6" r="1.25" fill="currentColor" />
+                          <circle cx="5" cy="12" r="1.25" fill="currentColor" />
+                          <circle cx="5" cy="18" r="1.25" fill="currentColor" />
+                        </svg>
+                        <span>3 Objectives</span>
+                      </span>
+                    </div>
+                  </article>
+                </div>
+              </div>
+            </section>
+          </form>
+        </div>
       </div>
+    </article>
 
-      <div class="panel-body record-row-list">
-        <article class="record-row" aria-label="Service row">
-          <div class="record-row-main">
-            <div class="record-row-content">
-              <div class="card-top-row">
-                <div class="card-top-meta">
-                  <span class="card-eyebrow">Service</span>
-                  <span class="card-badge">Direct</span>
+    <article class="panel draft-record-panel" data-collapsible-panel data-panel-id="draft-assessment-results">
+      <header class="panel-header">
+        <div class="panel-left">
+          <span class="panel-icon panel-icon--square" aria-hidden="true">
+            <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+              <rect x="5" y="5" width="14" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="2"/>
+            </svg>
+          </span>
+          <h2 class="panel-title">Assessment and Evaluation Results</h2>
+        </div>
+
+        <button class="panel-toggle" type="button" aria-expanded="true" aria-controls="draft-assessment-results-content">
+          <span class="sr-only">Collapse section</span>
+          <svg class="panel-chevron" viewBox="0 0 14 7" focusable="false" aria-hidden="true">
+            <path d="M1 1 7 6 13 1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </button>
+      </header>
+
+      <div id="draft-assessment-results-content" class="panel-content" role="region" aria-label="Assessment and evaluation results content">
+        <div class="panel-body">
+          <p class="body-copy">Select assessments from the past year to include in the IEP.</p>
+
+          <div class="record-row-list" aria-label="Assessment record rows">
+            <article class="record-row" aria-label="Assessment result row">
+              <div class="record-row-main">
+                <div class="record-selection">
+                  <input type="checkbox" aria-label="Select Woodcock-Johnson IV assessment" />
                 </div>
-                <div class="card-actions" aria-label="Service actions">
-                  <button class="card-action-button card-action-button--edit" type="button">
-                    <span class="sr-only">Edit service</span>
-                    <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
-                      <path d="M12 20h9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
-                      <path d="M16.5 3.5a2.1 2.1 0 1 1 3 3L7 19l-4 1 1-4Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
-                    </svg>
-                  </button>
-                  <button class="card-action-button card-action-button--delete" type="button">
-                    <span class="sr-only">Delete service</span>
-                    <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
-                      <path d="M3 6h18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
-                      <path d="M8 6V4h8v2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
-                      <path d="M19 6l-1 14H6L5 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
-                      <path d="M10 11v6M14 11v6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
-                    </svg>
-                  </button>
+                <div class="record-row-content">
+                  <div class="card-top-row">
+                    <div class="card-top-meta">
+                      <span class="card-eyebrow">Assessment</span>
+                      <span class="card-badge card-badge--academic">Academic</span>
+                    </div>
+                    <div class="card-actions" aria-label="Assessment actions">
+                      <button class="card-action-button card-action-button--edit" type="button">
+                        <span class="sr-only">Edit Woodcock-Johnson IV assessment</span>
+                        <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                          <path d="M12 20h9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                          <path d="M16.5 3.5a2.1 2.1 0 1 1 3 3L7 19l-4 1 1-4Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+                        </svg>
+                      </button>
+                      <button class="card-action-button card-action-button--delete" type="button">
+                        <span class="sr-only">Delete Woodcock-Johnson IV assessment</span>
+                        <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                          <path d="M3 6h18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                          <path d="M8 6V4h8v2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                          <path d="M19 6l-1 14H6L5 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+                          <path d="M10 11v6M14 11v6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="card-title-row">
+                    <h2 class="card-title">Woodcock-Johnson IV</h2>
+                  </div>
+                  <p class="record-line">Academic Achievement <span class="sep">•</span> Initial Evaluation</p>
+                  <p class="record-line muted">Mar 12, 2025 <span class="sep">•</span> Dr. Melissa Grant <span class="sep">•</span> Score Report Attached</p>
                 </div>
               </div>
-              <div class="card-title-row">
-                <h2 class="card-title">Speech Therapy</h2>
+            </article>
+
+            <article class="record-row" aria-label="Assessment result row">
+              <div class="record-row-main">
+                <div class="record-selection">
+                  <input type="checkbox" aria-label="Select Clinical Evaluation of Language Fundamentals assessment" />
+                </div>
+                <div class="record-row-content">
+                  <div class="card-top-row">
+                    <div class="card-top-meta">
+                      <span class="card-eyebrow">Assessment</span>
+                      <span class="card-badge">Speech / Language</span>
+                    </div>
+                    <div class="card-actions" aria-label="Assessment actions">
+                      <button class="card-action-button card-action-button--edit" type="button">
+                        <span class="sr-only">Edit Clinical Evaluation of Language Fundamentals assessment</span>
+                        <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                          <path d="M12 20h9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                          <path d="M16.5 3.5a2.1 2.1 0 1 1 3 3L7 19l-4 1 1-4Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+                        </svg>
+                      </button>
+                      <button class="card-action-button card-action-button--delete" type="button">
+                        <span class="sr-only">Delete Clinical Evaluation of Language Fundamentals assessment</span>
+                        <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                          <path d="M3 6h18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                          <path d="M8 6V4h8v2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                          <path d="M19 6l-1 14H6L5 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+                          <path d="M10 11v6M14 11v6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="card-title-row">
+                    <h2 class="card-title">Clinical Evaluation of Language Fundamentals</h2>
+                  </div>
+                  <p class="record-line">Language Skills <span class="sep">•</span> Reevaluation</p>
+                  <p class="record-line muted">Oct 08, 2025 <span class="sep">•</span> Amy Johnson <span class="sep">•</span> Summary Entered</p>
+                </div>
               </div>
-              <p class="record-line">Resource Room <span class="sep">•</span> Individual</p>
-              <p class="record-line muted">Jan 10, 2024 – Jan 10, 2025 <span class="sep">•</span> 3x/week <span class="sep">•</span> 45 min <span class="sep">•</span> Amy Johnson</p>
+            </article>
+          </div>
+
+          <div class="record-section-footer">
+            <div class="choice-group">
+              <label class="field-label">Data Sources</label>
+              <div class="choice-options">
+                <label class="choice-option">
+                  <input type="checkbox" name="data-sources" value="classroom-assessment" />
+                  <span class="choice-label">Classroom Assessment</span>
+                </label>
+                <label class="choice-option">
+                  <input type="checkbox" name="data-sources" value="state-assessment" />
+                  <span class="choice-label">State Assessment</span>
+                </label>
+                <label class="choice-option">
+                  <input type="checkbox" name="data-sources" value="progress-monitoring" />
+                  <span class="choice-label">Progress Monitoring</span>
+                </label>
+                <label class="choice-option">
+                  <input type="checkbox" name="data-sources" value="work-samples" />
+                  <span class="choice-label">Work Samples</span>
+                </label>
+                <label class="choice-option">
+                  <input type="checkbox" name="data-sources" value="teacher-observation" />
+                  <span class="choice-label">Teacher Observation</span>
+                </label>
+                <label class="choice-option">
+                  <input type="checkbox" name="data-sources" value="parent-input" />
+                  <span class="choice-label">Parent Input</span>
+                </label>
+              </div>
             </div>
           </div>
-        </article>
-
-        <article class="record-row is-selected" aria-label="Selected service row">
-          <div class="record-row-main">
-            <div class="record-row-content">
-              <div class="card-top-row">
-                <div class="card-top-meta">
-                  <span class="card-eyebrow">Service</span>
-                  <span class="card-badge">Indirect</span>
-                </div>
-                <div class="card-actions" aria-label="Selected service actions">
-                  <button class="card-action-button card-action-button--edit" type="button">
-                    <span class="sr-only">Edit reading support service</span>
-                    <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
-                      <path d="M12 20h9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
-                      <path d="M16.5 3.5a2.1 2.1 0 1 1 3 3L7 19l-4 1 1-4Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
-                    </svg>
-                  </button>
-                  <button class="card-action-button card-action-button--delete" type="button">
-                    <span class="sr-only">Delete reading support service</span>
-                    <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
-                      <path d="M3 6h18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
-                      <path d="M8 6V4h8v2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
-                      <path d="M19 6l-1 14H6L5 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
-                      <path d="M10 11v6M14 11v6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
-                    </svg>
-                  </button>
-                </div>
-              </div>
-              <div class="card-title-row">
-                <h2 class="card-title">Reading Support</h2>
-              </div>
-              <p class="record-line">General Ed Classroom <span class="sep">•</span> Group</p>
-              <p class="record-line muted">Jan 01, 2024 – Jan 01, 2025 <span class="sep">•</span> 2x/week <span class="sep">•</span> 30 min <span class="sep">•</span> Sarah Lee</p>
-            </div>
-          </div>
-        </article>
-
-        <article class="record-row" aria-label="Assessment row">
-          <div class="record-row-main">
-            <div class="record-row-content">
-              <div class="card-top-row">
-                <div class="card-top-meta">
-                  <span class="card-eyebrow">Assessment</span>
-                  <span class="card-badge">Completed</span>
-                </div>
-                <div class="card-actions" aria-label="Assessment actions">
-                  <button class="card-action-button card-action-button--edit" type="button">
-                    <span class="sr-only">Edit assessment</span>
-                    <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
-                      <path d="M12 20h9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
-                      <path d="M16.5 3.5a2.1 2.1 0 1 1 3 3L7 19l-4 1 1-4Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
-                    </svg>
-                  </button>
-                  <button class="card-action-button card-action-button--delete" type="button">
-                    <span class="sr-only">Delete assessment</span>
-                    <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
-                      <path d="M3 6h18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
-                      <path d="M8 6V4h8v2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
-                      <path d="M19 6l-1 14H6L5 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
-                      <path d="M10 11v6M14 11v6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
-                    </svg>
-                  </button>
-                </div>
-              </div>
-              <div class="card-title-row">
-                <h2 class="card-title">Woodcock-Johnson IV</h2>
-              </div>
-              <p class="record-line">Academic Achievement <span class="sep">•</span> Initial Evaluation</p>
-              <p class="record-line muted">Mar 12, 2025 <span class="sep">•</span> Dr. Melissa Grant <span class="sep">•</span> Score Report Attached</p>
-            </div>
-          </div>
-        </article>
-
-        <article class="record-row" aria-label="Goal row">
-          <div class="record-row-main">
-            <div class="record-row-content">
-              <div class="card-top-row">
-                <div class="card-top-meta">
-                  <span class="card-eyebrow">Goal</span>
-                  <span class="card-badge">On Track</span>
-                </div>
-                <div class="card-actions" aria-label="Goal actions">
-                  <button class="card-action-button card-action-button--edit" type="button">
-                    <span class="sr-only">Edit goal</span>
-                    <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
-                      <path d="M12 20h9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
-                      <path d="M16.5 3.5a2.1 2.1 0 1 1 3 3L7 19l-4 1 1-4Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
-                    </svg>
-                  </button>
-                  <button class="card-action-button card-action-button--delete" type="button">
-                    <span class="sr-only">Delete goal</span>
-                    <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
-                      <path d="M3 6h18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
-                      <path d="M8 6V4h8v2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
-                      <path d="M19 6l-1 14H6L5 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
-                      <path d="M10 11v6M14 11v6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
-                    </svg>
-                  </button>
-                </div>
-              </div>
-              <div class="card-title-row">
-                <h2 class="card-title">Reading Comprehension Goal</h2>
-              </div>
-              <p class="record-line">Improve reading comprehension from 62% to 80%</p>
-              <p class="record-line muted">Baseline 62% <span class="sep">•</span> Target 80% <span class="sep">•</span> Due Apr 04, 2026</p>
-            </div>
-          </div>
-        </article>
+        </div>
       </div>
-    </section>
+    </article>
 
     <article class="panel" data-collapsible-panel data-panel-id="draft-standard-panel">
       <header class="panel-header">
@@ -409,5 +1148,39 @@
   </main>
 
   <script src="panel-component.js"></script>
+  <script>
+    document.querySelectorAll(".draft-subsection-toggle").forEach((toggle) => {
+      const contentId = toggle.getAttribute("aria-controls");
+      const content = contentId ? document.getElementById(contentId) : null;
+      if (!content) {
+        return;
+      }
+
+      const expanded = toggle.getAttribute("aria-expanded") !== "false";
+      content.hidden = !expanded;
+
+      toggle.addEventListener("click", () => {
+        const expanded = toggle.getAttribute("aria-expanded") === "true";
+        toggle.setAttribute("aria-expanded", String(!expanded));
+        content.hidden = expanded;
+      });
+    });
+
+    document.querySelectorAll(".record-row").forEach((row) => {
+      row.addEventListener("click", (event) => {
+        if (event.target.closest(".card-action-button")) {
+          return;
+        }
+
+        const checkbox = row.querySelector('.record-selection input[type="checkbox"]');
+        if (!checkbox) {
+          return;
+        }
+
+        checkbox.checked = !checkbox.checked;
+        checkbox.dispatchEvent(new Event("change", { bubbles: true }));
+      });
+    });
+  </script>
 </body>
 </html>

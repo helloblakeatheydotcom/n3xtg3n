@@ -139,6 +139,7 @@
     .component-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
+      align-items: start;
       gap: 18px;
     }
 
@@ -146,6 +147,8 @@
       position: relative;
       overflow: hidden;
       display: grid;
+      width: 100%;
+      min-width: 0;
       gap: 16px;
       padding: 22px;
       border: 1px solid var(--border);
@@ -164,9 +167,11 @@
       background: linear-gradient(180deg, var(--card-accent, var(--accent)), rgba(124, 92, 255, 0.22));
     }
 
-    .component-card--forms { --card-accent: #3d63dd; }
-    .component-card--panels { --card-accent: #7c5cff; }
-    .component-card--cards { --card-accent: #13a08e; }
+    .component-card--forms { --card-accent: #16a34a; }
+    .component-card--panels { --card-accent: #2563eb; }
+    .component-card--cards { --card-accent: #7c5cff; }
+    .component-card--sections { --card-accent: #2563eb; }
+    .component-card--record-rows { --card-accent: #7c5cff; }
     .component-card--drafts { --card-accent: #dd8a19; }
 
     .component-top {
@@ -195,14 +200,24 @@
       color: #2f57d4;
     }
 
-    .component-badge--teal {
-      background: rgba(19, 160, 142, 0.12);
-      color: #0d7b6f;
-    }
-
     .component-badge--amber {
       background: rgba(221, 138, 25, 0.14);
       color: #a86405;
+    }
+
+    .component-badge--cobalt {
+      background: rgba(37, 99, 235, 0.12);
+      color: #1d4ed8;
+    }
+
+    .component-badge--purple {
+      background: rgba(124, 92, 255, 0.12);
+      color: #6c55da;
+    }
+
+    .component-badge--green {
+      background: rgba(22, 163, 74, 0.12);
+      color: #15803d;
     }
 
     .component-status {
@@ -334,26 +349,9 @@
       </div>
 
       <div class="component-grid">
-        <article class="component-card component-card--forms">
-          <div class="component-top">
-            <span class="component-badge component-badge--blue">Inputs</span>
-            <span class="component-status">Live guide</span>
-          </div>
-          <div>
-            <h3>Form Components</h3>
-            <p class="component-description">Field patterns, choices, helper text, validation states, and the shared form system used across entry screens.</p>
-          </div>
-          <div class="component-meta">
-            <span class="meta-pill">Fields</span>
-            <span class="meta-pill">Validation</span>
-            <span class="meta-pill">Choices</span>
-          </div>
-          <a class="component-link" href="form-components.html">Open guide <span aria-hidden="true">→</span></a>
-        </article>
-
         <article class="component-card component-card--panels">
           <div class="component-top">
-            <span class="component-badge">Sections</span>
+            <span class="component-badge component-badge--cobalt">Layout</span>
             <span class="component-status">Live guide</span>
           </div>
           <div>
@@ -368,9 +366,43 @@
           <a class="component-link" href="panel-component.html">Open guide <span aria-hidden="true">→</span></a>
         </article>
 
+        <article class="component-card component-card--sections">
+          <div class="component-top">
+            <span class="component-badge component-badge--cobalt">Layout</span>
+            <span class="component-status">New guide</span>
+          </div>
+          <div>
+            <h3>Section Component</h3>
+            <p class="component-description">Internal panel groupings with rails, supporting meta, collapsible headers, and space for related fields or cards.</p>
+          </div>
+          <div class="component-meta">
+            <span class="meta-pill">Rails</span>
+            <span class="meta-pill">Supporting meta</span>
+            <span class="meta-pill">Panel-friendly</span>
+          </div>
+          <a class="component-link" href="sections-components.html">Open guide <span aria-hidden="true">→</span></a>
+        </article>
+
+        <article class="component-card component-card--record-rows">
+          <div class="component-top">
+            <span class="component-badge component-badge--purple">Collections</span>
+            <span class="component-status">New guide</span>
+          </div>
+          <div>
+            <h3>Record Rows</h3>
+            <p class="component-description">Compact selectable rows for services, assessments, and goals inside panels, with hover-revealed actions and lightweight status cues.</p>
+          </div>
+          <div class="component-meta">
+            <span class="meta-pill">Selectable</span>
+            <span class="meta-pill">Dense metadata</span>
+            <span class="meta-pill">Row actions</span>
+          </div>
+          <a class="component-link" href="record-rows-components.html">Open guide <span aria-hidden="true">→</span></a>
+        </article>
+
         <article class="component-card component-card--cards">
           <div class="component-top">
-            <span class="component-badge component-badge--teal">Summaries</span>
+            <span class="component-badge component-badge--purple">Collections</span>
             <span class="component-status">New guide</span>
           </div>
           <div>
@@ -383,6 +415,23 @@
             <span class="meta-pill">Grid layouts</span>
           </div>
           <a class="component-link" href="card-components.html">Open guide <span aria-hidden="true">→</span></a>
+        </article>
+
+        <article class="component-card component-card--forms">
+          <div class="component-top">
+            <span class="component-badge component-badge--green">Inputs</span>
+            <span class="component-status">Live guide</span>
+          </div>
+          <div>
+            <h3>Form Components</h3>
+            <p class="component-description">Field patterns, choices, helper text, validation states, and the shared form system used across entry screens.</p>
+          </div>
+          <div class="component-meta">
+            <span class="meta-pill">Fields</span>
+            <span class="meta-pill">Validation</span>
+            <span class="meta-pill">Choices</span>
+          </div>
+          <a class="component-link" href="form-components.html">Open guide <span aria-hidden="true">→</span></a>
         </article>
 
         <article class="component-card component-card--drafts">

@@ -81,9 +81,9 @@
   --field-border-focus: var(--color-accent-border-focus);
   --field-bg: var(--color-surface);
   --field-bg-hover: var(--color-accent-tint-hover);
-  --field-label-color: var(--color-text-secondary);
+  --field-label-color: var(--color-text-primary);
   --field-helper-color: var(--color-text-helper);
-  --field-text-color: var(--color-text-primary);
+  --field-text-color: #4B5563;
   --field-error-color: var(--color-danger);
 
   /* Choice tokens */
@@ -145,6 +145,9 @@
   --card-footer-border-color: var(--color-divider);
   --card-badge-bg: var(--color-accent-tint);
   --card-badge-color: var(--color-accent-active);
+  --card-badge-font-weight: 600;
+  --card-badge-font-size: 12px;
+  --card-badge-line-height: 1;
   --card-hover-border-color: #D5DFF0;
   --card-selected-border-color: var(--color-accent-border-focus);
   --card-rail-color: var(--color-accent);
@@ -153,4 +156,62 @@
   --card-action-icon-hover-border: var(--color-accent-border-hover);
   --card-action-icon-edit-color: var(--color-accent-active);
   --card-action-icon-delete-color: var(--color-danger);
+
+  /* Record row tokens */
+  --record-row-border-color: var(--color-divider);
+  --record-row-hover-bg: var(--color-surface);
+  --record-row-selected-bg: #F9FAFB;
+  --record-row-hover-rail-color: var(--color-accent);
+  --record-row-padding-y: 10px;
+  --record-row-padding-right: 18px;
+  --record-row-padding-left: 28px;
+  --record-row-mobile-padding-left: 24px;
+  --record-row-rail-inset-left: 14px;
+  --record-row-rail-width: 3px;
+  --record-row-content-gap: 10px;
+  --record-row-title-font-size: 14px;
+  --record-row-title-line-height: 20px;
+  --record-row-line-font-size: 12.5px;
+  --record-row-line-color: var(--color-text-body);
+  --record-row-meta-color: var(--color-text-helper);
+  --record-row-checkbox-offset-top: 2px;
+  --record-row-badge-font-weight: 600;
+  --record-row-badge-font-size: 12px;
+  --record-row-badge-line-height: 1;
+  --record-row-badge-bg: var(--color-accent-tint);
+  --record-row-badge-color: var(--color-accent-active);
+  --record-row-action-icon-color: var(--color-text-helper);
+  --record-row-action-icon-hover-bg: #F7F9FC;
+  --record-row-action-icon-hover-border: var(--color-accent-border-hover);
+  --record-row-action-icon-edit-color: var(--color-accent-active);
+  --record-row-action-icon-delete-color: var(--color-danger);
+
+  /* Section tokens */
+  --section-bg: var(--color-surface);
+  --section-divider-color: var(--color-divider);
+  --section-padding-left: 14px;
+  --section-spacing-after: var(--space-5);
+  --section-rail-width: 3px;
+  --section-rail-opacity: 0.75;
+  --section-header-padding-y: 14px;
+  --section-header-padding-x: 18px;
+  --section-content-padding-top: 10px;
+  --section-content-padding-x: 18px;
+  --section-content-padding-bottom: 18px;
+  --section-content-gap: var(--space-5);
+  --section-field-gap: 28px;
+  --section-related-padding-top: var(--space-5);
+  --section-related-gap: var(--space-3);
+  --section-title-font-weight: 600;
+  --section-title-font-size: 16px;
+  --section-title-line-height: 24px;
+  --section-meta-font-size: 13px;
+  --section-meta-line-height: 18px;
+  --section-meta-color: var(--color-text-helper);
+  --section-rail-slate: #CBD5E1;
+  --section-rail-blue: #2563EB;
+  --section-rail-cyan: #0891B2;
+  --section-rail-emerald: #059669;
+  --section-rail-amber: #D97706;
+  --section-rail-orange: #EA580C;
 }

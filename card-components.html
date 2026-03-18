@@ -23,6 +23,7 @@
   <header class="page-header">
     <p class="page-kicker">Component</p>
     <h1 class="page-title">Card</h1>
+    <p class="component-page-intro">Cards are designed for lightweight grouped content. They prioritize flexible structure and quick scanning without the stronger hierarchy of a panel.</p>
   </header>
 
   <main class="layout-shell panel-docs">
@@ -121,10 +122,10 @@
                 <p>Provided in a resource room setting with individual delivery.</p>
               </div>
               <div class="card-meta" aria-label="Speech therapy metadata">
-                <span class="card-meta-item">Jan 10, 2024 – Jan 10, 2025</span>
-                <span class="card-meta-item">3x/week</span>
-                <span class="card-meta-item">45 min</span>
-                <span class="card-meta-item">Amy Johnson</span>
+                <span class="card-meta-item"><span class="card-meta-label">Date</span><span class="card-meta-value">Jan 10, 2024 – Jan 10, 2025</span></span>
+                <span class="card-meta-item"><span class="card-meta-label">Frequency</span><span class="card-meta-value">3x/week</span></span>
+                <span class="card-meta-item"><span class="card-meta-label">Duration</span><span class="card-meta-value">45 min</span></span>
+                <span class="card-meta-item"><span class="card-meta-label">Provider</span><span class="card-meta-value">Amy Johnson</span></span>
               </div>
             </article>
 
@@ -132,7 +133,7 @@
               <div class="card-top-row">
                 <div class="card-top-meta">
                   <p class="card-eyebrow">Assessment</p>
-                  <span class="card-badge">Academic</span>
+                  <span class="card-badge" style="background:#DBEAFE; color:#1D4ED8;">Academic</span>
                 </div>
                 <div class="card-actions" aria-label="Woodcock-Johnson IV actions">
                   <button class="card-action-button card-action-button--edit" type="button">
@@ -160,10 +161,10 @@
                 <p>Results show relative strength in reading fluency and below-benchmark performance in applied problem solving.</p>
               </div>
               <div class="card-meta" aria-label="Woodcock-Johnson metadata">
-                <span class="card-meta-item">Mar 12, 2025</span>
-                <span class="card-meta-item">Academic Achievement</span>
-                <span class="card-meta-item">Score 87</span>
-                <span class="card-meta-item">21st percentile</span>
+                <span class="card-meta-item"><span class="card-meta-label">Date</span><span class="card-meta-value">Mar 12, 2025</span></span>
+                <span class="card-meta-item"><span class="card-meta-label">Area</span><span class="card-meta-value">Academic Achievement</span></span>
+                <span class="card-meta-item"><span class="card-meta-label">Score</span><span class="card-meta-value">87</span></span>
+                <span class="card-meta-item"><span class="card-meta-label">Percentile</span><span class="card-meta-value">21st percentile</span></span>
               </div>
             </article>
           </div>
@@ -350,13 +351,13 @@
                       </button>
                     </div>
                   </div>
-                  <div class="card-title-row">
-                    <div class="card-title">Title</div>
-                  </div>
-                  <div class="card-body">Body</div>
-                  <div class="card-anatomy-metadata">Metadata</div>
-                  <div class="card-anatomy-footer">Footer Actions</div>
+                <div class="card-title-row">
+                  <div class="card-title">Title</div>
                 </div>
+                <div class="card-body">Body</div>
+                <div class="card-anatomy-metadata">Metadata + Divider</div>
+                <div class="card-anatomy-footer">Footer Actions</div>
+              </div>
               </div>
 
               <div class="docs-parts-card">
@@ -415,6 +416,7 @@
                 <li>Cards are built from a single lightweight container.</li>
                 <li>Title and body are common, but all internal regions are optional.</li>
                 <li>Metadata should use a single inline pattern with separators between items.</li>
+                <li>When metadata follows body content, separate it with a divider and top padding.</li>
                 <li>Footer actions should remain lightweight and limited in number.</li>
               </ul>
             </article>
@@ -486,6 +488,9 @@
                   <tr><td>Body style</td><td><code>--card-body-font-size / --card-body-line-height</code></td><td>13px / 1.5</td></tr>
                   <tr><td>Eyebrow color</td><td><code>--card-eyebrow-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#6B7280"></span>#6B7280</span></td></tr>
                   <tr><td>Metadata color</td><td><code>--card-meta-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#6B7280"></span>#6B7280</span></td></tr>
+                  <tr><td>Metadata label weight</td><td><code>.card-meta-label</code></td><td>500</td></tr>
+                  <tr><td>Metadata value color / weight</td><td><code>.card-meta-value</code></td><td>#374151 / 600</td></tr>
+                  <tr><td>Badge typography</td><td><code>--card-badge-font-weight / --card-badge-font-size / --card-badge-line-height</code></td><td>600 / 12px / 1</td></tr>
                 </tbody>
               </table>
             </article>
@@ -501,6 +506,9 @@
                   <tr><td>Card padding</td><td><code>--card-padding</code></td><td>11px</td></tr>
                   <tr><td>Card gap</td><td><code>--card-gap</code></td><td>5px</td></tr>
                   <tr><td>Title to body offset</td><td><code>.card-title-row + .card-body</code></td><td>4px</td></tr>
+                  <tr><td>Body to metadata divider</td><td><code>.card-body + .card-meta</code></td><td>10px top space + 1px divider</td></tr>
+                  <tr><td>Metadata item gap</td><td><code>.card-meta-item</code></td><td>4px</td></tr>
+                  <tr><td>Metadata separator spacing</td><td><code>.card-meta-item + .card-meta-item::before</code></td><td>6px each side</td></tr>
                   <tr><td>Footer divider</td><td><code>--card-footer-border-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#E5E7EB"></span>#E5E7EB</span></td></tr>
                 </tbody>
               </table>
@@ -516,6 +524,12 @@
                 <tbody>
                   <tr><td>Badge background</td><td><code>--card-badge-bg</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#F8F4FF"></span>#F8F4FF</span></td></tr>
                   <tr><td>Badge text</td><td><code>--card-badge-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#6C55DA"></span>#6C55DA</span></td></tr>
+                  <tr><td>Purple badge</td><td><code>bg / text</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#EDE9FF"></span>#EDE9FF / <span class="token-chip" style="--token-color:#4C2FBD"></span>#4C2FBD</span></td></tr>
+                  <tr><td>Teal badge</td><td><code>bg / text</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#CCFBF1"></span>#CCFBF1 / <span class="token-chip" style="--token-color:#0F6B62"></span>#0F6B62</span></td></tr>
+                  <tr><td>Rose badge</td><td><code>bg / text</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#FCE7F3"></span>#FCE7F3 / <span class="token-chip" style="--token-color:#9D174D"></span>#9D174D</span></td></tr>
+                  <tr><td>Cobalt badge</td><td><code>bg / text</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#DBEAFE"></span>#DBEAFE / <span class="token-chip" style="--token-color:#1D4ED8"></span>#1D4ED8</span></td></tr>
+                  <tr><td>Emerald badge</td><td><code>bg / text</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#D1FAE5"></span>#D1FAE5 / <span class="token-chip" style="--token-color:#065F46"></span>#065F46</span></td></tr>
+                  <tr><td>Amber badge</td><td><code>bg / text</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#FEF3C7"></span>#FEF3C7 / <span class="token-chip" style="--token-color:#92400E"></span>#92400E</span></td></tr>
                 </tbody>
               </table>
             </article>
@@ -533,6 +547,8 @@
                   <tr><td>Accent rail</td><td><code>--card-rail-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#7C5CFF"></span>#7C5CFF</span></td></tr>
                   <tr><td>Action icon</td><td><code>--card-action-icon-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#6B7280"></span>#6B7280</span></td></tr>
                   <tr><td>Action hover border</td><td><code>--card-action-icon-hover-border</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#AFA7FF"></span>#AFA7FF</span></td></tr>
+                  <tr><td>Edit action hover</td><td><code>--card-action-icon-edit-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#6C55DA"></span>#6C55DA</span></td></tr>
+                  <tr><td>Delete action hover</td><td><code>--card-action-icon-delete-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#DC2626"></span>#DC2626</span></td></tr>
                 </tbody>
               </table>
             </article>
