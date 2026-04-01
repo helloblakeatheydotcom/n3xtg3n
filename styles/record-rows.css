@@ -132,8 +132,86 @@
 }
 
 .record-row-badge--purple {
-  background: #EDE9FF;
+  background: #E9E2FF;
   color: #4C2FBD;
+}
+
+.record-row-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  vertical-align: middle;
+  line-height: 1;
+  font-weight: var(--record-row-status-font-weight);
+}
+
+.record-row-status svg {
+  width: 14px;
+  height: 14px;
+  flex: none;
+  display: block;
+}
+
+.record-row-status-separator {
+  font-weight: inherit;
+  line-height: 1;
+}
+
+.record-row-status--waived {
+  color: var(--record-row-status-waived-color);
+}
+
+.record-row-status--inactive {
+  color: var(--record-row-status-inactive-color);
+}
+
+.record-row--waived {
+  background: var(--record-row-status-waived-bg);
+}
+
+.record-row--waived:hover,
+.record-row--waived:focus-within {
+  background: var(--record-row-status-waived-bg);
+}
+
+.record-row--waived .record-row-title,
+.record-row--waived .record-row-line,
+.record-row--waived .record-row-line--meta,
+.record-row--waived .record-row-separator,
+.record-row--waived .record-row-eyebrow {
+  color: var(--record-row-status-waived-row-color);
+}
+
+.record-row--waived .record-row-badge {
+  background: var(--record-row-status-waived-badge-bg);
+  color: var(--record-row-status-waived-badge-color);
+}
+
+.record-row--inactive {
+  background: var(--record-row-status-inactive-bg);
+}
+
+.record-row--inactive:hover,
+.record-row--inactive:focus-within {
+  background: var(--record-row-status-inactive-bg);
+}
+
+.record-row--inactive .record-row-title,
+.record-row--inactive .record-row-line,
+.record-row--inactive .record-row-line--meta,
+.record-row--inactive .record-row-separator,
+.record-row--inactive .record-row-eyebrow,
+.record-row--inactive .record-row-badge {
+  color: var(--record-row-status-inactive-row-color);
+}
+
+.record-row--inactive .record-row-badge {
+  background: var(--record-row-status-inactive-badge-bg);
+  color: var(--record-row-status-inactive-badge-color);
+}
+
+.record-row--inactive .record-row-meta-value {
+  color: var(--record-row-status-inactive-meta-value-color);
 }
 
 .record-row-actions {

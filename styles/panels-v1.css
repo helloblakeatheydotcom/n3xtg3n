@@ -155,7 +155,7 @@
   z-index: 1;
   border: 1px solid transparent;
   background: transparent;
-  color: var(--field-text-color);
+  color: var(--color-text-secondary);
   padding: 0;
   font: inherit;
   cursor: pointer;
@@ -196,17 +196,17 @@
   align-items: center;
   justify-content: center;
   border-radius: var(--radius-field);
-  color: #5A6470;
-  opacity: 1;
+  opacity: 0.84;
 }
 
 .panel-menu-toggle:hover,
 .panel-menu-toggle:focus-visible,
 .panel-toggle:hover,
 .panel-toggle:focus-visible {
-  background: var(--card-action-icon-hover-bg);
-  border-color: var(--color-border-default);
-  color: #4B5563;
+  background: var(--color-accent-tint-hover);
+  border-color: var(--color-accent-border-hover);
+  color: var(--color-text-primary);
+  opacity: 1;
   outline: none;
 }
 
@@ -220,7 +220,7 @@
 .panel-link-button:focus-visible,
 .panel-menu-toggle:focus-visible,
 .panel-toggle:focus-visible {
-  border-color: var(--color-border-default);
+  border-color: var(--color-accent-border-focus);
 }
 
 .meatball-icon {
@@ -270,7 +270,7 @@
 
 .panel-menu-item:hover,
 .panel-menu-item:focus-visible {
-  background: var(--card-action-icon-hover-bg);
+  background: var(--color-accent-tint-hover);
   outline: none;
 }
 
@@ -283,7 +283,7 @@
 }
 
 .panel-toggle[aria-expanded="false"] .panel-chevron {
-  transform: translateY(1px) rotate(-90deg);
+  transform: translateY(1px) rotate(180deg);
 }
 
 .panel-body {

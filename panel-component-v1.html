@@ -3,27 +3,27 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>NextGen Panel Component</title>
+  <title>NextGen Panel Component v1.0</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles/tokens.css" />
   <link rel="stylesheet" href="styles/base.css" />
   <link rel="stylesheet" href="styles/forms.css" />
-  <link rel="stylesheet" href="styles/panels.css" />
-  <link rel="stylesheet" href="styles/demos.css" />
+  <link rel="stylesheet" href="styles/panels-v1.css" />
+  <link rel="stylesheet" href="styles/demos-v1.css" />
 </head>
 <body class="panel-page panel-docs-page component-docs-page">
   <div class="page-nav">
-    <a class="page-back-link" href="index.html" aria-label="Back to component index">
+    <a class="page-back-link" href="archived-components.html" aria-label="Back to archived components">
       <span aria-hidden="true">←</span>
-      <span>Back to index</span>
+      <span>Back to archived components</span>
     </a>
   </div>
   <header class="page-header">
-    <p class="page-kicker">Component</p>
-    <h1 class="page-title">Panel</h1>
-    <p class="component-page-intro">Panels are designed for structured section-level content. They provide a strong container for grouping related information, controls, and actions with clear hierarchy.</p>
+    <p class="page-kicker">Archived Component</p>
+    <h1 class="page-title">Panel v 1.0</h1>
+    <p class="component-page-intro">This archived page preserves the first documented panel structure and behavior before the header layout update.</p>
   </header>
 
   <main class="layout-shell panel-docs">
@@ -60,14 +60,22 @@
           <article class="panel" data-collapsible-panel data-panel-id="example-standard">
             <header class="panel-header">
               <div class="panel-left">
-                <button class="panel-toggle" type="button" aria-expanded="true" aria-controls="panel-standard-content">
-                  <span class="sr-only">Collapse section</span>
-                  <svg class="panel-chevron" viewBox="0 0 14 7" focusable="false" aria-hidden="true">
-                    <path d="M1 1 7 6 13 1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                <span class="panel-icon panel-icon--square" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                    <path d="M3 5h18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                    <path d="M3 12h18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                    <path d="M3 19h18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
                   </svg>
-                </button>
+                </span>
                 <h3 class="panel-title">Generic Panel Title</h3>
               </div>
+
+              <button class="panel-toggle" type="button" aria-expanded="true" aria-controls="panel-standard-content">
+                <span class="sr-only">Collapse section</span>
+                <svg class="panel-chevron" viewBox="0 0 14 7" focusable="false" aria-hidden="true">
+                  <path d="M1 1 7 6 13 1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
             </header>
 
             <div id="panel-standard-content" class="panel-content" role="region" aria-label="Standard panel content">
@@ -85,16 +93,17 @@
 
         <section class="example-block" aria-label="Panel with header actions example">
           <h2 class="panel-example-title">Panel With Header Actions</h2>
-          <p class="example-caption">Use header actions for lightweight utilities that belong to the section itself. Link buttons and overflow menus can share the action area while the collapse toggle stays anchored at the far left of the header.</p>
+          <p class="example-caption">Use header actions for lightweight utilities that belong to the section itself. Link buttons, overflow menus, and the collapse toggle can share the action area without replacing the core panel structure.</p>
           <article class="panel" data-collapsible-panel data-panel-id="example-header-actions">
             <header class="panel-header">
               <div class="panel-left">
-                <button class="panel-toggle" type="button" aria-expanded="true" aria-controls="panel-header-actions-content">
-                  <span class="sr-only">Collapse section</span>
-                  <svg class="panel-chevron" viewBox="0 0 14 7" focusable="false" aria-hidden="true">
-                    <path d="M1 1 7 6 13 1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                <span class="panel-icon panel-icon--square" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                    <path d="M3 5h18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                    <path d="M3 12h18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                    <path d="M3 19h18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
                   </svg>
-                </button>
+                </span>
                 <h3 class="panel-title">Special Ed Services</h3>
               </div>
 
@@ -116,6 +125,12 @@
                     <li role="none"><button class="panel-menu-item" type="button" role="menuitem">Edit All Services</button></li>
                   </ul>
                 </div>
+                <button class="panel-toggle" type="button" aria-expanded="true" aria-controls="panel-header-actions-content">
+                  <span class="sr-only">Collapse section</span>
+                  <svg class="panel-chevron" viewBox="0 0 14 7" focusable="false" aria-hidden="true">
+                    <path d="M1 1 7 6 13 1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </button>
               </div>
             </header>
 
@@ -138,14 +153,20 @@
           <article class="panel" data-collapsible-panel data-panel-id="example-no-footer">
             <header class="panel-header">
               <div class="panel-left">
-                <button class="panel-toggle" type="button" aria-expanded="true" aria-controls="panel-no-footer-content">
-                  <span class="sr-only">Collapse section</span>
-                  <svg class="panel-chevron" viewBox="0 0 14 7" focusable="false" aria-hidden="true">
-                    <path d="M1 1 7 6 13 1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                <span class="panel-icon panel-icon--square" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                    <rect x="5" y="5" width="14" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="2"/>
                   </svg>
-                </button>
+                </span>
                 <h3 class="panel-title">Generic Panel Title</h3>
               </div>
+
+              <button class="panel-toggle" type="button" aria-expanded="true" aria-controls="panel-no-footer-content">
+                <span class="sr-only">Collapse section</span>
+                <svg class="panel-chevron" viewBox="0 0 14 7" focusable="false" aria-hidden="true">
+                  <path d="M1 1 7 6 13 1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
             </header>
 
             <div id="panel-no-footer-content" class="panel-content" role="region" aria-label="Panel without footer content">
@@ -163,8 +184,15 @@
           <article class="panel" aria-label="Static panel">
             <header class="panel-header">
               <div class="panel-left">
+                <span class="panel-icon panel-icon--square" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                    <circle cx="12" cy="12" r="7" fill="none" stroke="currentColor" stroke-width="2"/>
+                  </svg>
+                </span>
                 <h3 class="panel-title">Generic Panel Title</h3>
               </div>
+
+              <div class="panel-actions" aria-hidden="true"></div>
             </header>
 
             <div class="panel-body">
@@ -180,14 +208,24 @@
           <article class="panel" data-collapsible-panel data-panel-id="example-form-content">
             <header class="panel-header">
               <div class="panel-left">
-                <button class="panel-toggle" type="button" aria-expanded="true" aria-controls="panel-form-content">
-                  <span class="sr-only">Collapse section</span>
-                  <svg class="panel-chevron" viewBox="0 0 14 7" focusable="false" aria-hidden="true">
-                    <path d="M1 1 7 6 13 1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                <span class="panel-icon panel-icon--tall" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M14 2v6h6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M16 13H8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" />
+                    <path d="M16 17H8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" />
+                    <path d="M10 9H8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" />
                   </svg>
-                </button>
+                </span>
                 <h3 class="panel-title">IEP Overview</h3>
               </div>
+
+              <button class="panel-toggle" type="button" aria-expanded="true" aria-controls="panel-form-content">
+                <span class="sr-only">Collapse section</span>
+                <svg class="panel-chevron" viewBox="0 0 14 7" focusable="false" aria-hidden="true">
+                  <path d="M1 1 7 6 13 1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
             </header>
 
             <div id="panel-form-content" class="panel-content" role="region" aria-label="Panel with form fields">
@@ -270,7 +308,7 @@
             <div class="docs-anatomy-grid">
               <div class="docs-anatomy-panel">
                 <div class="docs-anatomy-header">
-                  <div class="docs-anatomy-icon">Collapse Toggle</div>
+                  <div class="docs-anatomy-icon">Icon</div>
                   <div class="docs-anatomy-title">Title</div>
                   <div class="docs-anatomy-actions">Header Actions</div>
                 </div>
@@ -281,10 +319,10 @@
               <div class="docs-parts-card">
                 <h3 class="docs-card-title">Parts</h3>
                 <div class="docs-part-list">
-                  <div class="docs-part-item"><strong>Header</strong><p>Optional; contains the collapse toggle, title, and optional actions.</p></div>
+                  <div class="docs-part-item"><strong>Header</strong><p>Optional; contains the title and optional actions.</p></div>
                   <div class="docs-part-item"><strong>Body</strong><p>Required; holds the panel’s primary content.</p></div>
                   <div class="docs-part-item"><strong>Footer</strong><p>Optional; supports summary or action controls.</p></div>
-                  <div class="docs-part-item"><strong>Header actions</strong><p>Optional; may include a link button and menu toggle.</p></div>
+                  <div class="docs-part-item"><strong>Header actions</strong><p>Optional; may include a link button, menu toggle, and collapse toggle.</p></div>
                 </div>
               </div>
             </div>
@@ -310,6 +348,7 @@
             <article class="docs-card">
               <h3 class="docs-card-title">Optional Elements</h3>
               <ul class="docs-list">
+                <li>Header icon</li>
                 <li>Header link button</li>
                 <li>Header menu toggle</li>
                 <li>Collapse toggle</li>
@@ -329,7 +368,6 @@
               <ul class="docs-list">
                 <li>Body is required.</li>
                 <li>Header and footer are optional.</li>
-                <li>For collapsible panels, the collapse toggle sits at the far left of the header.</li>
                 <li>Header actions align to the right edge of the header.</li>
               </ul>
             </article>
@@ -339,15 +377,15 @@
               <ul class="docs-list">
                 <li>Header minimum height is 64px.</li>
                 <li>Footer minimum height is 56px.</li>
-                <li>Collapse controls use a 32px square hit area.</li>
+                <li>Icon container is 24px by 24px.</li>
               </ul>
             </article>
 
             <article class="docs-card">
               <h3 class="docs-card-title">Behavior</h3>
               <ul class="docs-list">
-                <li>The header acts as the collapse trigger except where action buttons and the collapse control are present.</li>
-                <li>Collapsible panels rotate the chevron 90 degrees between expanded and collapsed states.</li>
+                <li>The header acts as the collapse trigger except where action buttons and icons are present.</li>
+                <li>Collapsible panels rotate the chevron between expanded and collapsed states.</li>
                 <li>Collapsed panels hide the body and footer content.</li>
                 <li>Interactive header controls do not trigger collapse.</li>
               </ul>
@@ -424,21 +462,15 @@
             </article>
 
             <article class="docs-card docs-token-card">
-              <h3 class="docs-card-title">Actions</h3>
-              <p class="docs-card-caption">Toggle sizing and header-action hover treatment.</p>
+              <h3 class="docs-card-title">Icon</h3>
+              <p class="docs-card-caption">Color tokens for the icon container and glyph treatment.</p>
               <table class="docs-token-table">
                 <thead>
                   <tr><th>Role</th><th>Token</th><th>Value</th></tr>
                 </thead>
                 <tbody>
-                  <tr><td>Utility action default icon</td><td><code>--color-text-secondary</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#5A6470"></span>#5A6470</span></td></tr>
-                  <tr><td>Utility action hover icon</td><td><code>--field-text-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#4B5563"></span>#4B5563</span></td></tr>
-                  <tr><td>Utility action hover border</td><td><code>--color-border-default</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#D1D5DB"></span>#D1D5DB</span></td></tr>
-                  <tr><td>Utility action hover background</td><td><code>--card-action-icon-hover-bg</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#F7F9FC"></span>#F7F9FC</span></td></tr>
-                  <tr><td>Link action hover border</td><td><code>--color-accent-border-hover</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#AFA7FF"></span>#AFA7FF</span></td></tr>
-                  <tr><td>Link action focus ring</td><td><code>--color-focus-ring</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#C7C2FF"></span>#C7C2FF</span></td></tr>
-                  <tr><td>Link action hover background</td><td><code>--color-accent-tint-hover</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#FAF8FF"></span>#FAF8FF</span></td></tr>
-                  <tr><td>Link action text</td><td><code>--color-accent-active</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#6C55DA"></span>#6C55DA</span></td></tr>
+                  <tr><td>Icon background</td><td><code>--panel-icon-bg</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#DCE9FF"></span>#DCE9FF</span></td></tr>
+                  <tr><td>Icon color</td><td><code>--panel-icon-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#3D63DD"></span>#3D63DD</span></td></tr>
                 </tbody>
               </table>
             </article>
@@ -448,6 +480,6 @@
     </section>
   </main>
 
-  <script src="panel-component.js"></script>
+  <script src="panel-component-v1.js"></script>
 </body>
 </html>

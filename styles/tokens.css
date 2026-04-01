@@ -14,18 +14,17 @@
   /* Text */
   --color-text-primary: #111827;
   --color-text-secondary: #5A6470;
-  --color-text-muted: #8B94A5;
+  --color-text-muted: #6D768D;
   --color-text-helper: #6B7280;
-  --color-text-caption: #1D1E1F;
   --color-text-body: #374151;
 
   /* Accent: violet */
   --color-accent: #7C5CFF;
-  --color-accent-hover: #6A4EEA;
+  --color-accent-hover: #6C55DA;
   --color-accent-active: #6C55DA;
   --color-accent-border-hover: #AFA7FF;
   --color-accent-border-focus: #7C5CFF;
-  --color-accent-tint: #F8F4FF;
+  --color-accent-tint: #FAF8FF;
   --color-accent-tint-hover: #FAF8FF;
   --color-accent-tint-strong: #F3EEFF;
   --color-accent-tint-pressed: #E9E2FF;
@@ -47,11 +46,20 @@
   --color-alert-border: #E8D7A8;
   --color-alert-icon: #B7791F;
 
+  /* Inline notices */
+  --notice-bg: #FFFFFF;
+  --notice-body-color: var(--color-text-body);
+  --notice-info-color: #1D4ED8;
+  --notice-warning-border-color: #F59E0B;
+  --notice-warning-color: #D97706;
+  --notice-success-color: #059669;
+  --notice-error-color: #EE031D;
+
   /* Disabled */
-  --color-disabled-border: #E4E7EC;
+  --color-disabled-border: #D1D5DB;
   --color-disabled-bg: #F2F2F2;
   --color-disabled-text: #6B7280;
-  --color-disabled-icon: #B4B4B4;
+  --color-disabled-icon: #6B7280;
 
   /* Spacing scale */
   --space-0: 0;
@@ -81,9 +89,11 @@
   --field-border-focus: var(--color-accent-border-focus);
   --field-bg: var(--color-surface);
   --field-bg-hover: var(--color-accent-tint-hover);
+  --field-stepper-bg: #F7F9FC;
+  --field-stepper-hover-bg: #EEF2F7;
   --field-label-color: var(--color-text-primary);
   --field-helper-color: var(--color-text-helper);
-  --field-text-color: #4B5563;
+  --field-text-color: var(--color-text-body);
   --field-error-color: var(--color-danger);
 
   /* Choice tokens */
@@ -143,8 +153,8 @@
   --card-eyebrow-color: var(--color-text-helper);
   --card-meta-color: var(--color-text-helper);
   --card-footer-border-color: var(--color-divider);
-  --card-badge-bg: var(--color-accent-tint);
-  --card-badge-color: var(--color-accent-active);
+  --card-badge-bg: var(--color-accent-tint-pressed);
+  --card-badge-color: #4C2FBD;
   --card-badge-font-weight: 600;
   --card-badge-font-size: 12px;
   --card-badge-line-height: 1;
@@ -153,14 +163,14 @@
   --card-rail-color: var(--color-accent);
   --card-action-icon-color: var(--color-text-helper);
   --card-action-icon-hover-bg: #F7F9FC;
-  --card-action-icon-hover-border: var(--color-accent-border-hover);
-  --card-action-icon-edit-color: var(--color-accent-active);
+  --card-action-icon-hover-border: var(--color-border-default);
+  --card-action-icon-edit-color: var(--field-text-color);
   --card-action-icon-delete-color: var(--color-danger);
 
   /* Record row tokens */
   --record-row-border-color: var(--color-divider);
   --record-row-hover-bg: var(--color-surface);
-  --record-row-selected-bg: #F9FAFB;
+  --record-row-selected-bg: #F3EEFF;
   --record-row-hover-rail-color: var(--color-accent);
   --record-row-padding-y: 10px;
   --record-row-padding-right: 18px;
@@ -178,13 +188,25 @@
   --record-row-badge-font-weight: 600;
   --record-row-badge-font-size: 12px;
   --record-row-badge-line-height: 1;
-  --record-row-badge-bg: var(--color-accent-tint);
-  --record-row-badge-color: var(--color-accent-active);
+  --record-row-badge-bg: var(--color-accent-tint-pressed);
+  --record-row-badge-color: #4C2FBD;
   --record-row-action-icon-color: var(--color-text-helper);
   --record-row-action-icon-hover-bg: #F7F9FC;
-  --record-row-action-icon-hover-border: var(--color-accent-border-hover);
-  --record-row-action-icon-edit-color: var(--color-accent-active);
+  --record-row-action-icon-hover-border: var(--color-border-default);
+  --record-row-action-icon-edit-color: var(--field-text-color);
   --record-row-action-icon-delete-color: var(--color-danger);
+  --record-row-status-font-weight: 600;
+  --record-row-status-waived-bg: #FFFBF5;
+  --record-row-status-waived-color: #92400E;
+  --record-row-status-waived-row-color: #7C4A03;
+  --record-row-status-waived-badge-bg: #FEF3C7;
+  --record-row-status-waived-badge-color: #7C4A03;
+  --record-row-status-inactive-bg: #FFFFFF;
+  --record-row-status-inactive-color: #4B5563;
+  --record-row-status-inactive-row-color: #6B7280;
+  --record-row-status-inactive-meta-value-color: #4B5563;
+  --record-row-status-inactive-badge-bg: #F3F4F6;
+  --record-row-status-inactive-badge-color: #4B5563;
 
   /* Section tokens */
   --section-bg: var(--color-surface);
@@ -195,6 +217,7 @@
   --section-rail-opacity: 0.75;
   --section-header-padding-y: 14px;
   --section-header-padding-x: 18px;
+  --section-header-hover-bg: #F7F9FC;
   --section-content-padding-top: 10px;
   --section-content-padding-x: 18px;
   --section-content-padding-bottom: 18px;

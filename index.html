@@ -39,6 +39,8 @@
       background:
         radial-gradient(circle at top left, rgba(124, 92, 255, 0.16), transparent 34%),
         radial-gradient(circle at top right, rgba(61, 99, 221, 0.14), transparent 30%),
+        radial-gradient(circle at 18% 72%, rgba(22, 163, 74, 0.1), transparent 24%),
+        radial-gradient(circle at 82% 66%, rgba(221, 138, 25, 0.11), transparent 24%),
         linear-gradient(180deg, #fbfbfe 0%, var(--page-bg) 100%);
     }
 
@@ -55,7 +57,11 @@
       padding: 36px;
       border: 1px solid var(--border);
       border-radius: 24px;
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(248, 245, 255, 0.92));
+      background:
+        radial-gradient(circle at 12% 14%, rgba(124, 92, 255, 0.08), transparent 28%),
+        radial-gradient(circle at 84% 18%, rgba(37, 99, 235, 0.08), transparent 24%),
+        radial-gradient(circle at 72% 86%, rgba(22, 163, 74, 0.07), transparent 26%),
+        linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(248, 245, 255, 0.92));
       box-shadow: var(--shadow);
     }
 
@@ -172,7 +178,13 @@
     .component-card--cards { --card-accent: #7c5cff; }
     .component-card--sections { --card-accent: #2563eb; }
     .component-card--record-rows { --card-accent: #7c5cff; }
+    .component-card--notifications { --card-accent: #059669; }
+    .component-card--colors { --card-accent: #2563eb; }
+    .component-card--colors::before {
+      background: linear-gradient(180deg, #2563eb 0%, #7c5cff 32%, #16a34a 66%, #dd8a19 100%);
+    }
     .component-card--drafts { --card-accent: #dd8a19; }
+    .component-card--archive { --card-accent: #dd8a19; }
 
     .component-top {
       display: flex;
@@ -218,6 +230,13 @@
     .component-badge--green {
       background: rgba(22, 163, 74, 0.12);
       color: #15803d;
+    }
+
+    .component-card--colors .component-badge {
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.16), rgba(124, 92, 255, 0.14) 38%, rgba(22, 163, 74, 0.14) 72%, rgba(221, 138, 25, 0.16));
+      color: #1f3c88;
+      border: 1px solid rgba(61, 99, 221, 0.18);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4);
     }
 
     .component-status {
@@ -299,6 +318,10 @@
     .component-link span {
       font-size: 16px;
       line-height: 1;
+    }
+
+    .archive-strip {
+      margin-top: 18px;
     }
 
     @media (max-width: 860px) {
@@ -390,7 +413,7 @@
           </div>
           <div>
             <h3>Record Rows</h3>
-            <p class="component-description">Compact selectable rows for services, assessments, and goals inside panels, with hover-revealed actions and lightweight status cues.</p>
+            <p class="component-description">Compact selectable rows for services and assessments inside panels, with hover-revealed actions and lightweight status cues.</p>
           </div>
           <div class="component-meta">
             <span class="meta-pill">Selectable</span>
@@ -434,6 +457,40 @@
           <a class="component-link" href="form-components.html">Open guide <span aria-hidden="true">→</span></a>
         </article>
 
+        <article class="component-card component-card--notifications">
+          <div class="component-top">
+            <span class="component-badge component-badge--green">Feedback</span>
+            <span class="component-status">New guide</span>
+          </div>
+          <div>
+            <h3>Inline Notices</h3>
+            <p class="component-description">Inline panel-level notices for contextual feedback, guidance, success, warnings, and errors inside the current workflow.</p>
+          </div>
+          <div class="component-meta">
+            <span class="meta-pill">Inline notices</span>
+            <span class="meta-pill">Success state</span>
+            <span class="meta-pill">Panel-friendly</span>
+          </div>
+          <a class="component-link" href="notifications-components.html">Open guide <span aria-hidden="true">→</span></a>
+        </article>
+
+        <article class="component-card component-card--colors">
+          <div class="component-top">
+            <span class="component-badge component-badge--cobalt">Foundation</span>
+            <span class="component-status">Live guide</span>
+          </div>
+          <div>
+            <h3>Colors</h3>
+            <p class="component-description">Production component color scales, semantic mappings, badge palette, and status colors used across the active system.</p>
+          </div>
+          <div class="component-meta">
+            <span class="meta-pill">Scales</span>
+            <span class="meta-pill">Token mappings</span>
+            <span class="meta-pill">Status palette</span>
+          </div>
+          <a class="component-link" href="colors.html">Open guide <span aria-hidden="true">→</span></a>
+        </article>
+
         <article class="component-card component-card--drafts">
           <div class="component-top">
             <span class="component-badge component-badge--amber">Drafts</span>
@@ -451,6 +508,23 @@
           <a class="component-link" href="testing.html">Open testing page <span aria-hidden="true">→</span></a>
         </article>
       </div>
+
+      <article class="component-card component-card--archive archive-strip">
+        <div class="component-top">
+          <span class="component-badge component-badge--amber">Archive</span>
+          <span class="component-status">Reference only</span>
+        </div>
+        <div>
+          <h3>Archived Components</h3>
+          <p class="component-description">Preserved component pages live here after a major structural update replaces the active version. Use the archive to review retired patterns without mixing them into the current docs.</p>
+        </div>
+        <div class="component-meta">
+          <span class="meta-pill">Panel v 1.0</span>
+          <span class="meta-pill">Historical reference</span>
+          <span class="meta-pill">Archived docs</span>
+        </div>
+        <a class="component-link" href="archived-components.html">Open archive <span aria-hidden="true">→</span></a>
+      </article>
     </section>
   </main>
 </body>

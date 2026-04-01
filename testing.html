@@ -12,7 +12,19 @@
   <link rel="stylesheet" href="styles/cards.css" />
   <link rel="stylesheet" href="styles/forms.css" />
   <link rel="stylesheet" href="styles/panels.css" />
+  <link rel="stylesheet" href="styles/demos.css" />
   <style>
+    .draft-docs-page {
+      --docs-accent-rgb: 221, 138, 25;
+      --docs-accent-strong: #A86405;
+      --docs-accent-soft: rgba(221, 138, 25, 0.12);
+      --docs-accent-hover: rgba(221, 138, 25, 0.08);
+      --docs-accent-border: rgba(221, 138, 25, 0.18);
+      --docs-accent-border-strong: rgba(221, 138, 25, 0.22);
+      --docs-accent-glow: rgba(221, 138, 25, 0.16);
+      --docs-secondary-glow: rgba(37, 99, 235, 0.08);
+    }
+
     .draft-components {
       display: grid;
       gap: var(--space-6);
@@ -31,7 +43,234 @@
 
     .draft-components .panel-title {
       font-size: 18px;
-      line-height: 24px;
+      line-height: 20px;
+    }
+
+    .draft-notice-stack {
+      display: grid;
+      gap: var(--space-4);
+    }
+
+    .draft-notice {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 14px;
+      align-items: start;
+      padding: 16px 18px;
+      border: 1px solid transparent;
+      border-radius: var(--radius-panel);
+    }
+
+    .draft-notice-icon {
+      width: 28px;
+      height: 28px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex: none;
+    }
+
+    .draft-notice-icon svg {
+      width: 28px;
+      height: 28px;
+      display: block;
+    }
+
+    .draft-notice-content {
+      display: grid;
+      gap: 4px;
+    }
+
+    .draft-notice-disclosure {
+      display: grid;
+      gap: 4px;
+      margin-top: 0;
+    }
+
+    .draft-notice-toggle {
+      width: fit-content;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      color: #1D4ED8;
+      font: inherit;
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 18px;
+      cursor: pointer;
+    }
+
+    .draft-notice-toggle:hover,
+    .draft-notice-toggle:focus-visible {
+      color: #1E40AF;
+    }
+
+    .draft-notice-toggle svg {
+      width: 12px;
+      height: 6px;
+      flex: none;
+      transition: transform 0.16s ease;
+    }
+
+    .draft-notice-toggle[aria-expanded="false"] svg {
+      transform: rotate(-90deg);
+    }
+
+    .draft-notice-details {
+      display: grid;
+      gap: 6px;
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      padding-top: 0;
+      border-top: 0 solid rgba(29, 78, 216, 0.14);
+      transition: max-height 0.22s ease, opacity 0.18s ease, padding-top 0.18s ease, border-top-width 0.18s ease;
+    }
+
+    .draft-notice-details.is-open {
+      max-height: 240px;
+      opacity: 1;
+      padding-top: 10px;
+      border-top-width: 1px;
+    }
+
+    .draft-notice-title {
+      margin: 0;
+      color: #111827;
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 21px;
+    }
+
+    .draft-notice-text {
+      margin: 0;
+      color: #4B5563;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .draft-notice--info {
+      border-color: #1D4ED8;
+      border-width: 2px;
+      background: #FFFFFF;
+    }
+
+    .draft-notice--info .draft-notice-icon {
+      color: #1D4ED8;
+      width: 20px;
+      height: 20px;
+    }
+
+    .draft-notice--info .draft-notice-icon svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .draft-notice--info .draft-notice-title,
+    .draft-notice--info .draft-notice-text {
+      color: #1D4ED8;
+    }
+
+    .draft-notice--info .draft-notice-title {
+      font-size: 15px;
+      line-height: 21px;
+    }
+
+    .draft-notice--info .draft-notice-text {
+      color: #374151;
+    }
+
+    .draft-notice--warning {
+      border-color: #F59E0B;
+      border-width: 2px;
+      background: #FFFFFF;
+    }
+
+    .draft-notice--warning .draft-notice-icon {
+      color: #F59E0B;
+      width: 20px;
+      height: 20px;
+    }
+
+    .draft-notice--warning .draft-notice-icon svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .draft-notice--warning .draft-notice-title {
+      color: #D97706;
+      font-size: 15px;
+      line-height: 21px;
+    }
+
+    .draft-notice--warning .draft-notice-text {
+      color: #374151;
+    }
+
+    .draft-notice--success {
+      border-color: #059669;
+      border-width: 2px;
+      background: #FFFFFF;
+      box-shadow: 0 10px 24px rgba(6, 95, 70, 0.08), 0 2px 6px rgba(6, 95, 70, 0.05);
+    }
+
+    .draft-notice--success .draft-notice-icon {
+      color: #059669;
+      width: 20px;
+      height: 20px;
+    }
+
+    .draft-notice--success .draft-notice-icon svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .draft-notice--success .draft-notice-title {
+      color: #059669;
+      font-size: 15px;
+      line-height: 21px;
+    }
+
+    .draft-notice--success .draft-notice-text {
+      color: #374151;
+    }
+
+    .draft-notice--error {
+      border-color: #EE031D;
+      border-width: 2px;
+      background: #FFFFFF;
+    }
+
+    .draft-notice--error .draft-notice-icon {
+      color: #EE031D;
+      width: 20px;
+      height: 20px;
+    }
+
+    .draft-notice--error .draft-notice-icon svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .draft-notice--error .draft-notice-title {
+      color: #EE031D;
+      font-size: 15px;
+      line-height: 21px;
+    }
+
+    .draft-notice--error .draft-notice-text {
+      color: #374151;
+    }
+
+    .draft-notice--error .draft-notice-title {
+      font-weight: 700;
+    }
+
+    .draft-notice--error .draft-notice-icon svg circle {
+      display: initial;
     }
 
     .draft-plp-panel .panel-body {
@@ -61,6 +300,13 @@
       font-weight: 400;
     }
 
+    #draft-standard-panel-content .field-input,
+    #draft-standard-panel-content .field-textarea,
+    #draft-standard-panel-content .field-select {
+      color: #374151;
+      font-weight: 500;
+    }
+
     .draft-plp-panel .choice-label {
       color: #4B5563;
       font-weight: 400;
@@ -69,6 +315,55 @@
     .draft-plp-panel .panel-body .field-textarea:not([aria-invalid="true"]):hover:not(:focus) {
       background-color: var(--field-bg);
       border-color: var(--field-border-focus);
+    }
+
+    .draft-disabled-field--150 .field-input:disabled,
+    .draft-disabled-field--150 .field-select:disabled,
+    .draft-disabled-field--150 .field-textarea:disabled {
+      background-color: #F2F2F2;
+    }
+
+    .draft-disabled-field--150 .field-icon-lock {
+      color: #6B7280;
+    }
+
+    .draft-disabled-field--100 .field-input:disabled,
+    .draft-disabled-field--100 .field-select:disabled,
+    .draft-disabled-field--100 .field-textarea:disabled {
+      background-color: #F9FAFB;
+    }
+
+    .draft-helper-slate-600 {
+      color: #8B94A5;
+    }
+
+    .draft-helper-slate-alt {
+      color: #6B7280;
+    }
+
+    .draft-optional-slate-600 {
+      color: #8B94A5;
+      font-weight: 400;
+    }
+
+    .draft-optional-slate-alt {
+      color: #6B7280;
+      font-weight: 400;
+    }
+
+    .draft-field-compare-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-6);
+    }
+
+    .draft-field-compare-grid .field-body {
+      max-width: none;
+    }
+
+    .draft-badge-violet-200 {
+      background: #E9E2FF;
+      color: #4C2FBD;
     }
 
     .draft-areas-field {
@@ -140,7 +435,7 @@
       margin: 0;
       font-size: 16px;
       font-weight: 600;
-      line-height: 24px;
+      line-height: 20px;
     }
 
     .draft-subsection-heading {
@@ -212,11 +507,6 @@
       gap: 4px;
     }
 
-    .draft-goal-card .card-body {
-      padding-bottom: 10px;
-      border-bottom: 1px solid var(--color-divider);
-    }
-
     .draft-goal-card .card-meta {
       margin-top: 10px;
       gap: 4px 0;
@@ -264,6 +554,22 @@
     .draft-goal-card .card-badge--progressing {
       background: #EEF2FF;
       color: #4338CA;
+    }
+
+    .draft-goal-card--slate-800 .card-eyebrow,
+    .draft-goal-card--slate-800 .card-body,
+    .draft-goal-card--slate-800 .draft-meta-label,
+    .draft-goal-card--slate-800 .draft-meta-value,
+    .draft-goal-card--slate-800 .draft-goal-objectives {
+      color: #5A6470;
+    }
+
+    .draft-goal-card--gray-500 .card-eyebrow,
+    .draft-goal-card--gray-500 .card-body,
+    .draft-goal-card--gray-500 .draft-meta-label,
+    .draft-goal-card--gray-500 .draft-meta-value,
+    .draft-goal-card--gray-500 .draft-goal-objectives {
+      color: #6B7280;
     }
 
     .draft-record-panel .panel-body {
@@ -316,7 +622,11 @@
     }
 
     .record-row:has(.record-selection input:checked) {
-      background: #F9FAFB;
+      background: #F3EEFF;
+    }
+
+    .record-row--selected-violet-50:has(.record-selection input:checked) {
+      background: #FAF8FF;
     }
 
     .record-row-main {
@@ -402,6 +712,157 @@
       color: #027A48;
     }
 
+    .draft-record-panel .card-badge--inactive {
+      background: #F3F4F6;
+      color: #4B5563;
+    }
+
+    .draft-record-exploration-label {
+      margin: 0 0 10px;
+      color: var(--color-text-helper);
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 18px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .record-status-line {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin: 0 0 3px;
+      color: #92400E;
+      font-size: 12.5px;
+      line-height: 1.35;
+      font-weight: 500;
+    }
+
+    .record-status-line svg {
+      width: 14px;
+      height: 14px;
+      flex: none;
+    }
+
+    .record-row--waived-visual {
+      background:
+        linear-gradient(90deg, rgba(245, 197, 139, 0.18) 0, rgba(245, 197, 139, 0.18) 40px, transparent 40px);
+    }
+
+    .record-row--waived-visual .record-row-content {
+      position: relative;
+      padding: 0 0 0 2px;
+    }
+
+    .record-row--waived-visual .record-row-content::before {
+      content: "";
+      position: absolute;
+      left: -10px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      border-radius: 999px;
+      background: #D97706;
+      opacity: 0.9;
+    }
+
+    .record-line-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      vertical-align: middle;
+      line-height: 1;
+      color: #92400E;
+      font-weight: 600;
+    }
+
+    .record-line-status-separator {
+      font-weight: inherit;
+      line-height: 1;
+    }
+
+    .record-line-status svg {
+      width: 14px;
+      height: 14px;
+      flex: none;
+      display: block;
+    }
+
+    .record-line-status--inactive {
+      color: #4B5563;
+      font-weight: 600;
+    }
+
+    .record-line-status--inactive svg {
+      transform: translateY(-0.5px);
+    }
+
+    .record-row--waived-soft {
+      background: #FFFBF5;
+    }
+
+    .record-row--waived-soft .card-title {
+      color: #7C4A03;
+    }
+
+    .record-row--waived-soft .record-line {
+      color: #7C4A03;
+    }
+
+    .record-row--waived-soft .record-line.muted {
+      color: #7C4A03;
+    }
+
+    .record-row--waived-soft .sep {
+      color: #7C4A03;
+    }
+
+    .record-row--waived-soft .card-eyebrow {
+      color: #7C4A03;
+    }
+
+    .record-row--waived-soft .card-badge {
+      background: #FEF3C7;
+      color: #7C4A03;
+    }
+
+    .record-row--inactive-soft {
+      background: #FFFFFF;
+    }
+
+    .record-row--inactive-soft .card-title {
+      color: #6B7280;
+    }
+
+    .record-row--inactive-soft .record-line {
+      color: #6B7280;
+    }
+
+    .record-row--inactive-soft .record-line.muted {
+      color: #6B7280;
+    }
+
+    .record-row--inactive-soft .sep {
+      color: #6B7280;
+    }
+
+    .record-row--inactive-soft .card-eyebrow {
+      color: #6B7280;
+    }
+
+    .record-row--inactive-soft .card-badge {
+      background: #F3F4F6;
+      color: #4B5563;
+    }
+
+    .record-row--inactive-soft .card-actions {
+      color: #9CA3AF;
+    }
+
+    .record-row--inactive-soft .record-selection {
+      color: #9CA3AF;
+    }
+
     .record-row:hover .card-actions,
     .record-row:focus-within .card-actions {
       opacity: 1;
@@ -426,7 +887,13 @@
     }
   </style>
 </head>
-<body class="panel-page">
+<body class="panel-page component-docs-page draft-docs-page">
+  <div class="page-nav">
+    <a class="page-back-link" href="index.html" aria-label="Back to component index">
+      <span aria-hidden="true">←</span>
+      <span>Back to index</span>
+    </a>
+  </div>
   <header class="page-header">
     <p class="page-kicker">COMPONENT</p>
     <h1 class="page-title">Draft Components</h1>
@@ -434,6 +901,101 @@
   </header>
 
   <main class="draft-components">
+    <article class="panel" data-collapsible-panel data-panel-id="draft-notices">
+      <header class="panel-header">
+        <div class="panel-left">
+          <span class="panel-icon panel-icon--square" aria-hidden="true">
+            <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+              <path d="M4 6h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+              <path d="M4 12h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+              <path d="M4 18h10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            </svg>
+          </span>
+          <h2 class="panel-title">Notes and Alerts</h2>
+        </div>
+
+        <button class="panel-toggle" type="button" aria-expanded="true" aria-controls="draft-notices-content">
+          <span class="sr-only">Collapse section</span>
+          <svg class="panel-chevron" viewBox="0 0 14 7" focusable="false" aria-hidden="true">
+            <path d="M1 1 7 6 13 1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </button>
+      </header>
+
+      <div id="draft-notices-content" class="panel-content" role="region" aria-label="Notes and alerts content">
+        <div class="panel-body">
+          <div class="draft-notice-stack" aria-label="Draft notices">
+            <section class="draft-notice draft-notice--info" aria-label="Info notice">
+              <span class="draft-notice-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <path d="M12 16v-5"></path>
+                  <path d="M12 8h.01"></path>
+                </svg>
+              </span>
+              <div class="draft-notice-content">
+                <h3 class="draft-notice-title">Info</h3>
+                <p class="draft-notice-text">Use this notice for contextual guidance, reminders, or workflow details that help the user understand what to do next.</p>
+                <div class="draft-notice-disclosure">
+                  <button class="draft-notice-toggle" type="button" aria-expanded="false" aria-controls="draft-info-notice-details" data-notice-toggle>
+                    <span class="draft-notice-toggle-label">Show details</span>
+                    <svg viewBox="0 0 14 7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M1 1 7 6 13 1"></path>
+                    </svg>
+                  </button>
+                  <div id="draft-info-notice-details" class="draft-notice-details" hidden>
+                    <p class="draft-notice-text">This option works well when the notice needs policy detail, implementation notes, or additional instructional guidance that should stay hidden until the user asks for it.</p>
+                    <p class="draft-notice-text">Keep the expanded content concise and directly related to the notice so it supports the task without becoming a full documentation block.</p>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section class="draft-notice draft-notice--warning" aria-label="Warning notice">
+              <span class="draft-notice-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="m21.73 18-8-14a2 2 0 0 0-3.46 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"></path>
+                  <path d="M12 9v5"></path>
+                  <path d="M12 17h.01"></path>
+                </svg>
+              </span>
+              <div class="draft-notice-content">
+                <h3 class="draft-notice-title">Warning</h3>
+                <p class="draft-notice-text">Use this notice when information may be incomplete or needs attention soon, but the user can still continue within the current workflow.</p>
+              </div>
+            </section>
+
+            <section class="draft-notice draft-notice--success" aria-label="Success notice">
+              <span class="draft-notice-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <path d="m9 12 2 2 4-4"></path>
+                </svg>
+              </span>
+              <div class="draft-notice-content">
+                <h3 class="draft-notice-title">Success</h3>
+                <p class="draft-notice-text">Use this notice for inline confirmation that a local action or supporting step completed successfully without requiring a page-level message.</p>
+              </div>
+            </section>
+
+            <section class="draft-notice draft-notice--error" aria-label="Error notice">
+              <span class="draft-notice-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <path d="m9 9 6 6"></path>
+                  <path d="m15 9-6 6"></path>
+                </svg>
+              </span>
+              <div class="draft-notice-content">
+                <h3 class="draft-notice-title">Error</h3>
+                <p class="draft-notice-text">Use this notice when the user must correct or resolve a problem within the panel before the task can be completed successfully.</p>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </article>
+
     <article class="panel draft-plp-panel" data-collapsible-panel data-panel-id="draft-present-levels">
       <header class="panel-header">
         <div class="panel-left">
@@ -518,7 +1080,7 @@
                 <div class="draft-goals">
                   <p class="draft-goals-title">Related Goals</p>
 
-                  <article class="card-component draft-goal-card">
+                  <article class="card-component draft-goal-card draft-goal-card--slate-800">
                     <div class="card-top-row">
                       <div class="card-top-meta">
                         <span class="card-eyebrow">Goal</span>
@@ -567,7 +1129,7 @@
                     </div>
                   </article>
 
-                  <article class="card-component draft-goal-card">
+                  <article class="card-component draft-goal-card draft-goal-card--gray-500">
                     <div class="card-top-row">
                       <div class="card-top-meta">
                         <span class="card-eyebrow">Goal</span>
@@ -934,9 +1496,8 @@
       <div id="draft-assessment-results-content" class="panel-content" role="region" aria-label="Assessment and evaluation results content">
         <div class="panel-body">
           <p class="body-copy">Select assessments from the past year to include in the IEP.</p>
-
           <div class="record-row-list" aria-label="Assessment record rows">
-            <article class="record-row" aria-label="Assessment result row">
+            <article class="record-row record-row--waived-soft" aria-label="Assessment result row">
               <div class="record-row-main">
                 <div class="record-selection">
                   <input type="checkbox" aria-label="Select Woodcock-Johnson IV assessment" />
@@ -970,7 +1531,7 @@
                     <h2 class="card-title">Woodcock-Johnson IV</h2>
                   </div>
                   <p class="record-line">Academic Achievement <span class="sep">•</span> Initial Evaluation</p>
-                  <p class="record-line muted">Mar 12, 2025 <span class="sep">•</span> Dr. Melissa Grant <span class="sep">•</span> Score Report Attached</p>
+                  <p class="record-line muted">Mar 12, 2025 <span class="sep">•</span> Dr. Melissa Grant <span class="record-line-status"><span class="record-line-status-separator" aria-hidden="true">•</span><svg viewBox="0 0 24 24" focusable="false" aria-hidden="true"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.8" /><path d="M8.5 15.5 15.5 8.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" /></svg><span>Waived</span></span></p>
                 </div>
               </div>
             </article>
@@ -984,7 +1545,7 @@
                   <div class="card-top-row">
                     <div class="card-top-meta">
                       <span class="card-eyebrow">Assessment</span>
-                      <span class="card-badge">Speech / Language</span>
+                      <span class="card-badge draft-badge-violet-200">Speech / Language</span>
                     </div>
                     <div class="card-actions" aria-label="Assessment actions">
                       <button class="card-action-button card-action-button--edit" type="button">
@@ -1050,6 +1611,151 @@
       </div>
     </article>
 
+    <article class="panel draft-record-panel" data-collapsible-panel data-panel-id="draft-related-services-panel">
+      <header class="panel-header">
+        <div class="panel-left">
+          <span class="panel-icon panel-icon--square" aria-hidden="true">
+            <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+              <path d="M4 7h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+              <path d="M4 12h11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+              <path d="M4 17h13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            </svg>
+          </span>
+          <h2 class="panel-title">Related Services</h2>
+        </div>
+
+        <button class="panel-toggle" type="button" aria-expanded="true" aria-controls="draft-related-services-content">
+          <span class="sr-only">Collapse section</span>
+          <svg class="panel-chevron" viewBox="0 0 14 7" focusable="false" aria-hidden="true">
+            <path d="M1 1 7 6 13 1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </button>
+      </header>
+
+      <div id="draft-related-services-content" class="panel-content" role="region" aria-label="Related services content">
+        <div class="panel-body">
+          <div class="record-row-list" aria-label="Related services rows">
+            <article class="record-row record-row--selected-violet-50" aria-label="Related service row">
+              <div class="record-row-main">
+                <div class="record-selection">
+                  <input type="checkbox" aria-label="Select Speech Therapy service" />
+                </div>
+                <div class="record-row-content">
+                  <div class="card-top-row">
+                    <div class="card-top-meta">
+                      <span class="card-eyebrow">Service</span>
+                      <span class="card-badge draft-badge-violet-200">Direct</span>
+                    </div>
+                    <div class="card-actions" aria-label="Service actions">
+                      <button class="card-action-button card-action-button--edit" type="button">
+                        <span class="sr-only">Edit Speech Therapy service</span>
+                        <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                          <path d="M12 20h9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                          <path d="M16.5 3.5a2.1 2.1 0 1 1 3 3L7 19l-4 1 1-4Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+                        </svg>
+                      </button>
+                      <button class="card-action-button card-action-button--delete" type="button">
+                        <span class="sr-only">Delete Speech Therapy service</span>
+                        <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                          <path d="M3 6h18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                          <path d="M8 6V4h8v2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                          <path d="M19 6l-1 14H6L5 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+                          <path d="M10 11v6M14 11v6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="card-title-row">
+                    <h2 class="card-title">Speech Therapy</h2>
+                  </div>
+                  <p class="record-line">Resource Room <span class="sep">•</span> Individual</p>
+                  <p class="record-line muted">Jan 10, 2026 – Jan 10, 2027 <span class="sep">•</span> 3x/week <span class="sep">•</span> 45 min <span class="sep">•</span> Amy Johnson</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="record-row" aria-label="Related service row">
+              <div class="record-row-main">
+                <div class="record-selection">
+                  <input type="checkbox" aria-label="Select Reading Support service" />
+                </div>
+                <div class="record-row-content">
+                  <div class="card-top-row">
+                    <div class="card-top-meta">
+                      <span class="card-eyebrow">Service</span>
+                      <span class="card-badge draft-badge-violet-200">Indirect</span>
+                    </div>
+                    <div class="card-actions" aria-label="Service actions">
+                      <button class="card-action-button card-action-button--edit" type="button">
+                        <span class="sr-only">Edit Reading Support service</span>
+                        <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                          <path d="M12 20h9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                          <path d="M16.5 3.5a2.1 2.1 0 1 1 3 3L7 19l-4 1 1-4Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+                        </svg>
+                      </button>
+                      <button class="card-action-button card-action-button--delete" type="button">
+                        <span class="sr-only">Delete Reading Support service</span>
+                        <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                          <path d="M3 6h18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                          <path d="M8 6V4h8v2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                          <path d="M19 6l-1 14H6L5 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+                          <path d="M10 11v6M14 11v6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="card-title-row">
+                    <h2 class="card-title">Reading Support</h2>
+                  </div>
+                  <p class="record-line">General Education Classroom <span class="sep">•</span> Consultation</p>
+                  <p class="record-line muted">Jan 10, 2026 – Jan 10, 2027 <span class="sep">•</span> 2x/week <span class="sep">•</span> 30 min <span class="sep">•</span> Sarah Lee</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="record-row record-row--inactive-soft" aria-label="Related service row inactive">
+              <div class="record-row-main">
+                <div class="record-selection">
+                  <input type="checkbox" aria-label="Select Occupational Therapy consultation service" />
+                </div>
+                <div class="record-row-content">
+                  <div class="card-top-row">
+                    <div class="card-top-meta">
+                      <span class="card-eyebrow">Service</span>
+                      <span class="card-badge draft-badge-violet-200">Indirect</span>
+                    </div>
+                    <div class="card-actions" aria-label="Service actions">
+                      <button class="card-action-button card-action-button--edit" type="button">
+                        <span class="sr-only">Edit Occupational Therapy consultation service</span>
+                        <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                          <path d="M12 20h9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                          <path d="M16.5 3.5a2.1 2.1 0 1 1 3 3L7 19l-4 1 1-4Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+                        </svg>
+                      </button>
+                      <button class="card-action-button card-action-button--delete" type="button">
+                        <span class="sr-only">Delete Occupational Therapy consultation service</span>
+                        <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                          <path d="M3 6h18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                          <path d="M8 6V4h8v2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                          <path d="M19 6l-1 14H6L5 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+                          <path d="M10 11v6M14 11v6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="card-title-row">
+                    <h2 class="card-title">Occupational Therapy Consultation</h2>
+                  </div>
+                  <p class="record-line">General Education Classroom <span class="sep">•</span> Consultation</p>
+                  <p class="record-line muted">Aug 15, 2025 – Dec 20, 2025 <span class="sep">•</span> 1x/month <span class="sep">•</span> 30 min <span class="sep">•</span> Jamie Rivera <span class="record-line-status record-line-status--inactive"><span class="record-line-status-separator" aria-hidden="true">•</span><svg viewBox="0 0 24 24" focusable="false" aria-hidden="true"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.8" /><path d="M8.5 15.5 15.5 8.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" /></svg><span>Inactive</span></span></p>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </article>
+
     <article class="panel" data-collapsible-panel data-panel-id="draft-standard-panel">
       <header class="panel-header">
         <div class="panel-left">
@@ -1093,16 +1799,37 @@
       <div id="draft-standard-panel-content" class="panel-content" role="region" aria-label="Standard panel content">
         <div class="panel-body">
           <form class="panel-form" aria-label="Special education services fields">
-            <div class="field-body">
-              <label class="field-label" for="sped-service">Sped Service</label>
-              <div class="field-input-wrapper field-select-wrapper">
-                <select id="sped-service" class="field-select">
-                  <option value="">Select service</option>
-                  <option>Consultation</option>
-                  <option>Resource</option>
-                  <option>Speech Therapy</option>
-                  <option>Occupational Therapy</option>
-                </select>
+            <div class="draft-field-compare-grid">
+              <div class="field-body">
+                <label class="field-label" for="sped-service">Sped Service <span class="draft-optional-slate-600">(Optional)</span></label>
+                <div class="field-input-wrapper field-select-wrapper">
+                  <select id="sped-service" class="field-select">
+                    <option value="">Select service</option>
+                    <option>Consultation</option>
+                    <option>Resource</option>
+                    <option>Speech Therapy</option>
+                    <option>Occupational Therapy</option>
+                  </select>
+                </div>
+                <div class="field-helper-slot">
+                  <p class="field-helper draft-helper-slate-600">Select the primary service type for this student record.</p>
+                </div>
+              </div>
+
+              <div class="field-body">
+                <label class="field-label" for="sped-service-alt">Sped Service <span class="draft-optional-slate-alt">(Optional)</span></label>
+                <div class="field-input-wrapper field-select-wrapper">
+                  <select id="sped-service-alt" class="field-select">
+                    <option value="">Select service</option>
+                    <option>Consultation</option>
+                    <option>Resource</option>
+                    <option>Speech Therapy</option>
+                    <option>Occupational Therapy</option>
+                  </select>
+                </div>
+                <div class="field-helper-slot">
+                  <p class="field-helper draft-helper-slate-alt">Select the primary service type for this student record.</p>
+                </div>
               </div>
             </div>
 
@@ -1135,6 +1862,35 @@
                   <input type="radio" name="duration" value="daily" />
                   <span class="choice-label">Daily</span>
                 </label>
+              </div>
+            </div>
+
+            <div class="field-body draft-disabled-field--150">
+              <label class="field-label" for="disabled-service-gray-150">Disabled Service Field Gray 150</label>
+              <div class="field-input-wrapper">
+                <input
+                  id="disabled-service-gray-150"
+                  class="field-input"
+                  type="text"
+                  value="Occupational Therapy Consultation"
+                  disabled
+                />
+                <svg class="field-icon-lock" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M17 11V7a5 5 0 0 0-10 0v4H5a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7a2 2 0 0 0-2-2h-2zm-8-4a3 3 0 0 1 6 0v4H9V7z"/>
+                </svg>
+              </div>
+            </div>
+
+            <div class="field-body draft-disabled-field--100">
+              <label class="field-label" for="disabled-service-gray-100">Disabled Service Field Gray 100</label>
+              <div class="field-input-wrapper">
+                <input
+                  id="disabled-service-gray-100"
+                  class="field-input"
+                  type="text"
+                  value="Speech Therapy"
+                  disabled
+                />
               </div>
             </div>
           </form>
@@ -1179,6 +1935,25 @@
 
         checkbox.checked = !checkbox.checked;
         checkbox.dispatchEvent(new Event("change", { bubbles: true }));
+      });
+    });
+
+    document.querySelectorAll("[data-notice-toggle]").forEach((toggle) => {
+      const contentId = toggle.getAttribute("aria-controls");
+      const content = contentId ? document.getElementById(contentId) : null;
+      const label = toggle.querySelector(".draft-notice-toggle-label");
+      if (!content || !label) {
+        return;
+      }
+
+      const expanded = toggle.getAttribute("aria-expanded") === "true";
+      content.classList.toggle("is-open", expanded);
+
+      toggle.addEventListener("click", () => {
+        const expanded = toggle.getAttribute("aria-expanded") === "true";
+        toggle.setAttribute("aria-expanded", String(!expanded));
+        label.textContent = expanded ? "Show details" : "Hide details";
+        content.classList.toggle("is-open", !expanded);
       });
     });
   </script>

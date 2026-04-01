@@ -294,7 +294,7 @@
 }
 
 .card-button--secondary:hover {
-  background: #F9FAFB;
+  background: var(--card-action-icon-hover-bg);
 }
 
 .card-button--secondary:active {

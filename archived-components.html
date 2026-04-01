@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NextGen Archived Components</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles/tokens.css" />
+  <link rel="stylesheet" href="styles/base.css" />
+  <link rel="stylesheet" href="styles/demos.css" />
+</head>
+<body class="component-docs-page archive-docs-page">
+  <div class="page-nav">
+    <a class="page-back-link" href="index.html" aria-label="Back to component index">
+      <span aria-hidden="true">←</span>
+      <span>Back to index</span>
+    </a>
+  </div>
+
+  <header class="page-header">
+    <p class="page-kicker">Archive</p>
+    <h1 class="page-title">Archived Components</h1>
+    <p class="component-page-intro">Use this page to preserve and review retired component versions after a major structural update. Archived patterns remain available for reference, but they are no longer the active source of truth.</p>
+  </header>
+
+  <main class="layout-shell archive-shell">
+    <aside class="archive-list-panel" aria-label="Archived component list">
+      <h2 class="archive-list-title">Archived Versions</h2>
+      <p class="archive-list-copy">Select an archived component to display its preserved documentation page.</p>
+
+      <div class="archive-list" role="tablist" aria-label="Archived component versions">
+        <button
+          class="archive-link is-active"
+          type="button"
+          role="tab"
+          aria-selected="true"
+          data-archive-target="panel-component-v1.html"
+          data-archive-title="Panel v 1.0"
+          data-archive-summary="This archived page preserves the original panel header structure with the left icon, right-side collapse toggle, and first-generation documentation layout."
+          data-archive-notes="Use this version for historical reference only. The next panel update will replace the header structure and anatomy guidance."
+        >
+          <span class="archive-link-name">Panel v 1.0</span>
+          <span class="archive-link-copy">Original panel header structure with left icon and right collapse toggle.</span>
+        </button>
+      </div>
+    </aside>
+
+    <section class="archive-viewer-panel" aria-label="Archived component viewer">
+      <h2 id="archive-viewer-title" class="archive-viewer-title">Panel v 1.0</h2>
+      <p id="archive-viewer-copy" class="archive-viewer-copy">This archived page preserves the original panel header structure with the left icon, right-side collapse toggle, and first-generation documentation layout.</p>
+      <div class="archive-detail-card">
+        <p class="archive-detail-label">Status</p>
+        <p id="archive-viewer-notes" class="archive-detail-copy">Use this version for historical reference only. The next panel update will replace the header structure and anatomy guidance.</p>
+      </div>
+      <div class="archive-actions">
+        <a id="archive-open-link" class="archive-open-link" href="panel-component-v1.html">Open archived page</a>
+      </div>
+    </section>
+  </main>
+
+  <script src="archived-components.js"></script>
+</body>
+</html>

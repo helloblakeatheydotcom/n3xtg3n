@@ -53,7 +53,7 @@
 .section-header {
   width: 100%;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
   gap: 12px;
   padding: var(--section-header-padding-y) var(--section-header-padding-x);
@@ -68,7 +68,12 @@
 }
 
 .section-toggle:hover {
-  background: #F9FAFB;
+  background: var(--section-header-hover-bg);
+}
+
+.section-toggle:hover .section-chevron,
+.section-toggle:focus-visible .section-chevron {
+  color: #4B5563;
 }
 
 .section-header {
@@ -106,6 +111,7 @@
   width: 14px;
   height: 7px;
   flex: none;
+  color: #5A6470;
   transition: transform 0.16s ease;
 }
 

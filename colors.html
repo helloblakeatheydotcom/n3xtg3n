@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NextGen Color Foundation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles/tokens.css" />
+  <link rel="stylesheet" href="styles/base.css" />
+  <link rel="stylesheet" href="styles/demos.css" />
+</head>
+<body class="component-docs-page color-docs-page panel-docs-page panel-page">
+  <div class="page-nav">
+    <a class="page-back-link" href="index.html" aria-label="Back to component index">
+      <span aria-hidden="true">←</span>
+      <span>Back to index</span>
+    </a>
+  </div>
+
+  <header class="page-header">
+    <p class="page-kicker">Foundation</p>
+    <h1 class="page-title">Color</h1>
+    <p class="component-page-intro">The NextGen color system works in three tiers: primitive scales, semantic tokens, and component tokens. Primitive scales define the raw color families, semantic tokens define what those colors mean, and component tokens document how individual components apply them. Component-level tokens are documented on each component's own Anatomy &amp; Specs tab.</p>
+  </header>
+
+  <main class="layout-shell color-section-grid">
+    <section class="docs-section">
+      <div class="docs-section-header">
+        <h2 class="panel-example-title">How This System Works</h2>
+        <p class="docs-lead">This page is organized into primitive scales, semantic tokens, and component-level documentation. Primitive scales show the raw families, semantic tokens show meaning, and component tokens live with each component’s own Anatomy &amp; Specs page.</p>
+      </div>
+    </section>
+
+    <section class="docs-section">
+      <div class="docs-section-header">
+        <h2 class="panel-example-title">Primitive Families</h2>
+        <p class="docs-lead">These rows show the approved primitive families for the system, including active component colors and reserved future stops. Scales are intentionally sparse and ordered from lightest to darkest.</p>
+      </div>
+
+      <div class="docs-card color-scale-card">
+        <h3 class="color-scale-title">Foundation</h3>
+        <table class="color-token-table">
+          <thead><tr><th>Name</th><th>Hex</th><th>Use</th></tr></thead>
+          <tbody>
+            <tr><td>White</td><td><span class="token-value"><span class="token-chip" style="--token-color:#FFFFFF"></span>#FFFFFF</span></td><td>Base surface for all components</td></tr>
+            <tr><td>Page background</td><td><span class="token-value"><span class="token-chip" style="--token-color:#FAFBFD"></span>#FAFBFD</span></td><td>Page shell only that shows before the primitive scales.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="docs-card color-scale-card">
+        <h3 class="color-scale-title">Violet</h3>
+        <p class="color-scale-note">Primary accent scale for focus, interactive controls, and reserved accent stops.</p>
+        <div class="color-scale-row">
+          <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#FAF8FF"></div><div class="color-scale-stop">50</div><div class="color-scale-hex">#FAF8FF</div></div>
+          <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#F3EEFF"></div><div class="color-scale-stop">100</div><div class="color-scale-hex">#F3EEFF</div></div>
+          <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#C7C2FF"></div><div class="color-scale-stop">300</div><div class="color-scale-hex">#C7C2FF</div></div>
+          <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#AFA7FF"></div><div class="color-scale-stop">400</div><div class="color-scale-hex">#AFA7FF</div></div>
+          <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#7C5CFF"></div><div class="color-scale-stop">600</div><div class="color-scale-hex">#7C5CFF</div></div>
+          <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#6C55DA"></div><div class="color-scale-stop">700</div><div class="color-scale-hex">#6C55DA</div></div>
+        </div>
+      </div>
+
+      <div class="docs-card color-scale-card">
+        <h3 class="color-scale-title">Gray</h3>
+        <p class="color-scale-note">Core neutral scale for shared text, borders, dividers, disabled states, and base component neutrals.</p>
+        <div class="color-scale-row">
+          <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#F3F4F6"></div><div class="color-scale-stop">50</div><div class="color-scale-hex">#F3F4F6</div></div>
+          <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#F2F2F2"></div><div class="color-scale-stop">100</div><div class="color-scale-hex">#F2F2F2</div></div>
+          <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#E5E7EB"></div><div class="color-scale-stop">200</div><div class="color-scale-hex">#E5E7EB</div></div>
+          <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#D1D5DB"></div><div class="color-scale-stop">300</div><div class="color-scale-hex">#D1D5DB</div></div>
+          <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#9CA3AF"></div><div class="color-scale-stop">400</div><div class="color-scale-hex">#9CA3AF</div></div>
+          <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#6B7280"></div><div class="color-scale-stop">500</div><div class="color-scale-hex">#6B7280</div></div>
+          <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#4B5563"></div><div class="color-scale-stop">600</div><div class="color-scale-hex">#4B5563</div></div>
+          <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#374151"></div><div class="color-scale-stop">700</div><div class="color-scale-hex">#374151</div></div>
+          <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#111827"></div><div class="color-scale-stop">800</div><div class="color-scale-hex">#111827</div></div>
+        </div>
+      </div>
+
+      <div class="docs-card color-scale-card">
+        <h3 class="color-scale-title">Slate</h3>
+        <p class="color-scale-note">Cooler blue-gray neutrals used for subtle surfaces, structural borders, secondary copy, and utility states.</p>
+        <div class="color-scale-row">
+          <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#F7F9FC"></div><div class="color-scale-stop">50</div><div class="color-scale-hex">#F7F9FC</div></div>
+          <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#EEF2F7"></div><div class="color-scale-stop">100</div><div class="color-scale-hex">#EEF2F7</div></div>
+          <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#E6ECF5"></div><div class="color-scale-stop">200</div><div class="color-scale-hex">#E6ECF5</div></div>
+          <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#DDE3EC"></div><div class="color-scale-stop">300</div><div class="color-scale-hex">#DDE3EC</div></div>
+          <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#98A2B3"></div><div class="color-scale-stop">500</div><div class="color-scale-hex">#98A2B3</div></div>
+          <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#6D768D"></div><div class="color-scale-stop">600</div><div class="color-scale-hex">#6D768D</div></div>
+          <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#667085"></div><div class="color-scale-stop">700</div><div class="color-scale-hex">#667085</div></div>
+          <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#5A6470"></div><div class="color-scale-stop">800</div><div class="color-scale-hex">#5A6470</div></div>
+        </div>
+      </div>
+
+      <div class="docs-card color-scale-card">
+        <h3 class="color-scale-title">Red</h3>
+        <p class="color-scale-note">Destructive and error scale.</p>
+        <div class="color-scale-row">
+          <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#FFF9FA"></div><div class="color-scale-stop">50</div><div class="color-scale-hex">#FFF9FA</div></div>
+          <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#FEF2F2"></div><div class="color-scale-stop">100</div><div class="color-scale-hex">#FEF2F2</div></div>
+          <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#FECACA"></div><div class="color-scale-stop">200</div><div class="color-scale-hex">#FECACA</div></div>
+          <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#EE031D"></div><div class="color-scale-stop">500</div><div class="color-scale-hex">#EE031D</div></div>
+          <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#DC2626"></div><div class="color-scale-stop">600</div><div class="color-scale-hex">#DC2626</div></div>
+          <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#B91C1C"></div><div class="color-scale-stop">700</div><div class="color-scale-hex">#B91C1C</div></div>
+          <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#991B1B"></div><div class="color-scale-stop">800</div><div class="color-scale-hex">#991B1B</div></div>
+        </div>
+      </div>
+
+      <div class="docs-card color-scale-card">
+        <h3 class="color-scale-title">Emerald</h3>
+        <p class="color-scale-note">Positive-status and success scale. Teal remains separated in the badge palette for now.</p>
+        <div class="color-scale-row">
+          <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#ECFDF5"></div><div class="color-scale-stop">50</div><div class="color-scale-hex">#ECFDF5</div></div>
+          <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#A7F3D0"></div><div class="color-scale-stop">200</div><div class="color-scale-hex">#A7F3D0</div></div>
+          <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#059669"></div><div class="color-scale-stop">600</div><div class="color-scale-hex">#059669</div></div>
+          <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#047857"></div><div class="color-scale-stop">700</div><div class="color-scale-hex">#047857</div></div>
+        </div>
+      </div>
+
+      <div class="docs-card color-scale-card">
+        <h3 class="color-scale-title">Blue</h3>
+        <p class="color-scale-note">Informational blue scale for notices and reserved future blue stops.</p>
+        <div class="color-scale-row">
+          <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#EFF6FF"></div><div class="color-scale-stop">50</div><div class="color-scale-hex">#EFF6FF</div></div>
+          <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#BFDBFE"></div><div class="color-scale-stop">200</div><div class="color-scale-hex">#BFDBFE</div></div>
+          <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#93C5FD"></div><div class="color-scale-stop">300</div><div class="color-scale-hex">#93C5FD</div></div>
+          <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#60A5FA"></div><div class="color-scale-stop">400</div><div class="color-scale-hex">#60A5FA</div></div>
+          <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#3B82F6"></div><div class="color-scale-stop">500</div><div class="color-scale-hex">#3B82F6</div></div>
+          <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#1D4ED8"></div><div class="color-scale-stop">700</div><div class="color-scale-hex">#1D4ED8</div></div>
+          <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#1E40AF"></div><div class="color-scale-stop">800</div><div class="color-scale-hex">#1E40AF</div></div>
+          <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#1E3A8A"></div><div class="color-scale-stop">900</div><div class="color-scale-hex">#1E3A8A</div></div>
+        </div>
+      </div>
+
+      <div class="docs-card color-scale-card">
+        <h3 class="color-scale-title">Amber</h3>
+        <p class="color-scale-note">Amber states used for warnings, alert fields, and waived record-row treatments.</p>
+        <div class="color-scale-row">
+          <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#FFFBF5"></div><div class="color-scale-stop">50</div><div class="color-scale-hex">#FFFBF5</div></div>
+          <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#FFF8EC"></div><div class="color-scale-stop">100</div><div class="color-scale-hex">#FFF8EC</div></div>
+          <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#E8D7A8"></div><div class="color-scale-stop">200</div><div class="color-scale-hex">#E8D7A8</div></div>
+          <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#F59E0B"></div><div class="color-scale-stop">500</div><div class="color-scale-hex">#F59E0B</div></div>
+          <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#D97706"></div><div class="color-scale-stop">600</div><div class="color-scale-hex">#D97706</div></div>
+          <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#B7791F"></div><div class="color-scale-stop">650</div><div class="color-scale-hex">#B7791F</div></div>
+          <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#92400E"></div><div class="color-scale-stop">700</div><div class="color-scale-hex">#92400E</div></div>
+          <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#7C4A03"></div><div class="color-scale-stop">800</div><div class="color-scale-hex">#7C4A03</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="docs-section">
+      <div class="docs-section-header">
+        <h2 class="panel-example-title">Decorative Palettes</h2>
+        <p class="docs-lead">Reserved space for decorative palette guidance that will be formalized later.</p>
+      </div>
+      <div class="docs-token-grid">
+        <article class="docs-card docs-token-card">
+          <h3 class="docs-card-title">Rails</h3>
+          <p class="color-placeholder-copy">coming soon</p>
+        </article>
+
+        <article class="docs-card docs-token-card">
+          <h3 class="docs-card-title">Badge variants</h3>
+          <p class="color-placeholder-copy">coming soon</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="docs-section">
+      <div class="docs-section-header">
+        <h2 class="panel-example-title">Semantic Tokens</h2>
+        <p class="docs-lead">Each semantic token below maps back to the primitive component color it currently uses.</p>
+      </div>
+      <div class="docs-token-grid">
+        <article class="docs-card docs-token-card docs-token-card--full">
+          <h3 class="docs-card-title">Surfaces &amp; Backgrounds</h3>
+          <table class="color-token-table">
+            <thead><tr><th>Scale</th><th>Token / Source</th><th>Use</th><th>Page</th></tr></thead>
+            <tbody>
+              <tr><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#FAF8FF"></span>Violet 50</span></td><td><code>--color-accent-tint</code>, <code>--color-accent-tint-hover</code>, <code>--field-bg-hover</code></td><td>Default and hover accent tint surfaces</td><td>Panel, Form</td></tr>
+              <tr><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#F3EEFF"></span>Violet 100</span></td><td><code>--color-accent-tint-strong</code>, <code>--record-row-selected-bg</code></td><td>Stronger accent tint surface and selected row background</td><td>Card, Record Rows</td></tr>
+              <tr><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#F2F2F2"></span>Gray 100</span></td><td><code>--color-disabled-bg</code></td><td>Disabled field background</td><td>Form</td></tr>
+              <tr><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#F7F9FC"></span>Slate 50</span></td><td><code>--card-action-icon-hover-bg</code>, <code>--record-row-action-icon-hover-bg</code>, <code>--field-stepper-bg</code>, <code>--section-header-hover-bg</code></td><td>Card and record-row action hover background, card secondary button hover background, number stepper control background, section-header hover</td><td>Card, Record Rows, Form, Sections</td></tr>
+              <tr><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#FFF9FA"></span>Red 50</span></td><td><code>--color-danger-bg</code></td><td>Error field fill</td><td>Form</td></tr>
+              <tr><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#FFF8EC"></span>Amber 100</span></td><td><code>--color-alert-bg</code></td><td>Alert/read-only field background</td><td>Form</td></tr>
+              <tr><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#FFFFFF"></span>Foundation White</span></td><td><code>--notice-bg</code></td><td>Shared inline notice background</td><td>Inline Notices</td></tr>
+              <tr><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#FFFBF5"></span>Amber 50</span></td><td><code>--record-row-status-waived-bg</code></td><td>Waived row background</td><td>Record Rows</td></tr>
+              <tr><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#FFFFFF"></span>Foundation White</span></td><td><code>--record-row-status-inactive-bg</code></td><td>Inactive row background</td><td>Record Rows</td></tr>
+            </tbody>
+          </table>
+        </article>
+
+        <article class="docs-card docs-token-card docs-token-card--full">
+          <h3 class="docs-card-title">Borders &amp; Dividers</h3>
+          <table class="color-token-table">
+            <thead><tr><th>Scale</th><th>Token / Source</th><th>Use</th><th>Page</th></tr></thead>
+            <tbody>
+              <tr><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#E5E7EB"></span>Gray 200</span></td><td><code>--color-divider</code>, <code>--record-row-border-color</code>, <code>--section-divider-color</code>, <code>--panel-footer-divider-color</code></td><td>Dividers and list separators</td><td>Panel, Card, Form, Record Rows, Sections</td></tr>
+              <tr><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#D1D5DB"></span>Gray 300</span></td><td><code>--color-border-default</code>, <code>--color-disabled-border</code></td><td>Default field/control borders and disabled field border</td><td>Form</td></tr>
+              <tr><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#EEF2F7"></span>Slate 100</span></td><td><code>--color-border-subtle</code>, <code>--color-panel-border</code>, <code>--field-stepper-hover-bg</code></td><td>Subtle panel and control borders, number stepper hover background</td><td>Panel, Form</td></tr>
+              <tr><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#E6ECF5"></span>Slate 200</span></td><td><code>--color-card-border</code></td><td>Card container border</td><td>Card</td></tr>
+              <tr><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#DDE3EC"></span>Slate 300</span></td><td><code>--panel-hover-border-color</code></td><td>Panel hover border</td><td>Panel</td></tr>
+              <tr><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#98A2B3"></span>Slate 500</span></td><td><code>--color-border-strong</code></td><td>Metadata separators and stronger structural accents</td><td>Card</td></tr>
+              <tr><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#E8D7A8"></span>Amber 200</span></td><td><code>--color-alert-border</code></td><td>Alert/read-only field border</td><td>Form</td></tr>
+              <tr><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#F59E0B"></span>Amber 500</span></td><td><code>--notice-warning-border-color</code></td><td>Warning notice border</td><td>Inline Notices</td></tr>
+            </tbody>
+          </table>
+        </article>
+
+        <article class="docs-card docs-token-card docs-token-card--full">
+          <h3 class="docs-card-title">Text</h3>
+          <table class="color-token-table">
+            <thead><tr><th>Scale</th><th>Token / Source</th><th>Use</th><th>Page</th></tr></thead>
+            <tbody>
+              <tr><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#9CA3AF"></span>Gray 400</span></td><td>Hardcoded</td><td>Placeholder text</td><td>Form</td></tr>
+              <tr><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#6B7280"></span>Gray 500</span></td><td><code>--color-text-helper</code>, <code>--panel-secondary-text-color</code>, <code>--card-meta-color</code>, <code>--record-row-meta-color</code>, <code>--section-meta-color</code>, <code>--color-disabled-text</code>, <code>--color-disabled-icon</code></td><td>Metadata, helper text, supporting labels, disabled text, and disabled icon</td><td>Panel, Card, Form, Record Rows, Sections</td></tr>
+              <tr><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#374151"></span>Gray 700</span></td><td><code>--color-text-body</code>, <code>--panel-body-color</code>, <code>--card-body-color</code>, <code>--record-row-line-color</code>, <code>--field-text-color</code>, <code>--notice-body-color</code></td><td>Main body content, row text, field values, and inline notice body text</td><td>Panel, Card, Record Rows, Form, Inline Notices</td></tr>
+              <tr><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#111827"></span>Gray 800</span></td><td><code>--color-text-primary</code>, <code>--field-label-color</code>, <code>--panel-title-color</code>, <code>--card-title-color</code></td><td>Primary titles and labels</td><td>All components</td></tr>
+              <tr><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#6D768D"></span>Slate 600</span></td><td><code>--color-text-muted</code></td><td>Muted supporting text</td><td>Form</td></tr>
+              <tr><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#5A6470"></span>Slate 800</span></td><td><code>--color-text-secondary</code></td><td>Secondary descriptions and supporting copy</td><td>Panel, Card, Record Rows</td></tr>
+              <tr><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#7C4A03"></span>Amber 800</span></td><td><code>--record-row-status-waived-row-color</code></td><td>Waived row text wash</td><td>Record Rows</td></tr>
+              <tr><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#6B7280"></span>Gray 500</span></td><td><code>--record-row-status-inactive-row-color</code></td><td>Inactive row text wash</td><td>Record Rows</td></tr>
+              <tr><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#4B5563"></span>Gray 600</span></td><td><code>--record-row-status-inactive-meta-value-color</code></td><td>Inactive metadata value</td><td>Record Rows</td></tr>
+            </tbody>
+          </table>
+        </article>
+
+        <article class="docs-card docs-token-card docs-token-card--full">
+          <h3 class="docs-card-title">Interactive &amp; Accent</h3>
+          <table class="color-token-table">
+            <thead><tr><th>Scale</th><th>Token / Source</th><th>Use</th><th>Page</th></tr></thead>
+            <tbody>
+              <tr><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#C7C2FF"></span>Violet 300</span></td><td><code>--color-focus-ring</code></td><td>Focus ring</td><td>Panel, Card, Form, Record Rows</td></tr>
+              <tr><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#AFA7FF"></span>Violet 400</span></td><td><code>--color-accent-border-hover</code>, <code>--field-border-hover</code>, <code>--card-action-icon-hover-border</code>, <code>--record-row-action-icon-hover-border</code></td><td>Hover borders for fields and action controls</td><td>Panel, Card, Form, Record Rows</td></tr>
+              <tr><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#7C5CFF"></span>Violet 600</span></td><td><code>--color-accent</code>, <code>--choice-control-checked-bg</code>, <code>--choice-control-checked-border</code>, <code>--color-accent-border-focus</code>, <code>--field-border-focus</code>, <code>--choice-control-hover-border</code></td><td>Primary accent, checked controls, focused borders, and strong interactive borders</td><td>Panel, Card, Form, Record Rows</td></tr>
+              <tr><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#6C55DA"></span>Violet 700</span></td><td><code>--color-accent-active</code>, <code>--color-accent-hover</code>, <code>--card-action-icon-edit-color</code>, <code>--record-row-action-icon-edit-color</code>, <code>--choice-control-hover-checked</code>, <code>--choice-label-hover</code></td><td>Active and hover accent, edit hover, checked-choice hover</td><td>Panel, Card, Form, Record Rows</td></tr>
+              <tr><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#667085"></span>Slate 700</span></td><td>Hardcoded</td><td>Form select chevron icon</td><td>Form</td></tr>
+            </tbody>
+          </table>
+        </article>
+
+        <article class="docs-card docs-token-card docs-token-card--full">
+          <h3 class="docs-card-title">Status &amp; Feedback</h3>
+          <table class="color-token-table">
+            <thead><tr><th>Scale</th><th>Token / Source</th><th>Use</th><th>Page</th></tr></thead>
+            <tbody>
+              <tr><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#EE031D"></span>Red 500</span></td><td><code>--color-danger</code>, <code>--field-error-color</code>, <code>--card-action-icon-delete-color</code>, <code>--record-row-action-icon-delete-color</code>, <code>--notice-error-color</code></td><td>Error borders, error text, delete hover, destructive actions, and error notice border/icon/title</td><td>Form, Card, Record Rows, Inline Notices</td></tr>
+              <tr><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#B7791F"></span>Amber 650</span></td><td><code>--color-alert-icon</code></td><td>Alert/read-only field icon</td><td>Form</td></tr>
+              <tr><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#92400E"></span>Amber 700</span></td><td><code>--record-row-status-waived-color</code></td><td>Waived status icon/text</td><td>Record Rows</td></tr>
+              <tr><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#4B5563"></span>Gray 600</span></td><td><code>--record-row-status-inactive-color</code></td><td>Inactive status text and icon</td><td>Record Rows</td></tr>
+              <tr><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#1D4ED8"></span>Blue 700</span></td><td><code>--notice-info-color</code></td><td>Info notice border, icon, title, and toggle</td><td>Inline Notices</td></tr>
+              <tr><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#059669"></span>Emerald 600</span></td><td><code>--notice-success-color</code></td><td>Success notice border, icon, and title</td><td>Inline Notices</td></tr>
+            </tbody>
+          </table>
+        </article>
+      </div>
+    </section>
+
+    <section class="docs-section">
+      <div class="docs-section-header">
+        <h2 class="panel-example-title">Component Tokens</h2>
+        <p class="docs-lead">Component-level color tokens are documented on each component’s individual Anatomy &amp; Specs page, not here.</p>
+      </div>
+      <div class="color-placeholder">
+        <h3 class="color-placeholder-title">Component Tokens</h3>
+        <p class="color-placeholder-copy">Component-level tokens are documented on each component’s own Anatomy &amp; Specs page.</p>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
