@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NextGen Badges and Tags</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles/tokens.css" />
+  <link rel="stylesheet" href="styles/base.css" />
+  <link rel="stylesheet" href="styles/panels.css" />
+  <link rel="stylesheet" href="styles/demos.css" />
+  <link rel="stylesheet" href="styles/badges.css" />
+</head>
+<body class="panel-page component-docs-page card-docs-page">
+  <div class="page-nav">
+    <a class="page-back-link" href="index.html" aria-label="Back to component index">
+      <span aria-hidden="true">←</span>
+      <span>Back to index</span>
+    </a>
+  </div>
+
+  <header class="page-header">
+    <p class="page-kicker">Component</p>
+    <h1 class="page-title">Badges and Tags</h1>
+    <p class="component-page-intro">Badges and tags are compact supporting labels that sit alongside record content. Badge color pairs and tag color pairs must follow the approved combinations on the <a href="colors.html">Colors</a> page so category and status treatments stay consistent across the system.</p>
+  </header>
+
+  <main class="layout-shell panel-docs">
+    <div class="panel-tabs" role="tablist" aria-label="Badges and tags documentation tabs">
+      <button
+        id="tab-btn-examples"
+        class="panel-tab is-active"
+        type="button"
+        role="tab"
+        aria-selected="true"
+        aria-controls="tab-examples"
+        data-tab-target="tab-examples"
+      >
+        Examples
+      </button>
+      <button
+        id="tab-btn-anatomy"
+        class="panel-tab"
+        type="button"
+        role="tab"
+        aria-selected="false"
+        aria-controls="tab-anatomy"
+        data-tab-target="tab-anatomy"
+      >
+        Anatomy and Specs
+      </button>
+    </div>
+
+    <section id="tab-examples" class="tab-panel" role="tabpanel" aria-labelledby="tab-btn-examples">
+      <div class="badge-stack">
+        <section class="example-block" aria-label="Badge and tag overview">
+          <h2 class="panel-example-title">Badges vs Tags</h2>
+          <p class="example-caption">Use badges for category or type. Use tags for status or state. They can appear together on a record, but they do not replace one another.</p>
+          <p class="example-caption">Do not stack multiple badges or multiple tags on a single record. A record may show one badge, one tag, one of each, or neither.</p>
+          <article class="panel badge-demo-panel">
+            <div class="badge-demo-list" aria-label="Badge and tag overview examples">
+              <div class="badge-demo-row">
+                <div class="badge-demo-content">
+                  <p class="badge-demo-label">Badge only</p>
+                  <p class="badge-demo-copy">Category label without a state.</p>
+                </div>
+                <div class="badge-demo-meta">
+                  <span class="badge-pill badge-pill--purple">Speech / Language</span>
+                </div>
+              </div>
+
+              <div class="badge-demo-row">
+                <div class="badge-demo-content">
+                  <p class="badge-demo-label">Tag only</p>
+                  <p class="badge-demo-copy">State label without a category badge.</p>
+                </div>
+                <div class="badge-demo-meta">
+                  <span class="status-tag status-tag--inactive">Inactive</span>
+                </div>
+              </div>
+
+              <div class="badge-demo-row">
+                <div class="badge-demo-content">
+                  <p class="badge-demo-label">One of each</p>
+                  <p class="badge-demo-copy">Category badge plus a separate state tag.</p>
+                </div>
+                <div class="badge-demo-meta">
+                  <span class="badge-pill badge-pill--rose">Indirect</span>
+                  <span class="badge-demo-divider" aria-hidden="true"></span>
+                  <span class="status-tag status-tag--waived">Waived</span>
+                </div>
+              </div>
+
+              <div class="badge-demo-row">
+                <div class="badge-demo-content">
+                  <p class="badge-demo-label">Neither</p>
+                  <p class="badge-demo-copy">Some rows only need the eyebrow, title, and metadata.</p>
+                </div>
+                <div class="badge-demo-meta">
+                  <span class="badge-demo-copy">No badge or tag</span>
+                </div>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <section class="example-block" aria-label="Category badge examples">
+          <h2 class="panel-example-title">Category Badges</h2>
+          <p class="example-caption">Badges identify a type, delivery model, or category such as service type, assessment family, or content area.</p>
+          <article class="panel badge-demo-panel">
+            <div class="badge-demo-list" aria-label="Badge examples">
+              <div class="badge-demo-row">
+                <div class="badge-demo-content">
+                  <p class="badge-demo-label">Assessment category</p>
+                  <p class="badge-demo-copy">Use a category badge when the item needs a quick classification.</p>
+                </div>
+                <div class="badge-demo-meta">
+                  <span class="badge-pill badge-pill--cyan">Academic</span>
+                </div>
+              </div>
+              <div class="badge-demo-row">
+                <div class="badge-demo-content">
+                  <p class="badge-demo-label">Service delivery</p>
+                  <p class="badge-demo-copy">Use one badge only for the delivery type.</p>
+                </div>
+                <div class="badge-demo-meta">
+                  <span class="badge-pill badge-pill--teal">Direct</span>
+                </div>
+              </div>
+              <div class="badge-demo-row">
+                <div class="badge-demo-content">
+                  <p class="badge-demo-label">Service model</p>
+                  <p class="badge-demo-copy">Use the approved pair from the Colors page for the chosen category.</p>
+                </div>
+                <div class="badge-demo-meta">
+                  <span class="badge-pill badge-pill--amber">Consult</span>
+                </div>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <section class="example-block" aria-label="Status tag examples">
+          <h2 class="panel-example-title">Status Tags</h2>
+          <p class="example-caption">Tags identify the current state of the record. They should read as status, not category.</p>
+          <article class="panel badge-demo-panel">
+            <div class="badge-demo-list" aria-label="Status tag examples">
+              <div class="badge-demo-row">
+                <div class="badge-demo-content">
+                  <p class="badge-demo-label">Inactive</p>
+                  <p class="badge-demo-copy">Use the gray pair for inactive state.</p>
+                </div>
+                <div class="badge-demo-meta">
+                  <span class="status-tag status-tag--inactive">Inactive</span>
+                </div>
+              </div>
+              <div class="badge-demo-row">
+                <div class="badge-demo-content">
+                  <p class="badge-demo-label">Waived</p>
+                  <p class="badge-demo-copy">Use the blue pair for waived state.</p>
+                </div>
+                <div class="badge-demo-meta">
+                  <span class="status-tag status-tag--waived">Waived</span>
+                </div>
+              </div>
+            </div>
+          </article>
+        </section>
+      </div>
+    </section>
+
+    <section id="tab-anatomy" class="tab-panel" role="tabpanel" aria-labelledby="tab-btn-anatomy" hidden>
+      <div class="docs-sections">
+        <section class="docs-section">
+          <div class="docs-section-header">
+            <h2 class="panel-example-title">Overview</h2>
+            <p class="docs-lead">Badges and tags are compact metadata treatments that sit in the top row of components like cards and record rows. They are not interchangeable: badges communicate category, and tags communicate status.</p>
+          </div>
+        </section>
+
+        <section class="docs-section">
+          <div class="docs-section-header">
+            <h2 class="panel-example-title">Anatomy</h2>
+            <p class="docs-lead">A badge is a rounded category pill. A tag is a square-corner status label with a colored dot. When both appear together, separate them with a thin divider.</p>
+          </div>
+          <div class="docs-card">
+            <div class="badge-anatomy-row">
+              <div class="badge-anatomy-strip">
+                <div class="badge-anatomy-label">Badge</div>
+                <span class="badge-pill badge-pill--purple">Category</span>
+                <div class="badge-anatomy-spacer" aria-hidden="true"></div>
+              </div>
+              <div class="badge-anatomy-strip">
+                <div class="badge-anatomy-label">Tag</div>
+                <span class="status-tag status-tag--inactive">Status</span>
+                <div class="badge-anatomy-spacer" aria-hidden="true"></div>
+              </div>
+              <div class="badge-anatomy-strip">
+                <div class="badge-anatomy-label">Together</div>
+                <span class="badge-pill badge-pill--rose">Category</span>
+                <span class="badge-demo-divider" aria-hidden="true"></span>
+                <span class="status-tag status-tag--waived">Status</span>
+                <div class="badge-anatomy-spacer" aria-hidden="true"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="docs-section">
+          <div class="docs-section-header">
+            <h2 class="panel-example-title">Specifications</h2>
+            <p class="docs-lead">These rules define how badges and tags should be used across the system.</p>
+          </div>
+          <div class="docs-token-grid">
+            <article class="docs-card docs-token-card">
+              <h3 class="docs-card-title">Usage Rules</h3>
+              <ul class="badge-rule-list">
+                <li>Badges are for categories, types, or delivery models.</li>
+                <li>Tags are for status or state.</li>
+                <li>A record may show one badge, one tag, one of each, or neither.</li>
+                <li>Do not place multiple badges on a single record.</li>
+                <li>Do not place multiple tags on a single record.</li>
+                <li>When both appear together, separate them with a thin divider.</li>
+              </ul>
+            </article>
+
+            <article class="docs-card docs-token-card">
+              <h3 class="docs-card-title">Sizing</h3>
+              <table class="docs-token-table">
+                <thead>
+                  <tr><th>Role</th><th>Token / Source</th><th>Value</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>Badge height</td><td><code>--record-row-badge-font-size</code> / shared badge sizing</td><td>20px min-height</td></tr>
+                  <tr><td>Badge radius</td><td><code>.badge-pill</code></td><td>999px</td></tr>
+                  <tr><td>Tag height</td><td><code>--record-row-status-font-weight</code> / shared tag sizing</td><td>20px min-height</td></tr>
+                  <tr><td>Tag radius</td><td><code>.status-tag</code></td><td>4px</td></tr>
+                  <tr><td>Tag dot</td><td><code>.status-tag::before</code></td><td>6px</td></tr>
+                  <tr><td>Divider</td><td><code>.record-row-status-divider</code></td><td>1px × 12px</td></tr>
+                </tbody>
+              </table>
+            </article>
+
+            <article class="docs-card docs-token-card docs-token-card--full">
+              <h3 class="docs-card-title">Color Source</h3>
+              <p class="docs-card-caption">Use the approved pairs from the Colors page. Do not invent new badge or tag pairs at the component level.</p>
+              <table class="docs-token-table">
+                <thead>
+                  <tr><th>Role</th><th>Source</th><th>Reference</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>Badge pairs</td><td>Shared decorative tokens</td><td><a href="colors.html">Colors → Badge and Tag Variants</a></td></tr>
+                  <tr><td>Status tag pairs</td><td>Shared record-row status tokens</td><td><a href="colors.html">Colors → Status &amp; Feedback</a></td></tr>
+                  <tr><td>Divider</td><td>Divider pattern reference</td><td><a href="record-rows-components.html">Record Rows</a></td></tr>
+                </tbody>
+              </table>
+            </article>
+          </div>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <script src="badges-components.js"></script>
+</body>
+</html>

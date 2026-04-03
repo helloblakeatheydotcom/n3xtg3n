@@ -364,6 +364,14 @@
   max-width: 1280px;
 }
 
+@media (min-width: 801px) {
+  .color-docs-page .docs-card {
+    padding: var(--space-4);
+    gap: var(--space-3);
+    box-shadow: 0 8px 18px rgba(17, 24, 39, 0.04);
+  }
+}
+
 .color-section-grid {
   display: grid;
   gap: var(--space-5);
