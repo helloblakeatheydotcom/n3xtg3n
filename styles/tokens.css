@@ -7,16 +7,17 @@
   /* Borders / dividers */
   --color-border-subtle: #EEF2F7;
   --color-border-default: #D1D5DB;
-  --color-border-strong: #98A2B3;
+  --color-border-strong: #AAB4C3;
   --color-divider: #E5E7EB;
   --color-panel-border: #EEF2F7;
 
   /* Text */
   --color-text-primary: #111827;
   --color-text-secondary: #5A6470;
-  --color-text-muted: #6D768D;
+  --color-text-muted: #667085;
   --color-text-helper: #6B7280;
   --color-text-body: #374151;
+  --color-placeholder: #9CA3AF;
 
   /* Accent: violet */
   --color-accent: #7C5CFF;
@@ -43,8 +44,8 @@
   --color-warning-border: #F4C735;
   --color-warning-icon: #FFCF09;
   --color-alert-bg: #FFF8EC;
-  --color-alert-border: #E8D7A8;
-  --color-alert-icon: #B7791F;
+  --color-alert-border: #F59E0B;
+  --color-alert-icon: #BB4D00;
 
   /* Inline notices */
   --notice-bg: #FFFFFF;
@@ -57,8 +58,8 @@
 
   /* Disabled */
   --color-disabled-border: #D1D5DB;
-  --color-disabled-bg: #F2F2F2;
-  --color-disabled-text: #6B7280;
+  --color-disabled-bg: #F9FAFB;
+  --color-disabled-text: #4B5563;
   --color-disabled-icon: #6B7280;
 
   /* Spacing scale */
@@ -91,10 +92,12 @@
   --field-bg-hover: var(--color-accent-tint-hover);
   --field-stepper-bg: #F7F9FC;
   --field-stepper-hover-bg: #EEF2F7;
+  --field-select-icon-color: #667085;
   --field-label-color: var(--color-text-primary);
   --field-helper-color: var(--color-text-helper);
   --field-text-color: var(--color-text-body);
   --field-error-color: var(--color-danger);
+  --field-error-link-color: #1E40AF;
 
   /* Choice tokens */
   --choice-control-size: 16px;
@@ -135,6 +138,8 @@
   --panel-secondary-text-color: #6B7280;
   --panel-icon-bg: var(--color-info-bg);
   --panel-icon-color: var(--color-info-fg);
+  --panel-utility-icon-color: var(--color-text-muted);
+  --panel-utility-icon-hover-color: var(--color-text-secondary);
 
   /* Card tokens */
   --color-card-bg: var(--color-surface);
@@ -166,11 +171,31 @@
   --card-action-icon-hover-border: var(--color-border-default);
   --card-action-icon-edit-color: var(--field-text-color);
   --card-action-icon-delete-color: var(--color-danger);
+  --badge-purple-bg: #E9E2FF;
+  --badge-purple-color: #4C2FBD;
+  --badge-cobalt-bg: #DBEAFE;
+  --badge-cobalt-color: #1D4ED8;
+  --badge-teal-bg: #CCFBF1;
+  --badge-teal-color: #0F6B62;
+  --badge-emerald-bg: #D1FAE5;
+  --badge-emerald-color: #065F46;
+  --badge-rose-bg: #FCE7F3;
+  --badge-rose-color: #9D174D;
+  --badge-amber-bg: #FEF0C0;
+  --badge-amber-color: #973C00;
+  --badge-slate-bg: #F1F5F9;
+  --badge-slate-color: #334155;
+  --badge-cyan-bg: #CFFAFE;
+  --badge-cyan-color: #0E7490;
+  --badge-orange-bg: #FFEDD5;
+  --badge-orange-color: #973C00;
+  --badge-red-bg: #FEF2F2;
+  --badge-red-color: #991B1B;
 
   /* Record row tokens */
   --record-row-border-color: var(--color-divider);
   --record-row-hover-bg: var(--color-surface);
-  --record-row-selected-bg: #F3EEFF;
+  --record-row-selected-bg: #FAF8FF;
   --record-row-hover-rail-color: var(--color-accent);
   --record-row-padding-y: 10px;
   --record-row-padding-right: 18px;
@@ -196,8 +221,8 @@
   --record-row-action-icon-edit-color: var(--field-text-color);
   --record-row-action-icon-delete-color: var(--color-danger);
   --record-row-status-font-weight: 600;
-  --record-row-status-waived-bg: #FFFBF5;
-  --record-row-status-waived-color: #92400E;
+  --record-row-status-waived-bg: #DBEAFE;
+  --record-row-status-waived-color: #1D4ED8;
   --record-row-status-waived-row-color: #7C4A03;
   --record-row-status-waived-badge-bg: #FEF3C7;
   --record-row-status-waived-badge-color: #7C4A03;
@@ -231,10 +256,18 @@
   --section-meta-font-size: 13px;
   --section-meta-line-height: 18px;
   --section-meta-color: var(--color-text-helper);
-  --section-rail-slate: #CBD5E1;
+  --section-utility-icon-color: var(--color-text-muted);
+  --section-utility-icon-hover-color: var(--color-text-secondary);
+  --section-utility-hover-bg: #EEF2F7;
+  --section-utility-hover-border: var(--color-border-default);
+  --section-rail-slate: #5A6470;
+  --section-rail-violet: #7C5CFF;
+  --section-rail-indigo: #4F46E5;
   --section-rail-blue: #2563EB;
   --section-rail-cyan: #0891B2;
+  --section-rail-teal: #0F6B62;
   --section-rail-emerald: #059669;
-  --section-rail-amber: #D97706;
+  --section-rail-amber: #EA580C;
   --section-rail-orange: #EA580C;
+  --section-rail-rose: #E11D48;
 }

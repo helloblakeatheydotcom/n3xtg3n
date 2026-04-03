@@ -270,27 +270,31 @@
               </div>
 
               <div class="demo-cell demo-cell--input">
-                <div class="field-body is-disabled is-alert">
+                <div class="field-body is-disabled is-managed-required">
                   <label class="field-label" for="state-alert">
-                    Student Name<span class="required-asterisk">*</span>
-                    <span class="readonly">(read only)</span>
+                    Primary Disability<span class="required-asterisk">*</span>
+                    <span class="readonly">(managed in the Eligibility page)</span>
                   </label>
                   <div class="field-input-wrapper">
                     <input id="state-alert" type="text" class="field-input" readonly />
-                    <svg class="field-icon-alert" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0Z" />
-                      <path d="M12 9v4" />
-                      <path d="M12 17h.01" />
-                    </svg>
                     <svg class="field-icon-lock" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                       <path d="M17 11V7a5 5 0 0 0-10 0v4H5a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7a2 2 0 0 0-2-2h-2zm-8-4a3 3 0 0 1 6 0v4H9V7z"/>
                     </svg>
                   </div>
                   <div class="field-helper-slot">
-                    <p class="field-helper">Required value is missing and cannot be entered here because the field is read only.</p>
+                    <div class="field-error">Primary Disability is required.</div>
+                    <span class="field-error-linkline">
+                      <a class="field-error-link" href="#">
+                        <span>Update in the Eligibility page</span>
+                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M5 12h14" />
+                          <path d="m13 5 7 7-7 7" />
+                        </svg>
+                      </a>
+                    </span>
                   </div>
                 </div>
-                <div class="field-caption">Alert (view only)</div>
+                <div class="field-caption">Required and Disabled (view only)</div>
               </div>
             </div>
           </section>
@@ -631,7 +635,7 @@
                   <div class="docs-part-item"><strong>Input control</strong><p>The primary interactive region for text entry, selection, or choice input, including placeholder text when no value has been entered.</p></div>
                   <div class="docs-part-item"><strong>Helper text</strong><p>Optional; gives supporting guidance before an error is introduced.</p></div>
                   <div class="docs-part-item"><strong>Error message</strong><p>Optional; appears when validation fails, replaces helper text, and should clearly explain what needs correction.</p></div>
-                  <div class="docs-part-item"><strong>Read-only alert state</strong><p>Optional; communicates that a required value is missing but cannot be entered in the current context.</p></div>
+                  <div class="docs-part-item"><strong>Required and disabled state</strong><p>Optional; communicates that a required value is missing but must be managed in another part of the workflow.</p></div>
                   <div class="docs-part-item"><strong>Choice options</strong><p>For checkbox and radio groups, helper text sits above the options and each option includes a control, label, and optional description.</p></div>
                 </div>
               </div>
@@ -665,7 +669,7 @@
                 <li>Required and optional indicators</li>
                 <li>Placeholder text</li>
                 <li>Descriptions inside checkbox or radio options</li>
-                <li>View-only icons and read-only alert states</li>
+                <li>View-only icons and required-and-disabled states</li>
               </ul>
             </article>
           </div>
@@ -703,7 +707,7 @@
                 <li>Hover applies a tinted background and accent border for standard entry controls.</li>
                 <li>Focus increases border emphasis and should preserve clear contrast.</li>
                 <li>Error states use the danger border and replace helper text with the error message.</li>
-                <li>Read-only alert states use a softer warning palette that stays distinct from editable error states.</li>
+                <li>Required-and-disabled states keep a disabled field surface while using an error border and linked follow-up action.</li>
                 <li>Interactive demos may validate on blur and update live while correcting errors.</li>
               </ul>
             </article>
@@ -714,7 +718,7 @@
                 <li>Use semantic label associations for all text-entry controls.</li>
                 <li>Required fields should announce validation errors with `aria-invalid` and live error text where appropriate.</li>
                 <li>Checkbox and radio groups should remain keyboard accessible and preserve visible focus states.</li>
-                <li>Read-only alert states should signal missing required information without using the same treatment as an editable error state.</li>
+                <li>Required-and-disabled states should signal missing required information while directing the user to the page where the value can be updated.</li>
                 <li>Placeholder text should remain legible but visually secondary to entered values.</li>
               </ul>
             </article>
@@ -750,6 +754,25 @@
             </article>
 
             <article class="docs-card docs-token-card">
+              <h3 class="docs-card-title">Input Layout</h3>
+              <p class="docs-card-caption">Structural spacing and icon offsets for text-entry fields and their supporting regions.</p>
+              <table class="docs-token-table">
+                <thead>
+                  <tr><th>Role</th><th>Token</th><th>Value</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>Field max width</td><td><code>.field-body</code></td><td>360px</td></tr>
+                  <tr><td>Label bottom spacing</td><td><code>.field-label</code></td><td>8px</td></tr>
+                  <tr><td>Helper slot top spacing</td><td><code>.field-helper-slot</code></td><td>4px</td></tr>
+                  <tr><td>Helper slot minimum height</td><td><code>.field-helper-slot</code></td><td>20px</td></tr>
+                  <tr><td>Default icon inset</td><td><code>.field-icon-lock</code></td><td>10px from right</td></tr>
+                  <tr><td>Alert icon inset</td><td><code>.field-icon-alert</code></td><td>32px from right</td></tr>
+                  <tr><td>Managed-required right padding</td><td><code>.is-managed-required .field-input</code></td><td>32px</td></tr>
+                </tbody>
+              </table>
+            </article>
+
+            <article class="docs-card docs-token-card">
               <h3 class="docs-card-title">Typography</h3>
               <p class="docs-card-caption">Label, helper, and field text tokens.</p>
               <table class="docs-token-table">
@@ -760,11 +783,12 @@
                   <tr><td>Label color</td><td><code>--field-label-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#111827"></span>#111827</span></td></tr>
                   <tr><td>Helper color</td><td><code>--field-helper-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#6B7280"></span>#6B7280</span></td></tr>
                   <tr><td>Field text color</td><td><code>--field-text-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#374151"></span>#374151</span></td></tr>
-                  <tr><td>Disabled icon color</td><td><code>--color-disabled-icon</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#6B7280"></span>#6B7280</span></td></tr>
                   <tr><td>Label weight</td><td><code>.field-label</code></td><td>600</td></tr>
                   <tr><td>Field text weight</td><td><code>.field-input</code></td><td>400</td></tr>
-                  <tr><td>Placeholder color</td><td><code>.field-input::placeholder</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#9CA3AF"></span>#9CA3AF</span></td></tr>
+                  <tr><td>Error text weight</td><td><code>.field-error</code></td><td>500</td></tr>
+                  <tr><td>Placeholder color</td><td><code>--color-placeholder</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#9CA3AF"></span>#9CA3AF</span></td></tr>
                   <tr><td>Error color</td><td><code>--field-error-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#EE031D"></span>#EE031D</span></td></tr>
+                  <tr><td>Error link color</td><td><code>--field-error-link-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#1E40AF"></span>#1E40AF</span></td></tr>
                 </tbody>
               </table>
             </article>
@@ -777,10 +801,27 @@
                   <tr><th>Role</th><th>Token</th><th>Value</th></tr>
                 </thead>
                 <tbody>
-                  <tr><td>Disabled border</td><td><code>--color-disabled-border</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#D1D5DB"></span>#D1D5DB</span></td></tr>
-                  <tr><td>Disabled background</td><td><code>--color-disabled-bg</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#F2F2F2"></span>#F2F2F2</span></td></tr>
-                  <tr><td>Disabled text</td><td><code>--color-disabled-text</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#6B7280"></span>#6B7280</span></td></tr>
+                  <tr><td>Disabled border</td><td><code>.is-disabled .field-input</code></td><td>none</td></tr>
+                  <tr><td>Disabled background</td><td><code>--color-disabled-bg</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#F9FAFB"></span>#F9FAFB</span></td></tr>
+                  <tr><td>Disabled text</td><td><code>--color-disabled-text</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#4B5563"></span>#4B5563</span></td></tr>
                   <tr><td>Disabled icon</td><td><code>--color-disabled-icon</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#6B7280"></span>#6B7280</span></td></tr>
+                </tbody>
+              </table>
+            </article>
+
+            <article class="docs-card docs-token-card">
+              <h3 class="docs-card-title">Required and Disabled State</h3>
+              <p class="docs-card-caption">Formatting used for required values that are visible here but managed on another page.</p>
+              <table class="docs-token-table">
+                <thead>
+                  <tr><th>Role</th><th>Token</th><th>Value</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>Field background</td><td><code>--color-disabled-bg</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#F9FAFB"></span>#F9FAFB</span></td></tr>
+                  <tr><td>Field border</td><td><code>--color-danger</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#EE031D"></span>#EE031D</span></td></tr>
+                  <tr><td>Field icon</td><td><code>--color-disabled-icon</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#6B7280"></span>#6B7280</span></td></tr>
+                  <tr><td>Error text</td><td><code>--field-error-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#EE031D"></span>#EE031D</span></td></tr>
+                  <tr><td>Action link</td><td><code>--field-error-link-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#1E40AF"></span>#1E40AF</span></td></tr>
                 </tbody>
               </table>
             </article>
@@ -821,7 +862,7 @@
             </article>
 
             <article class="docs-card docs-token-card">
-              <h3 class="docs-card-title">Layout</h3>
+              <h3 class="docs-card-title">Choice Controls Layout</h3>
               <p class="docs-card-caption">Choice-group layout offsets and supporting system spacing.</p>
               <table class="docs-token-table">
                 <thead>
@@ -835,21 +876,6 @@
               </table>
             </article>
 
-            <article class="docs-card docs-token-card">
-              <h3 class="docs-card-title">Read-Only Alert</h3>
-              <p class="docs-card-caption">Tokens used by the softer read-only alert treatment for required-but-locked fields.</p>
-              <table class="docs-token-table">
-                <thead>
-                  <tr><th>Role</th><th>Token</th><th>Value</th></tr>
-                </thead>
-                <tbody>
-                  <tr><td>Alert background</td><td><code>--color-alert-bg</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#FFF8EC"></span>#FFF8EC</span></td></tr>
-                  <tr><td>Alert border</td><td><code>--color-alert-border</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#E8D7A8"></span>#E8D7A8</span></td></tr>
-                  <tr><td>Alert text</td><td><code>--color-alert-icon</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#B7791F"></span>#B7791F</span></td></tr>
-                  <tr><td>Alert icon</td><td><code>--color-alert-icon</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#B7791F"></span>#B7791F</span></td></tr>
-                </tbody>
-              </table>
-            </article>
           </div>
         </section>
       </div>

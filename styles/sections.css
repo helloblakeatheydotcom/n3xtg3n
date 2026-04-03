@@ -33,8 +33,20 @@
   --section-rail-color: var(--section-rail-blue);
 }
 
+.section-component--rail-violet {
+  --section-rail-color: var(--section-rail-violet);
+}
+
+.section-component--rail-indigo {
+  --section-rail-color: var(--section-rail-indigo);
+}
+
 .section-component--rail-cyan {
   --section-rail-color: var(--section-rail-cyan);
+}
+
+.section-component--rail-teal {
+  --section-rail-color: var(--section-rail-teal);
 }
 
 .section-component--rail-emerald {
@@ -47,6 +59,10 @@
 
 .section-component--rail-orange {
   --section-rail-color: var(--section-rail-orange);
+}
+
+.section-component--rail-rose {
+  --section-rail-color: var(--section-rail-rose);
 }
 
 .section-toggle,
@@ -71,9 +87,9 @@
   background: var(--section-header-hover-bg);
 }
 
-.section-toggle:hover .section-chevron,
+.section-chevron:hover,
 .section-toggle:focus-visible .section-chevron {
-  color: #4B5563;
+  color: var(--section-utility-icon-hover-color);
 }
 
 .section-header {
@@ -108,11 +124,21 @@
 }
 
 .section-chevron {
-  width: 14px;
-  height: 7px;
+  width: 20px;
+  height: 20px;
   flex: none;
-  color: #5A6470;
-  transition: transform 0.16s ease;
+  padding: 6px;
+  box-sizing: content-box;
+  border: 1px solid transparent;
+  border-radius: var(--radius-field);
+  color: var(--section-utility-icon-color);
+  transition: transform 0.16s ease, background-color 0.16s ease, border-color 0.16s ease, color 0.16s ease;
+}
+
+.section-chevron:hover,
+.section-toggle:focus-visible .section-chevron {
+  background: var(--section-utility-hover-bg);
+  border-color: var(--section-utility-hover-border);
 }
 
 .section-toggle[aria-expanded="false"] .section-chevron {

@@ -196,7 +196,7 @@
   align-items: center;
   justify-content: center;
   border-radius: var(--radius-field);
-  color: #5A6470;
+  color: var(--panel-utility-icon-color);
   opacity: 1;
 }
 
@@ -206,7 +206,7 @@
 .panel-toggle:focus-visible {
   background: var(--card-action-icon-hover-bg);
   border-color: var(--color-border-default);
-  color: #4B5563;
+  color: var(--panel-utility-icon-hover-color);
   outline: none;
 }
 
@@ -275,15 +275,15 @@
 }
 
 .panel-chevron {
-  width: 14px;
-  height: 7px;
-  transform: translateY(1px) rotate(0deg);
+  width: 20px;
+  height: 20px;
+  transform: rotate(0deg);
   transform-origin: center;
   transition: transform 0.16s ease;
 }
 
 .panel-toggle[aria-expanded="false"] .panel-chevron {
-  transform: translateY(1px) rotate(-90deg);
+  transform: rotate(-90deg);
 }
 
 .panel-body {

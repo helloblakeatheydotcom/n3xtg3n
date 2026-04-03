@@ -945,9 +945,16 @@
 
 .record-row-anatomy-top {
   display: grid;
-  grid-template-columns: auto auto auto 1fr;
+  grid-template-columns: auto minmax(0, 1fr) auto;
   align-items: center;
   gap: 8px;
+}
+
+.record-row-anatomy-metahead {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
 }
 
 .record-row-anatomy-checkbox {
@@ -980,6 +987,38 @@
   line-height: 1;
 }
 
+.record-row-anatomy-status-divider {
+  width: 1px;
+  height: 12px;
+  background: rgba(156, 163, 175, 0.75);
+  flex: none;
+}
+
+.record-row-anatomy-status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  min-height: 20px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: #F3F4F6;
+  color: #4B5563;
+  box-shadow: inset 0 0 0 1px currentColor;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.record-row-anatomy-status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: currentColor;
+  flex: none;
+}
+
 .record-row-anatomy-actions {
   justify-self: end;
   font-size: 13px;
@@ -1004,10 +1043,10 @@
 }
 
 .record-row-anatomy-divider {
-  height: 1px;
+  height: 0;
   margin-top: 6px;
-  background: var(--color-border-strong);
-  opacity: 0.8;
+  border-top: 1px dashed var(--color-border-strong);
+  opacity: 0.9;
 }
 
 .record-row-anatomy-meta {
