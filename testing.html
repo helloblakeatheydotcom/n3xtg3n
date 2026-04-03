@@ -46,6 +46,130 @@
       line-height: 20px;
     }
 
+    .draft-button-stack {
+      display: grid;
+      gap: var(--space-4);
+    }
+
+    .draft-button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .draft-button-note {
+      margin: 0;
+      color: var(--color-text-secondary);
+      font-size: 13px;
+      line-height: 18px;
+    }
+
+    .draft-button-link {
+      color: #5B42C4;
+    }
+
+    .draft-button-link:hover,
+    .draft-button-link:focus-visible {
+      color: #5B42C4;
+      background: #F3EEFF;
+      border-color: #AFA7FF;
+    }
+
+    .draft-button-blue-primary {
+      background: #1D4ED8;
+      border-color: #1D4ED8;
+    }
+
+    .draft-button-blue-primary:hover,
+    .draft-button-blue-primary:focus-visible {
+      background: #1E40AF;
+      border-color: #1E40AF;
+    }
+
+    .draft-button-blue-link {
+      color: #1D4ED8;
+    }
+
+    .draft-button-blue-link:hover,
+    .draft-button-blue-link:focus-visible {
+      color: #1D4ED8;
+      background: #EFF6FF;
+      border-color: #BFDBFE;
+    }
+
+    .draft-button-emerald-primary {
+      background: #059669;
+      border-color: #059669;
+    }
+
+    .draft-button-emerald-primary:hover,
+    .draft-button-emerald-primary:focus-visible {
+      background: #047857;
+      border-color: #047857;
+    }
+
+    .draft-button-red-primary {
+      background: #EE031D;
+      border-color: #EE031D;
+    }
+
+    .draft-button-red-primary:hover,
+    .draft-button-red-primary:focus-visible {
+      background: #DC2626;
+      border-color: #DC2626;
+    }
+
+    .draft-button-emerald-link {
+      color: #059669;
+    }
+
+    .draft-button-emerald-link:hover,
+    .draft-button-emerald-link:focus-visible {
+      color: #059669;
+      background: #ECFDF5;
+      border-color: #A7F3D0;
+    }
+
+    .draft-button-purple-secondary {
+      color: #5B42C4;
+      background: #FAF8FF;
+      border-color: #C7C2FF;
+    }
+
+    .draft-button-purple-secondary:hover,
+    .draft-button-purple-secondary:focus-visible {
+      color: #4C2FBD;
+      background: #F3EEFF;
+      border-color: #AFA7FF;
+    }
+
+    .draft-button-blue-secondary {
+      color: #1D4ED8;
+      background: #EFF6FF;
+      border-color: #BFDBFE;
+    }
+
+    .draft-button-blue-secondary:hover,
+    .draft-button-blue-secondary:focus-visible {
+      color: #1E40AF;
+      background: #DBEAFE;
+      border-color: #93C5FD;
+    }
+
+    .draft-button-neutral-fill {
+      color: #374151;
+      background: #F3F4F6;
+      border-color: transparent;
+    }
+
+    .draft-button-neutral-fill:hover,
+    .draft-button-neutral-fill:focus-visible {
+      color: #111827;
+      background: #E5E7EB;
+      border-color: transparent;
+    }
+
     .draft-plp-panel .panel-toggle,
     .draft-plp-panel .panel-menu-toggle,
     .draft-plp-panel .draft-subsection--reading .panel-chevron {
@@ -243,7 +367,6 @@
       border-color: #059669;
       border-width: 2px;
       background: #FFFFFF;
-      box-shadow: 0 10px 24px rgba(6, 95, 70, 0.08), 0 2px 6px rgba(6, 95, 70, 0.05);
     }
 
     .draft-notice--success .draft-notice-icon {
@@ -334,6 +457,223 @@
     #draft-standard-panel-content .field-select {
       color: #374151;
       font-weight: 500;
+    }
+
+    #draft-standard-panel-content .draft-notice {
+      padding: 12px 14px;
+      gap: 12px;
+      align-items: start;
+      border-width: 1px;
+      background: #EFF6FF;
+      border-color: #BFDBFE;
+    }
+
+    #draft-standard-panel-content .draft-notice-title {
+      font-size: 14px;
+      line-height: 20px;
+    }
+
+    #draft-standard-panel-content .draft-notice-content {
+      gap: 0;
+    }
+
+    #draft-standard-panel-content .draft-notice:has(.draft-notice-title) {
+      align-items: start;
+    }
+
+    #draft-standard-panel-content .draft-notice:has(.draft-notice-title) .draft-notice-content {
+      gap: 4px;
+    }
+
+    #draft-standard-panel-content .draft-notice:has(.draft-notice-title) .draft-notice-icon {
+      margin-top: 2px;
+    }
+
+    #draft-standard-panel-content .draft-notice + .draft-notice {
+      margin-top: 32px;
+    }
+
+    #draft-standard-panel-content .draft-notice-group {
+      display: grid;
+      gap: 32px;
+    }
+
+    #draft-standard-panel-content .draft-notice-group + .draft-notice-group {
+      margin-top: 40px;
+    }
+
+    #draft-standard-panel-content .draft-notice-group .draft-notice + .draft-notice {
+      margin-top: 0;
+    }
+
+    #draft-standard-panel-content .draft-notice .draft-notice-text {
+      font-size: 13px;
+      line-height: 18px;
+    }
+
+    #draft-standard-panel-content .draft-notice--info .draft-notice-text {
+      color: #1D4ED8;
+    }
+
+    #draft-standard-panel-content .draft-notice--info .draft-notice-icon {
+      color: #1D4ED8;
+      width: 16px;
+      height: 16px;
+    }
+
+    #draft-standard-panel-content .draft-notice--info .draft-notice-icon svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    #draft-standard-panel-content .draft-notice--success {
+      background: #ECFDF5;
+      border-color: #A7F3D0;
+      align-items: center;
+    }
+
+    #draft-standard-panel-content .draft-notice--success .draft-notice-text {
+      color: #047857;
+    }
+
+    #draft-standard-panel-content .draft-notice--success .draft-notice-icon {
+      color: #047857;
+      width: 16px;
+      height: 16px;
+    }
+
+    #draft-standard-panel-content .draft-notice--success .draft-notice-icon svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    #draft-standard-panel-content .draft-notice--warning {
+      background: #FFF7ED;
+      border-color: #FED7AA;
+      align-items: center;
+    }
+
+    #draft-standard-panel-content .draft-notice--rail {
+      border-color: transparent;
+      border-left-width: 4px;
+      border-left-style: solid;
+      border-radius: 0 6px 6px 0;
+    }
+
+    #draft-standard-panel-content .draft-notice--info-rail {
+      background: #EFF6FF;
+      border-left-color: #1D4ED8;
+      align-items: start;
+    }
+
+    #draft-standard-panel-content .draft-notice--info-rail .draft-notice-title,
+    #draft-standard-panel-content .draft-notice--info-rail .draft-notice-text,
+    #draft-standard-panel-content .draft-notice--info-rail .draft-notice-icon {
+      color: #1D4ED8;
+    }
+
+    #draft-standard-panel-content .draft-notice--info-rail .draft-notice-icon,
+    #draft-standard-panel-content .draft-notice--success-rail .draft-notice-icon,
+    #draft-standard-panel-content .draft-notice--warning-rail .draft-notice-icon,
+    #draft-standard-panel-content .draft-notice--error-rail .draft-notice-icon {
+      width: 16px;
+      height: 16px;
+    }
+
+    #draft-standard-panel-content .draft-notice--info-rail .draft-notice-icon svg,
+    #draft-standard-panel-content .draft-notice--success-rail .draft-notice-icon svg,
+    #draft-standard-panel-content .draft-notice--warning-rail .draft-notice-icon svg,
+    #draft-standard-panel-content .draft-notice--error-rail .draft-notice-icon svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    #draft-standard-panel-content .draft-notice--success-rail {
+      background: #ECFDF5;
+      border-left-color: #047857;
+      align-items: start;
+    }
+
+    #draft-standard-panel-content .draft-notice--success-rail .draft-notice-title,
+    #draft-standard-panel-content .draft-notice--success-rail .draft-notice-text,
+    #draft-standard-panel-content .draft-notice--success-rail .draft-notice-icon {
+      color: #047857;
+    }
+
+    #draft-standard-panel-content .draft-notice--warning-rail {
+      background: #FFF7ED;
+      border-left-color: #F97316;
+      align-items: start;
+    }
+
+    #draft-standard-panel-content .draft-notice--warning-rail .draft-notice-title,
+    #draft-standard-panel-content .draft-notice--warning-rail .draft-notice-text {
+      color: #9A3412;
+    }
+
+    #draft-standard-panel-content .draft-notice--warning-rail .draft-notice-icon {
+      color: #F97316;
+    }
+
+    #draft-standard-panel-content .draft-notice--error-rail {
+      background: #FFF9FA;
+      border-left-color: #DC2626;
+      align-items: start;
+    }
+
+    #draft-standard-panel-content .draft-notice--error-rail .draft-notice-title,
+    #draft-standard-panel-content .draft-notice--error-rail .draft-notice-text,
+    #draft-standard-panel-content .draft-notice--error-rail .draft-notice-icon {
+      color: #DC2626;
+    }
+
+    #draft-standard-panel-content .draft-notice--warning .draft-notice-text {
+      color: #9A3412;
+    }
+
+    #draft-standard-panel-content .draft-notice--warning .draft-notice-title {
+      color: #9A3412;
+    }
+
+    #draft-standard-panel-content .draft-notice--warning .draft-notice-icon {
+      color: #F97316;
+      width: 16px;
+      height: 16px;
+    }
+
+    #draft-standard-panel-content .draft-notice--warning .draft-notice-icon svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    #draft-standard-panel-content .draft-notice--error {
+      background: #FFF9FA;
+      border-color: #FECACA;
+      align-items: center;
+    }
+
+    #draft-standard-panel-content .draft-notice--error .draft-notice-text {
+      color: #DC2626;
+    }
+
+    #draft-standard-panel-content .draft-notice--error .draft-notice-title {
+      display: block;
+      margin: 0;
+      color: #DC2626;
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 20px;
+    }
+
+    #draft-standard-panel-content .draft-notice--error .draft-notice-icon {
+      color: #DC2626;
+      width: 16px;
+      height: 16px;
+    }
+
+    #draft-standard-panel-content .draft-notice--error .draft-notice-icon svg {
+      width: 16px;
+      height: 16px;
     }
 
     .draft-plp-panel .choice-label {
@@ -1170,20 +1510,19 @@
   </header>
 
   <main class="draft-components">
-    <article class="panel" data-collapsible-panel data-panel-id="draft-notices">
+    <article class="panel" data-collapsible-panel data-panel-id="draft-buttons">
       <header class="panel-header">
         <div class="panel-left">
           <span class="panel-icon panel-icon--square" aria-hidden="true">
             <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
-              <path d="M4 6h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-              <path d="M4 12h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-              <path d="M4 18h10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+              <rect x="4" y="7" width="16" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="2" />
+              <path d="M9 12h6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
             </svg>
           </span>
-          <h2 class="panel-title">Notes and Alerts</h2>
+          <h2 class="panel-title">Buttons</h2>
         </div>
 
-        <button class="panel-toggle" type="button" aria-expanded="true" aria-controls="draft-notices-content">
+        <button class="panel-toggle" type="button" aria-expanded="true" aria-controls="draft-buttons-content">
           <span class="sr-only">Collapse section</span>
           <svg class="panel-chevron" viewBox="0 0 24 24" focusable="false" aria-hidden="true">
             <path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
@@ -1191,81 +1530,34 @@
         </button>
       </header>
 
-      <div id="draft-notices-content" class="panel-content" role="region" aria-label="Notes and alerts content">
+      <div id="draft-buttons-content" class="panel-content" role="region" aria-label="Buttons content">
         <div class="panel-body">
-          <div class="draft-notice-stack" aria-label="Draft notices">
-            <section class="draft-notice draft-notice--info" aria-label="Info notice">
-              <span class="draft-notice-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="10"></circle>
-                  <path d="M12 16v-5"></path>
-                  <path d="M12 8h.01"></path>
-                </svg>
-              </span>
-              <div class="draft-notice-content">
-                <h3 class="draft-notice-title">Info</h3>
-                <p class="draft-notice-text">Use this notice for contextual guidance, reminders, or workflow details that help the user understand what to do next.</p>
-                <div class="draft-notice-disclosure">
-                  <button class="draft-notice-toggle" type="button" aria-expanded="false" aria-controls="draft-info-notice-details" data-notice-toggle>
-                    <span class="draft-notice-toggle-label">Show details</span>
-                    <svg viewBox="0 0 14 7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                      <path d="M1 1 7 6 13 1"></path>
-                    </svg>
-                  </button>
-                  <div id="draft-info-notice-details" class="draft-notice-details" hidden>
-                    <p class="draft-notice-text">This option works well when the notice needs policy detail, implementation notes, or additional instructional guidance that should stay hidden until the user asks for it.</p>
-                    <p class="draft-notice-text">Keep the expanded content concise and directly related to the notice so it supports the task without becoming a full documentation block.</p>
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            <section class="draft-notice draft-notice--warning" aria-label="Warning notice">
-              <span class="draft-notice-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="m21.73 18-8-14a2 2 0 0 0-3.46 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"></path>
-                  <path d="M12 9v5"></path>
-                  <path d="M12 17h.01"></path>
-                </svg>
-              </span>
-              <div class="draft-notice-content">
-                <h3 class="draft-notice-title">Warning</h3>
-                <p class="draft-notice-text">Use this notice when information may be incomplete or needs attention soon, but the user can still continue within the current workflow.</p>
-              </div>
-            </section>
-
-            <section class="draft-notice draft-notice--success" aria-label="Success notice">
-              <span class="draft-notice-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="10"></circle>
-                  <path d="m9 12 2 2 4-4"></path>
-                </svg>
-              </span>
-              <div class="draft-notice-content">
-                <h3 class="draft-notice-title">Success</h3>
-                <p class="draft-notice-text">Use this notice for inline confirmation that a local action or supporting step completed successfully without requiring a page-level message.</p>
-              </div>
-            </section>
-
-            <section class="draft-notice draft-notice--error" aria-label="Error notice">
-              <span class="draft-notice-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="10"></circle>
-                  <path d="m9 9 6 6"></path>
-                  <path d="m15 9-6 6"></path>
-                </svg>
-              </span>
-              <div class="draft-notice-content">
-                <h3 class="draft-notice-title">Error</h3>
-                <p class="draft-notice-text">Use this notice when the user must correct or resolve a problem within the panel before the task can be completed successfully.</p>
-              </div>
-            </section>
+          <div class="draft-button-stack">
+            <p class="draft-button-note">Testing shared button directions before they move into a dedicated button component page.</p>
+            <div class="draft-button-row" aria-label="Primary button comparison">
+              <button class="card-button" type="button">Purple Primary</button>
+              <button class="card-button draft-button-blue-primary" type="button">Blue Primary</button>
+              <button class="card-button draft-button-emerald-primary" type="button">Emerald Primary</button>
+              <button class="card-button draft-button-red-primary" type="button">Destructive</button>
+            </div>
+            <div class="draft-button-row" aria-label="Link button comparison">
+              <button class="panel-link-button draft-button-link" type="button">Purple Link</button>
+              <button class="panel-link-button draft-button-blue-link" type="button">Blue Link</button>
+              <button class="panel-link-button draft-button-emerald-link" type="button">Emerald Link</button>
+            </div>
+            <div class="draft-button-row" aria-label="Demoted secondary button comparison">
+              <button class="card-button card-button--secondary" type="button">Neutral Secondary</button>
+              <button class="card-button card-button--secondary draft-button-neutral-fill" type="button">Neutral Filled</button>
+              <button class="card-button card-button--secondary draft-button-purple-secondary" type="button">Purple Secondary</button>
+              <button class="card-button card-button--secondary draft-button-blue-secondary" type="button">Blue Secondary</button>
+            </div>
           </div>
         </div>
       </div>
     </article>
 
-    <article class="panel draft-plp-panel" data-collapsible-panel data-panel-id="draft-present-levels">
+
+    <article class="panel draft-plp-panel" data-collapsible-panel data-panel-id="draft-present-levels" hidden>
       <header class="panel-header">
         <div class="panel-left">
           <span class="panel-icon panel-icon--square" aria-hidden="true">
@@ -1753,7 +2045,7 @@
       </div>
     </article>
 
-    <article class="panel draft-record-panel" data-collapsible-panel data-panel-id="draft-assessment-results">
+    <article class="panel draft-record-panel" data-collapsible-panel data-panel-id="draft-assessment-results" hidden>
       <header class="panel-header">
         <div class="panel-left">
           <span class="panel-icon panel-icon--square" aria-hidden="true">
@@ -1892,7 +2184,7 @@
       </div>
     </article>
 
-    <article class="panel draft-record-panel draft-related-services-panel" data-collapsible-panel data-panel-id="draft-related-services-panel">
+    <article class="panel draft-record-panel draft-related-services-panel" data-collapsible-panel data-panel-id="draft-related-services-panel" hidden>
       <header class="panel-header">
         <div class="panel-left">
           <span class="panel-icon panel-icon--square" aria-hidden="true">
@@ -2159,7 +2451,113 @@
 
       <div id="draft-standard-panel-content" class="panel-content" role="region" aria-label="Standard panel content">
         <div class="panel-body">
-          <form class="panel-form" aria-label="Special education services fields">
+          <div class="draft-notice-group" aria-label="Standard notice comparison">
+            <section class="draft-notice draft-notice--info" aria-label="Special education services info">
+              <span class="draft-notice-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <path d="M12 16v-5"></path>
+                  <path d="M12 8h.01"></path>
+                </svg>
+              </span>
+              <div class="draft-notice-content">
+                <h3 class="draft-notice-title">Document the student's special education services</h3>
+                <p class="draft-notice-text">Include service type, delivery details, and the staff responsible for implementing.</p>
+              </div>
+            </section>
+            <section class="draft-notice draft-notice--success" aria-label="Special education services success">
+              <span class="draft-notice-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <path d="m9 12 2 2 4-4"></path>
+                </svg>
+              </span>
+              <div class="draft-notice-content">
+                <h3 class="draft-notice-title">Service details were saved successfully.</h3>
+                <p class="draft-notice-text">Review the selections below and continue when you are ready.</p>
+              </div>
+            </section>
+            <section class="draft-notice draft-notice--warning" aria-label="Special education services warning">
+              <span class="draft-notice-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="m21.73 18-8-14a2 2 0 0 0-3.46 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"></path>
+                  <path d="M12 9v5"></path>
+                  <path d="M12 17h.01"></path>
+                </svg>
+              </span>
+              <div class="draft-notice-content">
+                <h3 class="draft-notice-title">Service dates are incomplete.</h3>
+                <p class="draft-notice-text">Please add service dates to all services before you create the final document.</p>
+              </div>
+            </section>
+            <section class="draft-notice draft-notice--error" aria-label="Special education services error">
+              <span class="draft-notice-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <path d="m9 9 6 6"></path>
+                  <path d="m15 9-6 6"></path>
+                </svg>
+              </span>
+              <div class="draft-notice-content">
+                <h3 class="draft-notice-title">Required service details are missing</h3>
+                <p class="draft-notice-text">Add the missing information before this section can be completed.</p>
+              </div>
+            </section>
+          </div>
+          <div class="draft-notice-group" aria-label="Warning treatment comparison">
+            <section class="draft-notice draft-notice--rail draft-notice--info-rail" aria-label="Info notice in warning treatment">
+              <span class="draft-notice-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <path d="M12 16v-5"></path>
+                  <path d="M12 8h.01"></path>
+                </svg>
+              </span>
+              <div class="draft-notice-content">
+                <h3 class="draft-notice-title">Document the student's special education services</h3>
+                <p class="draft-notice-text">Include service type, delivery details, and the staff responsible for implementing.</p>
+              </div>
+            </section>
+            <section class="draft-notice draft-notice--rail draft-notice--success-rail" aria-label="Success notice in warning treatment">
+              <span class="draft-notice-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <path d="m9 12 2 2 4-4"></path>
+                </svg>
+              </span>
+              <div class="draft-notice-content">
+                <h3 class="draft-notice-title">Service details were saved successfully.</h3>
+                <p class="draft-notice-text">Review the selections below and continue when you are ready.</p>
+              </div>
+            </section>
+            <section class="draft-notice draft-notice--rail draft-notice--warning-rail" aria-label="Warning notice in warning treatment">
+              <span class="draft-notice-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="m21.73 18-8-14a2 2 0 0 0-3.46 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"></path>
+                  <path d="M12 9v5"></path>
+                  <path d="M12 17h.01"></path>
+                </svg>
+              </span>
+              <div class="draft-notice-content">
+                <h3 class="draft-notice-title">Service dates are incomplete.</h3>
+                <p class="draft-notice-text">Please add service dates to all services before you create the final document.</p>
+              </div>
+            </section>
+            <section class="draft-notice draft-notice--rail draft-notice--error-rail" aria-label="Error notice in warning treatment">
+              <span class="draft-notice-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <path d="m9 9 6 6"></path>
+                  <path d="m15 9-6 6"></path>
+                </svg>
+              </span>
+              <div class="draft-notice-content">
+                <h3 class="draft-notice-title">Required service details are missing</h3>
+                <p class="draft-notice-text">Add the missing information before this section can be completed.</p>
+              </div>
+            </section>
+          </div>
+          <form class="panel-form" aria-label="Special education services fields" style="margin-top: var(--space-6);">
             <div class="draft-field-compare-grid">
               <div class="field-body">
                 <label class="field-label" for="sped-service">Sped Service <span class="draft-optional-slate-600">(Optional)</span></label>
@@ -2226,52 +2624,6 @@
               </div>
             </div>
 
-            <div class="draft-managed-field-grid">
-              <div class="field-body">
-                <label class="field-label" for="readonly-alert-service-1">
-                  Primary Contact<span class="required-asterisk">*</span>
-                  <span class="readonly">(managed in Student Profile)</span>
-                </label>
-                <div class="draft-managed-value" id="readonly-alert-service-1">
-                  <span></span>
-                  <svg class="field-icon-lock" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M17 11V7a5 5 0 0 0-10 0v4H5a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7a2 2 0 0 0-2-2h-2zm-8-4a3 3 0 0 1 6 0v4H9V7z"/>
-                  </svg>
-                </div>
-                <div class="field-helper-slot">
-                  <div class="draft-helper-callout draft-helper-callout--error">
-                    <p class="field-helper">
-                      <span class="draft-helper-lockline">
-                        <span class="draft-helper-lockchip">
-                          <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="m15 9-6 6" />
-                            <path d="m9 9 6 6" />
-                          </svg>
-                        </span>
-                        <span>Primary Contact is required.</span>
-                      </span>
-                      <span class="draft-helper-linkline"><a class="draft-helper-link" href="#">Update it in the Student Profile</a></span>
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="field-body">
-                <label class="field-label" for="readonly-alert-service-2">
-                  Primary Contact<span class="required-asterisk">*</span>
-                  <span class="readonly">(managed in Student Profile)</span>
-                </label>
-                <div class="draft-managed-value draft-managed-value--error" id="readonly-alert-service-2">
-                  <span></span>
-                  <svg class="field-icon-lock" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M17 11V7a5 5 0 0 0-10 0v4H5a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7a2 2 0 0 0-2-2h-2zm-8-4a3 3 0 0 1 6 0v4H9V7z"/>
-                  </svg>
-                </div>
-                <div class="field-helper-slot">
-                  <p class="draft-inline-error">Primary Contact is required.<span class="draft-inline-error-linkline"><a class="draft-helper-link" href="#">Update it in the Student Profile</a></span></p>
-                </div>
-              </div>
-            </div>
           </form>
         </div>
 

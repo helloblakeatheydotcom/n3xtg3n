@@ -48,13 +48,19 @@
   --color-alert-icon: #BB4D00;
 
   /* Inline notices */
-  --notice-bg: #FFFFFF;
-  --notice-body-color: var(--color-text-body);
+  --notice-info-bg: #EFF6FF;
+  --notice-info-border-color: #BFDBFE;
   --notice-info-color: #1D4ED8;
-  --notice-warning-border-color: #F59E0B;
-  --notice-warning-color: #D97706;
-  --notice-success-color: #059669;
-  --notice-error-color: #EE031D;
+  --notice-success-bg: #ECFDF5;
+  --notice-success-border-color: #A7F3D0;
+  --notice-success-color: #047857;
+  --notice-warning-bg: #FFF7ED;
+  --notice-warning-border-color: #FED7AA;
+  --notice-warning-color: #9A3412;
+  --notice-warning-icon-color: #F97316;
+  --notice-error-bg: #FEF2F2;
+  --notice-error-border-color: #FCA5A5;
+  --notice-error-color: #B91C1C;
 
   /* Disabled */
   --color-disabled-border: #D1D5DB;
