@@ -147,26 +147,41 @@
     }
 
     .draft-segmented-control {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      position: relative;
+      display: flex;
       width: 100%;
+      height: 36px;
     }
 
     .draft-segmented-control--flat {
-      border: 1px solid #D9E5FF;
       border-radius: 6px;
-      background: #F7FAFF;
+      background: #EEF2F7;
       overflow: hidden;
+      box-shadow: inset 0 0 0 1px #DDE3EC;
+      transition: box-shadow 0.16s ease, border-color 0.16s ease;
     }
 
     .draft-segmented-control--flat .draft-segmented-option + .draft-segmented-option {
-      border-left: 1px solid #D9E5FF;
+      box-shadow: inset 1px 0 0 #DDE3EC;
     }
+
+    .draft-segmented-control--flat:focus-within {
+      box-shadow: inset 0 0 0 1px #4991F7, 0 0 0 3px rgba(138, 172, 251, 0.45);
+    }
+
+    .draft-segmented-control--flat.is-invalid:not(:focus-within) {
+      box-shadow: inset 0 0 0 1px #DC2626;
+    }
+
     .draft-segmented-option {
       position: relative;
-      display: block;
+      display: flex;
+      flex: 1 1 0;
+      height: 100%;
       min-width: 0;
       cursor: pointer;
+      background: transparent;
+      transition: background-color 0.16s ease, color 0.16s ease;
     }
 
     .draft-segmented-option input {
@@ -179,35 +194,50 @@
 
     .draft-segmented-text {
       display: flex;
+      flex: 1 1 0;
       align-items: center;
       justify-content: center;
-      min-height: 34px;
+      height: 100%;
       padding: 0 16px;
       color: #475467;
       font-size: 14px;
       font-weight: 600;
+      border-radius: 0;
       line-height: 20px;
       text-align: center;
-      transition: background-color 0.16s ease, border-color 0.16s ease, color 0.16s ease, box-shadow 0.16s ease;
+      transition: background-color 0.16s ease, color 0.16s ease;
     }
 
     .draft-segmented-control--flat .draft-segmented-text {
-      background: transparent;
-      color: #5A6470;
+      color: #47505C;
+    }
+
+    .draft-segmented-control--flat .draft-segmented-option:hover {
+      background: #EEF3FF;
     }
 
     .draft-segmented-control--flat .draft-segmented-option:hover .draft-segmented-text {
-      background: #EEF3FF;
       color: #2567F4;
     }
 
-    .draft-segmented-control--flat .draft-segmented-option input:checked + .draft-segmented-text {
+    .draft-segmented-control--flat .draft-segmented-option:has(input:checked) {
       background: #2F5DCC;
+    }
+
+    .draft-segmented-control--flat .draft-segmented-option:has(input:checked) .draft-segmented-text {
       color: #FFFFFF;
     }
 
+    .draft-segmented-control--flat .draft-segmented-option:first-child:has(input:checked) {
+      border-radius: 5px 0 0 5px;
+    }
+
+    .draft-segmented-control--flat .draft-segmented-option:last-child:has(input:checked) {
+      border-radius: 0 5px 5px 0;
+    }
+
     .draft-segmented-control--flat .draft-segmented-option input:focus-visible + .draft-segmented-text {
-      box-shadow: inset 0 0 0 1px #1D55D8;
+      box-shadow: none;
     }
 
     .draft-blue-scale-stack {
@@ -1743,45 +1773,49 @@
           <div class="draft-rail-stack">
             <p class="draft-rail-note">Showing the full rail set side by side on the testing surface.</p>
             <div class="draft-rail-grid" aria-label="Rail variant examples">
-              <div class="draft-rail-chip" style="--rail-color: var(--section-rail-violet);">
-                <p class="draft-rail-name">Purple</p>
-                <p class="draft-rail-token">Violet 600</p>
+              <div class="draft-rail-chip" style="--rail-color:#7C3AED;">
+                <p class="draft-rail-name">Violet</p>
+                <p class="draft-rail-token">#7C3AED</p>
               </div>
-              <div class="draft-rail-chip" style="--rail-color: var(--section-rail-indigo);">
+              <div class="draft-rail-chip" style="--rail-color:#4B61D1;">
                 <p class="draft-rail-name">Indigo</p>
-                <p class="draft-rail-token">Indigo 600</p>
+                <p class="draft-rail-token">#4B61D1</p>
               </div>
-              <div class="draft-rail-chip" style="--rail-color: var(--section-rail-blue);">
+              <div class="draft-rail-chip" style="--rail-color:#2563EB;">
                 <p class="draft-rail-name">Blue</p>
-                <p class="draft-rail-token">Blue 600</p>
+                <p class="draft-rail-token">#2563EB</p>
               </div>
-              <div class="draft-rail-chip" style="--rail-color: var(--section-rail-cyan);">
+              <div class="draft-rail-chip" style="--rail-color:#00B7EB;">
+                <p class="draft-rail-name">Sky Blue</p>
+                <p class="draft-rail-token">#00B7EB</p>
+              </div>
+              <div class="draft-rail-chip" style="--rail-color:#0891B2;">
                 <p class="draft-rail-name">Cyan</p>
-                <p class="draft-rail-token">Cyan 700</p>
+                <p class="draft-rail-token">#0891B2</p>
               </div>
-              <div class="draft-rail-chip" style="--rail-color: var(--section-rail-teal);">
-                <p class="draft-rail-name">Teal</p>
-                <p class="draft-rail-token">Teal 800</p>
+              <div class="draft-rail-chip" style="--rail-color:#43B3AE;">
+                <p class="draft-rail-name">Tropical Teal</p>
+                <p class="draft-rail-token">#43B3AE</p>
               </div>
-              <div class="draft-rail-chip" style="--rail-color: var(--section-rail-emerald);">
+              <div class="draft-rail-chip" style="--rail-color:#059669;">
                 <p class="draft-rail-name">Emerald</p>
-                <p class="draft-rail-token">Emerald 600</p>
+                <p class="draft-rail-token">#059669</p>
               </div>
-              <div class="draft-rail-chip" style="--rail-color: var(--section-rail-amber);">
-                <p class="draft-rail-name">Amber</p>
-                <p class="draft-rail-token">Amber 600</p>
+              <div class="draft-rail-chip" style="--rail-color:#FFBF00;">
+                <p class="draft-rail-name">Amber Gold</p>
+                <p class="draft-rail-token">#FFBF00</p>
               </div>
-              <div class="draft-rail-chip" style="--rail-color: var(--section-rail-orange);">
+              <div class="draft-rail-chip" style="--rail-color:#EA580C;">
                 <p class="draft-rail-name">Orange</p>
-                <p class="draft-rail-token">Orange 600</p>
+                <p class="draft-rail-token">#EA580C</p>
               </div>
-              <div class="draft-rail-chip" style="--rail-color: var(--section-rail-rose);">
-                <p class="draft-rail-name">Rose</p>
-                <p class="draft-rail-token">Rose 600</p>
+              <div class="draft-rail-chip" style="--rail-color:#CA1F7B;">
+                <p class="draft-rail-name">Hot Rose</p>
+                <p class="draft-rail-token">#CA1F7B</p>
               </div>
-              <div class="draft-rail-chip" style="--rail-color: var(--section-rail-slate);">
+              <div class="draft-rail-chip" style="--rail-color:#64748B;">
                 <p class="draft-rail-name">Slate</p>
-                <p class="draft-rail-token">Slate 800</p>
+                <p class="draft-rail-token">#64748B</p>
               </div>
             </div>
           </div>
@@ -1814,7 +1848,7 @@
           <div class="draft-segmented-stack">
             <div class="draft-segmented-group">
               <p class="draft-segmented-label">Parent Attended Meeting<span class="required-asterisk">*</span></p>
-              <div class="draft-segmented-control draft-segmented-control--flat" role="radiogroup" aria-label="Parent attended meeting segmented control">
+              <div class="draft-segmented-control draft-segmented-control--flat" role="radiogroup" aria-label="Parent attended meeting segmented control" data-required-segmented>
                 <label class="draft-segmented-option">
                   <input type="radio" name="parent-attended-meeting-flat" value="yes" />
                   <span class="draft-segmented-text">Yes</span>
@@ -2994,6 +3028,36 @@
         toggle.setAttribute("aria-expanded", String(!expanded));
         label.textContent = expanded ? "Show details" : "Hide details";
         content.classList.toggle("is-open", !expanded);
+      });
+    });
+
+    document.querySelectorAll("[data-required-segmented]").forEach((control) => {
+      const inputs = Array.from(control.querySelectorAll('input[type="radio"]'));
+      if (!inputs.length) {
+        return;
+      }
+
+      let touched = false;
+
+      const syncState = () => {
+        const hasSelection = inputs.some((input) => input.checked);
+        control.classList.toggle("is-invalid", touched && !hasSelection);
+      };
+
+      inputs.forEach((input) => {
+        input.addEventListener("focus", () => {
+          touched = true;
+          syncState();
+        });
+
+        input.addEventListener("change", () => {
+          touched = true;
+          syncState();
+        });
+
+        input.addEventListener("blur", () => {
+          requestAnimationFrame(syncState);
+        });
       });
     });
 
