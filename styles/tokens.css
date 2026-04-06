@@ -43,9 +43,6 @@
   --color-warning-bg: #FFF7D6;
   --color-warning-border: #F4C735;
   --color-warning-icon: #FFCF09;
-  --color-alert-bg: #FFF8EC;
-  --color-alert-border: #F59E0B;
-  --color-alert-icon: #BB4D00;
 
   /* Inline notices */
   --notice-info-bg: #EFF6FF;
@@ -54,10 +51,10 @@
   --notice-success-bg: #ECFDF5;
   --notice-success-border-color: #A7F3D0;
   --notice-success-color: #047857;
-  --notice-warning-bg: #FFF7ED;
-  --notice-warning-border-color: #FED7AA;
-  --notice-warning-color: #9A3412;
-  --notice-warning-icon-color: #F97316;
+  --notice-warning-bg: #FFFBEB;
+  --notice-warning-border-color: #FFE480;
+  --notice-warning-color: #374151;
+  --notice-warning-icon-color: #FAB81F;
   --notice-error-bg: #FEF2F2;
   --notice-error-border-color: #FCA5A5;
   --notice-error-color: #B91C1C;
@@ -117,7 +114,7 @@
   --choice-label-hover: var(--color-accent-hover);
   --choice-desc-color: var(--color-text-helper);
   --choice-group-offset-x: var(--space-6);
-  --choice-option-gap: 10px;
+  --choice-option-gap: 8px;
   --choice-option-spacing-y: var(--space-2);
 
   /* Panel tokens */
@@ -187,14 +184,18 @@
   --badge-emerald-color: #065F46;
   --badge-rose-bg: #FCE7F3;
   --badge-rose-color: #9D174D;
-  --badge-amber-bg: #FEF0C0;
-  --badge-amber-color: #973C00;
-  --badge-slate-bg: #F1F5F9;
+  --badge-amber-bg: #FFC641;
+  --badge-amber-color: #352005;
+  --badge-indigo-bg: #E0E7FF;
+  --badge-indigo-color: #3730A3;
+  --badge-sand-bg: #F5F0E8;
+  --badge-sand-color: #5C4A2A;
+  --badge-slate-bg: #E6ECF5;
   --badge-slate-color: #334155;
   --badge-cyan-bg: #CFFAFE;
   --badge-cyan-color: #0E7490;
   --badge-orange-bg: #FFEDD5;
-  --badge-orange-color: #973C00;
+  --badge-orange-color: #9A3412;
   --badge-red-bg: #FEF2F2;
   --badge-red-color: #991B1B;
 

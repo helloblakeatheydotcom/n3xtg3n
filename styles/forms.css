@@ -5,7 +5,7 @@
 
 .field-label {
   display: block;
-  margin-bottom: var(--space-2);
+  margin-bottom: var(--space-1);
   font-weight: 600;
   font-size: 14px;
   line-height: 20px;
@@ -188,13 +188,6 @@
   background-color: #F3F4F6;
 }
 
-.is-alert .field-input {
-  border: 1px solid var(--color-alert-border);
-  background-color: var(--color-alert-bg);
-  color: var(--color-text-primary);
-  padding-right: 56px;
-}
-
 .is-managed-required .field-input {
   border: 1px solid var(--color-danger);
   background-color: var(--color-disabled-bg);
@@ -206,8 +199,7 @@
   pointer-events: none;
 }
 
-.field-icon-lock,
-.field-icon-alert {
+.field-icon-lock {
   position: absolute;
   width: 16px;
   height: 16px;
@@ -217,11 +209,6 @@
 
 .field-icon-lock {
   color: var(--color-disabled-icon);
-}
-
-.field-icon-alert {
-  right: 32px;
-  color: var(--color-alert-icon);
 }
 
 .is-managed-required .field-icon-lock {
@@ -297,6 +284,13 @@
   margin-left: var(--choice-group-offset-x);
 }
 
+.choice-options--horizontal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-left: 0;
+}
+
 .choice-option {
   display: flex;
   align-items: flex-start;
@@ -305,6 +299,11 @@
   font-size: 14px;
   line-height: 20px;
   cursor: pointer;
+}
+
+.choice-options--horizontal .choice-option {
+  align-items: center;
+  margin-bottom: 0;
 }
 
 .choice-label {
