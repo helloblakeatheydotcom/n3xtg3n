@@ -13,6 +13,19 @@
   <link rel="stylesheet" href="styles/panels.css" />
   <link rel="stylesheet" href="styles/record-rows.css" />
   <link rel="stylesheet" href="styles/demos.css" />
+  <style>
+    .record-row-docs-page {
+      --choice-control-checked-bg: #2567F4;
+      --choice-control-checked-border: #2567F4;
+      --choice-control-hover-checked: #2251C5;
+      --record-row-hover-rail-color: #2251C5;
+      --record-row-selected-bg: #F7FAFF;
+    }
+
+    .record-row-docs-page .record-row-anatomy-inner::before {
+      background: #2251C5;
+    }
+  </style>
 </head>
 <body class="panel-page panel-docs-page record-row-docs-page component-docs-page">
   <div class="page-nav">
@@ -686,8 +699,9 @@
                 <tbody>
                   <tr><td>Row border</td><td><code>--record-row-border-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#E5E7EB"></span>#E5E7EB</span></td></tr>
                   <tr><td>Hover background</td><td><code>--record-row-hover-bg</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#FFFFFF"></span>#FFFFFF</span></td></tr>
-                  <tr><td>Selected background</td><td><code>--record-row-selected-bg</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#FAF8FF"></span>#FAF8FF</span></td></tr>
-                  <tr><td>Hover rail</td><td><code>--record-row-hover-rail-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#7C5CFF"></span>#7C5CFF</span></td></tr>
+                  <tr><td>Selected background</td><td><code>--record-row-selected-bg</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#F7FAFF"></span>#F7FAFF</span></td></tr>
+                  <tr><td>Hover rail</td><td><code>--record-row-hover-rail-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#2251C5"></span>#2251C5</span></td></tr>
+                  <tr><td>Checkbox checked</td><td><code>.record-row-selection input</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#2567F4"></span>#2567F4</span></td></tr>
                 </tbody>
               </table>
             </article>
