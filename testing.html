@@ -122,8 +122,8 @@
 
     .draft-segmented-stack {
       display: grid;
-      gap: 28px;
-      max-width: 360px;
+      gap: 20px;
+      max-width: 280px;
     }
 
     .draft-segmented-group {
@@ -153,7 +153,7 @@
     }
 
     .draft-segmented-control--flat {
-      border: 1px solid #BFD4FF;
+      border: 1px solid #D9E5FF;
       border-radius: 6px;
       background: #F7FAFF;
       overflow: hidden;
@@ -162,11 +162,6 @@
     .draft-segmented-control--flat .draft-segmented-option + .draft-segmented-option {
       border-left: 1px solid #D9E5FF;
     }
-
-    .draft-segmented-control--pill {
-      gap: 12px;
-    }
-
     .draft-segmented-option {
       position: relative;
       display: block;
@@ -198,10 +193,12 @@
 
     .draft-segmented-control--flat .draft-segmented-text {
       background: transparent;
+      color: #5A6470;
     }
 
     .draft-segmented-control--flat .draft-segmented-option:hover .draft-segmented-text {
       background: #EEF3FF;
+      color: #2567F4;
     }
 
     .draft-segmented-control--flat .draft-segmented-option input:checked + .draft-segmented-text {
@@ -210,27 +207,6 @@
     }
 
     .draft-segmented-control--flat .draft-segmented-option input:focus-visible + .draft-segmented-text {
-      box-shadow: inset 0 0 0 1px #1D55D8;
-    }
-
-    .draft-segmented-control--pill .draft-segmented-text {
-      min-height: 38px;
-      border: 1px solid #BFD4FF;
-      border-radius: 999px;
-      background: #F7FAFF;
-    }
-
-    .draft-segmented-control--pill .draft-segmented-option:hover .draft-segmented-text {
-      background: #EEF3FF;
-    }
-
-    .draft-segmented-control--pill .draft-segmented-option input:checked + .draft-segmented-text {
-      border-color: #2F5DCC;
-      background: #2F5DCC;
-      color: #FFFFFF;
-    }
-
-    .draft-segmented-control--pill .draft-segmented-option input:focus-visible + .draft-segmented-text {
       box-shadow: inset 0 0 0 1px #1D55D8;
     }
 
@@ -1837,7 +1813,7 @@
         <div class="panel-body">
           <div class="draft-segmented-stack">
             <div class="draft-segmented-group">
-              <p class="draft-segmented-label">Parent Attended Meeting</p>
+              <p class="draft-segmented-label">Parent Attended Meeting<span class="required-asterisk">*</span></p>
               <div class="draft-segmented-control draft-segmented-control--flat" role="radiogroup" aria-label="Parent attended meeting segmented control">
                 <label class="draft-segmented-option">
                   <input type="radio" name="parent-attended-meeting-flat" value="yes" />
@@ -1849,21 +1825,6 @@
                 </label>
               </div>
               <p class="draft-segmented-note">Segmented Yes / No example with no default selection.</p>
-            </div>
-
-            <div class="draft-segmented-group">
-              <p class="draft-segmented-label">Parent Attended Meeting</p>
-              <div class="draft-segmented-control draft-segmented-control--pill" role="radiogroup" aria-label="Parent attended meeting pill control">
-                <label class="draft-segmented-option">
-                  <input type="radio" name="parent-attended-meeting-pill" value="yes" />
-                  <span class="draft-segmented-text">Yes</span>
-                </label>
-                <label class="draft-segmented-option">
-                  <input type="radio" name="parent-attended-meeting-pill" value="no" />
-                  <span class="draft-segmented-text">No</span>
-                </label>
-              </div>
-              <p class="draft-segmented-note">Pill-shaped two-container version with no default selection.</p>
             </div>
           </div>
         </div>
