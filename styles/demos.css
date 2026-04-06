@@ -609,6 +609,11 @@
   align-items: flex-start;
 }
 
+.demo-cell--caption-bottom .field-caption {
+  margin-top: auto;
+  padding-top: var(--space-4);
+}
+
 .demo-cell--fullwidth,
 .demo-cell--interactive {
   grid-column: 1 / span 2;

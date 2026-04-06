@@ -3,39 +3,27 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>NextGen Form Components Blue</title>
+  <title>NextGen Form Components Purple Archive</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles/tokens-blue.css" />
+  <link rel="stylesheet" href="styles/tokens-form-purple-archive.css" />
   <link rel="stylesheet" href="styles/base.css" />
   <link rel="stylesheet" href="styles/forms.css" />
   <link rel="stylesheet" href="styles/panels.css" />
   <link rel="stylesheet" href="styles/demos.css" />
-  <style>
-    .form-docs-page-blue .choice-option {
-      padding: 6px 8px;
-      margin: 0 -8px;
-      border-radius: 8px;
-      transition: background-color 0.12s ease;
-    }
-
-    .form-docs-page-blue .choice-option:hover {
-      background: #F7FAFF;
-    }
-  </style>
 </head>
-<body class="panel-page form-docs-page form-docs-page-blue component-docs-page">
+<body class="panel-page form-docs-page component-docs-page">
   <div class="page-nav">
-    <a class="page-back-link" href="index.html" aria-label="Back to component index">
+    <a class="page-back-link" href="archived-components.html" aria-label="Back to archived components">
       <span aria-hidden="true">←</span>
-      <span>Back to index</span>
+      <span>Back to archived components</span>
     </a>
   </div>
   <header class="page-header">
-    <p class="page-kicker">Component</p>
-    <h1 class="page-title">Form Components Blue</h1>
-    <p class="component-page-intro">This duplicate form controls page remaps the interactive form states from violet to blue for hover, focus, and selected-choice treatments while leaving the original form component page unchanged.</p>
+    <p class="page-kicker">Archived Component</p>
+    <h1 class="page-title">Form Components Purple Archive</h1>
+    <p class="component-page-intro">Archived reference for the original purple form treatment. This page is preserved for comparison while the canonical form components page uses blue interaction tokens.</p>
   </header>
 
   <main class="layout-shell panel-docs">
@@ -491,6 +479,26 @@
                 <div class="field-caption">Interactive field</div>
               </div>
 
+              <div class="demo-cell demo-cell--panel demo-cell--interactive">
+                <div class="choice-group">
+                  <label class="field-label">Parent Attended Meeting</label>
+                  <div class="field-helper-slot">
+                    <p class="field-helper">Use the horizontal Yes/No pattern for compact binary decisions.</p>
+                  </div>
+                  <div class="choice-options choice-options--horizontal">
+                    <label class="choice-option">
+                      <input type="radio" name="parent-attended-meeting" checked />
+                      <span class="choice-label">Yes</span>
+                    </label>
+                    <label class="choice-option">
+                      <input type="radio" name="parent-attended-meeting" />
+                      <span class="choice-label">No</span>
+                    </label>
+                  </div>
+                </div>
+                <div class="field-caption">Horizontal Yes / No</div>
+              </div>
+
               <div class="demo-cell demo-cell--panel demo-cell--static">
                 <div class="choice-group">
                   <label class="field-label">Holiday Drinks</label>
@@ -755,10 +763,10 @@
                   <tr><td>Horizontal padding</td><td><code>--field-padding-x</code></td><td>12px</td></tr>
                   <tr><td>Vertical padding</td><td><code>--field-padding-y</code></td><td>8px</td></tr>
                   <tr><td>Default border</td><td><code>--field-border-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#D1D5DB"></span>#D1D5DB</span></td></tr>
-                  <tr><td>Hover border</td><td><code>--field-border-hover</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#4991F7"></span>#4991F7</span></td></tr>
-                  <tr><td>Focus border</td><td><code>--field-border-focus</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#2567F4"></span>#2567F4</span></td></tr>
+                  <tr><td>Hover border</td><td><code>--field-border-hover</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#AFA7FF"></span>#AFA7FF</span></td></tr>
+                  <tr><td>Focus border</td><td><code>--field-border-focus</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#7C5CFF"></span>#7C5CFF</span></td></tr>
                   <tr><td>Field background</td><td><code>--field-bg</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#FFFFFF"></span>#FFFFFF</span></td></tr>
-                  <tr><td>Hover background</td><td><code>--field-bg-hover</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#EEF3FF"></span>#EEF3FF</span></td></tr>
+                  <tr><td>Hover background</td><td><code>--field-bg-hover</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#FAF8FF"></span>#FAF8FF</span></td></tr>
                   <tr><td>Stepper control background</td><td><code>--field-stepper-bg</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#F7F9FC"></span>#F7F9FC</span></td></tr>
                   <tr><td>Stepper hover background</td><td><code>--field-stepper-hover-bg</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#EEF2F7"></span>#EEF2F7</span></td></tr>
                 </tbody>
@@ -774,7 +782,7 @@
                 </thead>
                 <tbody>
                   <tr><td>Field max width</td><td><code>.field-body</code></td><td>360px</td></tr>
-                  <tr><td>Label bottom spacing</td><td><code>.field-label</code></td><td>8px</td></tr>
+                  <tr><td>Label bottom spacing</td><td><code>.field-label</code></td><td>4px</td></tr>
                   <tr><td>Helper slot top spacing</td><td><code>.field-helper-slot</code></td><td>4px</td></tr>
                   <tr><td>Helper slot minimum height</td><td><code>.field-helper-slot</code></td><td>20px</td></tr>
                   <tr><td>Default icon inset</td><td><code>.field-icon-lock</code></td><td>10px from right</td></tr>
@@ -862,11 +870,11 @@
                 <tbody>
                   <tr><td>Control size</td><td><code>--choice-control-size</code></td><td>16px</td></tr>
                   <tr><td>Default border</td><td><code>--choice-control-border</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#D1D5DB"></span>#D1D5DB</span></td></tr>
-                  <tr><td>Checked background</td><td><code>--choice-control-checked-bg</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#2567F4"></span>#2567F4</span></td></tr>
-                  <tr><td>Checked border</td><td><code>--choice-control-checked-border</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#2567F4"></span>#2567F4</span></td></tr>
-                  <tr><td>Checked hover background</td><td><code>--choice-control-hover-checked</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#1D55D8"></span>#1D55D8</span></td></tr>
-                  <tr><td>Hover border</td><td><code>--choice-control-hover-border</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#2567F4"></span>#2567F4</span></td></tr>
-                  <tr><td>Option gap</td><td><code>--choice-option-gap</code></td><td>10px</td></tr>
+                  <tr><td>Checked background</td><td><code>--choice-control-checked-bg</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#7C5CFF"></span>#7C5CFF</span></td></tr>
+                  <tr><td>Checked border</td><td><code>--choice-control-checked-border</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#7C5CFF"></span>#7C5CFF</span></td></tr>
+                  <tr><td>Checked hover background</td><td><code>--choice-control-hover-checked</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#6C55DA"></span>#6C55DA</span></td></tr>
+                  <tr><td>Hover border</td><td><code>--choice-control-hover-border</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#7C5CFF"></span>#7C5CFF</span></td></tr>
+                  <tr><td>Option gap</td><td><code>--choice-option-gap</code></td><td>8px</td></tr>
                   <tr><td>Option spacing</td><td><code>--choice-option-spacing-y</code></td><td>8px</td></tr>
                 </tbody>
               </table>
@@ -880,9 +888,11 @@
                   <tr><th>Role</th><th>Token</th><th>Value</th></tr>
                 </thead>
                 <tbody>
+                  <tr><td>Label to helper spacing</td><td><code>.field-label</code> + <code>.field-helper-slot</code></td><td>4px</td></tr>
+                  <tr><td>Helper to first option spacing</td><td><code>.choice-options</code></td><td>12px</td></tr>
                   <tr><td>Choice group offset</td><td><code>--choice-group-offset-x</code></td><td>24px</td></tr>
                   <tr><td>Field radius</td><td><code>--radius-field</code></td><td>4px</td></tr>
-                  <tr><td>Focus ring</td><td><code>--color-focus-ring</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#8AACFB"></span>#8AACFB</span></td></tr>
+                  <tr><td>Focus ring</td><td><code>--color-focus-ring</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#C7C2FF"></span>#C7C2FF</span></td></tr>
                 </tbody>
               </table>
             </article>

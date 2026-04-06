@@ -7,13 +7,25 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles/tokens.css" />
+  <link rel="stylesheet" href="styles/tokens-form-components.css" />
   <link rel="stylesheet" href="styles/base.css" />
   <link rel="stylesheet" href="styles/forms.css" />
   <link rel="stylesheet" href="styles/panels.css" />
   <link rel="stylesheet" href="styles/demos.css" />
+  <style>
+    .form-docs-page-blue .choice-option {
+      padding: 6px 8px;
+      margin: 0 -8px;
+      border-radius: 8px;
+      transition: background-color 0.12s ease;
+    }
+
+    .form-docs-page-blue .choice-option:hover {
+      background: var(--color-accent-tint-hover);
+    }
+  </style>
 </head>
-<body class="panel-page form-docs-page component-docs-page">
+<body class="panel-page form-docs-page form-docs-page-blue component-docs-page">
   <div class="page-nav">
     <a class="page-back-link" href="index.html" aria-label="Back to component index">
       <span aria-hidden="true">←</span>
@@ -446,7 +458,7 @@
           <p class="example-caption">Radio groups mirror checkbox behavior, but guide the user toward a single required or optional selection.</p>
           <section class="card" aria-label="Radio states">
             <div class="demo-grid">
-              <div class="demo-cell demo-cell--panel demo-cell--interactive">
+              <div class="demo-cell demo-cell--panel demo-cell--caption-bottom">
                 <div class="choice-group">
                   <label class="field-label">Holiday Drinks</label>
                   <div class="field-helper-slot">
@@ -476,10 +488,10 @@
                     </label>
                   </div>
                 </div>
-                <div class="field-caption">Interactive field</div>
+                <div class="field-caption">Interactive Field (Vertical Layout)</div>
               </div>
 
-              <div class="demo-cell demo-cell--panel demo-cell--interactive">
+              <div class="demo-cell demo-cell--panel demo-cell--caption-bottom">
                 <div class="choice-group">
                   <label class="field-label">Parent Attended Meeting</label>
                   <div class="field-helper-slot">
@@ -496,7 +508,7 @@
                     </label>
                   </div>
                 </div>
-                <div class="field-caption">Horizontal Yes / No</div>
+                <div class="field-caption">Interactive Field (Horizontal Layout)</div>
               </div>
 
               <div class="demo-cell demo-cell--panel demo-cell--static">
@@ -763,10 +775,10 @@
                   <tr><td>Horizontal padding</td><td><code>--field-padding-x</code></td><td>12px</td></tr>
                   <tr><td>Vertical padding</td><td><code>--field-padding-y</code></td><td>8px</td></tr>
                   <tr><td>Default border</td><td><code>--field-border-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#D1D5DB"></span>#D1D5DB</span></td></tr>
-                  <tr><td>Hover border</td><td><code>--field-border-hover</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#AFA7FF"></span>#AFA7FF</span></td></tr>
-                  <tr><td>Focus border</td><td><code>--field-border-focus</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#7C5CFF"></span>#7C5CFF</span></td></tr>
+                  <tr><td>Hover border</td><td><code>--field-border-hover</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#7EA6FB"></span>#7EA6FB</span></td></tr>
+                  <tr><td>Focus border</td><td><code>--field-border-focus</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#2567F4"></span>#2567F4</span></td></tr>
                   <tr><td>Field background</td><td><code>--field-bg</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#FFFFFF"></span>#FFFFFF</span></td></tr>
-                  <tr><td>Hover background</td><td><code>--field-bg-hover</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#FAF8FF"></span>#FAF8FF</span></td></tr>
+                  <tr><td>Hover background</td><td><code>--field-bg-hover</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#F7FAFF"></span>#F7FAFF</span></td></tr>
                   <tr><td>Stepper control background</td><td><code>--field-stepper-bg</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#F7F9FC"></span>#F7F9FC</span></td></tr>
                   <tr><td>Stepper hover background</td><td><code>--field-stepper-hover-bg</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#EEF2F7"></span>#EEF2F7</span></td></tr>
                 </tbody>
@@ -870,10 +882,10 @@
                 <tbody>
                   <tr><td>Control size</td><td><code>--choice-control-size</code></td><td>16px</td></tr>
                   <tr><td>Default border</td><td><code>--choice-control-border</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#D1D5DB"></span>#D1D5DB</span></td></tr>
-                  <tr><td>Checked background</td><td><code>--choice-control-checked-bg</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#7C5CFF"></span>#7C5CFF</span></td></tr>
-                  <tr><td>Checked border</td><td><code>--choice-control-checked-border</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#7C5CFF"></span>#7C5CFF</span></td></tr>
-                  <tr><td>Checked hover background</td><td><code>--choice-control-hover-checked</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#6C55DA"></span>#6C55DA</span></td></tr>
-                  <tr><td>Hover border</td><td><code>--choice-control-hover-border</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#7C5CFF"></span>#7C5CFF</span></td></tr>
+                  <tr><td>Checked background</td><td><code>--choice-control-checked-bg</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#2567F4"></span>#2567F4</span></td></tr>
+                  <tr><td>Checked border</td><td><code>--choice-control-checked-border</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#2567F4"></span>#2567F4</span></td></tr>
+                  <tr><td>Checked hover background</td><td><code>--choice-control-hover-checked</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#2251C5"></span>#2251C5</span></td></tr>
+                  <tr><td>Hover border</td><td><code>--choice-control-hover-border</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#2567F4"></span>#2567F4</span></td></tr>
                   <tr><td>Option gap</td><td><code>--choice-option-gap</code></td><td>8px</td></tr>
                   <tr><td>Option spacing</td><td><code>--choice-option-spacing-y</code></td><td>8px</td></tr>
                 </tbody>
@@ -892,7 +904,7 @@
                   <tr><td>Helper to first option spacing</td><td><code>.choice-options</code></td><td>12px</td></tr>
                   <tr><td>Choice group offset</td><td><code>--choice-group-offset-x</code></td><td>24px</td></tr>
                   <tr><td>Field radius</td><td><code>--radius-field</code></td><td>4px</td></tr>
-                  <tr><td>Focus ring</td><td><code>--color-focus-ring</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#C7C2FF"></span>#C7C2FF</span></td></tr>
+                  <tr><td>Focus ring</td><td><code>--color-focus-ring</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#B8CEFF"></span>#B8CEFF</span></td></tr>
                 </tbody>
               </table>
             </article>
