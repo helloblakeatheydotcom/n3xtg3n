@@ -175,6 +175,26 @@
   opacity: 0.9;
 }
 
+.panel-docs-page .panel-link-button {
+  color: #2251C5;
+}
+
+.panel-docs-page .panel-link-button:hover,
+.panel-docs-page .panel-link-button:focus-visible {
+  background: #EFF3FE;
+  border-color: transparent;
+  color: #00389B;
+  opacity: 1;
+  outline: none;
+}
+
+.panel-docs-page .panel-link-button:active {
+  background: #DBE5FD;
+  border-color: transparent;
+  color: #00389B;
+  opacity: 1;
+}
+
 .panel-link-button:hover,
 .panel-link-button:focus-visible {
   background: var(--color-accent-tint-hover);
@@ -208,6 +228,10 @@
   border-color: var(--color-border-default);
   color: var(--panel-utility-icon-hover-color);
   outline: none;
+}
+
+.panel-docs-page .panel-link-button:focus-visible {
+  box-shadow: 0 0 0 3px #B8CEFF;
 }
 
 .panel-link-button:focus-visible,
@@ -338,29 +362,45 @@
   justify-content: flex-end;
 }
 
-.footer-action {
+.panel-docs-page .footer-action {
   height: 36px;
   padding: 0 16px;
   border: 1px solid transparent;
   border-radius: var(--radius-field);
-  background: var(--color-accent);
+  background: #2567F4;
   color: #FFFFFF;
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
 }
 
-.footer-action:hover {
-  background: var(--color-accent-hover);
+.panel-docs-page .footer-action:hover {
+  background: #2251C5;
 }
 
-.footer-action:active {
-  background: var(--color-accent-active);
+.panel-docs-page .footer-action:active {
+  background: #00389B;
 }
 
-.footer-action:focus-visible {
+.panel-docs-page .footer-action:focus-visible {
   box-shadow: 0 0 0 3px var(--color-focus-ring);
   outline: none;
+}
+
+.panel-docs-page-current .panel .field-input:not([aria-invalid="true"]):hover:not(:focus),
+.panel-docs-page-current .panel .field-select:not([aria-invalid="true"]):hover:not(:focus),
+.panel-docs-page-current .panel .field-textarea:not([aria-invalid="true"]):hover:not(:focus) {
+  border-color: #7EA6FB;
+  background-color: #F7FAFF;
+}
+
+.panel-docs-page-current .panel .field-input:focus,
+.panel-docs-page-current .panel .field-select:focus,
+.panel-docs-page-current .panel .field-textarea:focus {
+  border-color: #2567F4;
+  border-width: 2px;
+  background-color: #FFFFFF;
+  box-shadow: 0 0 0 3px #B8CEFF;
 }
 
 .specs-stack {

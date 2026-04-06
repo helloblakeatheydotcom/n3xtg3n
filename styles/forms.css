@@ -287,7 +287,7 @@
 .choice-options--horizontal {
   display: flex;
   flex-wrap: wrap;
-  gap: 32px;
+  gap: var(--choice-option-horizontal-gap);
   margin-left: 0;
 }
 

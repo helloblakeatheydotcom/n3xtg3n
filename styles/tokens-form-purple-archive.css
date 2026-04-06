@@ -116,6 +116,7 @@
   --choice-group-offset-x: var(--space-6);
   --choice-option-gap: 8px;
   --choice-option-spacing-y: var(--space-2);
+  --choice-option-horizontal-gap: 32px;
 
   /* Panel tokens */
   --panel-header-padding-y: var(--space-5);

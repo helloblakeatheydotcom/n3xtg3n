@@ -12,8 +12,20 @@
   <link rel="stylesheet" href="styles/forms.css" />
   <link rel="stylesheet" href="styles/panels.css" />
   <link rel="stylesheet" href="styles/demos.css" />
+  <style>
+    .panel-docs-page-current {
+      --color-accent: #2567F4;
+      --color-accent-hover: #2251C5;
+      --color-accent-active: #00389B;
+      --color-accent-border-hover: #DBE5FD;
+      --color-accent-border-focus: #2567F4;
+      --color-accent-tint: #EFF3FE;
+      --color-accent-tint-hover: #EFF3FE;
+      --color-focus-ring: #B8CEFF;
+    }
+  </style>
 </head>
-<body class="panel-page panel-docs-page component-docs-page">
+<body class="panel-page panel-docs-page panel-docs-page-current component-docs-page">
   <div class="page-nav">
     <a class="page-back-link" href="index.html" aria-label="Back to component index">
       <span aria-hidden="true">←</span>
@@ -436,10 +448,15 @@
                   <tr><td>Utility action hover icon</td><td><code>--panel-utility-icon-hover-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#5A6470"></span>#5A6470</span></td></tr>
                   <tr><td>Utility action hover border</td><td><code>--color-border-default</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#D1D5DB"></span>#D1D5DB</span></td></tr>
                   <tr><td>Utility action hover background</td><td><code>--card-action-icon-hover-bg</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#F7F9FC"></span>#F7F9FC</span></td></tr>
-                  <tr><td>Link action hover border</td><td><code>--color-accent-border-hover</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#AFA7FF"></span>#AFA7FF</span></td></tr>
-                  <tr><td>Link action focus ring</td><td><code>--color-focus-ring</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#C7C2FF"></span>#C7C2FF</span></td></tr>
-                  <tr><td>Link action hover background</td><td><code>--color-accent-tint-hover</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#FAF8FF"></span>#FAF8FF</span></td></tr>
-                  <tr><td>Link action text</td><td><code>--color-accent-active</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#6C55DA"></span>#6C55DA</span></td></tr>
+                  <tr><td>Link action text</td><td><code>.panel-docs-page .panel-link-button</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#2251C5"></span>#2251C5</span></td></tr>
+                  <tr><td>Link action hover border</td><td><code>.panel-docs-page .panel-link-button:hover</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#DBE5FD"></span>#DBE5FD</span></td></tr>
+                  <tr><td>Link action hover background</td><td><code>.panel-docs-page .panel-link-button:hover</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#EFF3FE"></span>#EFF3FE</span></td></tr>
+                  <tr><td>Link action hover text</td><td><code>.panel-docs-page .panel-link-button:hover</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#00389B"></span>#00389B</span></td></tr>
+                  <tr><td>Link action active background</td><td><code>.panel-docs-page .panel-link-button:active</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#DBE5FD"></span>#DBE5FD</span></td></tr>
+                  <tr><td>Link action focus ring</td><td><code>.panel-docs-page .panel-link-button:focus-visible</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#B8CEFF"></span>#B8CEFF</span></td></tr>
+                  <tr><td>Footer action background</td><td><code>.panel-docs-page .footer-action</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#2567F4"></span>#2567F4</span></td></tr>
+                  <tr><td>Footer action hover</td><td><code>.panel-docs-page .footer-action:hover</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#2251C5"></span>#2251C5</span></td></tr>
+                  <tr><td>Footer action active</td><td><code>.panel-docs-page .footer-action:active</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#00389B"></span>#00389B</span></td></tr>
                 </tbody>
               </table>
             </article>
