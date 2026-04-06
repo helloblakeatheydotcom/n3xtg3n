@@ -14,6 +14,63 @@
   <link rel="stylesheet" href="styles/panels.css" />
   <link rel="stylesheet" href="styles/sections.css" />
   <link rel="stylesheet" href="styles/demos.css" />
+  <style>
+    .section-docs-page {
+      --color-accent: #2567F4;
+      --color-accent-hover: #2251C5;
+      --color-accent-active: #00389B;
+      --color-accent-border-hover: #DBE5FD;
+      --color-accent-border-focus: #2567F4;
+      --color-accent-tint: #EFF3FE;
+      --color-accent-tint-hover: #EFF3FE;
+      --color-focus-ring: #B8CEFF;
+    }
+
+    .section-docs-page .panel-link-button {
+      color: #2251C5;
+    }
+
+    .section-docs-page .panel-link-button:hover,
+    .section-docs-page .panel-link-button:focus-visible {
+      background: #EFF3FE;
+      border-color: transparent;
+      color: #00389B;
+      opacity: 1;
+      outline: none;
+    }
+
+    .section-docs-page .panel-link-button:active {
+      background: #DBE5FD;
+      border-color: transparent;
+      color: #00389B;
+      opacity: 1;
+    }
+
+    .section-docs-page .footer-action {
+      height: 36px;
+      padding: 0 16px;
+      border: 1px solid transparent;
+      border-radius: var(--radius-field);
+      background: #2567F4;
+      color: #FFFFFF;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .section-docs-page .footer-action:hover {
+      background: #2251C5;
+    }
+
+    .section-docs-page .footer-action:active {
+      background: #00389B;
+    }
+
+    .section-docs-page .footer-action:focus-visible {
+      box-shadow: var(--focus-ring-shadow);
+      outline: none;
+    }
+  </style>
 </head>
 <body class="panel-page section-docs-page component-docs-page">
   <div class="page-nav">
@@ -182,60 +239,84 @@
         <section class="example-block" aria-label="Section group inside panel example">
           <h2 class="panel-example-title">Section Group Inside Panel</h2>
           <p class="example-caption">Sections are most often used inside panels to create clear internal structure across multiple related domains or content areas.</p>
-          <article class="panel" aria-label="Present levels panel with sections">
+          <article class="panel" data-collapsible-panel data-panel-id="example-section-group" aria-label="Present levels panel with sections">
             <header class="panel-header">
               <div class="panel-left">
-                <span class="panel-icon panel-icon--square" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
-                    <path d="M4 6h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-                    <path d="M4 12h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-                    <path d="M4 18h10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                <button class="panel-toggle" type="button" aria-expanded="true" aria-controls="panel-sections-content">
+                  <span class="sr-only">Collapse section</span>
+                  <svg class="panel-chevron" viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                    <path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                   </svg>
-                </span>
+                </button>
                 <h3 class="panel-title">Present Levels of Performance</h3>
+              </div>
+
+              <div class="panel-actions">
+                <div class="panel-menu">
+                  <button class="panel-menu-toggle" type="button" aria-haspopup="menu" aria-expanded="false" aria-controls="panel-section-group-menu">
+                    <span class="meatball-icon" aria-hidden="true">
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                    </span>
+                    <span class="sr-only">Open section menu</span>
+                  </button>
+                  <ul id="panel-section-group-menu" class="panel-menu-list" role="menu" hidden>
+                    <li role="none"><button class="panel-menu-item" type="button" role="menuitem">Show Errors</button></li>
+                    <li role="none"><button class="panel-menu-item" type="button" role="menuitem">Clear Section</button></li>
+                    <li role="none"><button class="panel-menu-item" type="button" role="menuitem">View Draft</button></li>
+                    <li role="none"><button class="panel-menu-item" type="button" role="menuitem">Edit All Services</button></li>
+                  </ul>
+                </div>
               </div>
             </header>
 
-            <div class="panel-body">
-              <div class="section-stack-demo" aria-label="Grouped sections">
-                <section class="section-component section-component--rail-blue" data-collapsible-section>
-                  <button class="section-toggle" type="button" aria-expanded="true" aria-controls="section-panel-reading">
-                    <span class="section-heading">
-                      <span class="section-title">Reading</span>
-                      <span class="section-meta">
-                        <span>2 active goals</span>
-                        <span class="section-meta-separator" aria-hidden="true">&bull;</span>
-                        <span>Last updated Mar 16, 2026</span>
+            <div id="panel-sections-content" class="panel-content" role="region" aria-label="Present levels panel content">
+              <div class="panel-body">
+                <div class="section-stack-demo" aria-label="Grouped sections">
+                  <section class="section-component section-component--rail-violet" data-collapsible-section>
+                    <button class="section-toggle" type="button" aria-expanded="true" aria-controls="section-panel-reading">
+                      <span class="section-heading">
+                        <span class="section-title">Reading</span>
+                        <span class="section-meta">
+                          <span>2 active goals</span>
+                          <span class="section-meta-separator" aria-hidden="true">&bull;</span>
+                          <span>Last updated Mar 16, 2026</span>
+                        </span>
                       </span>
-                    </span>
-                    <svg class="section-chevron" viewBox="0 0 24 24" focusable="false" aria-hidden="true">
-                      <path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
-                  </button>
-                  <div id="section-panel-reading" class="section-content" role="region" aria-label="Reading grouped section">
-                    <p class="body-copy">Sections can stack cleanly inside a panel body without introducing another panel border or footer treatment.</p>
-                  </div>
-                </section>
+                      <svg class="section-chevron" viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                        <path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                    </button>
+                    <div id="section-panel-reading" class="section-content" role="region" aria-label="Reading grouped section">
+                      <p class="body-copy">Sections can stack cleanly inside a panel body without introducing another panel border or footer treatment.</p>
+                    </div>
+                  </section>
 
-                <section class="section-component section-component--rail-sky section-component--terminal" data-collapsible-section>
-                  <button class="section-toggle" type="button" aria-expanded="true" aria-controls="section-panel-fine-motor">
-                    <span class="section-heading">
-                      <span class="section-title">Fine Motor Skills</span>
-                      <span class="section-meta">
-                        <span>1 active goal</span>
-                        <span class="section-meta-separator" aria-hidden="true">&bull;</span>
-                        <span>Last updated Mar 12, 2026</span>
+                  <section class="section-component section-component--rail-sky section-component--terminal" data-collapsible-section>
+                    <button class="section-toggle" type="button" aria-expanded="true" aria-controls="section-panel-fine-motor">
+                      <span class="section-heading">
+                        <span class="section-title">Fine Motor Skills</span>
+                        <span class="section-meta">
+                          <span>1 active goal</span>
+                          <span class="section-meta-separator" aria-hidden="true">&bull;</span>
+                          <span>Last updated Mar 12, 2026</span>
+                        </span>
                       </span>
-                    </span>
-                    <svg class="section-chevron" viewBox="0 0 24 24" focusable="false" aria-hidden="true">
-                      <path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
-                  </button>
-                  <div id="section-panel-fine-motor" class="section-content" role="region" aria-label="Fine motor grouped section">
-                    <p class="body-copy">Use the default slate rail when no category color is needed. Add rail variants only when they help differentiate domains or categories without relying on full surface color shifts.</p>
-                  </div>
-                </section>
+                      <svg class="section-chevron" viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                        <path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                    </button>
+                    <div id="section-panel-fine-motor" class="section-content" role="region" aria-label="Fine motor grouped section">
+                      <p class="body-copy">Use the default slate rail when no category color is needed. Add rail variants only when they help differentiate domains or categories without relying on full surface color shifts.</p>
+                    </div>
+                  </section>
+                </div>
               </div>
+
+              <footer class="panel-footer">
+                <button class="footer-action" type="button">Save Changes</button>
+              </footer>
             </div>
           </article>
         </section>
@@ -258,7 +339,7 @@
           <div class="docs-card">
             <div class="docs-anatomy-grid">
               <div class="section-anatomy-panel">
-                <section class="section-component section-component--rail-blue section-component--terminal">
+                <section class="section-component section-component--rail-coffee section-component--terminal">
                   <div class="section-header">
                     <span class="section-heading">
                       <span class="section-title">Section Title</span>
@@ -441,16 +522,16 @@
                 <tbody>
                   <tr><td>Rail width</td><td><code>--section-rail-width</code></td><td>3px</td></tr>
                   <tr><td>Rail opacity</td><td><code>--section-rail-opacity</code></td><td>0.75</td></tr>
-                  <tr><td>Slate rail</td><td><code>--section-rail-slate</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#64748B"></span>#64748B</span></td></tr>
-                  <tr><td>Violet rail</td><td><code>--section-rail-purple</code> / <code>--section-rail-violet</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#7C3AED"></span>#7C3AED</span></td></tr>
+                  <tr><td>Slate rail</td><td><code>--section-rail-slate</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#667085"></span>#667085</span></td></tr>
+                  <tr><td>Sand rail</td><td><code>--section-rail-sand</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#DBC1AC"></span>#DBC1AC</span></td></tr>
+                  <tr><td>Coffee Bean rail</td><td><code>--section-rail-coffee</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#6F4E37"></span>#6F4E37</span></td></tr>
+                  <tr><td>Violet rail</td><td><code>--section-rail-purple</code> / <code>--section-rail-violet</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#9D8FFF"></span>#9D8FFF</span></td></tr>
+                  <tr><td>Sky Blue rail</td><td><code>--section-rail-sky</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#38BDF8"></span>#38BDF8</span></td></tr>
                   <tr><td>Indigo rail</td><td><code>--section-rail-indigo</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#4B61D1"></span>#4B61D1</span></td></tr>
-                  <tr><td>Blue rail</td><td><code>--section-rail-blue</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#2563EB"></span>#2563EB</span></td></tr>
-                  <tr><td>Sky Blue rail</td><td><code>--section-rail-sky</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#00B7EB"></span>#00B7EB</span></td></tr>
-                  <tr><td>Cyan rail</td><td><code>--section-rail-cyan</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#0891B2"></span>#0891B2</span></td></tr>
-                  <tr><td>Tropical Teal rail</td><td><code>--section-rail-teal</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#43B3AE"></span>#43B3AE</span></td></tr>
-                  <tr><td>Emerald rail</td><td><code>--section-rail-emerald</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#059669"></span>#059669</span></td></tr>
+                  <tr><td>Emerald rail</td><td><code>--section-rail-emerald</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#10B981"></span>#10B981</span></td></tr>
+                  <tr><td>Tropical Teal rail</td><td><code>--section-rail-teal</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#0D9488"></span>#0D9488</span></td></tr>
                   <tr><td>Amber Gold rail</td><td><code>--section-rail-amber</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#FFBF00"></span>#FFBF00</span></td></tr>
-                  <tr><td>Orange rail</td><td><code>--section-rail-orange</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#EA580C"></span>#EA580C</span></td></tr>
+                  <tr><td>Cayenne Red rail</td><td><code>--section-rail-orange</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#EA580C"></span>#EA580C</span></td></tr>
                   <tr><td>Hot Rose rail</td><td><code>--section-rail-rose</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#CA1F7B"></span>#CA1F7B</span></td></tr>
                 </tbody>
               </table>

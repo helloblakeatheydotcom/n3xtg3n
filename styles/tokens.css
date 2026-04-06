@@ -30,6 +30,8 @@
   --color-accent-tint-strong: #F3EEFF;
   --color-accent-tint-pressed: #E9E2FF;
   --color-focus-ring: #C7C2FF;
+  --focus-ring-shadow: inset 0 0 0 1.5px #2567F4, 0 0 0 2px rgba(37, 103, 244, 0.18);
+  --focus-ring-shadow-error: 0 0 0 2px rgba(37, 103, 244, 0.18);
 
   /* Informational blue */
   --color-info-bg: #DCE9FF;
@@ -267,15 +269,17 @@
   --section-utility-icon-hover-color: var(--color-text-secondary);
   --section-utility-hover-bg: #EEF2F7;
   --section-utility-hover-border: var(--color-border-default);
-  --section-rail-purple: #7C3AED;
-  --section-rail-slate: #64748B;
+  --section-rail-purple: #9D8FFF;
+  --section-rail-slate: #667085;
   --section-rail-violet: var(--section-rail-purple);
+  --section-rail-sand: #DBC1AC;
+  --section-rail-coffee: #6F4E37;
   --section-rail-indigo: #4B61D1;
-  --section-rail-blue: #2563EB;
-  --section-rail-sky: #00B7EB;
-  --section-rail-cyan: #0891B2;
-  --section-rail-teal: #43B3AE;
-  --section-rail-emerald: #059669;
+  --section-rail-blue: #38BDF8;
+  --section-rail-sky: #38BDF8;
+  --section-rail-cyan: #0D9488;
+  --section-rail-teal: #0D9488;
+  --section-rail-emerald: #10B981;
   --section-rail-amber: #FFBF00;
   --section-rail-orange: #EA580C;
   --section-rail-rose: #CA1F7B;

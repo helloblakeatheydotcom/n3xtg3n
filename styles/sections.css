@@ -37,20 +37,24 @@
   --section-rail-color: var(--section-rail-violet);
 }
 
+.section-component--rail-sand {
+  --section-rail-color: var(--section-rail-sand);
+}
+
+.section-component--rail-coffee {
+  --section-rail-color: var(--section-rail-coffee);
+}
+
 .section-component--rail-indigo {
   --section-rail-color: var(--section-rail-indigo);
 }
 
-.section-component--rail-sky {
-  --section-rail-color: var(--section-rail-sky);
-}
-
-.section-component--rail-cyan {
-  --section-rail-color: var(--section-rail-cyan);
-}
-
 .section-component--rail-teal {
   --section-rail-color: var(--section-rail-teal);
+}
+
+.section-component--rail-sky {
+  --section-rail-color: var(--section-rail-sky);
 }
 
 .section-component--rail-emerald {
@@ -143,6 +147,12 @@
 .section-toggle:focus-visible .section-chevron {
   background: var(--section-utility-hover-bg);
   border-color: var(--section-utility-hover-border);
+}
+
+.section-toggle:focus-visible .section-chevron {
+  border-color: transparent;
+  box-shadow: var(--focus-ring-shadow);
+  outline: none;
 }
 
 .section-toggle[aria-expanded="false"] .section-chevron {
