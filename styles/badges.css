@@ -131,6 +131,16 @@
   color: var(--badge-amber-color);
 }
 
+.badge-pill--indigo {
+  background: var(--badge-indigo-bg);
+  color: var(--badge-indigo-color);
+}
+
+.badge-pill--sand {
+  background: var(--badge-sand-bg);
+  color: var(--badge-sand-color);
+}
+
 .badge-pill--slate {
   background: var(--badge-slate-bg);
   color: var(--badge-slate-color);

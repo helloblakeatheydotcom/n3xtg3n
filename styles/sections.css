@@ -41,6 +41,10 @@
   --section-rail-color: var(--section-rail-indigo);
 }
 
+.section-component--rail-sky {
+  --section-rail-color: var(--section-rail-sky);
+}
+
 .section-component--rail-cyan {
   --section-rail-color: var(--section-rail-cyan);
 }

@@ -19,17 +19,17 @@
   --color-text-body: #374151;
   --color-placeholder: #9CA3AF;
 
-  /* Accent: violet */
-  --color-accent: #7C5CFF;
-  --color-accent-hover: #6C55DA;
-  --color-accent-active: #6C55DA;
-  --color-accent-border-hover: #AFA7FF;
-  --color-accent-border-focus: #7C5CFF;
-  --color-accent-tint: #FAF8FF;
-  --color-accent-tint-hover: #FAF8FF;
-  --color-accent-tint-strong: #F3EEFF;
-  --color-accent-tint-pressed: #E9E2FF;
-  --color-focus-ring: #C7C2FF;
+  /* Accent: blue */
+  --color-accent: #2567F4;
+  --color-accent-hover: #1D55D8;
+  --color-accent-active: #1D55D8;
+  --color-accent-border-hover: #4991F7;
+  --color-accent-border-focus: #2567F4;
+  --color-accent-tint: #EEF3FF;
+  --color-accent-tint-hover: #EEF3FF;
+  --color-accent-tint-strong: #D9E5FF;
+  --color-accent-tint-pressed: #D9E5FF;
+  --color-focus-ring: #8AACFB;
 
   /* Informational blue */
   --color-info-bg: #DCE9FF;
@@ -114,7 +114,7 @@
   --choice-label-hover: var(--color-accent-hover);
   --choice-desc-color: var(--color-text-helper);
   --choice-group-offset-x: var(--space-6);
-  --choice-option-gap: 8px;
+  --choice-option-gap: 10px;
   --choice-option-spacing-y: var(--space-2);
 
   /* Panel tokens */
@@ -186,11 +186,7 @@
   --badge-rose-color: #9D174D;
   --badge-amber-bg: #FFC641;
   --badge-amber-color: #352005;
-  --badge-indigo-bg: #E0E7FF;
-  --badge-indigo-color: #3730A3;
-  --badge-sand-bg: #F5F0E8;
-  --badge-sand-color: #5C4A2A;
-  --badge-slate-bg: #E6ECF5;
+  --badge-slate-bg: #F1F5F9;
   --badge-slate-color: #334155;
   --badge-cyan-bg: #CFFAFE;
   --badge-cyan-color: #0E7490;
@@ -267,16 +263,14 @@
   --section-utility-icon-hover-color: var(--color-text-secondary);
   --section-utility-hover-bg: #EEF2F7;
   --section-utility-hover-border: var(--color-border-default);
-  --section-rail-purple: #7C3AED;
-  --section-rail-slate: #64748B;
-  --section-rail-violet: var(--section-rail-purple);
-  --section-rail-indigo: #4B61D1;
+  --section-rail-slate: #5A6470;
+  --section-rail-violet: #7C5CFF;
+  --section-rail-indigo: #4F46E5;
   --section-rail-blue: #2563EB;
-  --section-rail-sky: #00B7EB;
   --section-rail-cyan: #0891B2;
-  --section-rail-teal: #43B3AE;
+  --section-rail-teal: #0F6B62;
   --section-rail-emerald: #059669;
-  --section-rail-amber: #FFBF00;
+  --section-rail-amber: #EA580C;
   --section-rail-orange: #EA580C;
-  --section-rail-rose: #CA1F7B;
+  --section-rail-rose: #E11D48;
 }
