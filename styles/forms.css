@@ -75,6 +75,7 @@
 .field-textarea,
 .field-select {
   width: 100%;
+  box-sizing: border-box;
   font-family: inherit;
   font-weight: 400;
   font-size: 14px;
@@ -125,12 +126,17 @@
   background-color: var(--field-bg);
 }
 
-.field-input:focus,
-.field-select:focus,
-.field-textarea:focus {
-  border-color: var(--field-border-focus);
-  border-width: 2px;
+.field-input:not([aria-invalid="true"]):focus,
+.field-input:not([aria-invalid="true"]):focus-visible,
+.field-select:not([aria-invalid="true"]):focus,
+.field-select:not([aria-invalid="true"]):focus-visible,
+.field-textarea:not([aria-invalid="true"]):focus,
+.field-textarea:not([aria-invalid="true"]):focus-visible {
+  border-color: var(--field-border-color);
+  border-width: 1px;
   background-color: var(--color-surface);
+  outline: none;
+  box-shadow: var(--focus-ring-shadow);
 }
 
 .field-input[aria-invalid="true"],
@@ -147,10 +153,16 @@
 }
 
 .field-input[aria-invalid="true"]:focus,
+.field-input[aria-invalid="true"]:focus-visible,
 .field-select[aria-invalid="true"]:focus,
-.field-textarea[aria-invalid="true"]:focus {
+.field-select[aria-invalid="true"]:focus-visible,
+.field-textarea[aria-invalid="true"]:focus,
+.field-textarea[aria-invalid="true"]:focus-visible {
   border-color: var(--color-danger);
+  border-width: 1px;
   background-color: var(--color-surface);
+  outline: none;
+  box-shadow: var(--focus-ring-shadow-error);
 }
 
 .is-hover .field-input {
@@ -159,8 +171,9 @@
 }
 
 .is-focus .field-input {
-  border: 2px solid var(--field-border-focus);
+  border: 1px solid var(--field-border-color);
   background-color: var(--color-surface);
+  box-shadow: var(--focus-ring-shadow);
 }
 
 .is-error .field-input {
@@ -174,8 +187,9 @@
 }
 
 .is-error-focus .field-input {
-  border: 2px solid var(--color-danger);
+  border: 1px solid var(--color-danger);
   background-color: var(--color-surface);
+  box-shadow: var(--focus-ring-shadow-error);
 }
 
 .is-disabled .field-input {
@@ -320,6 +334,7 @@
 input[type="checkbox"],
 input[type="radio"] {
   appearance: none;
+  box-sizing: border-box;
   width: var(--choice-control-size);
   height: var(--choice-control-size);
   margin-top: 2px;
@@ -380,8 +395,8 @@ input[type="radio"]:checked::after {
 
 input[type="checkbox"]:focus-visible,
 input[type="radio"]:focus-visible {
-  outline: 2px solid var(--color-focus-ring);
-  outline-offset: 2px;
+  outline: none;
+  box-shadow: var(--focus-ring-shadow);
 }
 
 .choice-option:hover .choice-label {

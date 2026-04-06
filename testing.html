@@ -166,11 +166,15 @@
     }
 
     .draft-segmented-control--flat:focus-within {
-      box-shadow: inset 0 0 0 1px #4991F7, 0 0 0 3px rgba(138, 172, 251, 0.45);
+      box-shadow: inset 0 0 0 1.5px #2567F4, 0 0 0 2px rgba(37, 103, 244, 0.18);
     }
 
     .draft-segmented-control--flat.is-invalid:not(:focus-within) {
       box-shadow: inset 0 0 0 1px #DC2626;
+    }
+
+    .draft-segmented-control--flat.is-invalid:focus-within {
+      box-shadow: inset 0 0 0 1px #DC2626, 0 0 0 2px rgba(37, 103, 244, 0.18);
     }
 
     .draft-segmented-option {
@@ -319,6 +323,19 @@
       color: #4B5563;
       font-size: 12px;
       line-height: 1.5;
+    }
+
+    .draft-focus-ring-stack {
+      display: grid;
+      gap: 16px;
+      max-width: 360px;
+    }
+
+    .draft-focus-ring-note {
+      margin: 0;
+      color: var(--color-text-secondary);
+      font-size: 14px;
+      line-height: 1.6;
     }
 
     .draft-button-blue-primary {
@@ -689,6 +706,22 @@
     #draft-standard-panel-content .field-select {
       color: #374151;
       font-weight: 500;
+    }
+
+    #draft-standard-panel-content .field-select:not([aria-invalid="true"]):hover:not(:focus) {
+      border-color: #7EA6FB;
+      background-color: #F7FAFF;
+    }
+
+    #draft-standard-panel-content .field-select:focus,
+    #draft-standard-panel-content .field-select:focus-visible {
+      border-color: #D1D5DB;
+      border-width: 1px;
+      background-color: #FFFFFF;
+      outline: none;
+      box-shadow:
+        inset 0 0 0 1.5px #2567F4,
+        0 0 0 2px rgba(37, 103, 244, 0.18);
     }
 
     #draft-standard-panel-content .draft-notice {
@@ -1746,83 +1779,6 @@
   </header>
 
   <main class="draft-components">
-    <article class="panel" data-collapsible-panel data-panel-id="draft-rails">
-      <header class="panel-header">
-        <div class="panel-left">
-          <span class="panel-icon panel-icon--square" aria-hidden="true">
-            <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
-              <path d="M7 5v14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-              <path d="M11 8h7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-              <path d="M11 12h5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-              <path d="M11 16h6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-            </svg>
-          </span>
-          <h2 class="panel-title">Rail Variants</h2>
-        </div>
-
-        <button class="panel-toggle" type="button" aria-expanded="true" aria-controls="draft-rails-content">
-          <span class="sr-only">Collapse section</span>
-          <svg class="panel-chevron" viewBox="0 0 24 24" focusable="false" aria-hidden="true">
-            <path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-          </svg>
-        </button>
-      </header>
-
-      <div id="draft-rails-content" class="panel-content" role="region" aria-label="Rail variants content">
-        <div class="panel-body">
-          <div class="draft-rail-stack">
-            <p class="draft-rail-note">Showing the full rail set side by side on the testing surface.</p>
-            <div class="draft-rail-grid" aria-label="Rail variant examples">
-              <div class="draft-rail-chip" style="--rail-color:#9D8FFF;">
-                <p class="draft-rail-name">Violet</p>
-                <p class="draft-rail-token">#9D8FFF</p>
-              </div>
-              <div class="draft-rail-chip" style="--rail-color:#4B61D1;">
-                <p class="draft-rail-name">Indigo</p>
-                <p class="draft-rail-token">#4B61D1</p>
-              </div>
-              <div class="draft-rail-chip" style="--rail-color:#6F4E37;">
-                <p class="draft-rail-name">Coffee Bean</p>
-                <p class="draft-rail-token">#6F4E37</p>
-              </div>
-              <div class="draft-rail-chip" style="--rail-color:#38BDF8;">
-                <p class="draft-rail-name">Sky Blue</p>
-                <p class="draft-rail-token">#38BDF8</p>
-              </div>
-              <div class="draft-rail-chip" style="--rail-color:#0D9488;">
-                <p class="draft-rail-name">Tropical Teal</p>
-                <p class="draft-rail-token">#0D9488</p>
-              </div>
-              <div class="draft-rail-chip" style="--rail-color:#10B981;">
-                <p class="draft-rail-name">Emerald</p>
-                <p class="draft-rail-token">#10B981</p>
-              </div>
-              <div class="draft-rail-chip" style="--rail-color:#DBC1AC;">
-                <p class="draft-rail-name">Sand</p>
-                <p class="draft-rail-token">#DBC1AC</p>
-              </div>
-              <div class="draft-rail-chip" style="--rail-color:#FFBF00;">
-                <p class="draft-rail-name">Amber Gold</p>
-                <p class="draft-rail-token">#FFBF00</p>
-              </div>
-              <div class="draft-rail-chip" style="--rail-color:#EA580C;">
-                <p class="draft-rail-name">Cayenne Red</p>
-                <p class="draft-rail-token">#EA580C</p>
-              </div>
-              <div class="draft-rail-chip" style="--rail-color:#CA1F7B;">
-                <p class="draft-rail-name">Hot Rose</p>
-                <p class="draft-rail-token">#CA1F7B</p>
-              </div>
-              <div class="draft-rail-chip" style="--rail-color:#667085;">
-                <p class="draft-rail-name">Slate</p>
-                <p class="draft-rail-token">#667085</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </article>
-
     <article class="panel" data-collapsible-panel data-panel-id="draft-segmented-controls">
       <header class="panel-header">
         <div class="panel-left">
@@ -2771,7 +2727,7 @@
               <path d="M3 19h18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
             </svg>
           </span>
-          <h2 class="panel-title">Special Ed Services</h2>
+          <h2 class="panel-title">Focus Rings</h2>
         </div>
 
         <div class="panel-actions">
@@ -2803,109 +2759,13 @@
 
       <div id="draft-standard-panel-content" class="panel-content" role="region" aria-label="Standard panel content">
         <div class="panel-body">
-          <div class="draft-blue-scale-stack" aria-label="Blue scale comparison">
-            <p class="draft-blue-scale-note">Testing the blue scale on the surface in place of the earlier notice comparison.</p>
-            <div class="draft-blue-scale-grid">
-              <div class="draft-blue-scale-chip">
-                <div class="draft-blue-scale-swatch" style="--swatch-color:#EEF3FF"></div>
-                <div class="draft-blue-scale-meta">
-                  <span class="draft-blue-scale-stop">50</span>
-                </div>
-                <div class="draft-blue-scale-hex">#EEF3FF</div>
-                <p class="draft-blue-scale-use">Page tints, hover backgrounds</p>
-              </div>
-              <div class="draft-blue-scale-chip">
-                <div class="draft-blue-scale-swatch" style="--swatch-color:#D9E5FF"></div>
-                <div class="draft-blue-scale-meta">
-                  <span class="draft-blue-scale-stop">100</span>
-                </div>
-                <div class="draft-blue-scale-hex">#D9E5FF</div>
-                <p class="draft-blue-scale-use">Row selection background, notice fills</p>
-              </div>
-              <div class="draft-blue-scale-chip">
-                <div class="draft-blue-scale-swatch" style="--swatch-color:#B8CEFF"></div>
-                <div class="draft-blue-scale-meta">
-                  <span class="draft-blue-scale-stop">200</span>
-                </div>
-                <div class="draft-blue-scale-hex">#B8CEFF</div>
-                <p class="draft-blue-scale-use">Notice borders, subtle dividers</p>
-              </div>
-              <div class="draft-blue-scale-chip">
-                <div class="draft-blue-scale-swatch" style="--swatch-color:#8AACFB"></div>
-                <div class="draft-blue-scale-meta">
-                  <span class="draft-blue-scale-stop">300</span>
-                </div>
-                <div class="draft-blue-scale-hex">#8AACFB</div>
-                <p class="draft-blue-scale-use">Disabled button borders</p>
-              </div>
-              <div class="draft-blue-scale-chip">
-                <div class="draft-blue-scale-swatch" style="--swatch-color:#4991F7"></div>
-                <div class="draft-blue-scale-meta">
-                  <span class="draft-blue-scale-stop">400</span>
-                  <span class="draft-blue-scale-stop-mark">Key</span>
-                </div>
-                <div class="draft-blue-scale-hex">#4991F7</div>
-                <p class="draft-blue-scale-use">Field focus border, icon fills</p>
-              </div>
-              <div class="draft-blue-scale-chip">
-                <div class="draft-blue-scale-swatch" style="--swatch-color:#2567F4"></div>
-                <div class="draft-blue-scale-meta">
-                  <span class="draft-blue-scale-stop">500</span>
-                  <span class="draft-blue-scale-stop-mark">Key</span>
-                </div>
-                <div class="draft-blue-scale-hex">#2567F4</div>
-                <p class="draft-blue-scale-use">Primary button, checkbox fill, links</p>
-              </div>
-              <div class="draft-blue-scale-chip">
-                <div class="draft-blue-scale-swatch" style="--swatch-color:#1D55D8"></div>
-                <div class="draft-blue-scale-meta">
-                  <span class="draft-blue-scale-stop">600</span>
-                </div>
-                <div class="draft-blue-scale-hex">#1D55D8</div>
-                <p class="draft-blue-scale-use">Primary button hover</p>
-              </div>
-              <div class="draft-blue-scale-chip">
-                <div class="draft-blue-scale-swatch" style="--swatch-color:#2E5DBC"></div>
-                <div class="draft-blue-scale-meta">
-                  <span class="draft-blue-scale-stop">700</span>
-                  <span class="draft-blue-scale-stop-mark">Key</span>
-                </div>
-                <div class="draft-blue-scale-hex">#2E5DBC</div>
-                <p class="draft-blue-scale-use">Secondary button text, link hover</p>
-              </div>
-              <div class="draft-blue-scale-chip">
-                <div class="draft-blue-scale-swatch" style="--swatch-color:#00389B"></div>
-                <div class="draft-blue-scale-meta">
-                  <span class="draft-blue-scale-stop">800</span>
-                  <span class="draft-blue-scale-stop-mark">Key</span>
-                </div>
-                <div class="draft-blue-scale-hex">#00389B</div>
-                <p class="draft-blue-scale-use">Text on light blue surfaces, dark labels</p>
-              </div>
-              <div class="draft-blue-scale-chip">
-                <div class="draft-blue-scale-swatch" style="--swatch-color:#002D7A"></div>
-                <div class="draft-blue-scale-meta">
-                  <span class="draft-blue-scale-stop">900</span>
-                </div>
-                <div class="draft-blue-scale-hex">#002D7A</div>
-                <p class="draft-blue-scale-use">Deep text, dark mode surfaces</p>
-              </div>
-              <div class="draft-blue-scale-chip">
-                <div class="draft-blue-scale-swatch" style="--swatch-color:#001E52"></div>
-                <div class="draft-blue-scale-meta">
-                  <span class="draft-blue-scale-stop">950</span>
-                </div>
-                <div class="draft-blue-scale-hex">#001E52</div>
-                <p class="draft-blue-scale-use">Near-black blue, dark mode text</p>
-              </div>
-            </div>
-          </div>
-          <form class="panel-form" aria-label="Special education services fields" style="margin-top: var(--space-6);">
-            <div class="draft-field-compare-grid">
+          <div class="draft-focus-ring-stack">
+            <p class="draft-focus-ring-note">Testing the blue field focus treatment on the Sped Services dropdown.</p>
+            <form class="panel-form" aria-label="Focus ring field demo">
               <div class="field-body">
-                <label class="field-label" for="sped-service">Sped Service <span class="draft-optional-slate-600">(Optional)</span></label>
+                <label class="field-label" for="sped-services">Sped Services <span class="draft-optional-slate-600">(Optional)</span></label>
                 <div class="field-input-wrapper field-select-wrapper">
-                  <select id="sped-service" class="field-select">
+                  <select id="sped-services" class="field-select">
                     <option value="">Select service</option>
                     <option>Consultation</option>
                     <option>Resource</option>
@@ -2917,57 +2777,8 @@
                   <p class="field-helper draft-helper-slate-600">Select the primary service type for this student record.</p>
                 </div>
               </div>
-
-              <div class="field-body">
-                <label class="field-label" for="sped-service-alt">Sped Service <span class="draft-optional-slate-alt">(Optional)</span></label>
-                <div class="field-input-wrapper field-select-wrapper">
-                  <select id="sped-service-alt" class="field-select">
-                    <option value="">Select service</option>
-                    <option>Consultation</option>
-                    <option>Resource</option>
-                    <option>Speech Therapy</option>
-                    <option>Occupational Therapy</option>
-                  </select>
-                </div>
-                <div class="field-helper-slot">
-                  <p class="field-helper draft-helper-slate-alt">Select the primary service type for this student record.</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="choice-group">
-              <label class="field-label">Responsible</label>
-              <div class="choice-options">
-                <label class="choice-option">
-                  <input type="checkbox" name="responsible-party" value="gen-ed-teacher" />
-                  <span class="choice-label">Gen Ed Teacher</span>
-                </label>
-                <label class="choice-option">
-                  <input type="checkbox" name="responsible-party" value="sped-teacher" />
-                  <span class="choice-label">Sped Teacher</span>
-                </label>
-              </div>
-            </div>
-
-            <div class="choice-group">
-              <label class="field-label">Duration</label>
-              <div class="choice-options">
-                <label class="choice-option">
-                  <input type="radio" name="duration" value="minutes" />
-                  <span class="choice-label">Minutes</span>
-                </label>
-                <label class="choice-option">
-                  <input type="radio" name="duration" value="hours" />
-                  <span class="choice-label">Hours</span>
-                </label>
-                <label class="choice-option">
-                  <input type="radio" name="duration" value="daily" />
-                  <span class="choice-label">Daily</span>
-                </label>
-              </div>
-            </div>
-
-          </form>
+            </form>
+          </div>
         </div>
 
         <footer class="panel-footer">

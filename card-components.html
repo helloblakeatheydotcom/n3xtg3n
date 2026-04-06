@@ -12,6 +12,29 @@
   <link rel="stylesheet" href="styles/panels.css" />
   <link rel="stylesheet" href="styles/cards.css" />
   <link rel="stylesheet" href="styles/demos.css" />
+  <style>
+    .card-docs-page {
+      --color-accent: #2567F4;
+      --color-accent-hover: #2251C5;
+      --color-accent-active: #00389B;
+      --color-accent-border-hover: #7EA6FB;
+      --color-accent-border-focus: #2567F4;
+      --color-accent-tint: #EFF3FE;
+      --color-accent-tint-hover: #EFF3FE;
+      --color-focus-ring: #B8CEFF;
+      --card-rail-color: #2251C5;
+      --card-selected-border-color: #2567F4;
+    }
+
+    .card-docs-page .card-inline-link {
+      color: #2567F4;
+    }
+
+    .card-docs-page .card-inline-link:hover,
+    .card-docs-page .card-inline-link:focus-visible {
+      color: #2251C5;
+    }
+  </style>
 </head>
 <body class="panel-page card-docs-page component-docs-page">
   <div class="page-nav">
@@ -133,7 +156,7 @@
               <div class="card-top-row">
                 <div class="card-top-meta">
                   <p class="card-eyebrow">Assessment</p>
-                  <span class="card-badge" style="background:#DBEAFE; color:#1D4ED8;">Academic</span>
+                  <span class="card-badge" style="background:#DBE5FD; color:#2251C5;">Academic</span>
                 </div>
                 <div class="card-actions" aria-label="Woodcock-Johnson IV actions">
                   <button class="card-action-button card-action-button--edit" type="button">
@@ -204,7 +227,6 @@
             </div>
             <div class="card-footer">
               <button class="card-button" type="button">Record Progress</button>
-              <button class="card-button card-button--secondary" type="button">View Results</button>
             </div>
           </article>
         </section>
@@ -467,7 +489,7 @@
                 </thead>
                 <tbody>
                   <tr><td>Card background</td><td><code>--color-card-bg</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#FFFFFF"></span>#FFFFFF</span></td></tr>
-                  <tr><td>Card border</td><td><code>--color-card-border</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#E6ECF5"></span>#E6ECF5</span></td></tr>
+                  <tr><td>Card border</td><td><code>--color-card-border</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#E6ECF5"></span>Slate 200 (#E6ECF5)</span></td></tr>
                   <tr><td>Card shadow</td><td><code>--card-shadow</code></td><td>0 1px 2px rgba(17,24,39,0.04)</td></tr>
                   <tr><td>Card radius</td><td><code>--card-radius</code></td><td>10px</td></tr>
                 </tbody>
@@ -482,14 +504,14 @@
                   <tr><th>Role</th><th>Token</th><th>Value</th></tr>
                 </thead>
                 <tbody>
-                  <tr><td>Title color</td><td><code>--card-title-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#111827"></span>#111827</span></td></tr>
+                  <tr><td>Title color</td><td><code>--card-title-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#111827"></span>Gray 800 (#111827)</span></td></tr>
                   <tr><td>Title style</td><td><code>--card-title-font-weight / --card-title-font-size / --card-title-line-height</code></td><td>600 / 15px / 22px</td></tr>
-                  <tr><td>Body color</td><td><code>--card-body-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#374151"></span>#374151</span></td></tr>
+                  <tr><td>Body color</td><td><code>--card-body-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#374151"></span>Gray 700 (#374151)</span></td></tr>
                   <tr><td>Body style</td><td><code>--card-body-font-size / --card-body-line-height</code></td><td>13px / 1.5</td></tr>
-                  <tr><td>Eyebrow color</td><td><code>--card-eyebrow-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#6B7280"></span>#6B7280</span></td></tr>
-                  <tr><td>Metadata color</td><td><code>--card-meta-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#6B7280"></span>#6B7280</span></td></tr>
+                  <tr><td>Eyebrow color</td><td><code>--card-eyebrow-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#6B7280"></span>Gray 500 (#6B7280)</span></td></tr>
+                  <tr><td>Metadata color</td><td><code>--card-meta-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#6B7280"></span>Gray 500 (#6B7280)</span></td></tr>
                   <tr><td>Metadata label weight</td><td><code>.card-meta-label</code></td><td>500</td></tr>
-                  <tr><td>Metadata value color / weight</td><td><code>.card-meta-value</code></td><td>#374151 / 600</td></tr>
+                  <tr><td>Metadata value color / weight</td><td><code>.card-meta-value</code></td><td>Gray 700 (#374151) / 600</td></tr>
                   <tr><td>Badge typography</td><td><code>--card-badge-font-weight / --card-badge-font-size / --card-badge-line-height</code></td><td>600 / 12px / 1</td></tr>
                 </tbody>
               </table>
@@ -509,7 +531,7 @@
                   <tr><td>Body to metadata divider</td><td><code>.card-body + .card-meta</code></td><td>10px top space + 1px divider</td></tr>
                   <tr><td>Metadata item gap</td><td><code>.card-meta-item</code></td><td>4px</td></tr>
                   <tr><td>Metadata separator spacing</td><td><code>.card-meta-item + .card-meta-item::before</code></td><td>6px each side</td></tr>
-                  <tr><td>Footer divider</td><td><code>--card-footer-border-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#E5E7EB"></span>#E5E7EB</span></td></tr>
+                  <tr><td>Footer divider</td><td><code>--card-footer-border-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#E5E7EB"></span>Gray 200 (#E5E7EB)</span></td></tr>
                 </tbody>
               </table>
             </article>
@@ -522,13 +544,11 @@
                   <tr><th>Role</th><th>Token</th><th>Value</th></tr>
                 </thead>
                 <tbody>
-                  <tr><td>Badge background</td><td><code>--card-badge-bg</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#E9E2FF"></span>#E9E2FF</span></td></tr>
-                  <tr><td>Badge text</td><td><code>--card-badge-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#4C2FBD"></span>#4C2FBD</span></td></tr>
                   <tr><td>Teal badge</td><td><code>--badge-teal-bg</code> / <code>--badge-teal-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#CCFBF1"></span>#CCFBF1 / <span class="token-chip" style="--token-color:#0F6B62"></span>#0F6B62</span></td></tr>
                   <tr><td>Rose badge</td><td><code>--badge-rose-bg</code> / <code>--badge-rose-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#FCE7F3"></span>#FCE7F3 / <span class="token-chip" style="--token-color:#9D174D"></span>#9D174D</span></td></tr>
-                  <tr><td>Cobalt badge</td><td><code>--badge-cobalt-bg</code> / <code>--badge-cobalt-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#DBEAFE"></span>#DBEAFE / <span class="token-chip" style="--token-color:#1D4ED8"></span>#1D4ED8</span></td></tr>
-                  <tr><td>Emerald badge</td><td><code>--badge-emerald-bg</code> / <code>--badge-emerald-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#D1FAE5"></span>#D1FAE5 / <span class="token-chip" style="--token-color:#065F46"></span>#065F46</span></td></tr>
-                  <tr><td>Amber badge</td><td><code>--badge-amber-bg</code> / <code>--badge-amber-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#FEF0C0"></span>#FEF0C0 / <span class="token-chip" style="--token-color:#973C00"></span>#973C00</span></td></tr>
+                  <tr><td>Cobalt badge</td><td><code>--badge-cobalt-bg</code> / <code>--badge-cobalt-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#DBE5FD"></span>Blue 200 (#DBE5FD) / <span class="token-chip" style="--token-color:#2251C5"></span>Blue 600 (#2251C5)</span></td></tr>
+                  <tr><td>Emerald badge</td><td><code>--badge-emerald-bg</code> / <code>--badge-emerald-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#D1FAE5"></span>Emerald 100 (#D1FAE5) / <span class="token-chip" style="--token-color:#065F46"></span>Emerald 800 (#065F46)</span></td></tr>
+                  <tr><td>Amber badge</td><td><code>--badge-amber-bg</code> / <code>--badge-amber-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#FFC641"></span>Amber 400 (#FFC641) / <span class="token-chip" style="--token-color:#352005"></span>Amber 950 (#352005)</span></td></tr>
                 </tbody>
               </table>
             </article>
@@ -542,12 +562,16 @@
                 </thead>
                 <tbody>
                   <tr><td>Hover border</td><td><code>--card-hover-border-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#D5DFF0"></span>#D5DFF0</span></td></tr>
-                  <tr><td>Selected border</td><td><code>--card-selected-border-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#7C5CFF"></span>#7C5CFF</span></td></tr>
-                  <tr><td>Accent rail</td><td><code>--card-rail-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#7C5CFF"></span>#7C5CFF</span></td></tr>
-                  <tr><td>Action icon</td><td><code>--card-action-icon-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#6B7280"></span>#6B7280</span></td></tr>
-                  <tr><td>Action hover border</td><td><code>--card-action-icon-hover-border</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#D1D5DB"></span>#D1D5DB</span></td></tr>
-                  <tr><td>Edit action hover</td><td><code>--card-action-icon-edit-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#4B5563"></span>#4B5563</span></td></tr>
-                  <tr><td>Delete action hover</td><td><code>--card-action-icon-delete-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#DC2626"></span>#DC2626</span></td></tr>
+                  <tr><td>Selected border</td><td><code>--card-selected-border-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#2567F4"></span>Blue 500 (#2567F4)</span></td></tr>
+                  <tr><td>Hover rail</td><td><code>--card-rail-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#2251C5"></span>Blue 600 (#2251C5)</span></td></tr>
+                  <tr><td>Action icon</td><td><code>--card-action-icon-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#6B7280"></span>Gray 500 (#6B7280)</span></td></tr>
+                  <tr><td>Action hover border</td><td><code>--card-action-icon-hover-border</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#D1D5DB"></span>Gray 300 (#D1D5DB)</span></td></tr>
+                  <tr><td>Edit action hover</td><td><code>--card-action-icon-edit-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#4B5563"></span>Gray 600 (#4B5563)</span></td></tr>
+                  <tr><td>Delete action hover</td><td><code>--card-action-icon-delete-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#DC2626"></span>Red 600 (#DC2626)</span></td></tr>
+                  <tr><td>Primary button</td><td><code>--color-accent</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#2567F4"></span>Blue 500 (#2567F4)</span></td></tr>
+                  <tr><td>Primary button hover</td><td><code>--color-accent-hover</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#2251C5"></span>Blue 600 (#2251C5)</span></td></tr>
+                  <tr><td>Primary button active</td><td><code>--color-accent-active</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#00389B"></span>Blue 700 (#00389B)</span></td></tr>
+                  <tr><td>Inline link</td><td><code>.card-inline-link</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#2567F4"></span>Blue 500 (#2567F4)</span></td></tr>
                 </tbody>
               </table>
             </article>

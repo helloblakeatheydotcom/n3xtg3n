@@ -119,8 +119,9 @@
 }
 
 .card-action-button:focus-visible {
-  border-color: var(--color-accent-border-focus);
-  box-shadow: 0 0 0 3px var(--color-focus-ring);
+  border-color: transparent;
+  box-shadow: var(--focus-ring-shadow);
+  outline: none;
 }
 
 .card-action-button--edit:hover,
@@ -283,7 +284,7 @@
 }
 
 .card-button:focus-visible {
-  box-shadow: 0 0 0 3px var(--color-focus-ring);
+  box-shadow: var(--focus-ring-shadow);
   outline: none;
 }
 

@@ -230,21 +230,13 @@
   outline: none;
 }
 
-.panel-docs-page .panel-link-button:focus-visible {
-  box-shadow: 0 0 0 3px #B8CEFF;
-}
-
 .panel-link-button:focus-visible,
 .panel-menu-toggle:focus-visible,
 .panel-menu-item:focus-visible,
 .panel-toggle:focus-visible {
-  box-shadow: 0 0 0 3px var(--color-focus-ring);
-}
-
-.panel-link-button:focus-visible,
-.panel-menu-toggle:focus-visible,
-.panel-toggle:focus-visible {
-  border-color: var(--color-border-default);
+  border-color: transparent;
+  box-shadow: var(--focus-ring-shadow);
+  outline: none;
 }
 
 .meatball-icon {
@@ -383,7 +375,7 @@
 }
 
 .panel-docs-page .footer-action:focus-visible {
-  box-shadow: 0 0 0 3px var(--color-focus-ring);
+  box-shadow: var(--focus-ring-shadow);
   outline: none;
 }
 
@@ -394,13 +386,16 @@
   background-color: #F7FAFF;
 }
 
-.panel-docs-page-current .panel .field-input:focus,
-.panel-docs-page-current .panel .field-select:focus,
-.panel-docs-page-current .panel .field-textarea:focus {
-  border-color: #2567F4;
-  border-width: 2px;
+.panel-docs-page-current .panel .field-input:not([aria-invalid="true"]):focus,
+.panel-docs-page-current .panel .field-input:not([aria-invalid="true"]):focus-visible,
+.panel-docs-page-current .panel .field-select:not([aria-invalid="true"]):focus,
+.panel-docs-page-current .panel .field-select:not([aria-invalid="true"]):focus-visible,
+.panel-docs-page-current .panel .field-textarea:not([aria-invalid="true"]):focus,
+.panel-docs-page-current .panel .field-textarea:not([aria-invalid="true"]):focus-visible {
+  border-color: var(--field-border-color);
+  border-width: 1px;
   background-color: #FFFFFF;
-  box-shadow: 0 0 0 3px #B8CEFF;
+  box-shadow: var(--focus-ring-shadow);
 }
 
 .specs-stack {

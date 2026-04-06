@@ -302,8 +302,9 @@
 }
 
 .record-row-action-button:focus-visible {
-  outline: 2px solid var(--color-focus-ring);
-  outline-offset: 2px;
+  border-color: transparent;
+  outline: none;
+  box-shadow: var(--focus-ring-shadow);
 }
 
 .record-row-action-button--edit:hover,

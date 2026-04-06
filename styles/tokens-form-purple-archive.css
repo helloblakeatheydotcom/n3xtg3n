@@ -30,6 +30,8 @@
   --color-accent-tint-strong: #F3EEFF;
   --color-accent-tint-pressed: #E9E2FF;
   --color-focus-ring: #C7C2FF;
+  --focus-ring-shadow: inset 0 0 0 1.5px #2567F4, 0 0 0 2px rgba(37, 103, 244, 0.18);
+  --focus-ring-shadow-error: 0 0 0 2px rgba(37, 103, 244, 0.18);
 
   /* Informational blue */
   --color-info-bg: #DCE9FF;

@@ -47,9 +47,9 @@
   --color-warning-icon: #FFCF09;
 
   /* Inline notices */
-  --notice-info-bg: #EFF6FF;
-  --notice-info-border-color: #BFDBFE;
-  --notice-info-color: #1D4ED8;
+  --notice-info-bg: #EFF3FE;
+  --notice-info-border-color: #DBE5FD;
+  --notice-info-color: #00389B;
   --notice-success-bg: #ECFDF5;
   --notice-success-border-color: #A7F3D0;
   --notice-success-color: #047857;
@@ -178,8 +178,8 @@
   --card-action-icon-delete-color: var(--color-danger);
   --badge-purple-bg: #E9E2FF;
   --badge-purple-color: #4C2FBD;
-  --badge-cobalt-bg: #DBEAFE;
-  --badge-cobalt-color: #1D4ED8;
+  --badge-cobalt-bg: #DBE5FD;
+  --badge-cobalt-color: #2251C5;
   --badge-teal-bg: #CCFBF1;
   --badge-teal-color: #0F6B62;
   --badge-emerald-bg: #D1FAE5;
