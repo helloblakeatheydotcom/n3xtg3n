@@ -65,37 +65,276 @@
       line-height: 18px;
     }
 
-    .draft-button-link {
-      color: #5B42C4;
+    .draft-rail-stack {
+      display: grid;
+      gap: 16px;
     }
 
-    .draft-button-link:hover,
-    .draft-button-link:focus-visible {
-      color: #5B42C4;
-      background: #F3EEFF;
-      border-color: #AFA7FF;
+    .draft-rail-note {
+      margin: 0;
+      color: var(--color-text-secondary);
+      font-size: 13px;
+      line-height: 18px;
+    }
+
+    .draft-rail-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .draft-rail-chip {
+      position: relative;
+      min-height: 128px;
+      padding: 22px 18px 18px 22px;
+      border: 1px solid #E5E7EB;
+      border-radius: 12px;
+      background: #FFFFFF;
+      overflow: hidden;
+    }
+
+    .draft-rail-chip::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 16px;
+      bottom: 16px;
+      width: 4px;
+      border-radius: 999px;
+      background: var(--rail-color);
+      opacity: 0.8;
+    }
+
+    .draft-rail-name {
+      margin: 0;
+      color: var(--color-text-primary);
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 1.35;
+    }
+
+    .draft-rail-token {
+      margin: 6px 0 0;
+      color: var(--color-text-secondary);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .draft-segmented-stack {
+      display: grid;
+      gap: 28px;
+      max-width: 360px;
+    }
+
+    .draft-segmented-group {
+      display: grid;
+      gap: 10px;
+    }
+
+    .draft-segmented-label {
+      margin: 0;
+      color: var(--color-text-primary);
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 20px;
+    }
+
+    .draft-segmented-note {
+      margin: 0;
+      color: #667085;
+      font-size: 13px;
+      line-height: 20px;
+    }
+
+    .draft-segmented-control {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      width: 100%;
+    }
+
+    .draft-segmented-control--flat {
+      border: 1px solid #BFD4FF;
+      border-radius: 6px;
+      background: #F7FAFF;
+      overflow: hidden;
+    }
+
+    .draft-segmented-control--flat .draft-segmented-option + .draft-segmented-option {
+      border-left: 1px solid #D9E5FF;
+    }
+
+    .draft-segmented-control--pill {
+      gap: 12px;
+    }
+
+    .draft-segmented-option {
+      position: relative;
+      display: block;
+      min-width: 0;
+      cursor: pointer;
+    }
+
+    .draft-segmented-option input {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      margin: 0;
+      cursor: pointer;
+    }
+
+    .draft-segmented-text {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 34px;
+      padding: 0 16px;
+      color: #475467;
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 20px;
+      text-align: center;
+      transition: background-color 0.16s ease, border-color 0.16s ease, color 0.16s ease, box-shadow 0.16s ease;
+    }
+
+    .draft-segmented-control--flat .draft-segmented-text {
+      background: transparent;
+    }
+
+    .draft-segmented-control--flat .draft-segmented-option:hover .draft-segmented-text {
+      background: #EEF3FF;
+    }
+
+    .draft-segmented-control--flat .draft-segmented-option input:checked + .draft-segmented-text {
+      background: #2F5DCC;
+      color: #FFFFFF;
+    }
+
+    .draft-segmented-control--flat .draft-segmented-option input:focus-visible + .draft-segmented-text {
+      box-shadow: inset 0 0 0 1px #1D55D8;
+    }
+
+    .draft-segmented-control--pill .draft-segmented-text {
+      min-height: 38px;
+      border: 1px solid #BFD4FF;
+      border-radius: 999px;
+      background: #F7FAFF;
+    }
+
+    .draft-segmented-control--pill .draft-segmented-option:hover .draft-segmented-text {
+      background: #EEF3FF;
+    }
+
+    .draft-segmented-control--pill .draft-segmented-option input:checked + .draft-segmented-text {
+      border-color: #2F5DCC;
+      background: #2F5DCC;
+      color: #FFFFFF;
+    }
+
+    .draft-segmented-control--pill .draft-segmented-option input:focus-visible + .draft-segmented-text {
+      box-shadow: inset 0 0 0 1px #1D55D8;
+    }
+
+    .draft-blue-scale-stack {
+      display: grid;
+      gap: 18px;
+    }
+
+    .draft-blue-scale-note {
+      margin: 0;
+      max-width: 760px;
+      color: var(--color-text-secondary);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .draft-blue-scale-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(168px, 1fr));
+      gap: 14px;
+    }
+
+    .draft-blue-scale-chip {
+      display: grid;
+      gap: 10px;
+      padding: 14px;
+      border: 1px solid #D9E5FF;
+      border-radius: 12px;
+      background: #FFFFFF;
+      box-shadow: 0 1px 2px rgba(17, 24, 39, 0.04);
+    }
+
+    .draft-blue-scale-swatch {
+      width: 100%;
+      min-height: 72px;
+      border-radius: 10px;
+      background: var(--swatch-color);
+      box-shadow: inset 0 0 0 1px rgba(0, 30, 82, 0.08);
+    }
+
+    .draft-blue-scale-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .draft-blue-scale-stop {
+      color: #00389B;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: 0.04em;
+    }
+
+    .draft-blue-scale-stop-mark {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 26px;
+      padding: 3px 7px;
+      border-radius: 999px;
+      background: #EEF3FF;
+      color: #2567F4;
+      font-size: 11px;
+      font-weight: 700;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .draft-blue-scale-hex {
+      color: #002D7A;
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    .draft-blue-scale-use {
+      margin: 0;
+      color: #4B5563;
+      font-size: 12px;
+      line-height: 1.5;
     }
 
     .draft-button-blue-primary {
-      background: #1D4ED8;
-      border-color: #1D4ED8;
+      background: #2567F4;
+      border-color: #2567F4;
     }
 
     .draft-button-blue-primary:hover,
     .draft-button-blue-primary:focus-visible {
-      background: #1E40AF;
-      border-color: #1E40AF;
+      background: #1D55D8;
+      border-color: #1D55D8;
     }
 
     .draft-button-blue-link {
-      color: #1D4ED8;
+      color: #2567F4;
     }
 
     .draft-button-blue-link:hover,
     .draft-button-blue-link:focus-visible {
-      color: #1D4ED8;
-      background: #EFF6FF;
-      border-color: #BFDBFE;
+      color: #2E5DBC;
+      background: #EEF3FF;
+      border-color: #B8CEFF;
     }
 
     .draft-button-emerald-primary {
@@ -131,30 +370,17 @@
       border-color: #A7F3D0;
     }
 
-    .draft-button-purple-secondary {
-      color: #5B42C4;
-      background: #FAF8FF;
-      border-color: #C7C2FF;
-    }
-
-    .draft-button-purple-secondary:hover,
-    .draft-button-purple-secondary:focus-visible {
-      color: #4C2FBD;
-      background: #F3EEFF;
-      border-color: #AFA7FF;
-    }
-
     .draft-button-blue-secondary {
-      color: #1D4ED8;
-      background: #EFF6FF;
-      border-color: #BFDBFE;
+      color: #2E5DBC;
+      background: #EEF3FF;
+      border-color: #B8CEFF;
     }
 
     .draft-button-blue-secondary:hover,
     .draft-button-blue-secondary:focus-visible {
-      color: #1E40AF;
-      background: #DBEAFE;
-      border-color: #93C5FD;
+      color: #00389B;
+      background: #D9E5FF;
+      border-color: #4991F7;
     }
 
     .draft-button-neutral-fill {
@@ -1478,6 +1704,10 @@
     }
 
     @media (max-width: 640px) {
+      .draft-rail-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
       .record-row {
         padding: 10px 14px 10px 24px;
       }
@@ -1510,6 +1740,136 @@
   </header>
 
   <main class="draft-components">
+    <article class="panel" data-collapsible-panel data-panel-id="draft-rails">
+      <header class="panel-header">
+        <div class="panel-left">
+          <span class="panel-icon panel-icon--square" aria-hidden="true">
+            <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+              <path d="M7 5v14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+              <path d="M11 8h7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+              <path d="M11 12h5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+              <path d="M11 16h6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            </svg>
+          </span>
+          <h2 class="panel-title">Rail Variants</h2>
+        </div>
+
+        <button class="panel-toggle" type="button" aria-expanded="true" aria-controls="draft-rails-content">
+          <span class="sr-only">Collapse section</span>
+          <svg class="panel-chevron" viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+            <path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </button>
+      </header>
+
+      <div id="draft-rails-content" class="panel-content" role="region" aria-label="Rail variants content">
+        <div class="panel-body">
+          <div class="draft-rail-stack">
+            <p class="draft-rail-note">Showing the full rail set side by side on the testing surface.</p>
+            <div class="draft-rail-grid" aria-label="Rail variant examples">
+              <div class="draft-rail-chip" style="--rail-color: var(--section-rail-violet);">
+                <p class="draft-rail-name">Purple</p>
+                <p class="draft-rail-token">Violet 600</p>
+              </div>
+              <div class="draft-rail-chip" style="--rail-color: var(--section-rail-indigo);">
+                <p class="draft-rail-name">Indigo</p>
+                <p class="draft-rail-token">Indigo 600</p>
+              </div>
+              <div class="draft-rail-chip" style="--rail-color: var(--section-rail-blue);">
+                <p class="draft-rail-name">Blue</p>
+                <p class="draft-rail-token">Blue 600</p>
+              </div>
+              <div class="draft-rail-chip" style="--rail-color: var(--section-rail-cyan);">
+                <p class="draft-rail-name">Cyan</p>
+                <p class="draft-rail-token">Cyan 700</p>
+              </div>
+              <div class="draft-rail-chip" style="--rail-color: var(--section-rail-teal);">
+                <p class="draft-rail-name">Teal</p>
+                <p class="draft-rail-token">Teal 800</p>
+              </div>
+              <div class="draft-rail-chip" style="--rail-color: var(--section-rail-emerald);">
+                <p class="draft-rail-name">Emerald</p>
+                <p class="draft-rail-token">Emerald 600</p>
+              </div>
+              <div class="draft-rail-chip" style="--rail-color: var(--section-rail-amber);">
+                <p class="draft-rail-name">Amber</p>
+                <p class="draft-rail-token">Amber 600</p>
+              </div>
+              <div class="draft-rail-chip" style="--rail-color: var(--section-rail-orange);">
+                <p class="draft-rail-name">Orange</p>
+                <p class="draft-rail-token">Orange 600</p>
+              </div>
+              <div class="draft-rail-chip" style="--rail-color: var(--section-rail-rose);">
+                <p class="draft-rail-name">Rose</p>
+                <p class="draft-rail-token">Rose 600</p>
+              </div>
+              <div class="draft-rail-chip" style="--rail-color: var(--section-rail-slate);">
+                <p class="draft-rail-name">Slate</p>
+                <p class="draft-rail-token">Slate 800</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="panel" data-collapsible-panel data-panel-id="draft-segmented-controls">
+      <header class="panel-header">
+        <div class="panel-left">
+          <span class="panel-icon panel-icon--square" aria-hidden="true">
+            <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+              <rect x="4" y="7" width="16" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="2" />
+              <path d="M12 7v10" fill="none" stroke="currentColor" stroke-width="2" />
+            </svg>
+          </span>
+          <h2 class="panel-title">Segmented Fields</h2>
+        </div>
+
+        <button class="panel-toggle" type="button" aria-expanded="true" aria-controls="draft-segmented-controls-content">
+          <span class="sr-only">Collapse section</span>
+          <svg class="panel-chevron" viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+            <path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </button>
+      </header>
+
+      <div id="draft-segmented-controls-content" class="panel-content" role="region" aria-label="Segmented controls content">
+        <div class="panel-body">
+          <div class="draft-segmented-stack">
+            <div class="draft-segmented-group">
+              <p class="draft-segmented-label">Parent Attended Meeting</p>
+              <div class="draft-segmented-control draft-segmented-control--flat" role="radiogroup" aria-label="Parent attended meeting segmented control">
+                <label class="draft-segmented-option">
+                  <input type="radio" name="parent-attended-meeting-flat" value="yes" />
+                  <span class="draft-segmented-text">Yes</span>
+                </label>
+                <label class="draft-segmented-option">
+                  <input type="radio" name="parent-attended-meeting-flat" value="no" />
+                  <span class="draft-segmented-text">No</span>
+                </label>
+              </div>
+              <p class="draft-segmented-note">Segmented Yes / No example with no default selection.</p>
+            </div>
+
+            <div class="draft-segmented-group">
+              <p class="draft-segmented-label">Parent Attended Meeting</p>
+              <div class="draft-segmented-control draft-segmented-control--pill" role="radiogroup" aria-label="Parent attended meeting pill control">
+                <label class="draft-segmented-option">
+                  <input type="radio" name="parent-attended-meeting-pill" value="yes" />
+                  <span class="draft-segmented-text">Yes</span>
+                </label>
+                <label class="draft-segmented-option">
+                  <input type="radio" name="parent-attended-meeting-pill" value="no" />
+                  <span class="draft-segmented-text">No</span>
+                </label>
+              </div>
+              <p class="draft-segmented-note">Pill-shaped two-container version with no default selection.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
     <article class="panel" data-collapsible-panel data-panel-id="draft-buttons">
       <header class="panel-header">
         <div class="panel-left">
@@ -1535,20 +1895,17 @@
           <div class="draft-button-stack">
             <p class="draft-button-note">Testing shared button directions before they move into a dedicated button component page.</p>
             <div class="draft-button-row" aria-label="Primary button comparison">
-              <button class="card-button" type="button">Purple Primary</button>
               <button class="card-button draft-button-blue-primary" type="button">Blue Primary</button>
               <button class="card-button draft-button-emerald-primary" type="button">Emerald Primary</button>
               <button class="card-button draft-button-red-primary" type="button">Destructive</button>
             </div>
             <div class="draft-button-row" aria-label="Link button comparison">
-              <button class="panel-link-button draft-button-link" type="button">Purple Link</button>
               <button class="panel-link-button draft-button-blue-link" type="button">Blue Link</button>
               <button class="panel-link-button draft-button-emerald-link" type="button">Emerald Link</button>
             </div>
             <div class="draft-button-row" aria-label="Demoted secondary button comparison">
               <button class="card-button card-button--secondary" type="button">Neutral Secondary</button>
               <button class="card-button card-button--secondary draft-button-neutral-fill" type="button">Neutral Filled</button>
-              <button class="card-button card-button--secondary draft-button-purple-secondary" type="button">Purple Secondary</button>
               <button class="card-button card-button--secondary draft-button-blue-secondary" type="button">Blue Secondary</button>
             </div>
           </div>
@@ -2451,111 +2808,102 @@
 
       <div id="draft-standard-panel-content" class="panel-content" role="region" aria-label="Standard panel content">
         <div class="panel-body">
-          <div class="draft-notice-group" aria-label="Standard notice comparison">
-            <section class="draft-notice draft-notice--info" aria-label="Special education services info">
-              <span class="draft-notice-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="10"></circle>
-                  <path d="M12 16v-5"></path>
-                  <path d="M12 8h.01"></path>
-                </svg>
-              </span>
-              <div class="draft-notice-content">
-                <h3 class="draft-notice-title">Document the student's special education services</h3>
-                <p class="draft-notice-text">Include service type, delivery details, and the staff responsible for implementing.</p>
+          <div class="draft-blue-scale-stack" aria-label="Blue scale comparison">
+            <p class="draft-blue-scale-note">Testing the blue scale on the surface in place of the earlier notice comparison.</p>
+            <div class="draft-blue-scale-grid">
+              <div class="draft-blue-scale-chip">
+                <div class="draft-blue-scale-swatch" style="--swatch-color:#EEF3FF"></div>
+                <div class="draft-blue-scale-meta">
+                  <span class="draft-blue-scale-stop">50</span>
+                </div>
+                <div class="draft-blue-scale-hex">#EEF3FF</div>
+                <p class="draft-blue-scale-use">Page tints, hover backgrounds</p>
               </div>
-            </section>
-            <section class="draft-notice draft-notice--success" aria-label="Special education services success">
-              <span class="draft-notice-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="10"></circle>
-                  <path d="m9 12 2 2 4-4"></path>
-                </svg>
-              </span>
-              <div class="draft-notice-content">
-                <h3 class="draft-notice-title">Service details were saved successfully.</h3>
-                <p class="draft-notice-text">Review the selections below and continue when you are ready.</p>
+              <div class="draft-blue-scale-chip">
+                <div class="draft-blue-scale-swatch" style="--swatch-color:#D9E5FF"></div>
+                <div class="draft-blue-scale-meta">
+                  <span class="draft-blue-scale-stop">100</span>
+                </div>
+                <div class="draft-blue-scale-hex">#D9E5FF</div>
+                <p class="draft-blue-scale-use">Row selection background, notice fills</p>
               </div>
-            </section>
-            <section class="draft-notice draft-notice--warning" aria-label="Special education services warning">
-              <span class="draft-notice-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="m21.73 18-8-14a2 2 0 0 0-3.46 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"></path>
-                  <path d="M12 9v5"></path>
-                  <path d="M12 17h.01"></path>
-                </svg>
-              </span>
-              <div class="draft-notice-content">
-                <h3 class="draft-notice-title">Service dates are incomplete.</h3>
-                <p class="draft-notice-text">Please add service dates to all services before you create the final document.</p>
+              <div class="draft-blue-scale-chip">
+                <div class="draft-blue-scale-swatch" style="--swatch-color:#B8CEFF"></div>
+                <div class="draft-blue-scale-meta">
+                  <span class="draft-blue-scale-stop">200</span>
+                </div>
+                <div class="draft-blue-scale-hex">#B8CEFF</div>
+                <p class="draft-blue-scale-use">Notice borders, subtle dividers</p>
               </div>
-            </section>
-            <section class="draft-notice draft-notice--error" aria-label="Special education services error">
-              <span class="draft-notice-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="10"></circle>
-                  <path d="m9 9 6 6"></path>
-                  <path d="m15 9-6 6"></path>
-                </svg>
-              </span>
-              <div class="draft-notice-content">
-                <h3 class="draft-notice-title">Required service details are missing</h3>
-                <p class="draft-notice-text">Add the missing information before this section can be completed.</p>
+              <div class="draft-blue-scale-chip">
+                <div class="draft-blue-scale-swatch" style="--swatch-color:#8AACFB"></div>
+                <div class="draft-blue-scale-meta">
+                  <span class="draft-blue-scale-stop">300</span>
+                </div>
+                <div class="draft-blue-scale-hex">#8AACFB</div>
+                <p class="draft-blue-scale-use">Disabled button borders</p>
               </div>
-            </section>
-          </div>
-          <div class="draft-notice-group" aria-label="Warning treatment comparison">
-            <section class="draft-notice draft-notice--rail draft-notice--info-rail" aria-label="Info notice in warning treatment">
-              <span class="draft-notice-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="10"></circle>
-                  <path d="M12 16v-5"></path>
-                  <path d="M12 8h.01"></path>
-                </svg>
-              </span>
-              <div class="draft-notice-content">
-                <h3 class="draft-notice-title">Document the student's special education services</h3>
-                <p class="draft-notice-text">Include service type, delivery details, and the staff responsible for implementing.</p>
+              <div class="draft-blue-scale-chip">
+                <div class="draft-blue-scale-swatch" style="--swatch-color:#4991F7"></div>
+                <div class="draft-blue-scale-meta">
+                  <span class="draft-blue-scale-stop">400</span>
+                  <span class="draft-blue-scale-stop-mark">Key</span>
+                </div>
+                <div class="draft-blue-scale-hex">#4991F7</div>
+                <p class="draft-blue-scale-use">Field focus border, icon fills</p>
               </div>
-            </section>
-            <section class="draft-notice draft-notice--rail draft-notice--success-rail" aria-label="Success notice in warning treatment">
-              <span class="draft-notice-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="10"></circle>
-                  <path d="m9 12 2 2 4-4"></path>
-                </svg>
-              </span>
-              <div class="draft-notice-content">
-                <h3 class="draft-notice-title">Service details were saved successfully.</h3>
-                <p class="draft-notice-text">Review the selections below and continue when you are ready.</p>
+              <div class="draft-blue-scale-chip">
+                <div class="draft-blue-scale-swatch" style="--swatch-color:#2567F4"></div>
+                <div class="draft-blue-scale-meta">
+                  <span class="draft-blue-scale-stop">500</span>
+                  <span class="draft-blue-scale-stop-mark">Key</span>
+                </div>
+                <div class="draft-blue-scale-hex">#2567F4</div>
+                <p class="draft-blue-scale-use">Primary button, checkbox fill, links</p>
               </div>
-            </section>
-            <section class="draft-notice draft-notice--rail draft-notice--warning-rail" aria-label="Warning notice in warning treatment">
-              <span class="draft-notice-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="m21.73 18-8-14a2 2 0 0 0-3.46 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"></path>
-                  <path d="M12 9v5"></path>
-                  <path d="M12 17h.01"></path>
-                </svg>
-              </span>
-              <div class="draft-notice-content">
-                <h3 class="draft-notice-title">Service dates are incomplete.</h3>
-                <p class="draft-notice-text">Please add service dates to all services before you create the final document.</p>
+              <div class="draft-blue-scale-chip">
+                <div class="draft-blue-scale-swatch" style="--swatch-color:#1D55D8"></div>
+                <div class="draft-blue-scale-meta">
+                  <span class="draft-blue-scale-stop">600</span>
+                </div>
+                <div class="draft-blue-scale-hex">#1D55D8</div>
+                <p class="draft-blue-scale-use">Primary button hover</p>
               </div>
-            </section>
-            <section class="draft-notice draft-notice--rail draft-notice--error-rail" aria-label="Error notice in warning treatment">
-              <span class="draft-notice-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="10"></circle>
-                  <path d="m9 9 6 6"></path>
-                  <path d="m15 9-6 6"></path>
-                </svg>
-              </span>
-              <div class="draft-notice-content">
-                <h3 class="draft-notice-title">Required service details are missing</h3>
-                <p class="draft-notice-text">Add the missing information before this section can be completed.</p>
+              <div class="draft-blue-scale-chip">
+                <div class="draft-blue-scale-swatch" style="--swatch-color:#2E5DBC"></div>
+                <div class="draft-blue-scale-meta">
+                  <span class="draft-blue-scale-stop">700</span>
+                  <span class="draft-blue-scale-stop-mark">Key</span>
+                </div>
+                <div class="draft-blue-scale-hex">#2E5DBC</div>
+                <p class="draft-blue-scale-use">Secondary button text, link hover</p>
               </div>
-            </section>
+              <div class="draft-blue-scale-chip">
+                <div class="draft-blue-scale-swatch" style="--swatch-color:#00389B"></div>
+                <div class="draft-blue-scale-meta">
+                  <span class="draft-blue-scale-stop">800</span>
+                  <span class="draft-blue-scale-stop-mark">Key</span>
+                </div>
+                <div class="draft-blue-scale-hex">#00389B</div>
+                <p class="draft-blue-scale-use">Text on light blue surfaces, dark labels</p>
+              </div>
+              <div class="draft-blue-scale-chip">
+                <div class="draft-blue-scale-swatch" style="--swatch-color:#002D7A"></div>
+                <div class="draft-blue-scale-meta">
+                  <span class="draft-blue-scale-stop">900</span>
+                </div>
+                <div class="draft-blue-scale-hex">#002D7A</div>
+                <p class="draft-blue-scale-use">Deep text, dark mode surfaces</p>
+              </div>
+              <div class="draft-blue-scale-chip">
+                <div class="draft-blue-scale-swatch" style="--swatch-color:#001E52"></div>
+                <div class="draft-blue-scale-meta">
+                  <span class="draft-blue-scale-stop">950</span>
+                </div>
+                <div class="draft-blue-scale-hex">#001E52</div>
+                <p class="draft-blue-scale-use">Near-black blue, dark mode text</p>
+              </div>
+            </div>
           </div>
           <form class="panel-form" aria-label="Special education services fields" style="margin-top: var(--space-6);">
             <div class="draft-field-compare-grid">
