@@ -9,12 +9,12 @@
   --button-link-hover-text: #00389B;
   --button-link-hover-bg: #EFF3FE;
   --button-link-active-bg: #DBE5FD;
-  --button-danger-bg: #DC2626;
-  --button-danger-hover: #B91C1C;
-  --button-danger-active: #991B1B;
+  --button-danger-bg: #EE031D;
+  --button-danger-hover: #DC2626;
+  --button-danger-active: #B91C1C;
   --button-neutral-bg: #EEF2F7;
   --button-neutral-hover: #E6ECF5;
-  --button-neutral-text: #667085;
+  --button-neutral-text: #475467;
   --button-disabled-bg: #F3F4F6;
   --button-disabled-text: #9CA3AF;
 }
@@ -85,7 +85,7 @@
   justify-content: center;
   gap: 8px;
   min-height: 36px;
-  padding: 0 14px;
+  padding: 0 16px;
   border: 1px solid transparent;
   border-radius: var(--radius-field);
   background: transparent;
@@ -100,6 +100,22 @@
   transition: background-color 0.14s ease, border-color 0.14s ease, color 0.14s ease, box-shadow 0.14s ease, opacity 0.14s ease;
 }
 
+.ui-button--md {
+  min-height: 36px;
+  padding: 0 16px;
+  gap: 8px;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.ui-button--sm {
+  min-height: 32px;
+  padding: 0 12px;
+  gap: 6px;
+  font-size: 13px;
+  line-height: 18px;
+}
+
 .ui-button svg {
   width: 16px;
   height: 16px;
@@ -107,9 +123,24 @@
   display: block;
 }
 
+.ui-button--sm svg {
+  width: 14px;
+  height: 14px;
+}
+
 .ui-button:focus-visible {
   outline: none;
   box-shadow: var(--focus-ring-shadow);
+}
+
+.ui-button--primary:focus-visible,
+.ui-button--primary.is-focus {
+  box-shadow: var(--focus-ring-shadow-on-dark);
+}
+
+.ui-button--destructive:focus-visible,
+.ui-button--destructive.is-focus {
+  box-shadow: var(--focus-ring-shadow-destructive);
 }
 
 .ui-button:disabled,
@@ -162,8 +193,6 @@
 }
 
 .ui-button--link {
-  min-height: 36px;
-  padding: 0 14px;
   background: transparent;
   color: var(--button-link-text);
 }
@@ -228,7 +257,7 @@
   color: var(--button-disabled-text);
 }
 
-.ui-button.is-focus {
+.ui-button:not(.ui-button--primary):not(.ui-button--destructive).is-focus {
   outline: none;
   box-shadow: var(--focus-ring-shadow);
 }
@@ -287,6 +316,14 @@
   gap: var(--space-3);
 }
 
+.button-group-strip .ui-button--md {
+  min-width: 96px;
+}
+
+.button-group-strip .ui-button--sm {
+  min-width: 80px;
+}
+
 .button-anatomy-grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 320px;
@@ -298,11 +335,14 @@
   border-radius: var(--radius-panel);
   background: var(--color-surface);
   padding: var(--space-6);
+  display: flex;
+  align-items: flex-start;
 }
 
 .button-anatomy-stack {
   display: inline-grid;
   gap: var(--space-4);
+  justify-items: flex-start;
 }
 
 .button-anatomy-note {

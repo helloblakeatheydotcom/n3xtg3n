@@ -95,6 +95,11 @@
   background: var(--section-header-hover-bg);
 }
 
+.section-toggle:focus-visible {
+  outline: none;
+  box-shadow: none;
+}
+
 .section-chevron:hover,
 .section-toggle:focus-visible .section-chevron {
   color: var(--section-utility-icon-hover-color);

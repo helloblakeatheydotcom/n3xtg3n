@@ -375,7 +375,7 @@
 }
 
 .panel-docs-page .footer-action:focus-visible {
-  box-shadow: var(--focus-ring-shadow);
+  box-shadow: var(--focus-ring-shadow-on-dark);
   outline: none;
 }
 
@@ -395,7 +395,8 @@
   border-color: var(--field-border-color);
   border-width: 1px;
   background-color: #FFFFFF;
-  box-shadow: var(--focus-ring-shadow);
+  outline: none;
+  box-shadow: var(--focus-ring-shadow-field);
 }
 
 .specs-stack {

@@ -284,6 +284,11 @@
 }
 
 .card-button:focus-visible {
+  box-shadow: var(--focus-ring-shadow-on-dark);
+  outline: none;
+}
+
+.card-button--secondary:focus-visible {
   box-shadow: var(--focus-ring-shadow);
   outline: none;
 }

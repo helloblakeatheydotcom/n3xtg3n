@@ -123,7 +123,7 @@
 .panel .field-textarea:not([aria-invalid="true"]):hover:not(:focus),
 .states-demo .demo-cell--interactive .field-input:not([aria-invalid="true"]):hover:not(:focus) {
   border-color: var(--field-border-focus);
-  background-color: var(--field-bg);
+  background-color: var(--field-bg-hover);
 }
 
 .field-input:not([aria-invalid="true"]):focus,
@@ -136,7 +136,7 @@
   border-width: 1px;
   background-color: var(--color-surface);
   outline: none;
-  box-shadow: var(--focus-ring-shadow);
+  box-shadow: var(--focus-ring-shadow-field);
 }
 
 .field-input[aria-invalid="true"],
@@ -162,18 +162,18 @@
   border-width: 1px;
   background-color: var(--color-surface);
   outline: none;
-  box-shadow: var(--focus-ring-shadow-error);
+  box-shadow: var(--focus-ring-shadow-field-error);
 }
 
 .is-hover .field-input {
   border-color: var(--field-border-focus);
-  background-color: var(--field-bg);
+  background-color: var(--field-bg-hover);
 }
 
 .is-focus .field-input {
   border: 1px solid var(--field-border-color);
   background-color: var(--color-surface);
-  box-shadow: var(--focus-ring-shadow);
+  box-shadow: var(--focus-ring-shadow-field);
 }
 
 .is-error .field-input {
@@ -189,7 +189,7 @@
 .is-error-focus .field-input {
   border: 1px solid var(--color-danger);
   background-color: var(--color-surface);
-  box-shadow: var(--focus-ring-shadow-error);
+  box-shadow: var(--focus-ring-shadow-field-error);
 }
 
 .is-disabled .field-input {
@@ -399,6 +399,11 @@ input[type="radio"]:focus-visible {
   box-shadow: var(--focus-ring-shadow);
 }
 
+input[type="checkbox"]:checked:focus-visible,
+input[type="radio"]:checked:focus-visible {
+  box-shadow: var(--focus-ring-shadow-on-dark);
+}
+
 .choice-option:hover .choice-label {
   color: var(--choice-label-hover);
 }
@@ -457,6 +462,11 @@ input[type="radio"]:focus-visible {
 .demo-cell--error input:checked {
   background-color: var(--color-danger);
   border-color: var(--color-danger);
+}
+
+.demo-cell--error input[type="checkbox"]:focus-visible,
+.demo-cell--error input[type="radio"]:focus-visible {
+  box-shadow: var(--focus-ring-shadow-choice-error);
 }
 
 .optional,
