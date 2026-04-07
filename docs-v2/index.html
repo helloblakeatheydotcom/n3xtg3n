@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>EdPlan NextGen Docs v2</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../styles/tokens.css" />
+  <link rel="stylesheet" href="../styles/base.css" />
+  <link rel="stylesheet" href="../styles/docs-v2.css" />
+</head>
+<body class="docs-v2-page" data-docs-v2-nav-title="Docs v2" data-docs-v2-nav-copy="Atlassian-inspired information architecture for the NextGen design system, built alongside the current docs." data-docs-v2-nav-kicker="Parallel Build">
+  <div class="docs-v2-layout">
+    <aside class="docs-v2-sidebar" data-docs-v2-nav></aside>
+
+    <main class="docs-v2-main">
+      <section class="docs-v2-hero">
+        <p class="docs-v2-eyebrow">Phase 1</p>
+        <h2 class="docs-v2-title">A safe parallel shell for the next documentation system.</h2>
+        <p class="docs-v2-copy">This new structure models the docs around stable information architecture first: foundations, components, patterns, and archive. The current docs remain intact while this v2 shell becomes the migration target.</p>
+        <div class="docs-v2-chip-row">
+          <span class="docs-v2-chip">Current docs untouched</span>
+          <span class="docs-v2-chip">New IA scaffold only</span>
+          <span class="docs-v2-chip">Ready for page-by-page migration</span>
+        </div>
+      </section>
+
+      <section class="docs-v2-panel">
+        <div class="docs-v2-section-head">
+          <h3 class="docs-v2-section-title">What Exists In Phase 1</h3>
+          <p class="docs-v2-section-copy">The new shell establishes the top-level structure and navigation model without changing the live component documentation routes.</p>
+        </div>
+        <div class="docs-v2-card-grid">
+          <article class="docs-v2-card">
+            <h4 class="docs-v2-card-title">Foundations</h4>
+            <p class="docs-v2-card-copy">The future home for color, typography, spacing, iconography, and tokens. Start here when a decision affects more than one component.</p>
+            <div class="docs-v2-link-row">
+              <a class="docs-v2-cta" href="./foundations/index.html">Open Foundations</a>
+            </div>
+          </article>
+
+          <article class="docs-v2-card">
+            <h4 class="docs-v2-card-title">Components</h4>
+            <p class="docs-v2-card-copy">The future home for buttons, forms, panels, cards, sections, record rows, notices, and badges with one consistent page template.</p>
+            <div class="docs-v2-link-row">
+              <a class="docs-v2-cta" href="./components/index.html">Open Components</a>
+            </div>
+          </article>
+
+          <article class="docs-v2-card">
+            <h4 class="docs-v2-card-title">Patterns</h4>
+            <p class="docs-v2-card-copy">The future place for composed workflows such as panel plus section plus form combinations, rather than isolated component anatomy.</p>
+            <div class="docs-v2-link-row">
+              <a class="docs-v2-cta" href="./patterns/index.html">Open Patterns</a>
+            </div>
+          </article>
+
+          <article class="docs-v2-card">
+            <h4 class="docs-v2-card-title">Archive</h4>
+            <p class="docs-v2-card-copy">A stable home for current v1 artifacts and older component variants, so migration work never risks deleting prior documentation.</p>
+            <div class="docs-v2-link-row">
+              <a class="docs-v2-cta" href="./archive/index.html">Open Archive</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="docs-v2-panel">
+        <div class="docs-v2-section-head">
+          <h3 class="docs-v2-section-title">Migration Rules</h3>
+          <p class="docs-v2-section-copy">These rules keep the migration reversible and low-risk.</p>
+        </div>
+        <ul class="docs-v2-list">
+          <li>Do not replace or rename current docs pages during the v2 build.</li>
+          <li>Build new page shells first, then migrate one component at a time.</li>
+          <li>Reuse existing component CSS and tokens where possible; only the documentation chrome should change at first.</li>
+          <li>Cut over the main index only after the v2 pages are materially complete.</li>
+        </ul>
+      </section>
+
+      <section class="docs-v2-panel">
+        <div class="docs-v2-section-head">
+          <h3 class="docs-v2-section-title">Current Source Docs</h3>
+          <p class="docs-v2-section-copy">These are the current live docs that will feed the v2 migration.</p>
+        </div>
+        <div class="docs-v2-source-list">
+          <a class="docs-v2-source-link" href="../colors.html">Color Foundation Source</a>
+          <a class="docs-v2-source-link" href="../buttons-components.html">Buttons Source</a>
+          <a class="docs-v2-source-link" href="../form-components.html">Form Components Source</a>
+          <a class="docs-v2-source-link" href="../panel-component.html">Panel Source</a>
+        </div>
+        <div class="docs-v2-note">Phase 2 should start by migrating one or two pages into this shell, not by redesigning every doc at once.</div>
+      </section>
+    </main>
+  </div>
+
+  <script src="../scripts/docs-v2.js"></script>
+</body>
+</html>

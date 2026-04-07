@@ -79,14 +79,6 @@
   align-items: center;
   flex-shrink: 0;
   gap: var(--space-1);
-  opacity: 0;
-  transition: opacity 0.16s ease;
-}
-
-.card-component:hover .card-actions,
-.card-component:focus-within .card-actions,
-.card-component.is-selected .card-actions,
-.card-component[aria-selected="true"] .card-actions {
   opacity: 1;
 }
 
@@ -147,17 +139,14 @@
   margin: 0;
   flex: 1 1 auto;
   color: var(--card-title-color);
-  font-size: var(--card-title-font-size);
-  font-weight: var(--card-title-font-weight);
-  line-height: var(--card-title-line-height);
+  font: var(--font-heading-sm);
 }
 
 .card-body {
   display: grid;
   gap: 6px;
   color: var(--card-body-color);
-  font-size: var(--card-body-font-size);
-  line-height: var(--card-body-line-height);
+  font: var(--font-body-sm);
 }
 
 .card-title-row + .card-body {
@@ -222,9 +211,7 @@
   border-radius: 999px;
   background: var(--card-badge-bg);
   color: var(--card-badge-color);
-  font-size: var(--card-badge-font-size);
-  font-weight: var(--card-badge-font-weight);
-  line-height: var(--card-badge-line-height);
+  font: var(--font-label-xs);
 }
 
 .card-list {
@@ -305,10 +292,4 @@
 
 .card-button--secondary:active {
   background: #F3F4F6;
-}
-
-@media (hover: none), (pointer: coarse) {
-  .card-actions {
-    opacity: 1;
-  }
 }

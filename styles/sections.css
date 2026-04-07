@@ -117,9 +117,7 @@
 
 .section-title {
   margin: 0;
-  font-size: var(--section-title-font-size);
-  font-weight: var(--section-title-font-weight);
-  line-height: var(--section-title-line-height);
+  font: var(--font-heading-md);
   color: var(--color-text-primary);
 }
 
@@ -127,8 +125,7 @@
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  font-size: var(--section-meta-font-size);
-  line-height: var(--section-meta-line-height);
+  font: var(--font-meta-sm);
   color: var(--section-meta-color);
 }
 

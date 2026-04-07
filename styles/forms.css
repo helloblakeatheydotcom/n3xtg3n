@@ -6,9 +6,7 @@
 .field-label {
   display: block;
   margin-bottom: var(--space-1);
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 20px;
+  font: var(--font-label-md);
   color: var(--field-label-color);
 }
 
@@ -26,8 +24,7 @@
 
 .field-helper {
   margin: 0;
-  font-size: 13px;
-  line-height: 20px;
+  font: var(--font-supporting-md);
   color: var(--field-helper-color);
 }
 
@@ -76,10 +73,7 @@
 .field-select {
   width: 100%;
   box-sizing: border-box;
-  font-family: inherit;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 20px;
+  font: var(--font-control-md);
   color: var(--field-text-color);
   border-radius: var(--radius-field);
   border: 1px solid var(--field-border-color);
@@ -310,8 +304,9 @@
   align-items: flex-start;
   gap: var(--choice-option-gap);
   margin-bottom: var(--choice-option-spacing-y);
-  font-size: 14px;
-  line-height: 20px;
+  padding: 4px 8px;
+  border-radius: var(--radius-field);
+  font: var(--font-control-md);
   cursor: pointer;
 }
 
@@ -326,8 +321,7 @@
 
 .choice-desc {
   margin-top: 2px;
-  font-size: 13px;
-  line-height: 18px;
+  font: var(--font-supporting-sm);
   color: var(--choice-desc-color);
 }
 
@@ -408,6 +402,10 @@ input[type="radio"]:checked:focus-visible {
   color: var(--choice-label-hover);
 }
 
+.choice-option:hover {
+  background: var(--color-accent-tint-hover);
+}
+
 .choice-option:hover input:not(:checked) {
   border-color: var(--choice-control-hover-border);
   background-color: var(--color-surface);
@@ -426,6 +424,10 @@ input[type="radio"]:checked:focus-visible {
   color: var(--choice-label-hover);
 }
 
+.demo-cell--hover .choice-option:first-child {
+  background: var(--color-accent-tint-hover);
+}
+
 .demo-cell--hover .choice-option:first-child input {
   border-color: var(--choice-control-hover-border);
   background-color: var(--color-surface);
@@ -438,6 +440,10 @@ input[type="radio"]:checked:focus-visible {
 
 .demo-cell--selected-hover .choice-option:first-child .choice-label {
   color: var(--choice-label-hover);
+}
+
+.demo-cell--selected-hover .choice-option:first-child {
+  background: var(--color-accent-tint-hover);
 }
 
 .demo-cell--selected-hover .choice-option:first-child input {

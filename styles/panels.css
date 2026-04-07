@@ -136,9 +136,7 @@
 .panel-title {
   margin: 0;
   color: var(--panel-title-color);
-  font-weight: var(--panel-title-font-weight);
-  font-size: var(--panel-title-font-size);
-  line-height: var(--panel-title-line-height);
+  font: var(--font-heading-lg);
 }
 
 .panel-actions {
@@ -331,9 +329,7 @@
 .body-copy {
   margin: 0;
   color: var(--panel-body-color);
-  font-weight: var(--panel-body-font-weight);
-  line-height: var(--panel-body-line-height);
-  font-size: var(--panel-body-font-size);
+  font: var(--font-body-md);
 }
 
 .body-copy + .body-copy {

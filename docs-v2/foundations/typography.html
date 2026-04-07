@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Docs v2 Typography Foundations</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../styles/tokens.css" />
+  <link rel="stylesheet" href="../../styles/base.css" />
+  <link rel="stylesheet" href="../../styles/docs-v2.css" />
+  <style>
+    .type-stack {
+      display: grid;
+      gap: 24px;
+    }
+
+    .type-family-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .type-sample {
+      margin: 0;
+      color: var(--docs-v2-text);
+    }
+
+    .type-sample--md {
+      font-size: 16px;
+      line-height: 24px;
+      font-weight: 600;
+    }
+
+    .type-sample--base {
+      font-size: 14px;
+      line-height: 20px;
+      font-weight: 400;
+    }
+
+    .type-sample--small {
+      font-size: 13px;
+      line-height: 20px;
+      font-weight: 400;
+    }
+
+    .type-note {
+      margin: 0;
+      font-size: 13px;
+      line-height: 20px;
+      color: var(--docs-v2-text-secondary);
+    }
+
+    .type-token-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .type-token-table th,
+    .type-token-table td {
+      padding: 12px 10px;
+      border-bottom: 1px solid var(--docs-v2-border);
+      text-align: left;
+      vertical-align: top;
+      font-size: 14px;
+      line-height: 20px;
+    }
+
+    .type-token-table th {
+      font-size: 12px;
+      line-height: 16px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--docs-v2-text-muted);
+    }
+
+    .type-token-table tbody tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .type-preview {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 42px;
+      min-height: 30px;
+      padding: 0 8px;
+      border: 1px solid var(--docs-v2-border);
+      border-radius: 8px;
+      background: #FFFFFF;
+      color: var(--docs-v2-text);
+    }
+
+    .type-preview--heading-page {
+      font-size: 22px;
+      line-height: 28px;
+      font-weight: 600;
+    }
+
+    .type-preview--heading-lg {
+      font-size: 18px;
+      line-height: 20px;
+      font-weight: 600;
+    }
+
+    .type-preview--heading-md {
+      font-size: 16px;
+      line-height: 24px;
+      font-weight: 600;
+    }
+
+    .type-preview--heading-sm {
+      font-size: 15px;
+      line-height: 22px;
+      font-weight: 600;
+    }
+
+    .type-preview--body-default {
+      font-size: 14px;
+      line-height: 22.4px;
+      font-weight: 400;
+    }
+
+    .type-preview--body-compact {
+      font-size: 13px;
+      line-height: 20px;
+      font-weight: 400;
+    }
+
+    .type-preview--supporting-default {
+      font-size: 13px;
+      line-height: 20px;
+      font-weight: 400;
+    }
+
+    .type-preview--supporting-compact {
+      font-size: 12px;
+      line-height: 16px;
+      font-weight: 400;
+    }
+
+    .type-preview--meta {
+      font-size: 13px;
+      line-height: 18px;
+      font-weight: 400;
+    }
+
+    .type-preview--label {
+      font-size: 14px;
+      line-height: 20px;
+      font-weight: 600;
+    }
+
+    .type-preview--control {
+      font-size: 14px;
+      line-height: 20px;
+      font-weight: 400;
+    }
+
+    .type-preview--control-compact {
+      font-size: 13px;
+      line-height: 20px;
+      font-weight: 500;
+    }
+
+    .type-preview--button-md {
+      font-size: 14px;
+      line-height: 20px;
+      font-weight: 600;
+    }
+
+    .type-preview--button-sm {
+      font-size: 13px;
+      line-height: 18px;
+      font-weight: 600;
+    }
+
+    .type-preview--badge {
+      font-size: 12px;
+      line-height: 12px;
+      font-weight: 600;
+    }
+
+    .type-mono {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 13px;
+      line-height: 18px;
+      color: var(--docs-v2-text-secondary);
+    }
+
+    @media (max-width: 980px) {
+      .type-family-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body class="docs-v2-page" data-docs-v2-nav-title="Docs v2" data-docs-v2-nav-copy="Foundations will define the shared system rules before those rules appear in components." data-docs-v2-nav-kicker="Parallel Build">
+  <div class="docs-v2-layout">
+    <aside class="docs-v2-sidebar" data-docs-v2-nav></aside>
+
+    <main class="docs-v2-main">
+      <section class="docs-v2-hero">
+        <p class="docs-v2-eyebrow">Foundations / Typography</p>
+        <h2 class="docs-v2-title">Typography</h2>
+        <p class="docs-v2-copy">Defines the typeface, size scale, and text roles used across the product UI.</p>
+        <div class="docs-v2-chip-row">
+          <span class="docs-v2-chip">Headings</span>
+          <span class="docs-v2-chip">Body and supporting text</span>
+          <span class="docs-v2-chip">Metadata and controls</span>
+        </div>
+      </section>
+
+      <div class="docs-v2-page-shell docs-v2-page-shell--with-page-nav">
+        <div class="docs-v2-page-content">
+          <div class="type-stack">
+            <section class="docs-section" id="overview">
+              <div class="docs-section-header">
+                <h2 class="panel-example-title">Overview</h2>
+                <p class="docs-lead docs-lead--full">The typography system defines a single typeface, a constrained weight set, and a reusable size scale. Text styles are assigned by role rather than by component, allowing consistent usage across panels, forms, tables, and other UI structures.</p>
+              </div>
+            </section>
+
+            <section class="docs-section" id="typeface-and-weights">
+              <div class="docs-section-header">
+                <h2 class="panel-example-title">Typeface and Weights</h2>
+                <p class="docs-lead docs-lead--full">The system uses one primary UI typeface and a limited set of active weights. Keeping the set narrow helps maintain visual consistency across product surfaces.</p>
+              </div>
+              <div class="type-family-grid">
+                <article class="docs-card">
+                  <h3 class="docs-card-title">Primary UI Typeface</h3>
+                  <p class="type-sample type-sample--md">Inter</p>
+                  <p class="type-note">Used for body text, titles, controls, supporting text, tables, panels, cards, sections, forms, and buttons.</p>
+                  <p class="type-mono">"Inter", system-ui, -apple-system, sans-serif</p>
+                </article>
+
+                <article class="docs-card">
+                  <h3 class="docs-card-title">Active Weight Set</h3>
+                  <ul class="docs-list">
+                    <li><strong>400</strong> is used for standard body copy and field text.</li>
+                    <li><strong>500</strong> is used for compact labels and supporting emphasis.</li>
+                    <li><strong>600</strong> is used for titles, labels, badges, and buttons.</li>
+                  </ul>
+                  <p class="type-note">No additional product weights are formalized at this time.</p>
+                </article>
+              </div>
+            </section>
+
+            <section class="docs-section" id="headings">
+              <div class="docs-section-header">
+                <h2 class="panel-example-title">Headings</h2>
+                <p class="docs-lead docs-lead--full">Heading styles are defined by size and emphasis, not by component. The current system uses four composite heading tokens for page, panel, section, and compact content headings.</p>
+              </div>
+              <article class="docs-card docs-token-card">
+                <table class="type-token-table">
+                  <thead>
+                    <tr><th>Style</th><th>Preview</th><th>Token</th><th>Font Weight</th><th>Font Size</th><th>Line Height</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Heading / Page</td>
+                      <td><span class="type-preview type-preview--heading-page">Aa</span></td>
+                      <td><code>--font-heading-xl</code></td>
+                      <td>600</td>
+                      <td>1.375rem (22px)</td>
+                      <td>1.75rem (28px)</td>
+                    </tr>
+                    <tr>
+                      <td>Heading / Large</td>
+                      <td><span class="type-preview type-preview--heading-lg">Aa</span></td>
+                      <td><code>--font-heading-lg</code></td>
+                      <td>600</td>
+                      <td>1.125rem (18px)</td>
+                      <td>1.375rem (22px)</td>
+                    </tr>
+                    <tr>
+                      <td>Heading / Standard</td>
+                      <td><span class="type-preview type-preview--heading-md">Aa</span></td>
+                      <td><code>--font-heading-md</code></td>
+                      <td>600</td>
+                      <td>1rem (16px)</td>
+                      <td>1.375rem (22px)</td>
+                    </tr>
+                    <tr>
+                      <td>Heading / Compact</td>
+                      <td><span class="type-preview type-preview--heading-sm">Aa</span></td>
+                      <td><code>--font-heading-sm</code></td>
+                      <td>600</td>
+                      <td>0.9375rem (15px)</td>
+                      <td>1.25rem (20px)</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </article>
+            </section>
+
+            <section class="docs-section" id="body-and-supporting">
+              <div class="docs-section-header">
+                <h2 class="panel-example-title">Body and Supporting</h2>
+                <p class="docs-lead docs-lead--full">These styles support longer reading text, field-level helper text, and compact choice descriptions. They should remain readable and secondary to headings.</p>
+              </div>
+              <article class="docs-card docs-token-card">
+                <table class="type-token-table">
+                  <thead>
+                    <tr><th>Style</th><th>Preview</th><th>Token</th><th>Font Weight</th><th>Font Size</th><th>Line Height</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Body / Default</td>
+                      <td><span class="type-preview type-preview--body-default">Aa</span></td>
+                      <td><code>--font-body-md</code></td>
+                      <td>400</td>
+                      <td>0.875rem (14px)</td>
+                      <td>1.4rem (22.4px)</td>
+                    </tr>
+                    <tr>
+                      <td>Body / Compact</td>
+                      <td><span class="type-preview type-preview--body-compact">Aa</span></td>
+                      <td><code>--font-body-sm</code></td>
+                      <td>400</td>
+                      <td>0.8125rem (13px)</td>
+                      <td>1.25rem (20px)</td>
+                    </tr>
+                    <tr>
+                      <td>Supporting / Default</td>
+                      <td><span class="type-preview type-preview--supporting-default">Aa</span></td>
+                      <td><code>--font-supporting-md</code></td>
+                      <td>400</td>
+                      <td>0.8125rem (13px)</td>
+                      <td>1.25rem (20px)</td>
+                    </tr>
+                    <tr>
+                      <td>Supporting / Compact</td>
+                      <td><span class="type-preview type-preview--supporting-compact">Aa</span></td>
+                      <td><code>--font-supporting-sm</code></td>
+                      <td>400</td>
+                      <td>0.75rem (12px)</td>
+                      <td>1rem (16px)</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </article>
+            </section>
+
+            <section class="docs-section" id="metadata-and-controls">
+              <div class="docs-section-header">
+                <h2 class="panel-example-title">Metadata and Controls</h2>
+                <p class="docs-lead docs-lead--full">These styles cover denser UI text, including metadata, labels, field text, button labels, and compact status treatments.</p>
+              </div>
+              <article class="docs-card docs-token-card">
+                <table class="type-token-table">
+                  <thead>
+                    <tr><th>Style</th><th>Preview</th><th>Token</th><th>Font Weight</th><th>Font Size</th><th>Line Height</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Metadata / Standard</td>
+                      <td><span class="type-preview type-preview--meta">Aa</span></td>
+                      <td><code>--font-meta-sm</code></td>
+                      <td>400</td>
+                      <td>0.8125rem (13px)</td>
+                      <td>1.125rem (18px)</td>
+                    </tr>
+                    <tr>
+                      <td>Label / Standard</td>
+                      <td><span class="type-preview type-preview--label">Aa</span></td>
+                      <td><code>--font-label-md</code></td>
+                      <td>600</td>
+                      <td>0.875rem (14px)</td>
+                      <td>1.25rem (20px)</td>
+                    </tr>
+                    <tr>
+                      <td>Control Text / Default</td>
+                      <td><span class="type-preview type-preview--control">Aa</span></td>
+                      <td><code>--font-control-md</code></td>
+                      <td>400</td>
+                      <td>0.875rem (14px)</td>
+                      <td>1.25rem (20px)</td>
+                    </tr>
+                    <tr>
+                      <td>Control Label / Compact</td>
+                      <td><span class="type-preview type-preview--control-compact">Aa</span></td>
+                      <td><code>--font-label-sm</code></td>
+                      <td>500</td>
+                      <td>0.8125rem (13px)</td>
+                      <td>1.25rem (20px)</td>
+                    </tr>
+                    <tr>
+                      <td>Button / MD</td>
+                      <td><span class="type-preview type-preview--button-md">Aa</span></td>
+                      <td><code>--font-button-md</code></td>
+                      <td>600</td>
+                      <td>0.875rem (14px)</td>
+                      <td>1.25rem (20px)</td>
+                    </tr>
+                    <tr>
+                      <td>Button / SM</td>
+                      <td><span class="type-preview type-preview--button-sm">Aa</span></td>
+                      <td><code>--font-button-sm</code></td>
+                      <td>600</td>
+                      <td>0.8125rem (13px)</td>
+                      <td>1.125rem (18px)</td>
+                    </tr>
+                    <tr>
+                      <td>Badge / Compact Strong</td>
+                      <td><span class="type-preview type-preview--badge">Aa</span></td>
+                      <td><code>--font-label-xs</code></td>
+                      <td>600</td>
+                      <td>0.75rem (12px)</td>
+                      <td>1rem (16px)</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </article>
+            </section>
+          </div>
+        </div>
+
+        <aside class="docs-v2-page-nav" aria-label="Page navigation">
+          <p class="docs-v2-page-nav-title">On This Page</p>
+          <nav class="docs-v2-page-nav-list">
+            <a class="docs-v2-page-nav-link" href="#overview">Overview</a>
+            <a class="docs-v2-page-nav-link" href="#typeface-and-weights">Typeface and Weights</a>
+            <a class="docs-v2-page-nav-link" href="#headings">Headings</a>
+            <a class="docs-v2-page-nav-link" href="#body-and-supporting">Body and Supporting</a>
+            <a class="docs-v2-page-nav-link" href="#metadata-and-controls">Metadata and Controls</a>
+          </nav>
+        </aside>
+      </div>
+    </main>
+  </div>
+
+  <script src="../../scripts/docs-v2.js"></script>
+</body>
+</html>

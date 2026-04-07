@@ -125,8 +125,26 @@
   --choice-option-gap: 8px;
   --choice-option-spacing-y: var(--space-2);
 
+  /* Typography: composite heading tokens */
+  --font-heading-xl: 600 1.375rem/1.75rem "Inter", system-ui, -apple-system, sans-serif;
+  --font-heading-lg: 600 1.125rem/1.375rem "Inter", system-ui, -apple-system, sans-serif;
+  --font-heading-md: 600 1rem/1.375rem "Inter", system-ui, -apple-system, sans-serif;
+  --font-heading-sm: 600 0.9375rem/1.25rem "Inter", system-ui, -apple-system, sans-serif;
+  --font-body-md: 400 0.875rem/1.6 "Inter", system-ui, -apple-system, sans-serif;
+  --font-body-sm: 400 0.8125rem/1.25rem "Inter", system-ui, -apple-system, sans-serif;
+  --font-supporting-md: 400 0.8125rem/1.25rem "Inter", system-ui, -apple-system, sans-serif;
+  --font-supporting-sm: 400 0.75rem/1rem "Inter", system-ui, -apple-system, sans-serif;
+  --font-meta-sm: 400 0.8125rem/1.125rem "Inter", system-ui, -apple-system, sans-serif;
+  --font-label-md: 600 0.875rem/1.25rem "Inter", system-ui, -apple-system, sans-serif;
+  --font-label-sm: 500 0.8125rem/1.25rem "Inter", system-ui, -apple-system, sans-serif;
+  --font-label-xs: 600 0.75rem/1rem "Inter", system-ui, -apple-system, sans-serif;
+  --font-control-md: 400 0.875rem/1.25rem "Inter", system-ui, -apple-system, sans-serif;
+  --font-control-sm: 500 0.8125rem/1.25rem "Inter", system-ui, -apple-system, sans-serif;
+  --font-button-md: 600 0.875rem/1.25rem "Inter", system-ui, -apple-system, sans-serif;
+  --font-button-sm: 600 0.8125rem/1.125rem "Inter", system-ui, -apple-system, sans-serif;
+
   /* Panel tokens */
-  --panel-header-padding-y: var(--space-5);
+  --panel-header-padding-y: 15px;
   --panel-header-padding-x: var(--space-6);
   --panel-header-gap: var(--space-3);
   --panel-body-padding-top: var(--space-4);
@@ -140,8 +158,8 @@
   --panel-hover-border-color: #DDE3EC;
   --panel-title-color: var(--color-text-primary);
   --panel-title-font-weight: 600;
-  --panel-title-font-size: 16px;
-  --panel-title-line-height: 24px;
+  --panel-title-font-size: 18px;
+  --panel-title-line-height: 22px;
   --panel-body-color: #374151;
   --panel-body-font-weight: 400;
   --panel-body-font-size: 14px;
@@ -162,10 +180,10 @@
   --card-title-color: var(--color-text-primary);
   --card-title-font-weight: 600;
   --card-title-font-size: 15px;
-  --card-title-line-height: 22px;
+  --card-title-line-height: 20px;
   --card-body-color: var(--color-text-body);
   --card-body-font-size: 13px;
-  --card-body-line-height: 1.5;
+  --card-body-line-height: 20px;
   --card-eyebrow-color: var(--color-text-helper);
   --card-meta-color: var(--color-text-helper);
   --card-footer-border-color: var(--color-divider);
@@ -267,7 +285,7 @@
   --section-related-gap: var(--space-3);
   --section-title-font-weight: 600;
   --section-title-font-size: 16px;
-  --section-title-line-height: 24px;
+  --section-title-line-height: 22px;
   --section-meta-font-size: 13px;
   --section-meta-line-height: 18px;
   --section-meta-color: var(--color-text-helper);

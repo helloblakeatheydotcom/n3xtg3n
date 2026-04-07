@@ -90,10 +90,7 @@
   border-radius: var(--radius-field);
   background: transparent;
   color: var(--color-text-primary);
-  font-family: inherit;
-  font-size: 14px;
-  line-height: 20px;
-  font-weight: 600;
+  font: var(--font-button-md);
   text-decoration: none;
   white-space: nowrap;
   cursor: pointer;
@@ -104,16 +101,14 @@
   min-height: 36px;
   padding: 0 16px;
   gap: 8px;
-  font-size: 14px;
-  line-height: 20px;
+  font: var(--font-button-md);
 }
 
 .ui-button--sm {
   min-height: 32px;
   padding: 0 12px;
   gap: 6px;
-  font-size: 13px;
-  line-height: 18px;
+  font: var(--font-button-sm);
 }
 
 .ui-button svg {

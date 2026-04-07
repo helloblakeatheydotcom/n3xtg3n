@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Docs v2 Components</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../styles/tokens.css" />
+  <link rel="stylesheet" href="../../styles/base.css" />
+  <link rel="stylesheet" href="../../styles/docs-v2.css" />
+</head>
+<body class="docs-v2-page" data-docs-v2-nav-title="Docs v2" data-docs-v2-nav-copy="Components will move into a more consistent page model with shared section structure and navigation." data-docs-v2-nav-kicker="Parallel Build">
+  <div class="docs-v2-layout">
+    <aside class="docs-v2-sidebar" data-docs-v2-nav></aside>
+
+    <main class="docs-v2-main">
+      <section class="docs-v2-hero">
+        <p class="docs-v2-eyebrow">Components</p>
+        <h2 class="docs-v2-title">One component shell, reused across the system.</h2>
+        <p class="docs-v2-copy">This area will become the new home for component docs with a consistent structure: overview, examples, anatomy, usage, accessibility, and specs.</p>
+      </section>
+
+      <section class="docs-v2-panel">
+        <div class="docs-v2-section-head">
+          <h3 class="docs-v2-section-title">Current Component Sources</h3>
+          <p class="docs-v2-section-copy">These live pages are the source material for the migration. Buttons and Forms are now in the v2 shell, with the remaining component pages to follow.</p>
+        </div>
+        <div class="docs-v2-card-grid">
+          <article class="docs-v2-card"><h4 class="docs-v2-card-title">Buttons</h4><p class="docs-v2-card-copy">Good pilot page because the scope is tight and the variants are already defined.</p><a class="docs-v2-cta" href="./buttons.html">Open Buttons in v2</a><a class="docs-v2-source-link" href="../../buttons-components.html">Current source: buttons-components.html</a></article>
+          <article class="docs-v2-card"><h4 class="docs-v2-card-title">Forms</h4><p class="docs-v2-card-copy">The most important structural component page after Color and Buttons because it carries states, helper copy, validation, and dense examples.</p><a class="docs-v2-cta" href="./forms.html">Open Forms in v2</a><a class="docs-v2-source-link" href="../../form-components.html">Current source: form-components.html</a></article>
+          <article class="docs-v2-card"><h4 class="docs-v2-card-title">Inline Notices</h4><p class="docs-v2-card-copy">A good migration target for notice anatomy, semantic variants, and token-spec formatting inside the new shell.</p><a class="docs-v2-cta" href="./inline-notices.html">Open Inline Notices in v2</a><a class="docs-v2-source-link" href="../../notifications-components.html">Current source: notifications-components.html</a></article>
+          <article class="docs-v2-card"><h4 class="docs-v2-card-title">Panels</h4><p class="docs-v2-card-copy">The first composition-heavy migration target because it combines actions, menus, forms, and nested interaction states in one container system.</p><a class="docs-v2-cta" href="./panels.html">Open Panels in v2</a><a class="docs-v2-source-link" href="../../panel-component.html">Current source: panel-component.html</a></article>
+          <article class="docs-v2-card"><h4 class="docs-v2-card-title">Cards</h4><p class="docs-v2-card-copy">A strong next migration target because cards pressure-test rails, badges, explicit actions, and summary content inside the v2 shell.</p><a class="docs-v2-cta" href="./cards.html">Open Cards in v2</a><a class="docs-v2-source-link" href="../../card-components.html">Current source: card-components.html</a></article>
+          <article class="docs-v2-card"><h4 class="docs-v2-card-title">Record Rows</h4><p class="docs-v2-card-copy">A good migration target after cards because it reuses badges, actions, and scan-first summary structure in a denser repeated layout.</p><a class="docs-v2-cta" href="./record-rows.html">Open Record Rows in v2</a><a class="docs-v2-source-link" href="../../record-rows-components.html">Current source: record-rows-components.html</a></article>
+          <article class="docs-v2-card"><h4 class="docs-v2-card-title">Sections</h4><p class="docs-v2-card-copy">The most layout-sensitive migration because sections combine rails, nested cards, nested panels, and expandable structure in one internal grouping pattern.</p><a class="docs-v2-cta" href="./sections.html">Open Sections in v2</a><a class="docs-v2-source-link" href="../../sections-components.html">Current source: sections-components.html</a></article>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="../../scripts/docs-v2.js"></script>
+</body>
+</html>

@@ -107,9 +107,7 @@
   border-radius: 999px;
   background: var(--record-row-badge-bg);
   color: var(--record-row-badge-color);
-  font-size: var(--record-row-badge-font-size);
-  line-height: var(--record-row-badge-line-height);
-  font-weight: var(--record-row-badge-font-weight);
+  font: var(--font-label-xs);
   white-space: nowrap;
 }
 
@@ -261,14 +259,8 @@
 .record-row-actions {
   display: flex;
   gap: 4px;
-  opacity: 0;
-  transition: opacity 0.12s ease;
-  align-self: flex-start;
-}
-
-.record-row:hover .record-row-actions,
-.record-row:focus-within .record-row-actions {
   opacity: 1;
+  align-self: flex-start;
 }
 
 .record-row-action-button {

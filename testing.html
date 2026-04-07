@@ -41,9 +41,46 @@
       line-height: 1.6;
     }
 
+    .draft-page-heading {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin: 0 0 8px 30px;
+    }
+
+    .draft-page-title {
+      margin: 0;
+      color: var(--color-text-primary);
+      font-size: 22px;
+      line-height: 28px;
+      font-weight: 600;
+    }
+
+    .draft-page-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 24px;
+      padding: 0 10px;
+      border-radius: 999px;
+      background: #FFC641;
+      color: #352005;
+      font-size: 12px;
+      line-height: 12px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
     .draft-components .panel-title {
       font-size: 18px;
-      line-height: 20px;
+      line-height: 22px;
+    }
+
+    .draft-components .panel-header {
+      min-height: 64px;
+      padding-top: 15px;
+      padding-bottom: 15px;
     }
 
     .draft-button-stack {
@@ -142,8 +179,8 @@
     .draft-segmented-note {
       margin: 0;
       color: #667085;
-      font-size: 13px;
-      line-height: 20px;
+      font-size: 12px;
+      line-height: 16px;
     }
 
     .draft-segmented-control {
@@ -328,7 +365,7 @@
     .draft-focus-ring-stack {
       display: grid;
       gap: 16px;
-      max-width: 360px;
+      width: 100%;
     }
 
     .draft-focus-ring-note {
@@ -336,6 +373,23 @@
       color: var(--color-text-secondary);
       font-size: 14px;
       line-height: 1.6;
+    }
+
+    .draft-standard-form {
+      display: grid;
+      gap: 24px;
+      width: 100%;
+      max-width: 420px;
+    }
+
+    #draft-standard-panel-content .draft-standard-form .field-helper {
+      font-size: 13px;
+      line-height: 20px;
+    }
+
+    #draft-standard-panel-content .draft-standard-form .choice-desc {
+      font-size: 12px;
+      line-height: 16px;
     }
 
     .draft-button-blue-primary {
@@ -1252,7 +1306,7 @@
       margin: 0;
       font-size: 16px;
       font-weight: 600;
-      line-height: 20px;
+      line-height: 22px;
     }
 
     .draft-subsection-heading {
@@ -1743,6 +1797,10 @@
     }
 
     @media (max-width: 640px) {
+      .draft-page-heading {
+        margin-left: 0;
+      }
+
       .draft-rail-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
@@ -1779,91 +1837,10 @@
   </header>
 
   <main class="draft-components">
-    <article class="panel" data-collapsible-panel data-panel-id="draft-segmented-controls">
-      <header class="panel-header">
-        <div class="panel-left">
-          <span class="panel-icon panel-icon--square" aria-hidden="true">
-            <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
-              <rect x="4" y="7" width="16" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="2" />
-              <path d="M12 7v10" fill="none" stroke="currentColor" stroke-width="2" />
-            </svg>
-          </span>
-          <h2 class="panel-title">Segmented Fields</h2>
-        </div>
-
-        <button class="panel-toggle" type="button" aria-expanded="true" aria-controls="draft-segmented-controls-content">
-          <span class="sr-only">Collapse section</span>
-          <svg class="panel-chevron" viewBox="0 0 24 24" focusable="false" aria-hidden="true">
-            <path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-          </svg>
-        </button>
-      </header>
-
-      <div id="draft-segmented-controls-content" class="panel-content" role="region" aria-label="Segmented controls content">
-        <div class="panel-body">
-          <div class="draft-segmented-stack">
-            <div class="draft-segmented-group">
-              <p class="draft-segmented-label">Parent Attended Meeting<span class="required-asterisk">*</span></p>
-              <div class="draft-segmented-control draft-segmented-control--flat" role="radiogroup" aria-label="Parent attended meeting segmented control" data-required-segmented>
-                <label class="draft-segmented-option">
-                  <input type="radio" name="parent-attended-meeting-flat" value="yes" />
-                  <span class="draft-segmented-text">Yes</span>
-                </label>
-                <label class="draft-segmented-option">
-                  <input type="radio" name="parent-attended-meeting-flat" value="no" />
-                  <span class="draft-segmented-text">No</span>
-                </label>
-              </div>
-              <p class="draft-segmented-note">Segmented Yes / No example with no default selection.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </article>
-
-    <article class="panel" data-collapsible-panel data-panel-id="draft-buttons">
-      <header class="panel-header">
-        <div class="panel-left">
-          <span class="panel-icon panel-icon--square" aria-hidden="true">
-            <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
-              <rect x="4" y="7" width="16" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="2" />
-              <path d="M9 12h6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-            </svg>
-          </span>
-          <h2 class="panel-title">Buttons</h2>
-        </div>
-
-        <button class="panel-toggle" type="button" aria-expanded="true" aria-controls="draft-buttons-content">
-          <span class="sr-only">Collapse section</span>
-          <svg class="panel-chevron" viewBox="0 0 24 24" focusable="false" aria-hidden="true">
-            <path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-          </svg>
-        </button>
-      </header>
-
-      <div id="draft-buttons-content" class="panel-content" role="region" aria-label="Buttons content">
-        <div class="panel-body">
-          <div class="draft-button-stack">
-            <p class="draft-button-note">Testing shared button directions before they move into a dedicated button component page.</p>
-            <div class="draft-button-row" aria-label="Primary button comparison">
-              <button class="card-button draft-button-blue-primary" type="button">Blue Primary</button>
-              <button class="card-button draft-button-emerald-primary" type="button">Emerald Primary</button>
-              <button class="card-button draft-button-red-primary" type="button">Destructive</button>
-            </div>
-            <div class="draft-button-row" aria-label="Link button comparison">
-              <button class="panel-link-button draft-button-blue-link" type="button">Blue Link</button>
-              <button class="panel-link-button draft-button-emerald-link" type="button">Emerald Link</button>
-            </div>
-            <div class="draft-button-row" aria-label="Demoted secondary button comparison">
-              <button class="card-button card-button--secondary" type="button">Neutral Secondary</button>
-              <button class="card-button card-button--secondary draft-button-neutral-fill" type="button">Neutral Filled</button>
-              <button class="card-button card-button--secondary draft-button-blue-secondary" type="button">Blue Secondary</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </article>
-
+    <div class="draft-page-heading" aria-label="Testing page heading">
+      <h1 class="draft-page-title">IEP Services</h1>
+      <span class="draft-page-badge">Overdue</span>
+    </div>
 
     <article class="panel draft-plp-panel" data-collapsible-panel data-panel-id="draft-present-levels" hidden>
       <header class="panel-header">
@@ -2720,70 +2697,131 @@
     <article class="panel" data-collapsible-panel data-panel-id="draft-standard-panel">
       <header class="panel-header">
         <div class="panel-left">
-          <span class="panel-icon panel-icon--square" aria-hidden="true">
-            <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
-              <path d="M3 5h18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-              <path d="M3 12h18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-              <path d="M3 19h18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-            </svg>
-          </span>
-          <h2 class="panel-title">Focus Rings</h2>
-        </div>
-
-        <div class="panel-actions">
-          <button class="panel-link-button" type="button">Create Doc</button>
-          <div class="panel-menu">
-            <button class="panel-menu-toggle" type="button" aria-haspopup="menu" aria-expanded="false" aria-controls="draft-panel-menu">
-              <span class="meatball-icon" aria-hidden="true">
-                <span></span>
-                <span></span>
-                <span></span>
-              </span>
-              <span class="sr-only">Open panel menu</span>
-            </button>
-            <ul id="draft-panel-menu" class="panel-menu-list" role="menu" hidden>
-              <li role="none"><button class="panel-menu-item" type="button" role="menuitem">Show Errors</button></li>
-              <li role="none"><button class="panel-menu-item" type="button" role="menuitem">Clear Section</button></li>
-              <li role="none"><button class="panel-menu-item" type="button" role="menuitem">View Draft</button></li>
-              <li role="none"><button class="panel-menu-item" type="button" role="menuitem">Edit All Services</button></li>
-            </ul>
-          </div>
           <button class="panel-toggle" type="button" aria-expanded="true" aria-controls="draft-standard-panel-content">
             <span class="sr-only">Collapse section</span>
             <svg class="panel-chevron" viewBox="0 0 24 24" focusable="false" aria-hidden="true">
               <path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
           </button>
+          <h2 class="panel-title">Special Ed Services</h2>
         </div>
       </header>
 
       <div id="draft-standard-panel-content" class="panel-content" role="region" aria-label="Standard panel content">
         <div class="panel-body">
           <div class="draft-focus-ring-stack">
-            <p class="draft-focus-ring-note">Testing the blue field focus treatment on the Sped Services dropdown.</p>
-            <form class="panel-form" aria-label="Focus ring field demo">
-              <div class="field-body">
-                <label class="field-label" for="sped-services">Sped Services <span class="draft-optional-slate-600">(Optional)</span></label>
-                <div class="field-input-wrapper field-select-wrapper">
-                  <select id="sped-services" class="field-select">
-                    <option value="">Select service</option>
-                    <option>Consultation</option>
-                    <option>Resource</option>
-                    <option>Speech Therapy</option>
-                    <option>Occupational Therapy</option>
-                  </select>
-                </div>
+            <form class="draft-standard-form" aria-label="Special Ed Services testing form" novalidate>
+              <div class="field-body field-body--full">
+                <label class="field-label" for="draft-service-name">
+                  Service Name<span class="required-asterisk">*</span>
+                </label>
                 <div class="field-helper-slot">
-                  <p class="field-helper draft-helper-slate-600">Select the primary service type for this student record.</p>
+                  <p class="field-helper">Enter the service name as it should appear in the student plan.</p>
+                </div>
+                <div class="field-input-wrapper">
+                  <input id="draft-service-name" type="text" class="field-input" required />
+                </div>
+              </div>
+
+              <div class="choice-group">
+                <label class="field-label">Service Delivery Model</label>
+                <div class="field-helper-slot">
+                  <p class="field-helper">Choose the delivery model that best matches this service.</p>
+                </div>
+                <div class="choice-options">
+                  <label class="choice-option">
+                    <input type="radio" name="draft-service-delivery-model" />
+                    <div>
+                      <div class="choice-label">Direct</div>
+                      <div class="choice-desc">Provided directly to the student during scheduled service time.</div>
+                    </div>
+                  </label>
+                  <label class="choice-option">
+                    <input type="radio" name="draft-service-delivery-model" />
+                    <div>
+                      <div class="choice-label">Indirect</div>
+                      <div class="choice-desc">Delivered through consultation, planning, or coaching with staff.</div>
+                    </div>
+                  </label>
+                  <label class="choice-option">
+                    <input type="radio" name="draft-service-delivery-model" />
+                    <div>
+                      <div class="choice-label">Monitoring</div>
+                      <div class="choice-desc">Tracks progress and adjusts supports without direct service every session.</div>
+                    </div>
+                  </label>
                 </div>
               </div>
             </form>
+
+            <p class="draft-focus-ring-note">Testing panel and section heading hierarchy with an 18px panel title and a standard 16px section title.</p>
+
+            <section class="draft-subsection draft-subsection--reading" aria-label="Section title size comparison">
+              <button class="draft-subsection-toggle" type="button" aria-expanded="true" aria-controls="draft-focus-ring-section-content">
+                <span class="draft-subsection-heading">
+                  <span class="draft-subsection-title">Reading (16px Section Title)</span>
+                  <span class="draft-subsection-meta">
+                    <span>Standard section heading</span>
+                    <span class="draft-subsection-meta-separator" aria-hidden="true">&bull;</span>
+                    <span>16px</span>
+                  </span>
+                </span>
+                <svg class="panel-chevron" viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                  <path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </button>
+              <div id="draft-focus-ring-section-content" class="draft-subsection-content">
+                <p class="body-copy">This subsection keeps the standard 16px section heading so it can be compared directly against the 18px panel heading above.</p>
+              </div>
+            </section>
           </div>
         </div>
 
         <footer class="panel-footer">
           <button class="footer-action" type="button">Button Text</button>
         </footer>
+      </div>
+    </article>
+
+    <article class="panel" data-collapsible-panel data-panel-id="draft-segmented-controls">
+      <header class="panel-header">
+        <div class="panel-left">
+          <span class="panel-icon panel-icon--square" aria-hidden="true">
+            <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+              <rect x="4" y="7" width="16" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="2" />
+              <path d="M12 7v10" fill="none" stroke="currentColor" stroke-width="2" />
+            </svg>
+          </span>
+          <h2 class="panel-title">Segmented Fields</h2>
+        </div>
+
+        <button class="panel-toggle" type="button" aria-expanded="true" aria-controls="draft-segmented-controls-content">
+          <span class="sr-only">Collapse section</span>
+          <svg class="panel-chevron" viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+            <path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </button>
+      </header>
+
+      <div id="draft-segmented-controls-content" class="panel-content" role="region" aria-label="Segmented controls content">
+        <div class="panel-body">
+          <div class="draft-segmented-stack">
+            <div class="draft-segmented-group">
+              <p class="draft-segmented-label">Parent Attended Meeting<span class="required-asterisk">*</span></p>
+              <div class="draft-segmented-control draft-segmented-control--flat" role="radiogroup" aria-label="Parent attended meeting segmented control" data-required-segmented>
+                <label class="draft-segmented-option">
+                  <input type="radio" name="parent-attended-meeting-flat" value="yes" />
+                  <span class="draft-segmented-text">Yes</span>
+                </label>
+                <label class="draft-segmented-option">
+                  <input type="radio" name="parent-attended-meeting-flat" value="no" />
+                  <span class="draft-segmented-text">No</span>
+                </label>
+              </div>
+              <p class="draft-segmented-note">Segmented Yes / No example with no default selection.</p>
+            </div>
+          </div>
+        </div>
       </div>
     </article>
   </main>
