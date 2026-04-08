@@ -91,9 +91,7 @@
 
 .record-row-eyebrow {
   margin: 0;
-  font-size: 11px;
-  line-height: 16px;
-  font-weight: 600;
+  font: var(--font-eyebrow-sm);
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--color-text-helper);
@@ -319,8 +317,7 @@
 
 .record-row-line {
   margin: 0;
-  font-size: var(--record-row-line-font-size);
-  line-height: 1.35;
+  font: var(--font-body-sm);
   color: var(--record-row-line-color);
 }
 

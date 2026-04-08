@@ -131,7 +131,8 @@
   --font-heading-lg: 600 1.125rem/1.375rem "Inter", system-ui, -apple-system, sans-serif;
   --font-heading-md: 600 1rem/1.375rem "Inter", system-ui, -apple-system, sans-serif;
   --font-heading-sm: 600 0.9375rem/1.25rem "Inter", system-ui, -apple-system, sans-serif;
-  --font-body-md: 400 0.875rem/1.6 "Inter", system-ui, -apple-system, sans-serif;
+  --font-eyebrow-sm: 600 0.6875rem/1rem "Inter", system-ui, -apple-system, sans-serif;
+  --font-body-md: 400 0.875rem/1.25rem "Inter", system-ui, -apple-system, sans-serif;
   --font-body-sm: 400 0.8125rem/1.25rem "Inter", system-ui, -apple-system, sans-serif;
   --font-supporting-md: 400 0.8125rem/1.25rem "Inter", system-ui, -apple-system, sans-serif;
   --font-supporting-sm: 400 0.75rem/1rem "Inter", system-ui, -apple-system, sans-serif;
@@ -159,12 +160,12 @@
   --panel-hover-border-color: #DDE3EC;
   --panel-title-color: var(--color-text-primary);
   --panel-title-font-weight: 600;
-  --panel-title-font-size: 16px;
+  --panel-title-font-size: 18px;
   --panel-title-line-height: 22px;
   --panel-body-color: #374151;
   --panel-body-font-weight: 400;
   --panel-body-font-size: 14px;
-  --panel-body-line-height: 1.6;
+  --panel-body-line-height: 20px;
   --panel-secondary-text-color: #6B7280;
   --panel-icon-bg: var(--color-info-bg);
   --panel-icon-color: var(--color-info-fg);
@@ -192,7 +193,7 @@
   --card-badge-color: #4C2FBD;
   --card-badge-font-weight: 600;
   --card-badge-font-size: 12px;
-  --card-badge-line-height: 1;
+  --card-badge-line-height: 16px;
   --card-hover-border-color: #D5DFF0;
   --card-selected-border-color: var(--color-accent-border-focus);
   --card-rail-color: var(--color-accent);
