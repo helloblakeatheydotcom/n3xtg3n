@@ -18,9 +18,10 @@ document.addEventListener("DOMContentLoaded", () => {
     {
       label: "Foundations",
       links: [
+        { label: "Spacing", path: "docs-v2/foundations/spacing.html" },
+        { label: "Typography", path: "docs-v2/foundations/typography.html" },
         { label: "Color", path: "docs-v2/foundations/color.html" },
         { label: "Decorative Color", path: "docs-v2/foundations/decorative-color.html" },
-        { label: "Typography", path: "docs-v2/foundations/typography.html" },
       ],
     },
     {
@@ -30,9 +31,9 @@ document.addEventListener("DOMContentLoaded", () => {
         { label: "Forms", path: "docs-v2/components/forms.html" },
         { label: "Inline Notices", path: "docs-v2/components/inline-notices.html" },
         { label: "Panels", path: "docs-v2/components/panels.html" },
+        { label: "Sections", path: "docs-v2/components/sections.html" },
         { label: "Cards", path: "docs-v2/components/cards.html" },
         { label: "Record Rows", path: "docs-v2/components/record-rows.html" },
-        { label: "Sections", path: "docs-v2/components/sections.html" },
       ],
     },
   ];

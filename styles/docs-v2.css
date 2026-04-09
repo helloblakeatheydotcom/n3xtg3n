@@ -6,6 +6,8 @@
   --docs-v2-prose-measure: 84ch;
   --docs-v2-surface: rgba(255, 255, 255, 0.94);
   --docs-v2-surface-strong: #FFFFFF;
+  --docs-v2-table-surface: #FFFFFF;
+  --docs-v2-table-header-surface: #F2F5FA;
   --docs-v2-border: #E6ECF5;
   --docs-v2-border-strong: #D5DFEE;
   --docs-v2-text: #111827;

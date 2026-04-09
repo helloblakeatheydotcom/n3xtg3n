@@ -809,8 +809,9 @@
   width: 100%;
   border-collapse: collapse;
   border: 1px solid var(--color-divider);
-  border-radius: var(--radius-button);
+  border-radius: 8px;
   overflow: hidden;
+  background: var(--docs-v2-table-surface, #F8FAFC);
 }
 
 .docs-token-table th,
@@ -823,9 +824,13 @@
 }
 
 .docs-token-table th {
-  background: #F8FAFC;
+  background: var(--docs-v2-table-header-surface, #F2F5FA);
   font-weight: 600;
   color: var(--color-text-primary);
+}
+
+.docs-token-table td {
+  background: var(--docs-v2-table-surface, #F8FAFC);
 }
 
 .docs-token-table tr:last-child td {
@@ -834,8 +839,8 @@
 
 .docs-token-table code {
   font-size: 12px;
-  background: #F3F4F6;
-  border-radius: 4px;
+  background: #FFFFFF;
+  border-radius: 6px;
   padding: 2px 6px;
 }
 
