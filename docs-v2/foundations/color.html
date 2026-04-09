@@ -95,7 +95,7 @@
       font-weight: 700;
       letter-spacing: 0.06em;
       text-transform: uppercase;
-      color: var(--docs-v2-text-muted);
+      color: var(--docs-v2-text);
     }
 
     .color-scale-header {
@@ -150,6 +150,11 @@
       overflow-wrap: break-word;
     }
 
+    .color-token-table th:first-child,
+    .color-token-table td:first-child {
+      padding-left: 18px;
+    }
+
     .color-token-table thead th {
       background: #F8F8FA;
       font-size: 12px;
@@ -194,12 +199,12 @@
 
     .color-token-table--semantic th:nth-child(3),
     .color-token-table--semantic td:nth-child(3) {
-      width: 24%;
+      width: 28%;
     }
 
     .color-token-table--semantic th:nth-child(4),
     .color-token-table--semantic td:nth-child(4) {
-      width: 26%;
+      width: 22%;
     }
 
     .color-token-table--decorative th:nth-child(1),
@@ -553,7 +558,6 @@
         <div class="docs-v2-chip-row">
           <span class="docs-v2-chip">Primitives</span>
           <span class="docs-v2-chip">Semantic tokens</span>
-          <span class="docs-v2-chip">Decorative palettes</span>
         </div>
       </section>
 
@@ -850,17 +854,17 @@
                       <tr><td><span class="color-token-pill">--color-interactive-surface-hover</span></td><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#EFF3FE"></span>Blue 100</span></td><td>Hover interactive surface.</td><td>Light hover fills</td></tr>
                       <tr><td><span class="color-token-pill">--color-interactive-surface-pressed</span></td><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#DBE5FD"></span>Blue 200</span></td><td>Pressed interactive surface.</td><td>Pressed fills</td></tr>
                       <tr><td><span class="color-token-pill">--color-interactive-border-hover</span></td><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#7EA6FB"></span>Blue 400</span></td><td>Hover border on interactive controls.</td><td>Controls, utility actions</td></tr>
-                      <tr><td><span class="color-token-pill">--color-interactive-border-focus</span></td><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#2567F4"></span>Blue 500</span></td><td>Focus border on interactive controls.</td><td>Controls, inputs</td></tr>
                     </tbody>
                   </table>
                 </article>
 
                 <article class="color-table-block">
                   <h3 class="color-semantic-title">Focus</h3>
-                  <p class="color-section-note">Focus colors only. Implementation recipes such as shadow stacks are defined elsewhere.</p>
+                  <p class="color-section-note">Focus colors only. Implementation recipes such as shadow stacks are defined elsewhere, but the semantic focus colors and borders are documented here.</p>
                   <table class="color-token-table color-token-table--semantic">
                     <thead><tr><th>Token</th><th>Primitive</th><th>Purpose</th><th>Used by</th></tr></thead>
                     <tbody>
+                      <tr><td><span class="color-token-pill">--color-interactive-border-focus</span></td><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#2567F4"></span>Blue 500</span></td><td>Focus border on interactive controls.</td><td>Controls, inputs</td></tr>
                       <tr><td><span class="color-token-pill">--color-focus-ring</span></td><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#B8CEFF"></span>Blue 300</span></td><td>Default focus ring color.</td><td>Focused controls</td></tr>
                       <tr><td><span class="color-token-pill">--color-focus-ring-danger</span></td><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#EE031D"></span>Red 500</span></td><td>Danger focus ring color for invalid or destructive states.</td><td>Invalid and destructive states</td></tr>
                     </tbody>
@@ -869,67 +873,6 @@
               </div>
             </section>
 
-            <section class="docs-section" id="decorative-palettes">
-              <div class="docs-section-header">
-                <h2 class="panel-example-title">Decorative Palettes</h2>
-                <p class="docs-lead">These colors are still present in the system, but they are not yet formalized as semantic foundations. Decorative rails and badge/tag variants remain here until they are categorized further.</p>
-              </div>
-              <div class="color-decorative-grid">
-                <article class="color-decorative-card">
-                  <h3 class="color-semantic-title">Rails</h3>
-                  <table class="color-token-table color-token-table--decorative">
-                    <thead><tr><th>Token</th><th>Primitive Source</th><th>Purpose</th><th>Used by</th></tr></thead>
-                    <tbody>
-                      <tr><td><code>--color-decorative-slate</code></td><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#667085"></span>Slate 700 (#667085)</span></td><td>Default decorative rail family</td><td>Section rails</td></tr>
-                      <tr><td><code>--color-decorative-sand</code></td><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#DBC1AC"></span>#DBC1AC</span></td><td>Decorative rail family</td><td>Section rails</td></tr>
-                      <tr><td><code>--color-decorative-coffee</code></td><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#6F4E37"></span>#6F4E37</span></td><td>Decorative rail family</td><td>Section rails</td></tr>
-                      <tr><td><code>--color-decorative-violet</code></td><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#9D8FFF"></span>Violet 500 (#9D8FFF)</span></td><td>Decorative rail and accent family</td><td>Rails, decorative emphasis</td></tr>
-                      <tr><td><code>--color-decorative-sky</code></td><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#38BDF8"></span>#38BDF8</span></td><td>Decorative rail family</td><td>Section rails</td></tr>
-                      <tr><td><code>--color-decorative-indigo</code></td><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#4B61D1"></span>#4B61D1</span></td><td>Decorative rail family</td><td>Section rails</td></tr>
-                      <tr><td><code>--color-decorative-emerald</code></td><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#10B981"></span>Emerald 500 (#10B981)</span></td><td>Decorative rail family</td><td>Section rails</td></tr>
-                      <tr><td><code>--color-decorative-teal</code></td><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#0D9488"></span>#0D9488</span></td><td>Decorative rail family</td><td>Section rails</td></tr>
-                      <tr><td><code>--color-decorative-amber</code></td><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#FFBF00"></span>#FFBF00</span></td><td>Decorative rail family</td><td>Section rails</td></tr>
-                      <tr><td><code>--color-decorative-cayenne</code></td><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#EA580C"></span>#EA580C</span></td><td>Decorative rail family</td><td>Section rails</td></tr>
-                      <tr><td><code>--color-decorative-rose</code></td><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#CA1F7B"></span>#CA1F7B</span></td><td>Decorative rail family</td><td>Section rails</td></tr>
-                    </tbody>
-                  </table>
-                </article>
-
-                <article class="color-decorative-card">
-                  <h3 class="color-semantic-title">Badge and Tag Variants</h3>
-                  <table class="color-token-table color-token-table--decorative">
-                    <thead><tr><th>Token</th><th>Primitive Source</th><th>Purpose</th><th>Used by</th></tr></thead>
-                    <tbody>
-                      <tr><td><code>--color-variant-purple-bg</code> / <code>--color-variant-purple-fg</code></td><td>Violet 200 / Violet 900</td><td>Decorative badge and tag variant</td><td>Badges, tags</td></tr>
-                      <tr><td><code>--color-variant-indigo-bg</code> / <code>--color-variant-indigo-fg</code></td><td>#E0E7FF / #3730A3</td><td>Decorative badge and tag variant</td><td>Badges, tags</td></tr>
-                      <tr><td><code>--color-variant-cobalt-bg</code> / <code>--color-variant-cobalt-fg</code></td><td>Blue 200 / Blue 600</td><td>Decorative badge and tag variant</td><td>Badges, tags</td></tr>
-                      <tr><td><code>--color-variant-cyan-bg</code> / <code>--color-variant-cyan-fg</code></td><td>#CFFAFE / #0E7490</td><td>Decorative badge and tag variant</td><td>Badges, tags</td></tr>
-                      <tr><td><code>--color-variant-teal-bg</code> / <code>--color-variant-teal-fg</code></td><td>#CCFBF1 / #0F6B62</td><td>Decorative badge and tag variant</td><td>Badges, tags</td></tr>
-                      <tr><td><code>--color-variant-emerald-bg</code> / <code>--color-variant-emerald-fg</code></td><td>Emerald 100 / Emerald 800</td><td>Decorative badge and tag variant</td><td>Badges, tags</td></tr>
-                      <tr><td><code>--color-variant-amber-bg</code> / <code>--color-variant-amber-fg</code></td><td>Amber 400 / Amber 950</td><td>Decorative badge and tag variant</td><td>Badges, tags</td></tr>
-                      <tr><td><code>--color-variant-orange-bg</code> / <code>--color-variant-orange-fg</code></td><td>#FFEDD5 / #9A3412</td><td>Decorative badge and tag variant</td><td>Badges, tags</td></tr>
-                      <tr><td><code>--color-variant-rose-bg</code> / <code>--color-variant-rose-fg</code></td><td>#FCE7F3 / #9D174D</td><td>Decorative badge and tag variant</td><td>Badges, tags</td></tr>
-                      <tr><td><code>--color-variant-red-bg</code> / <code>--color-variant-red-fg</code></td><td>Red 100 / Red 800</td><td>Decorative badge and tag variant</td><td>Badges, tags</td></tr>
-                      <tr><td><code>--color-variant-sand-bg</code> / <code>--color-variant-sand-fg</code></td><td>#F5F0E8 / #5C4A2A</td><td>Decorative badge and tag variant</td><td>Badges, tags</td></tr>
-                      <tr><td><code>--color-variant-slate-bg</code> / <code>--color-variant-slate-fg</code></td><td>Slate 200 / #334155</td><td>Decorative badge and tag variant</td><td>Badges, tags</td></tr>
-                    </tbody>
-                  </table>
-                </article>
-
-                <article class="color-decorative-card">
-                  <h3 class="color-semantic-title">Product Status</h3>
-                  <table class="color-token-table color-token-table--decorative">
-                    <thead><tr><th>Token</th><th>Primitive Source</th><th>Purpose</th><th>Used by</th></tr></thead>
-                    <tbody>
-                      <tr><td><code>--color-status-waived-bg</code> / <code>--color-status-waived-fg</code></td><td>Blue 200 / Blue 600</td><td>Primary status treatment for waived records</td><td>Record row status</td></tr>
-                      <tr><td><code>--color-status-waived-badge-bg</code> / <code>--color-status-waived-badge-fg</code></td><td>#FEF3C7 / #7C4A03</td><td>Badge treatment paired with waived state</td><td>Record row status</td></tr>
-                      <tr><td><code>--color-status-inactive-bg</code> / <code>--color-status-inactive-fg</code></td><td>White / Gray 600 (#4B5563)</td><td>Inactive state treatment</td><td>Record row status</td></tr>
-                      <tr><td><code>--color-status-inactive-badge-bg</code> / <code>--color-status-inactive-badge-fg</code></td><td>Gray 100 / Gray 600</td><td>Badge treatment paired with inactive state</td><td>Record row status</td></tr>
-                    </tbody>
-                  </table>
-                </article>
-              </div>
-            </section>
           </div>
         </div>
 
@@ -939,7 +882,6 @@
             <a class="docs-v2-page-nav-link" href="#overview">Overview</a>
             <a class="docs-v2-page-nav-link" href="#primitives">Primitives</a>
             <a class="docs-v2-page-nav-link" href="#semantic-tokens">Semantic Tokens</a>
-            <a class="docs-v2-page-nav-link" href="#decorative-palettes">Decorative Palettes</a>
           </nav>
         </aside>
       </div>

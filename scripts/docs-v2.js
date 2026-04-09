@@ -19,6 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
       label: "Foundations",
       links: [
         { label: "Color", path: "docs-v2/foundations/color.html" },
+        { label: "Decorative Color", path: "docs-v2/foundations/decorative-color.html" },
         { label: "Typography", path: "docs-v2/foundations/typography.html" },
       ],
     },
