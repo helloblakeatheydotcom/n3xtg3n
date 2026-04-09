@@ -1,24 +1,3 @@
-.button-docs-page {
-  --button-primary-bg: #2567F4;
-  --button-primary-hover: #2251C5;
-  --button-primary-active: #00389B;
-  --button-secondary-bg: #EFF3FE;
-  --button-secondary-hover: #DBE5FD;
-  --button-secondary-text: #00389B;
-  --button-link-text: #2567F4;
-  --button-link-hover-text: #00389B;
-  --button-link-hover-bg: #EFF3FE;
-  --button-link-active-bg: #DBE5FD;
-  --button-danger-bg: #EE031D;
-  --button-danger-hover: #DC2626;
-  --button-danger-active: #B91C1C;
-  --button-neutral-bg: #EEF2F7;
-  --button-neutral-hover: #E6ECF5;
-  --button-neutral-text: #475467;
-  --button-disabled-bg: #F3F4F6;
-  --button-disabled-text: #9CA3AF;
-}
-
 .button-docs-page .page-header,
 .button-docs-page .layout-shell {
   max-width: 1200px;
@@ -146,110 +125,110 @@
 }
 
 .ui-button--primary {
-  background: var(--button-primary-bg);
-  color: #FFFFFF;
+  background: var(--color-bg-button-primary);
+  color: var(--color-fg-button-primary);
 }
 
 .ui-button--primary:hover,
 .ui-button--primary.is-hover {
-  background: var(--button-primary-hover);
+  background: var(--color-bg-button-primary-hover);
 }
 
 .ui-button--primary:active,
 .ui-button--primary.is-active {
-  background: var(--button-primary-active);
+  background: var(--color-bg-button-primary-active);
 }
 
 .ui-button--primary:disabled,
 .ui-button--primary[aria-disabled="true"] {
-  background: var(--button-disabled-bg);
-  color: var(--button-disabled-text);
+  background: var(--color-bg-button-disabled);
+  color: var(--color-fg-button-disabled);
 }
 
 .ui-button--secondary {
-  background: var(--button-secondary-bg);
-  color: var(--button-secondary-text);
+  background: var(--color-bg-button-secondary);
+  color: var(--color-fg-button-secondary);
 }
 
 .ui-button--secondary:hover,
 .ui-button--secondary.is-hover {
-  background: var(--button-secondary-hover);
+  background: var(--color-bg-button-secondary-hover);
 }
 
 .ui-button--secondary:active,
 .ui-button--secondary.is-active {
-  background: var(--button-secondary-hover);
+  background: var(--color-bg-button-secondary-active);
 }
 
 .ui-button--secondary:disabled,
 .ui-button--secondary[aria-disabled="true"] {
-  background: var(--button-disabled-bg);
-  color: var(--button-disabled-text);
+  background: var(--color-bg-button-disabled);
+  color: var(--color-fg-button-disabled);
 }
 
 .ui-button--link {
   background: transparent;
-  color: var(--button-link-text);
+  color: var(--color-fg-button-link);
 }
 
 .ui-button--link:hover,
 .ui-button--link.is-hover {
-  background: var(--button-link-hover-bg);
-  color: var(--button-link-hover-text);
+  background: var(--color-bg-button-link-hover);
+  color: var(--color-fg-button-link-hover);
 }
 
 .ui-button--link:active,
 .ui-button--link.is-active {
-  background: var(--button-link-active-bg);
-  color: var(--button-link-hover-text);
+  background: var(--color-bg-button-link-active);
+  color: var(--color-fg-button-link-active);
 }
 
 .ui-button--link:disabled,
 .ui-button--link[aria-disabled="true"] {
   background: transparent;
-  color: var(--button-disabled-text);
+  color: var(--color-fg-button-disabled);
 }
 
 .ui-button--destructive {
-  background: var(--button-danger-bg);
-  color: #FFFFFF;
+  background: var(--color-bg-button-destructive);
+  color: var(--color-fg-button-destructive);
 }
 
 .ui-button--destructive:hover,
 .ui-button--destructive.is-hover {
-  background: var(--button-danger-hover);
+  background: var(--color-bg-button-destructive-hover);
 }
 
 .ui-button--destructive:active,
 .ui-button--destructive.is-active {
-  background: var(--button-danger-active);
+  background: var(--color-bg-button-destructive-active);
 }
 
 .ui-button--destructive:disabled,
 .ui-button--destructive[aria-disabled="true"] {
-  background: var(--button-disabled-bg);
-  color: var(--button-disabled-text);
+  background: var(--color-bg-button-disabled);
+  color: var(--color-fg-button-disabled);
 }
 
 .ui-button--neutral {
-  background: var(--button-neutral-bg);
-  color: var(--button-neutral-text);
+  background: var(--color-bg-button-neutral);
+  color: var(--color-fg-button-neutral);
 }
 
 .ui-button--neutral:hover,
 .ui-button--neutral.is-hover {
-  background: var(--button-neutral-hover);
+  background: var(--color-bg-button-neutral-hover);
 }
 
 .ui-button--neutral:active,
 .ui-button--neutral.is-active {
-  background: var(--button-neutral-hover);
+  background: var(--color-bg-button-neutral-active);
 }
 
 .ui-button--neutral:disabled,
 .ui-button--neutral[aria-disabled="true"] {
-  background: var(--button-disabled-bg);
-  color: var(--button-disabled-text);
+  background: var(--color-bg-button-disabled);
+  color: var(--color-fg-button-disabled);
 }
 
 .ui-button:not(.ui-button--primary):not(.ui-button--destructive).is-focus {
