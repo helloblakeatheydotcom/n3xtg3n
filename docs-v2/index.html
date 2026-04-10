@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>EdPlan NextGen Docs v2</title>
+  <title>Design System</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -11,87 +11,448 @@
   <link rel="stylesheet" href="../styles/base.css" />
   <link rel="stylesheet" href="../styles/docs-v2.css" />
 </head>
-<body class="docs-v2-page" data-docs-v2-nav-title="Docs v2" data-docs-v2-nav-copy="Atlassian-inspired information architecture for the NextGen design system, built alongside the current docs." data-docs-v2-nav-kicker="Parallel Build">
+<body
+  class="docs-v2-page"
+  data-docs-v2-nav-title="Design System"
+  data-docs-v2-nav-copy="Shared foundations, reusable components, and system guidance for the product UI."
+  data-docs-v2-nav-kicker="EdPlan NextGen"
+>
   <div class="docs-v2-layout">
     <aside class="docs-v2-sidebar" data-docs-v2-nav></aside>
 
     <main class="docs-v2-main">
       <section class="docs-v2-hero">
-        <p class="docs-v2-eyebrow">Phase 1</p>
-        <h2 class="docs-v2-title">A safe parallel shell for the next documentation system.</h2>
-        <p class="docs-v2-copy">This new structure models the docs around stable information architecture first: foundations, components, patterns, and archive. The current docs remain intact while this v2 shell becomes the migration target.</p>
+        <p class="docs-v2-eyebrow">Design System</p>
+        <h2 class="docs-v2-title">About the NextGen Design System</h2>
+        <p class="docs-v2-copy">Shared foundations, reusable components, and system guidance for EdPlan NextGen. Use these pages to make decisions from shared rules first, then apply them consistently through component patterns.</p>
         <div class="docs-v2-chip-row">
-          <span class="docs-v2-chip">Current docs untouched</span>
-          <span class="docs-v2-chip">New IA scaffold only</span>
-          <span class="docs-v2-chip">Ready for page-by-page migration</span>
+          <span class="docs-v2-chip">Foundations</span>
+          <span class="docs-v2-chip">Components</span>
+          <span class="docs-v2-chip">Shared product UI language</span>
         </div>
       </section>
 
-      <section class="docs-v2-panel">
+      <section class="docs-v2-home-section">
         <div class="docs-v2-section-head">
-          <h3 class="docs-v2-section-title">What Exists In Phase 1</h3>
-          <p class="docs-v2-section-copy">The new shell establishes the top-level structure and navigation model without changing the live component documentation routes.</p>
-        </div>
-        <div class="docs-v2-card-grid">
-          <article class="docs-v2-card">
-            <h4 class="docs-v2-card-title">Foundations</h4>
-            <p class="docs-v2-card-copy">The future home for color, typography, spacing, iconography, and tokens. Start here when a decision affects more than one component.</p>
-            <div class="docs-v2-link-row">
-              <a class="docs-v2-cta" href="./foundations/index.html">Open Foundations</a>
-            </div>
-          </article>
-
-          <article class="docs-v2-card">
-            <h4 class="docs-v2-card-title">Components</h4>
-            <p class="docs-v2-card-copy">The future home for buttons, forms, panels, cards, sections, record rows, notices, and badges with one consistent page template.</p>
-            <div class="docs-v2-link-row">
-              <a class="docs-v2-cta" href="./components/index.html">Open Components</a>
-            </div>
-          </article>
-
-          <article class="docs-v2-card">
-            <h4 class="docs-v2-card-title">Patterns</h4>
-            <p class="docs-v2-card-copy">The future place for composed workflows such as panel plus section plus form combinations, rather than isolated component anatomy.</p>
-            <div class="docs-v2-link-row">
-              <a class="docs-v2-cta" href="./patterns/index.html">Open Patterns</a>
-            </div>
-          </article>
-
-          <article class="docs-v2-card">
-            <h4 class="docs-v2-card-title">Archive</h4>
-            <p class="docs-v2-card-copy">A stable home for current v1 artifacts and older component variants, so migration work never risks deleting prior documentation.</p>
-            <div class="docs-v2-link-row">
-              <a class="docs-v2-cta" href="./archive/index.html">Open Archive</a>
-            </div>
-          </article>
+          <h3 class="docs-v2-section-title">Overview</h3>
+          <p class="docs-v2-section-copy">This design system gives developers, designers, and technical business analysts a shared reference for how the product UI is built. It defines the reusable foundations, components, and visual rules that help teams make consistent decisions, move faster, and reduce one-off patterns across the application.</p>
         </div>
       </section>
 
-      <section class="docs-v2-panel">
+      <section class="docs-v2-home-section">
         <div class="docs-v2-section-head">
-          <h3 class="docs-v2-section-title">Migration Rules</h3>
-          <p class="docs-v2-section-copy">These rules keep the migration reversible and low-risk.</p>
+          <h3 class="docs-v2-section-title">Foundations</h3>
+          <p class="docs-v2-section-copy">Start here when a decision affects more than one component. Foundations define the shared rules for spacing, type, color, and decorative variation across the system.</p>
         </div>
-        <ul class="docs-v2-list">
-          <li>Do not replace or rename current docs pages during the v2 build.</li>
-          <li>Build new page shells first, then migrate one component at a time.</li>
-          <li>Reuse existing component CSS and tokens where possible; only the documentation chrome should change at first.</li>
-          <li>Cut over the main index only after the v2 pages are materially complete.</li>
-        </ul>
+        <div class="docs-v2-card-grid docs-v2-card-grid--home-feature">
+          <a class="docs-v2-card docs-v2-home-card docs-v2-home-card--feature" href="./foundations/spacing.html">
+            <span class="docs-v2-home-card-media" aria-hidden="true">
+              <span class="docs-v2-home-illustration docs-v2-illus-spacing-scene">
+                <span class="docs-v2-illus-spacing-frame">
+                  <span class="docs-v2-illus-spacing-surface docs-v2-illus-spacing-surface--inset">
+                    <span class="docs-v2-illus-spacing-measure docs-v2-illus-spacing-measure--inset">
+                      <span class="docs-v2-illus-spacing-guide docs-v2-illus-spacing-guide--horizontal"></span>
+                      <span class="docs-v2-illus-spacing-label">inset</span>
+                    </span>
+                    <span class="docs-v2-illus-spacing-lines">
+                      <span class="docs-v2-illus-spacing-line docs-v2-illus-spacing-line--strong"></span>
+                      <span class="docs-v2-illus-spacing-line docs-v2-illus-spacing-line--short"></span>
+                    </span>
+                  </span>
+                  <span class="docs-v2-illus-spacing-stack">
+                    <span class="docs-v2-illus-spacing-surface docs-v2-illus-spacing-surface--stack">
+                      <span class="docs-v2-illus-spacing-line docs-v2-illus-spacing-line--mid"></span>
+                    </span>
+                    <span class="docs-v2-illus-spacing-measure docs-v2-illus-spacing-measure--gap">
+                      <span class="docs-v2-illus-spacing-guide docs-v2-illus-spacing-guide--vertical"></span>
+                      <span class="docs-v2-illus-spacing-label">gap</span>
+                    </span>
+                    <span class="docs-v2-illus-spacing-surface docs-v2-illus-spacing-surface--stack">
+                      <span class="docs-v2-illus-spacing-line docs-v2-illus-spacing-line--short"></span>
+                    </span>
+                  </span>
+                  <span class="docs-v2-illus-spacing-inline-row">
+                    <span class="docs-v2-illus-spacing-chip docs-v2-illus-spacing-chip--wide">
+                      <span class="docs-v2-illus-spacing-line docs-v2-illus-spacing-line--short"></span>
+                    </span>
+                    <span class="docs-v2-illus-spacing-inline-center">
+                      <span class="docs-v2-illus-spacing-guide docs-v2-illus-spacing-guide--horizontal docs-v2-illus-spacing-guide--inline"></span>
+                      <span class="docs-v2-illus-spacing-label">inline</span>
+                    </span>
+                    <span class="docs-v2-illus-spacing-chip docs-v2-illus-spacing-chip--accent">
+                      <span class="docs-v2-illus-spacing-line docs-v2-illus-spacing-line--short docs-v2-illus-spacing-line--light"></span>
+                    </span>
+                  </span>
+                </span>
+              </span>
+            </span>
+            <span class="docs-v2-home-card-body">
+              <h4 class="docs-v2-card-title">Spacing</h4>
+              <p class="docs-v2-card-copy">Scale, rhythm, insets, and gap patterns reused across the system.</p>
+            </span>
+          </a>
+          <a class="docs-v2-card docs-v2-home-card docs-v2-home-card--feature" href="./foundations/typography.html">
+            <span class="docs-v2-home-card-media docs-v2-home-card-media--typography" aria-hidden="true">
+              <span class="docs-v2-home-illustration docs-v2-illus-type">
+                <svg class="docs-v2-illus-type-svg" viewBox="0 0 360 140" role="img" aria-label="Typography metrics illustration">
+                  <line x1="32" y1="28" x2="336" y2="28" stroke="#6B7280" stroke-width="2" />
+                  <text x="38" y="19" fill="#4E5867" font-size="14" font-weight="600">cap height</text>
+
+                  <line x1="32" y1="55" x2="336" y2="55" stroke="#D6DAE2" stroke-width="2" stroke-dasharray="6 4" />
+                  <rect x="278" y="36" width="72" height="18" fill="#F7F9FC" />
+                  <text x="282" y="50" fill="#4E5867" font-size="14" font-weight="600">x-height</text>
+
+                  <line x1="32" y1="118" x2="336" y2="118" stroke="#5F6774" stroke-width="2" />
+                  <rect x="276" y="96" width="74" height="18" fill="#F7F9FC" />
+                  <text x="280" y="112" fill="#4E5867" font-size="14" font-weight="600">baseline</text>
+
+                  <text
+                    x="98"
+                    y="117"
+                    fill="#1A2233"
+                    font-size="126"
+                    font-weight="600"
+                    letter-spacing="-4"
+                    font-family="Iowan Old Style, Palatino Linotype, Book Antiqua, Georgia, Times New Roman, serif"
+                  >Ag</text>
+                </svg>
+              </span>
+            </span>
+            <span class="docs-v2-home-card-body">
+              <h4 class="docs-v2-card-title">Typography</h4>
+              <p class="docs-v2-card-copy">Typeface, scale, and text roles used across product UI.</p>
+            </span>
+          </a>
+          <a class="docs-v2-card docs-v2-home-card docs-v2-home-card--feature" href="./foundations/color.html">
+            <span class="docs-v2-home-card-media" aria-hidden="true">
+              <span class="docs-v2-home-illustration docs-v2-illus-color-grid">
+                <span class="docs-v2-illus-color-scale docs-v2-illus-color-scale--gray">
+                  <span class="docs-v2-illus-swatch docs-v2-illus-swatch--gray-1"></span>
+                  <span class="docs-v2-illus-swatch docs-v2-illus-swatch--gray-2"></span>
+                  <span class="docs-v2-illus-swatch docs-v2-illus-swatch--gray-3"></span>
+                  <span class="docs-v2-illus-swatch docs-v2-illus-swatch--gray-4"></span>
+                </span>
+                <span class="docs-v2-illus-color-scale docs-v2-illus-color-scale--blue">
+                  <span class="docs-v2-illus-swatch docs-v2-illus-swatch--blue-1"></span>
+                  <span class="docs-v2-illus-swatch docs-v2-illus-swatch--blue-2"></span>
+                  <span class="docs-v2-illus-swatch docs-v2-illus-swatch--blue-3"></span>
+                  <span class="docs-v2-illus-swatch docs-v2-illus-swatch--blue-4"></span>
+                </span>
+                <span class="docs-v2-illus-color-scale docs-v2-illus-color-scale--green">
+                  <span class="docs-v2-illus-swatch docs-v2-illus-swatch--green-1"></span>
+                  <span class="docs-v2-illus-swatch docs-v2-illus-swatch--green-2"></span>
+                  <span class="docs-v2-illus-swatch docs-v2-illus-swatch--green-3"></span>
+                  <span class="docs-v2-illus-swatch docs-v2-illus-swatch--green-4"></span>
+                </span>
+                <span class="docs-v2-illus-color-scale docs-v2-illus-color-scale--yellow">
+                  <span class="docs-v2-illus-swatch docs-v2-illus-swatch--yellow-1"></span>
+                  <span class="docs-v2-illus-swatch docs-v2-illus-swatch--yellow-2"></span>
+                  <span class="docs-v2-illus-swatch docs-v2-illus-swatch--yellow-3"></span>
+                  <span class="docs-v2-illus-swatch docs-v2-illus-swatch--yellow-4"></span>
+                </span>
+                <span class="docs-v2-illus-color-scale docs-v2-illus-color-scale--red">
+                  <span class="docs-v2-illus-swatch docs-v2-illus-swatch--red-1"></span>
+                  <span class="docs-v2-illus-swatch docs-v2-illus-swatch--red-2"></span>
+                  <span class="docs-v2-illus-swatch docs-v2-illus-swatch--red-3"></span>
+                  <span class="docs-v2-illus-swatch docs-v2-illus-swatch--red-4"></span>
+                </span>
+              </span>
+            </span>
+            <span class="docs-v2-home-card-body">
+              <h4 class="docs-v2-card-title">Color</h4>
+              <p class="docs-v2-card-copy">Primitive scales and semantic color roles for shared meaning.</p>
+            </span>
+          </a>
+          <a class="docs-v2-card docs-v2-home-card docs-v2-home-card--feature" href="./foundations/decorative-color.html">
+            <span class="docs-v2-home-card-media docs-v2-home-card-media--decorative" aria-hidden="true">
+              <span class="docs-v2-home-illustration docs-v2-illus-decorative-scene">
+                <svg class="docs-v2-illus-burst-mark" viewBox="0 0 240 160" role="img" aria-label="Decorative color illustration">
+                  <circle cx="118" cy="82" r="10" fill="#FFFFFF" fill-opacity="0.96"></circle>
+                  <circle cx="118" cy="82" r="6" fill="#F7F9FD" fill-opacity="1"></circle>
+
+                  <circle cx="74" cy="64" r="11" fill="#D84F84" fill-opacity="0.68"></circle>
+                  <circle cx="88" cy="70" r="8" fill="#8F80FF" fill-opacity="0.78"></circle>
+                  <circle cx="98" cy="78" r="6" fill="#2567F4" fill-opacity="0.84"></circle>
+                  <circle cx="106" cy="72" r="5" fill="#FFC641" fill-opacity="0.82"></circle>
+                  <circle cx="128" cy="66" r="7" fill="#46D99A" fill-opacity="0.74"></circle>
+                  <circle cx="138" cy="74" r="10" fill="#F29963" fill-opacity="0.78"></circle>
+                  <circle cx="148" cy="80" r="9" fill="#B8A7FF" fill-opacity="0.72"></circle>
+                  <circle cx="126" cy="92" r="8" fill="#2EA7E6" fill-opacity="0.8"></circle>
+                  <circle cx="108" cy="94" r="7" fill="#D99A00" fill-opacity="0.74"></circle>
+                  <circle cx="92" cy="88" r="9" fill="#A5ADBD" fill-opacity="0.62"></circle>
+
+                  <circle cx="60" cy="86" r="13" fill="#D85A9D" fill-opacity="0.66"></circle>
+                  <circle cx="52" cy="72" r="7" fill="#F47AAA" fill-opacity="0.84"></circle>
+                  <circle cx="44" cy="92" r="9" fill="#6C7487" fill-opacity="0.56"></circle>
+                  <circle cx="168" cy="72" r="14" fill="#FFD875" fill-opacity="0.66"></circle>
+                  <circle cx="180" cy="88" r="11" fill="#B7A798" fill-opacity="0.54"></circle>
+                  <circle cx="162" cy="96" r="8" fill="#3159D6" fill-opacity="0.64"></circle>
+
+                  <circle cx="32" cy="48" r="10" fill="#2567F4" fill-opacity="0.18"></circle>
+                  <circle cx="54" cy="56" r="8" fill="#5A8DFF" fill-opacity="0.42"></circle>
+                  <circle cx="78" cy="40" r="6" fill="#B7A798" fill-opacity="0.42"></circle>
+                  <circle cx="96" cy="34" r="3" fill="#3159D6" fill-opacity="0.7"></circle>
+                  <circle cx="108" cy="28" r="2" fill="#2567F4" fill-opacity="0.78"></circle>
+                  <circle cx="118" cy="24" r="2.5" fill="#46D99A" fill-opacity="0.7"></circle>
+                  <circle cx="128" cy="28" r="3" fill="#FFC641" fill-opacity="0.78"></circle>
+                  <circle cx="142" cy="34" r="5" fill="#D99A00" fill-opacity="0.5"></circle>
+                  <circle cx="162" cy="46" r="8" fill="#2EA7E6" fill-opacity="0.3"></circle>
+                  <circle cx="182" cy="56" r="10" fill="#D84F84" fill-opacity="0.16"></circle>
+
+                  <circle cx="24" cy="82" r="3" fill="#D84F84" fill-opacity="0.52"></circle>
+                  <circle cx="18" cy="92" r="5" fill="#6C7487" fill-opacity="0.22"></circle>
+                  <circle cx="26" cy="104" r="7" fill="#D85A9D" fill-opacity="0.24"></circle>
+                  <circle cx="208" cy="82" r="4" fill="#FFC641" fill-opacity="0.72"></circle>
+                  <circle cx="220" cy="76" r="7" fill="#F29963" fill-opacity="0.34"></circle>
+                  <circle cx="228" cy="88" r="6" fill="#B7A798" fill-opacity="0.22"></circle>
+
+                  <circle cx="88" cy="118" r="6" fill="#8F80FF" fill-opacity="0.32"></circle>
+                  <circle cx="104" cy="126" r="9" fill="#46D99A" fill-opacity="0.18"></circle>
+                  <circle cx="124" cy="132" r="7" fill="#2EA7E6" fill-opacity="0.24"></circle>
+                  <circle cx="144" cy="124" r="10" fill="#D99A00" fill-opacity="0.22"></circle>
+                  <circle cx="160" cy="114" r="12" fill="#3159D6" fill-opacity="0.2"></circle>
+
+                  <circle cx="98" cy="54" r="4" fill="#FFFFFF" fill-opacity="0.62"></circle>
+                  <circle cx="136" cy="60" r="4" fill="#FFFFFF" fill-opacity="0.58"></circle>
+                  <circle cx="82" cy="94" r="4" fill="#FFFFFF" fill-opacity="0.4"></circle>
+                  <circle cx="154" cy="86" r="4" fill="#FFFFFF" fill-opacity="0.42"></circle>
+                </svg>
+              </span>
+            </span>
+            <span class="docs-v2-home-card-body">
+              <h4 class="docs-v2-card-title">Decorative Color</h4>
+              <p class="docs-v2-card-copy">Rails, badge variants, and accent families for visual variation.</p>
+            </span>
+          </a>
+        </div>
       </section>
 
-      <section class="docs-v2-panel">
+      <section class="docs-v2-home-section">
         <div class="docs-v2-section-head">
-          <h3 class="docs-v2-section-title">Current Source Docs</h3>
-          <p class="docs-v2-section-copy">These are the current live docs that will feed the v2 migration.</p>
+          <h3 class="docs-v2-section-title">Components</h3>
+          <p class="docs-v2-section-copy">Use component pages to understand anatomy, behavior, states, and token application for the reusable UI building blocks used across product workflows.</p>
         </div>
-        <div class="docs-v2-source-list">
-          <a class="docs-v2-source-link" href="../colors.html">Color Foundation Source</a>
-          <a class="docs-v2-source-link" href="../buttons-components.html">Buttons Source</a>
-          <a class="docs-v2-source-link" href="../form-components.html">Form Components Source</a>
-          <a class="docs-v2-source-link" href="../panel-component.html">Panel Source</a>
+        <div class="docs-v2-card-grid docs-v2-card-grid--home-feature">
+          <a class="docs-v2-card docs-v2-home-card docs-v2-home-card--feature" href="./components/buttons.html">
+            <span class="docs-v2-home-card-media" aria-hidden="true">
+              <span class="docs-v2-home-illustration docs-v2-illus-button-stack">
+                <span class="docs-v2-illus-button-row">
+                  <span class="docs-v2-illus-button docs-v2-illus-button--primary">
+                    <span class="docs-v2-illus-button-label docs-v2-illus-button-label--light"></span>
+                  </span>
+                  <span class="docs-v2-illus-button docs-v2-illus-button--secondary">
+                    <span class="docs-v2-illus-button-label"></span>
+                  </span>
+                </span>
+                <span class="docs-v2-illus-button-row">
+                  <span class="docs-v2-illus-button docs-v2-illus-button--delete">
+                    <span class="docs-v2-illus-button-label docs-v2-illus-button-label--light"></span>
+                  </span>
+                  <span class="docs-v2-illus-button docs-v2-illus-button--cancel">
+                    <span class="docs-v2-illus-button-label"></span>
+                  </span>
+                </span>
+              </span>
+            </span>
+            <span class="docs-v2-home-card-body">
+              <h4 class="docs-v2-card-title">Buttons</h4>
+              <p class="docs-v2-card-copy">Action hierarchy, sizing, state behavior, and grouped actions.</p>
+            </span>
+          </a>
+          <a class="docs-v2-card docs-v2-home-card docs-v2-home-card--feature" href="./components/forms.html">
+            <span class="docs-v2-home-card-media" aria-hidden="true">
+              <span class="docs-v2-home-illustration docs-v2-illus-form">
+                <span class="docs-v2-illus-form-top">
+                  <span class="docs-v2-illus-select-stack">
+                    <span class="docs-v2-illus-select-field">
+                      <span class="docs-v2-illus-select-value"></span>
+                      <span class="docs-v2-illus-chevron"></span>
+                    </span>
+                  </span>
+                  <span class="docs-v2-illus-radio-card">
+                    <span class="docs-v2-illus-form-label docs-v2-illus-form-label--short"></span>
+                    <span class="docs-v2-illus-radio-row">
+                      <span class="docs-v2-illus-radio docs-v2-illus-radio--selected"></span>
+                      <span class="docs-v2-illus-choice-line docs-v2-illus-choice-line--short"></span>
+                    </span>
+                    <span class="docs-v2-illus-radio-row">
+                      <span class="docs-v2-illus-radio"></span>
+                      <span class="docs-v2-illus-choice-line docs-v2-illus-choice-line--tiny"></span>
+                    </span>
+                  </span>
+                </span>
+                <span class="docs-v2-illus-textarea-card">
+                  <span class="docs-v2-illus-textarea">
+                    <span class="docs-v2-illus-textarea-line">Lorem ipsum dolor sit amet</span>
+                    <span class="docs-v2-illus-textarea-line">Consectetur adipiscing elit</span>
+                    <span class="docs-v2-illus-textarea-line docs-v2-illus-textarea-line--short">Sed do eiusmod</span>
+                  </span>
+                </span>
+              </span>
+            </span>
+            <span class="docs-v2-home-card-body">
+              <h4 class="docs-v2-card-title">Forms</h4>
+              <p class="docs-v2-card-copy">Field types, helper text, validation, and selection controls.</p>
+            </span>
+          </a>
+          <a class="docs-v2-card docs-v2-home-card docs-v2-home-card--feature" href="./components/inline-notices.html">
+            <span class="docs-v2-home-card-media" aria-hidden="true">
+              <span class="docs-v2-home-illustration docs-v2-illus-notice-stack">
+                <span class="docs-v2-illus-notice docs-v2-illus-notice--info">
+                  <span class="docs-v2-illus-lines">
+                    <span class="docs-v2-illus-line docs-v2-illus-line--strong"></span>
+                    <span class="docs-v2-illus-line docs-v2-illus-line--mid"></span>
+                    <span class="docs-v2-illus-line docs-v2-illus-line--short"></span>
+                  </span>
+                </span>
+                <span class="docs-v2-illus-notice docs-v2-illus-notice--success">
+                  <span class="docs-v2-illus-lines">
+                    <span class="docs-v2-illus-line docs-v2-illus-line--strong"></span>
+                    <span class="docs-v2-illus-line docs-v2-illus-line--mid"></span>
+                    <span class="docs-v2-illus-line docs-v2-illus-line--short"></span>
+                  </span>
+                </span>
+              </span>
+            </span>
+            <span class="docs-v2-home-card-body">
+              <h4 class="docs-v2-card-title">Inline Notices</h4>
+              <p class="docs-v2-card-copy">Contextual feedback for info, success, warning, and error states.</p>
+            </span>
+          </a>
+          <a class="docs-v2-card docs-v2-home-card docs-v2-home-card--feature" href="./components/panels.html">
+            <span class="docs-v2-home-card-media" aria-hidden="true">
+              <span class="docs-v2-home-illustration docs-v2-illus-panel-card">
+                <span class="docs-v2-illus-panel-shell">
+                  <span class="docs-v2-illus-panel-header">
+                    <span class="docs-v2-illus-panel-icon"></span>
+                    <span class="docs-v2-illus-panel-title"></span>
+                    <span class="docs-v2-illus-panel-action"></span>
+                  </span>
+                  <span class="docs-v2-illus-panel-divider"></span>
+                  <span class="docs-v2-illus-panel-copy"></span>
+                  <span class="docs-v2-illus-panel-fields">
+                    <span class="docs-v2-illus-panel-field-group docs-v2-illus-panel-field-group--short">
+                      <span class="docs-v2-illus-panel-label"></span>
+                      <span class="docs-v2-illus-panel-field docs-v2-illus-panel-field--short"></span>
+                    </span>
+                    <span class="docs-v2-illus-panel-field-row">
+                      <span class="docs-v2-illus-panel-field-group">
+                        <span class="docs-v2-illus-panel-label"></span>
+                        <span class="docs-v2-illus-panel-field docs-v2-illus-panel-field--half"></span>
+                      </span>
+                      <span class="docs-v2-illus-panel-field-group">
+                        <span class="docs-v2-illus-panel-label"></span>
+                        <span class="docs-v2-illus-panel-field docs-v2-illus-panel-field--half"></span>
+                      </span>
+                    </span>
+                  </span>
+                </span>
+              </span>
+            </span>
+            <span class="docs-v2-home-card-body">
+              <h4 class="docs-v2-card-title">Panels</h4>
+              <p class="docs-v2-card-copy">Structured containers for content, actions, and form workflows.</p>
+            </span>
+          </a>
+          <a class="docs-v2-card docs-v2-home-card docs-v2-home-card--feature" href="./components/sections.html">
+            <span class="docs-v2-home-card-media" aria-hidden="true">
+              <span class="docs-v2-home-illustration docs-v2-illus-section-scene">
+                <span class="docs-v2-illus-section-frame">
+                  <span class="docs-v2-illus-section-shell">
+                    <span class="docs-v2-illus-section-rail"></span>
+                    <span class="docs-v2-illus-section-content">
+                      <span class="docs-v2-illus-lines">
+                        <span class="docs-v2-illus-line docs-v2-illus-line--strong"></span>
+                        <span class="docs-v2-illus-line docs-v2-illus-line--mid"></span>
+                      </span>
+                      <span class="docs-v2-illus-section-nest">
+                        <span class="docs-v2-illus-section-head">
+                          <span class="docs-v2-illus-rail" style="--rail-color:#5AA8FF;"></span>
+                          <span class="docs-v2-illus-lines">
+                            <span class="docs-v2-illus-line docs-v2-illus-line--strong"></span>
+                            <span class="docs-v2-illus-line docs-v2-illus-line--short"></span>
+                          </span>
+                        </span>
+                        <span class="docs-v2-illus-lines">
+                          <span class="docs-v2-illus-line docs-v2-illus-line--mid"></span>
+                          <span class="docs-v2-illus-line docs-v2-illus-line--short"></span>
+                        </span>
+                      </span>
+                    </span>
+                  </span>
+                </span>
+              </span>
+            </span>
+            <span class="docs-v2-home-card-body">
+              <h4 class="docs-v2-card-title">Sections</h4>
+              <p class="docs-v2-card-copy">Internal grouping with rails, metadata, and collapsible structure.</p>
+            </span>
+          </a>
+          <a class="docs-v2-card docs-v2-home-card docs-v2-home-card--feature" href="./components/cards.html">
+            <span class="docs-v2-home-card-media" aria-hidden="true">
+              <span class="docs-v2-home-illustration docs-v2-illus-card-scene">
+                <span class="docs-v2-illus-card-stack-item docs-v2-illus-card-stack-item--back">
+                  <span class="docs-v2-illus-card-chip"></span>
+                  <span class="docs-v2-illus-lines">
+                    <span class="docs-v2-illus-line docs-v2-illus-line--strong"></span>
+                    <span class="docs-v2-illus-line docs-v2-illus-line--mid"></span>
+                  </span>
+                </span>
+                <span class="docs-v2-illus-card-stack-item docs-v2-illus-card-stack-item--front">
+                  <span class="docs-v2-illus-card-top">
+                    <span class="docs-v2-illus-card-chip docs-v2-illus-card-chip--accent"></span>
+                  </span>
+                  <span class="docs-v2-illus-lines">
+                    <span class="docs-v2-illus-line docs-v2-illus-line--strong"></span>
+                    <span class="docs-v2-illus-line"></span>
+                    <span class="docs-v2-illus-line docs-v2-illus-line--short"></span>
+                  </span>
+                </span>
+                <span class="docs-v2-illus-card-stack-item docs-v2-illus-card-stack-item--mini">
+                  <span class="docs-v2-illus-card-chip docs-v2-illus-card-chip--soft"></span>
+                  <span class="docs-v2-illus-lines">
+                    <span class="docs-v2-illus-line docs-v2-illus-line--strong"></span>
+                    <span class="docs-v2-illus-line docs-v2-illus-line--mid"></span>
+                  </span>
+                </span>
+              </span>
+            </span>
+            <span class="docs-v2-home-card-body">
+              <h4 class="docs-v2-card-title">Cards</h4>
+              <p class="docs-v2-card-copy">Lightweight summaries with actions, metadata, and subtle hierarchy.</p>
+            </span>
+          </a>
+          <a class="docs-v2-card docs-v2-home-card docs-v2-home-card--feature" href="./components/record-rows.html">
+            <span class="docs-v2-home-card-media" aria-hidden="true">
+              <span class="docs-v2-home-illustration docs-v2-illus-row-panel">
+                <span class="docs-v2-illus-row docs-v2-illus-row--record">
+                  <span class="docs-v2-illus-check"></span>
+                  <span class="docs-v2-illus-lines docs-v2-illus-lines--row">
+                    <span class="docs-v2-illus-line docs-v2-illus-line--tiny"></span>
+                    <span class="docs-v2-illus-line docs-v2-illus-line--strong"></span>
+                    <span class="docs-v2-illus-line"></span>
+                    <span class="docs-v2-illus-line docs-v2-illus-line--mid"></span>
+                  </span>
+                  <span class="docs-v2-illus-action"></span>
+                </span>
+                <span class="docs-v2-illus-row docs-v2-illus-row--record docs-v2-illus-row--selected">
+                  <span class="docs-v2-illus-check docs-v2-illus-check--selected"></span>
+                  <span class="docs-v2-illus-lines docs-v2-illus-lines--row">
+                    <span class="docs-v2-illus-line docs-v2-illus-line--tiny"></span>
+                    <span class="docs-v2-illus-line docs-v2-illus-line--strong"></span>
+                    <span class="docs-v2-illus-line"></span>
+                    <span class="docs-v2-illus-line docs-v2-illus-line--mid"></span>
+                  </span>
+                  <span class="docs-v2-illus-action"></span>
+                </span>
+              </span>
+            </span>
+            <span class="docs-v2-home-card-body">
+              <h4 class="docs-v2-card-title">Record Rows</h4>
+              <p class="docs-v2-card-copy">Scan-first rows for repeatable records inside larger layouts.</p>
+            </span>
+          </a>
         </div>
-        <div class="docs-v2-note">Phase 2 should start by migrating one or two pages into this shell, not by redesigning every doc at once.</div>
       </section>
     </main>
   </div>
