@@ -7,15 +7,6 @@ document.addEventListener("DOMContentLoaded", () => {
       ],
     },
     {
-      label: "Core",
-      links: [
-        { label: "Foundations", path: "docs-v2/foundations/index.html" },
-        { label: "Components", path: "docs-v2/components/index.html" },
-        { label: "Patterns", path: "docs-v2/patterns/index.html" },
-        { label: "Archive", path: "docs-v2/archive/index.html" },
-      ],
-    },
-    {
       label: "Foundations",
       links: [
         { label: "Spacing", path: "docs-v2/foundations/spacing.html" },
@@ -33,6 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
         { label: "Panels", path: "docs-v2/components/panels.html" },
         { label: "Sections", path: "docs-v2/components/sections.html" },
         { label: "Cards", path: "docs-v2/components/cards.html" },
+        { label: "Badges and Tags", path: "docs-v2/components/badges-tags.html" },
         { label: "Record Rows", path: "docs-v2/components/record-rows.html" },
       ],
     },
@@ -43,12 +35,12 @@ document.addEventListener("DOMContentLoaded", () => {
     ? currentPath.split("/docs-v2/")[0].replace(/\/+$/, "")
     : currentPath.replace(/\/[^/]+$/, "");
   const navMount = document.querySelector("[data-docs-v2-nav]");
-  const navTitle = document.body.dataset.docsV2NavTitle || "Docs v2";
-  const navCopy = document.body.dataset.docsV2NavCopy || "Parallel documentation shell for the NextGen design system.";
-  const navKicker = document.body.dataset.docsV2NavKicker || "Parallel Build";
+  const navTitle = document.body.dataset.docsV2NavTitle || "Design System";
+  const navCopy = document.body.dataset.docsV2NavCopy || "Shared foundations and reusable components for the product UI.";
+  const navKicker = document.body.dataset.docsV2NavKicker || "EdPlan NextGen";
 
   if (navMount) {
-    navMount.setAttribute("aria-label", "Docs v2 navigation");
+    navMount.setAttribute("aria-label", "Design system navigation");
     navMount.innerHTML = `
       <div class="docs-v2-brand">
         <p class="docs-v2-kicker">${navKicker}</p>
