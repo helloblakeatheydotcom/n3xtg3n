@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Docs v2 Buttons</title>
+  <title>Buttons</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -13,8 +13,142 @@
   <link rel="stylesheet" href="../../styles/demos.css" />
   <link rel="stylesheet" href="../../styles/buttons.css" />
   <link rel="stylesheet" href="../../styles/docs-v2.css" />
+  <style>
+    .button-docs-page .button-stack {
+      display: grid;
+      gap: 0;
+    }
+
+    .button-docs-page .button-stack > .docs-section,
+    .button-docs-page .button-stack > .example-block {
+      padding: 40px 0 32px;
+      border-top: 1px solid var(--docs-v2-border);
+    }
+
+    .button-docs-page .button-stack > :first-child {
+      padding-top: 0;
+      border-top: 0;
+    }
+
+    .button-docs-page .button-stack > :last-child {
+      padding-bottom: 0;
+    }
+
+    .button-docs-page .docs-stack-list {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 16px;
+    }
+
+    .button-docs-page .button-usage-stack {
+      display: grid;
+      gap: 24px;
+      max-width: var(--docs-v2-prose-measure);
+    }
+
+    .button-docs-page .button-usage-block {
+      display: grid;
+      gap: 10px;
+    }
+
+    .button-docs-page .button-usage-title {
+      margin: 0;
+      font-size: 16px;
+      line-height: 20px;
+      font-weight: 600;
+      color: var(--docs-v2-text);
+    }
+
+    .button-docs-page .button-usage-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 0;
+    }
+
+    .button-docs-page .button-usage-item {
+      margin: 0;
+      padding: 12px 0;
+      border-top: 1px solid var(--docs-v2-border);
+      font-size: 14px;
+      line-height: 20px;
+      color: var(--docs-v2-text-secondary);
+    }
+
+    .button-docs-page .button-usage-item:first-child {
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    .button-docs-page .button-usage-label {
+      display: block;
+      margin-bottom: 2px;
+      font-weight: 600;
+      color: var(--docs-v2-text);
+    }
+
+    .button-docs-page .docs-v2-page-nav-link--sub {
+      padding-left: 22px;
+      font-size: 13px;
+    }
+
+    .button-docs-page .button-state-reference-table {
+      width: 100%;
+      border-collapse: collapse;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: inset 0 0 0 1px var(--docs-v2-border);
+      background: var(--docs-v2-table-surface);
+    }
+
+    .button-docs-page .button-state-reference-table th,
+    .button-docs-page .button-state-reference-table td {
+      padding: 14px 12px;
+      border-bottom: 1px solid var(--docs-v2-border);
+      vertical-align: middle;
+      text-align: left;
+    }
+
+    .button-docs-page .button-state-reference-table th {
+      font-size: 12px;
+      line-height: 16px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--docs-v2-text-muted);
+      background: var(--docs-v2-table-header-surface);
+    }
+
+    .button-docs-page .button-state-reference-table tbody tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .button-docs-page .button-state-reference-table td:first-child {
+      width: 140px;
+      font-size: 14px;
+      line-height: 20px;
+      font-weight: 400;
+      letter-spacing: 0;
+      text-transform: none;
+      color: var(--docs-v2-text);
+      white-space: nowrap;
+    }
+
+    .button-docs-page .button-state-reference-table td:not(:first-child) {
+      min-width: 112px;
+    }
+
+    .button-docs-page .button-state-reference-table .button-state-cell {
+      min-height: 40px;
+    }
+
+    .button-docs-page .button-demo-panel--flush {
+      padding: 0;
+    }
+  </style>
 </head>
-<body class="docs-v2-page button-docs-page" data-docs-v2-nav-title="Docs v2" data-docs-v2-nav-copy="Components will move into a more consistent page model with shared section structure and navigation." data-docs-v2-nav-kicker="Parallel Build">
+<body class="docs-v2-page button-docs-page" data-docs-v2-nav-title="Design System" data-docs-v2-nav-copy="Components define reusable product UI patterns and behaviors." data-docs-v2-nav-kicker="Components">
   <div class="docs-v2-layout">
     <aside class="docs-v2-sidebar" data-docs-v2-nav></aside>
 
@@ -22,7 +156,7 @@
       <section class="docs-v2-hero">
         <p class="docs-v2-eyebrow">Components / Buttons</p>
         <h2 class="docs-v2-title">Action hierarchy, states, sizing, and grouped usage.</h2>
-        <p class="docs-v2-copy">This is the first real v2 component page. The button system is carried forward from the current Buttons documentation while the shell, navigation, and page structure shift into the new docs model.</p>
+        <p class="docs-v2-copy">Defines button types, sizes, states, grouped actions, and anatomy for the product UI.</p>
         <div class="docs-v2-chip-row">
           <span class="docs-v2-chip">Primary, Secondary, Link, Destructive</span>
           <span class="docs-v2-chip">md and sm sizes</span>
@@ -33,15 +167,44 @@
       <div class="docs-v2-page-shell docs-v2-page-shell--with-page-nav">
         <div class="docs-v2-page-content">
           <div class="button-stack">
+            <section class="docs-section" id="usage">
+              <div class="docs-section-header">
+                <h2 class="panel-example-title">Usage</h2>
+                <p class="docs-lead">Buttons define action hierarchy before they define style. Start by choosing the role of the action, then apply the correct treatment.</p>
+              </div>
+              <div class="button-usage-stack">
+                <div class="button-usage-block">
+                  <h3 class="button-usage-title">Action hierarchy</h3>
+                  <div class="button-usage-list">
+                    <p class="button-usage-item"><span class="button-usage-label">Primary</span>Main confirm action in a view.</p>
+                    <p class="button-usage-item"><span class="button-usage-label">Secondary</span>Supporting action that still needs button treatment.</p>
+                    <p class="button-usage-item"><span class="button-usage-label">Link</span>Lightweight or inline action, not the main confirm action.</p>
+                    <p class="button-usage-item"><span class="button-usage-label">Destructive</span>Use only for irreversible actions.</p>
+                    <p class="button-usage-item"><span class="button-usage-label">Cancel</span>Neutral button used only inside grouped actions, not as a promoted standalone action.</p>
+                  </div>
+                </div>
+
+                <div class="button-usage-block">
+                  <h3 class="button-usage-title">Grouped actions</h3>
+                  <ul class="button-rule-list">
+                    <li>Use one primary action per group.</li>
+                    <li>Place cancel first, followed by the confirming action.</li>
+                    <li>Pair destructive actions with a neutral cancel.</li>
+                    <li>Keep grouped actions aligned and consistently spaced.</li>
+                  </ul>
+                </div>
+              </div>
+            </section>
+
             <section class="example-block" id="button-types" aria-label="Button type overview">
               <h2 class="panel-example-title">Button Types</h2>
-              <p class="example-caption">Primary carries the main action. Secondary supports adjacent actions. Link buttons stay lightweight inside headers, rows, and compact workflows. Destructive buttons are reserved for irreversible actions.</p>
-              <article class="panel button-demo-panel">
+              <p class="example-caption">Use the correct treatment for the role of the action, then apply the shared states and sizing rules below.</p>
+              <article class="button-demo-panel">
                 <div class="button-showcase">
                   <div class="button-showcase-row">
                     <div class="button-showcase-copy">
                       <p class="button-showcase-label">Primary Button</p>
-                      <p class="button-showcase-note">Use for the main confirm or save action in the current view.</p>
+                      <p class="button-showcase-note">Main confirm action.</p>
                     </div>
                     <div class="button-showcase-action">
                       <button class="ui-button ui-button--md ui-button--primary" type="button">Save Changes</button>
@@ -50,7 +213,7 @@
                   <div class="button-showcase-row">
                     <div class="button-showcase-copy">
                       <p class="button-showcase-label">Secondary Button</p>
-                      <p class="button-showcase-note">Use for lower-emphasis companion actions that still need button treatment.</p>
+                      <p class="button-showcase-note">Supporting action with full button treatment.</p>
                     </div>
                     <div class="button-showcase-action">
                       <button class="ui-button ui-button--md ui-button--secondary" type="button">Review Draft</button>
@@ -59,7 +222,7 @@
                   <div class="button-showcase-row">
                     <div class="button-showcase-copy">
                       <p class="button-showcase-label">Link Button</p>
-                      <p class="button-showcase-note">Use for lightweight utilities, inline actions, and panel-header actions.</p>
+                      <p class="button-showcase-note">Lightweight action for inline and utility use.</p>
                     </div>
                     <div class="button-showcase-action">
                       <button class="ui-button ui-button--md ui-button--link" type="button">View Details</button>
@@ -68,7 +231,7 @@
                   <div class="button-showcase-row">
                     <div class="button-showcase-copy">
                       <p class="button-showcase-label">Destructive Button</p>
-                      <p class="button-showcase-note">Use only for permanent actions such as delete, remove, or clear.</p>
+                      <p class="button-showcase-note">Reserved for irreversible actions.</p>
                     </div>
                     <div class="button-showcase-action">
                       <button class="ui-button ui-button--md ui-button--destructive" type="button">Delete Record</button>
@@ -77,7 +240,7 @@
                   <div class="button-showcase-row">
                     <div class="button-showcase-copy">
                       <p class="button-showcase-label">Cancel Treatment</p>
-                      <p class="button-showcase-note">Use the neutral button style for cancel actions inside grouped actions, not as a promoted standalone type.</p>
+                      <p class="button-showcase-note">Neutral action used inside grouped actions.</p>
                     </div>
                     <div class="button-showcase-action">
                       <button class="ui-button ui-button--md ui-button--neutral" type="button">Cancel</button>
@@ -87,15 +250,76 @@
               </article>
             </section>
 
+            <section class="example-block" id="state-reference" aria-label="Button state reference">
+              <h2 class="panel-example-title">State Reference</h2>
+              <p class="example-caption">Each promoted button type is shown in its default, hover, active, focus, and disabled state. Focus uses the shared blue focus-ring system.</p>
+              <article class="button-demo-panel button-demo-panel--flush">
+                <table class="button-state-reference-table" aria-label="Button state reference">
+                  <thead>
+                    <tr>
+                      <th>Type</th>
+                      <th>Default</th>
+                      <th>Hover</th>
+                      <th>Active</th>
+                      <th>Focus</th>
+                      <th>Disabled</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Primary</td>
+                      <td><div class="button-state-cell"><button class="ui-button ui-button--md ui-button--primary" type="button">Save</button></div></td>
+                      <td><div class="button-state-cell"><button class="ui-button ui-button--md ui-button--primary is-hover" type="button">Save</button></div></td>
+                      <td><div class="button-state-cell"><button class="ui-button ui-button--md ui-button--primary is-active" type="button">Save</button></div></td>
+                      <td><div class="button-state-cell"><button class="ui-button ui-button--md ui-button--primary is-focus" type="button">Save</button></div></td>
+                      <td><div class="button-state-cell"><button class="ui-button ui-button--md ui-button--primary" type="button" disabled>Save</button></div></td>
+                    </tr>
+                    <tr>
+                      <td>Secondary</td>
+                      <td><div class="button-state-cell"><button class="ui-button ui-button--md ui-button--secondary" type="button">Review</button></div></td>
+                      <td><div class="button-state-cell"><button class="ui-button ui-button--md ui-button--secondary is-hover" type="button">Review</button></div></td>
+                      <td><div class="button-state-cell"><button class="ui-button ui-button--md ui-button--secondary is-active" type="button">Review</button></div></td>
+                      <td><div class="button-state-cell"><button class="ui-button ui-button--md ui-button--secondary is-focus" type="button">Review</button></div></td>
+                      <td><div class="button-state-cell"><button class="ui-button ui-button--md ui-button--secondary" type="button" disabled>Review</button></div></td>
+                    </tr>
+                    <tr>
+                      <td>Link</td>
+                      <td><div class="button-state-cell"><button class="ui-button ui-button--md ui-button--link" type="button">View Details</button></div></td>
+                      <td><div class="button-state-cell"><button class="ui-button ui-button--md ui-button--link is-hover" type="button">View Details</button></div></td>
+                      <td><div class="button-state-cell"><button class="ui-button ui-button--md ui-button--link is-active" type="button">View Details</button></div></td>
+                      <td><div class="button-state-cell"><button class="ui-button ui-button--md ui-button--link is-focus" type="button">View Details</button></div></td>
+                      <td><div class="button-state-cell"><button class="ui-button ui-button--md ui-button--link" type="button" disabled>View Details</button></div></td>
+                    </tr>
+                    <tr>
+                      <td>Destructive</td>
+                      <td><div class="button-state-cell"><button class="ui-button ui-button--md ui-button--destructive" type="button">Delete</button></div></td>
+                      <td><div class="button-state-cell"><button class="ui-button ui-button--md ui-button--destructive is-hover" type="button">Delete</button></div></td>
+                      <td><div class="button-state-cell"><button class="ui-button ui-button--md ui-button--destructive is-active" type="button">Delete</button></div></td>
+                      <td><div class="button-state-cell"><button class="ui-button ui-button--md ui-button--destructive is-focus" type="button">Delete</button></div></td>
+                      <td><div class="button-state-cell"><button class="ui-button ui-button--md ui-button--destructive" type="button" disabled>Delete</button></div></td>
+                    </tr>
+                    <tr>
+                      <td>Cancel</td>
+                      <td><div class="button-state-cell"><button class="ui-button ui-button--md ui-button--neutral" type="button">Cancel</button></div></td>
+                      <td><div class="button-state-cell"><button class="ui-button ui-button--md ui-button--neutral is-hover" type="button">Cancel</button></div></td>
+                      <td><div class="button-state-cell"><button class="ui-button ui-button--md ui-button--neutral is-active" type="button">Cancel</button></div></td>
+                      <td><div class="button-state-cell"><button class="ui-button ui-button--md ui-button--neutral is-focus" type="button">Cancel</button></div></td>
+                      <td><div class="button-state-cell"><button class="ui-button ui-button--md ui-button--neutral" type="button" disabled>Cancel</button></div></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </article>
+            </section>
+
             <section class="example-block" id="size-variants" aria-label="Button size variants">
               <h2 class="panel-example-title">Size Variants</h2>
               <p class="example-caption">Use <code>md</code> for standard form, panel-footer, and primary workflow actions. Use <code>sm</code> for compact contexts like panel headers, row actions, and table controls.</p>
-              <article class="panel button-demo-panel">
+              <article class="button-demo-panel">
                 <div class="button-showcase">
                   <div class="button-showcase-row">
                     <div class="button-showcase-copy">
                       <p class="button-showcase-label">Medium (<code>md</code>)</p>
-                      <p class="button-showcase-note">Default button size for standard actions and footer groups.</p>
+                      <p class="button-showcase-note">Default size for standard actions.</p>
                     </div>
                     <div class="button-showcase-action">
                       <button class="ui-button ui-button--md ui-button--primary" type="button">Save Changes</button>
@@ -104,7 +328,7 @@
                   <div class="button-showcase-row">
                     <div class="button-showcase-copy">
                       <p class="button-showcase-label">Small (<code>sm</code>)</p>
-                      <p class="button-showcase-note">Compact size for dense UI such as panel headers and tables.</p>
+                      <p class="button-showcase-note">Compact size for dense UI.</p>
                     </div>
                     <div class="button-showcase-action">
                       <button class="ui-button ui-button--sm ui-button--link" type="button">
@@ -119,72 +343,17 @@
               </article>
             </section>
 
-            <section class="example-block" id="state-reference" aria-label="Button state reference">
-              <h2 class="panel-example-title">State Reference</h2>
-              <p class="example-caption">Each promoted button type is shown in its default, hover, active, focus, and disabled state. Focus uses the shared blue focus-ring system.</p>
-              <article class="panel button-demo-panel">
-                <div class="button-state-table" aria-label="Button state reference">
-                  <div class="button-state-head" aria-hidden="true">
-                    <span>Type</span>
-                    <span>Default</span>
-                    <span>Hover</span>
-                    <span>Active</span>
-                    <span>Focus</span>
-                    <span>Disabled</span>
-                  </div>
-
-                  <div class="button-state-row">
-                    <div class="button-state-label">Primary</div>
-                    <div class="button-state-cell" data-state="Default"><button class="ui-button ui-button--md ui-button--primary" type="button">Save</button></div>
-                    <div class="button-state-cell" data-state="Hover"><button class="ui-button ui-button--md ui-button--primary is-hover" type="button">Save</button></div>
-                    <div class="button-state-cell" data-state="Active"><button class="ui-button ui-button--md ui-button--primary is-active" type="button">Save</button></div>
-                    <div class="button-state-cell" data-state="Focus"><button class="ui-button ui-button--md ui-button--primary is-focus" type="button">Save</button></div>
-                    <div class="button-state-cell" data-state="Disabled"><button class="ui-button ui-button--md ui-button--primary" type="button" disabled>Save</button></div>
-                  </div>
-
-                  <div class="button-state-row">
-                    <div class="button-state-label">Secondary</div>
-                    <div class="button-state-cell" data-state="Default"><button class="ui-button ui-button--md ui-button--secondary" type="button">Review</button></div>
-                    <div class="button-state-cell" data-state="Hover"><button class="ui-button ui-button--md ui-button--secondary is-hover" type="button">Review</button></div>
-                    <div class="button-state-cell" data-state="Active"><button class="ui-button ui-button--md ui-button--secondary is-active" type="button">Review</button></div>
-                    <div class="button-state-cell" data-state="Focus"><button class="ui-button ui-button--md ui-button--secondary is-focus" type="button">Review</button></div>
-                    <div class="button-state-cell" data-state="Disabled"><button class="ui-button ui-button--md ui-button--secondary" type="button" disabled>Review</button></div>
-                  </div>
-
-                  <div class="button-state-row">
-                    <div class="button-state-label">Link</div>
-                    <div class="button-state-cell" data-state="Default"><button class="ui-button ui-button--md ui-button--link" type="button">View Details</button></div>
-                    <div class="button-state-cell" data-state="Hover"><button class="ui-button ui-button--md ui-button--link is-hover" type="button">View Details</button></div>
-                    <div class="button-state-cell" data-state="Active"><button class="ui-button ui-button--md ui-button--link is-active" type="button">View Details</button></div>
-                    <div class="button-state-cell" data-state="Focus"><button class="ui-button ui-button--md ui-button--link is-focus" type="button">View Details</button></div>
-                    <div class="button-state-cell" data-state="Disabled"><button class="ui-button ui-button--md ui-button--link" type="button" disabled>View Details</button></div>
-                  </div>
-
-                  <div class="button-state-row">
-                    <div class="button-state-label">Destructive</div>
-                    <div class="button-state-cell" data-state="Default"><button class="ui-button ui-button--md ui-button--destructive" type="button">Delete</button></div>
-                    <div class="button-state-cell" data-state="Hover"><button class="ui-button ui-button--md ui-button--destructive is-hover" type="button">Delete</button></div>
-                    <div class="button-state-cell" data-state="Active"><button class="ui-button ui-button--md ui-button--destructive is-active" type="button">Delete</button></div>
-                    <div class="button-state-cell" data-state="Focus"><button class="ui-button ui-button--md ui-button--destructive is-focus" type="button">Delete</button></div>
-                    <div class="button-state-cell" data-state="Disabled"><button class="ui-button ui-button--md ui-button--destructive" type="button" disabled>Delete</button></div>
-                  </div>
-
-                  <div class="button-state-row">
-                    <div class="button-state-label">Cancel</div>
-                    <div class="button-state-cell" data-state="Default"><button class="ui-button ui-button--md ui-button--neutral" type="button">Cancel</button></div>
-                    <div class="button-state-cell" data-state="Hover"><button class="ui-button ui-button--md ui-button--neutral is-hover" type="button">Cancel</button></div>
-                    <div class="button-state-cell" data-state="Active"><button class="ui-button ui-button--md ui-button--neutral is-active" type="button">Cancel</button></div>
-                    <div class="button-state-cell" data-state="Focus"><button class="ui-button ui-button--md ui-button--neutral is-focus" type="button">Cancel</button></div>
-                    <div class="button-state-cell" data-state="Disabled"><button class="ui-button ui-button--md ui-button--neutral" type="button" disabled>Cancel</button></div>
-                  </div>
-                </div>
-              </article>
+            <section class="docs-section" id="patterns">
+              <div class="docs-section-header">
+                <h2 class="panel-example-title">Patterns</h2>
+                <p class="docs-lead">These examples show common button compositions used across the product UI.</p>
+              </div>
             </section>
 
             <section class="example-block" id="icon-usage" aria-label="Link buttons with icons">
               <h2 class="panel-example-title">Link Buttons With Icons</h2>
-              <p class="example-caption">Link buttons may include a leading or trailing icon. Icons inherit the link color and use the same hover, active, and focus states as the text.</p>
-              <article class="panel button-demo-panel">
+              <p class="example-caption">Link buttons may include a leading or trailing icon. Icons inherit the link treatment and stay secondary to the action label.</p>
+              <article class="button-demo-panel">
                 <div class="button-icon-row">
                   <div class="button-icon-strip">
                     <button class="ui-button ui-button--md ui-button--link" type="button">
@@ -206,8 +375,8 @@
 
             <section class="example-block" id="grouped-actions" aria-label="Grouped actions">
               <h2 class="panel-example-title">Button Groupings</h2>
-              <p class="example-caption">Use grouped actions to show hierarchy clearly. Neutral cancel stays visually quiet next to a stronger primary or destructive action.</p>
-              <article class="panel button-demo-panel">
+              <p class="example-caption">Grouped actions make hierarchy explicit and keep confirming actions aligned with their neutral companion.</p>
+              <article class="button-demo-panel">
                 <div class="button-group-grid">
                   <div class="button-group-strip" aria-label="Cancel and save grouping">
                     <button class="ui-button ui-button--md ui-button--neutral" type="button">Cancel</button>
@@ -224,7 +393,7 @@
             <section class="docs-section" id="anatomy">
               <div class="docs-section-header">
                 <h2 class="panel-example-title">Anatomy</h2>
-                <p class="docs-lead">A button may include an optional icon, a text label, a stateful container, and the shared focus ring. Link buttons support leading or trailing icons without becoming a separate icon-only button type.</p>
+                <p class="docs-lead">A button includes a container, a text label, an optional icon, and the shared focus treatment. Link buttons may use leading or trailing icons without becoming a separate icon-only pattern.</p>
               </div>
               <div class="button-anatomy-grid">
                 <article class="docs-card">
@@ -244,10 +413,10 @@
                 <article class="docs-card docs-parts-card">
                   <h3 class="docs-card-title">Parts</h3>
                   <div class="docs-part-list">
-                    <div class="docs-part-item"><strong>Container</strong><p>Two sizes: <code>md</code> for standard actions and <code>sm</code> for compact actions, both using the same 4px radius and state logic.</p></div>
-                    <div class="docs-part-item"><strong>Label</strong><p>14px semibold text with a single concise action verb or phrase.</p></div>
-                    <div class="docs-part-item"><strong>Optional icon</strong><p>Icons inherit the text color and scale with the button size: 16px / 8px gap for <code>md</code>, 14px / 6px gap for <code>sm</code>.</p></div>
-                    <div class="docs-part-item"><strong>Focus ring</strong><p>Shared blue focus treatment applied consistently across all interactive controls.</p></div>
+                    <div class="docs-part-item"><strong>Container</strong><p>Two sizes: <code>md</code> for standard actions and <code>sm</code> for compact actions.</p></div>
+                    <div class="docs-part-item"><strong>Label</strong><p>Semibold action text using the shared button type styles.</p></div>
+                    <div class="docs-part-item"><strong>Optional icon</strong><p>Icons inherit the text color and scale with button size.</p></div>
+                    <div class="docs-part-item"><strong>Focus ring</strong><p>Shared blue focus treatment used across interactive controls.</p></div>
                   </div>
                 </article>
               </div>
@@ -277,77 +446,36 @@
                       <tr><td><code>sm</code> text style</td><td><code>--font-button-sm</code></td><td>600 / 13px / 18px</td></tr>
                       <tr><td><code>md</code> icon size / gap</td><td><code>.ui-button--md svg</code> / <code>.ui-button--md</code></td><td>16px / 8px</td></tr>
                       <tr><td><code>sm</code> icon size / gap</td><td><code>.ui-button--sm svg</code> / <code>.ui-button--sm</code></td><td>14px / 6px</td></tr>
-                      <tr><td>Strong focus ring</td><td><code>--focus-ring-shadow-strong</code></td><td>inset 0 0 0 1.5px Blue 500 (#2567F4), 0 0 0 1.5px #FFFFFF, 0 0 0 3px Blue 500 (#2567F4)</td></tr>
+                      <tr><td>Focus ring</td><td><code>--focus-ring-shadow</code> / <code>--focus-ring-shadow-on-dark</code></td><td>Shared blue focus treatment</td></tr>
+                      <tr><td>Destructive focus ring</td><td><code>--focus-ring-shadow-destructive</code></td><td>Shared danger focus treatment</td></tr>
                     </tbody>
                   </table>
                 </article>
 
                 <article class="docs-card docs-token-card">
-                  <h3 class="docs-card-title">Primary and Secondary</h3>
+                  <h3 class="docs-card-title">Button Color Roles</h3>
                   <table class="docs-token-table">
                     <thead>
                       <tr><th>Role</th><th>Source</th><th>Value</th></tr>
                     </thead>
                     <tbody>
-                      <tr><td>Primary background</td><td><code>--color-bg-button-primary</code></td><td>Blue 500 (#2567F4)</td></tr>
-                      <tr><td>Primary hover</td><td><code>--color-bg-button-primary-hover</code></td><td>Blue 600 (#2251C5)</td></tr>
-                      <tr><td>Primary active</td><td><code>--color-bg-button-primary-active</code></td><td>Blue 700 (#00389B)</td></tr>
+                      <tr><td>Primary background</td><td><code>--color-bg-button-primary</code> → <code>--color-interactive-primary</code></td><td>Blue 500 (#2567F4)</td></tr>
+                      <tr><td>Primary hover</td><td><code>--color-bg-button-primary-hover</code> → <code>--color-interactive-primary-hover</code></td><td>Blue 600 (#2251C5)</td></tr>
+                      <tr><td>Primary active</td><td><code>--color-bg-button-primary-active</code> → <code>--color-interactive-primary-active</code></td><td>Blue 700 (#00389B)</td></tr>
                       <tr><td>Primary text</td><td><code>--color-fg-button-primary</code></td><td>#FFFFFF</td></tr>
-                      <tr><td>Secondary background</td><td><code>--color-bg-button-secondary</code></td><td>Blue 100 (#EFF3FE)</td></tr>
-                      <tr><td>Secondary hover</td><td><code>--color-bg-button-secondary-hover</code></td><td>Blue 200 (#DBE5FD)</td></tr>
+                      <tr><td>Secondary background</td><td><code>--color-bg-button-secondary</code> → <code>--color-interactive-surface</code></td><td>Blue 100 (#EFF3FE)</td></tr>
+                      <tr><td>Secondary hover</td><td><code>--color-bg-button-secondary-hover</code> → <code>--color-interactive-surface-hover</code></td><td>Blue 200 (#DBE5FD)</td></tr>
                       <tr><td>Secondary text</td><td><code>--color-fg-button-secondary</code></td><td>Blue 700 (#00389B)</td></tr>
-                      <tr><td>Disabled fill</td><td><code>--color-bg-button-disabled</code></td><td>Gray 100 (#F3F4F6)</td></tr>
-                      <tr><td>Disabled text</td><td><code>--color-fg-button-disabled</code></td><td>Gray 400 (#9CA3AF)</td></tr>
-                    </tbody>
-                  </table>
-                </article>
-
-                <article class="docs-card docs-token-card">
-                  <h3 class="docs-card-title">Link and Destructive</h3>
-                  <table class="docs-token-table">
-                    <thead>
-                      <tr><th>Role</th><th>Source</th><th>Value</th></tr>
-                    </thead>
-                    <tbody>
-                      <tr><td>Link text</td><td><code>--color-fg-button-link</code></td><td>Blue 500 (#2567F4)</td></tr>
-                      <tr><td>Link hover text</td><td><code>--color-fg-button-link-hover</code></td><td>Blue 700 (#00389B)</td></tr>
-                      <tr><td>Link hover background</td><td><code>--color-bg-button-link-hover</code></td><td>Blue 100 (#EFF3FE)</td></tr>
-                      <tr><td>Link active background</td><td><code>--color-bg-button-link-active</code></td><td>Blue 200 (#DBE5FD)</td></tr>
+                      <tr><td>Link text</td><td><code>--color-fg-button-link</code> → <code>--color-interactive-primary</code></td><td>Blue 500 (#2567F4)</td></tr>
+                      <tr><td>Link hover text</td><td><code>--color-fg-button-link-hover</code> → <code>--color-interactive-primary-active</code></td><td>Blue 700 (#00389B)</td></tr>
+                      <tr><td>Link hover surface</td><td><code>--color-bg-button-link-hover</code> → <code>--color-interactive-surface</code></td><td>Blue 100 (#EFF3FE)</td></tr>
                       <tr><td>Destructive background</td><td><code>--color-bg-button-destructive</code></td><td>Red 500 (#EE031D)</td></tr>
                       <tr><td>Destructive hover</td><td><code>--color-bg-button-destructive-hover</code></td><td>Red 600 (#DC2626)</td></tr>
-                      <tr><td>Destructive active</td><td><code>--color-bg-button-destructive-active</code></td><td>Red 700 (#B91C1C)</td></tr>
-                      <tr><td>Destructive focus ring</td><td><code>--focus-ring-shadow-destructive</code></td><td>inset 0 0 0 1.5px Red 500 (#EE031D), 0 0 0 1.5px #FFFFFF, 0 0 0 3px Red 500 (#EE031D)</td></tr>
                       <tr><td>Destructive text</td><td><code>--color-fg-button-destructive</code></td><td>#FFFFFF</td></tr>
+                      <tr><td>Disabled background</td><td><code>--color-bg-button-disabled</code> → <code>--color-surface-disabled</code></td><td>Gray 100 (#F3F4F6)</td></tr>
+                      <tr><td>Disabled text</td><td><code>--color-fg-button-disabled</code> → <code>--color-text-disabled</code></td><td>Gray 400 (#9CA3AF)</td></tr>
                     </tbody>
                   </table>
-                </article>
-
-                <article class="docs-card docs-token-card">
-                  <h3 class="docs-card-title">Cancel and Grouped Action Guidance</h3>
-                  <table class="docs-token-table">
-                    <thead>
-                      <tr><th>Role</th><th>Source</th><th>Value</th></tr>
-                    </thead>
-                    <tbody>
-                      <tr><td>Cancel background</td><td><code>--color-bg-button-neutral</code></td><td>Slate 100 (#EEF2F7)</td></tr>
-                      <tr><td>Cancel hover</td><td><code>--color-bg-button-neutral-hover</code></td><td>Slate 200 (#E6ECF5)</td></tr>
-                      <tr><td>Cancel text</td><td><code>--color-fg-button-neutral</code></td><td>Slate 800 (#475467)</td></tr>
-                      <tr><td>Cancel focus ring</td><td><code>--focus-ring-shadow-field</code></td><td>inset 0 0 0 1.5px Blue 500 (#2567F4), 0 0 0 2px rgba(37, 103, 244, 0.12)</td></tr>
-                      <tr><td>Group rule</td><td>Usage</td><td>Place cancel first, then the stronger confirming action.</td></tr>
-                    </tbody>
-                  </table>
-                </article>
-
-                <article class="docs-card docs-token-card docs-token-card--full">
-                  <h3 class="docs-card-title">Usage Rules</h3>
-                  <ul class="button-rule-list">
-                    <li>Use only one primary button in a local action group.</li>
-                    <li>Use <code>md</code> for standard forms, footers, and primary workflow actions. Use <code>sm</code> for compact controls in headers and tables.</li>
-                    <li>Use destructive buttons only for irreversible actions.</li>
-                    <li>Keep link buttons lightweight and avoid using them as the main confirm action.</li>
-                    <li>Use the neutral cancel treatment only in grouped actions, not as a promoted standalone button type.</li>
-                    <li>Do not create icon-only button variants from this pattern.</li>
-                  </ul>
                 </article>
               </div>
             </section>
@@ -357,11 +485,13 @@
         <aside class="docs-v2-page-nav" aria-label="Page navigation">
           <p class="docs-v2-page-nav-title">On This Page</p>
           <nav class="docs-v2-page-nav-list">
+            <a class="docs-v2-page-nav-link" href="#usage">Usage</a>
             <a class="docs-v2-page-nav-link" href="#button-types">Button Types</a>
-            <a class="docs-v2-page-nav-link" href="#size-variants">Size Variants</a>
             <a class="docs-v2-page-nav-link" href="#state-reference">State Reference</a>
-            <a class="docs-v2-page-nav-link" href="#icon-usage">Link Buttons With Icons</a>
-            <a class="docs-v2-page-nav-link" href="#grouped-actions">Button Groupings</a>
+            <a class="docs-v2-page-nav-link" href="#size-variants">Size Variants</a>
+            <a class="docs-v2-page-nav-link" href="#patterns">Patterns</a>
+            <a class="docs-v2-page-nav-link docs-v2-page-nav-link--sub" href="#icon-usage">Link Buttons With Icons</a>
+            <a class="docs-v2-page-nav-link docs-v2-page-nav-link--sub" href="#grouped-actions">Button Groupings</a>
             <a class="docs-v2-page-nav-link" href="#anatomy">Anatomy</a>
             <a class="docs-v2-page-nav-link" href="#specifications">Specifications</a>
           </nav>
