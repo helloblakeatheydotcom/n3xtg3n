@@ -34,6 +34,69 @@
       padding-bottom: 0;
     }
 
+    .button-docs-page .button-stack .panel-example-title {
+      font-size: 20px;
+      line-height: 24px;
+      font-weight: 700;
+      margin: 0;
+    }
+
+    .button-docs-page .button-stack .example-block .panel-example-title {
+      font-size: 18px;
+      line-height: 22px;
+      font-weight: 600;
+    }
+
+    .button-docs-page .example-caption,
+    .button-docs-page .docs-lead,
+    .button-docs-page .button-pattern-caption,
+    .button-docs-page .button-anatomy-note {
+      max-width: var(--docs-v2-prose-measure);
+    }
+
+    .button-docs-page .example-caption,
+    .button-docs-page .docs-lead {
+      margin: 0;
+      font-size: 14px;
+      line-height: 22px;
+      color: var(--docs-v2-text-secondary);
+    }
+
+    .button-docs-page .example-block {
+      display: grid;
+      gap: 0;
+      padding-left: 16px;
+    }
+
+    .button-docs-page .example-block > .panel-example-title,
+    .button-docs-page .example-block > .example-caption {
+      max-width: var(--docs-v2-prose-measure);
+    }
+
+    .button-docs-page .example-block > .panel-example-title + .example-caption {
+      margin-top: 6px;
+    }
+
+    .button-docs-page .example-caption + .example-caption,
+    .button-docs-page .docs-lead + .docs-lead,
+    .button-docs-page .button-pattern-caption + .button-pattern-caption {
+      margin-top: 10px;
+    }
+
+    .button-docs-page .example-block > .button-demo-panel,
+    .button-docs-page .example-block > .panel {
+      margin-top: 18px;
+    }
+
+    .button-docs-page .docs-section-header {
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .button-docs-page .docs-section-header > .panel-example-title + .docs-lead {
+      margin-top: 0;
+    }
+
     .button-docs-page .docs-stack-list {
       display: grid;
       grid-template-columns: minmax(0, 1fr);
@@ -51,12 +114,37 @@
       gap: 10px;
     }
 
+    .button-docs-page .button-usage-card {
+      width: min(100%, 32rem);
+      padding: 18px;
+      border: 1px solid var(--docs-v2-border);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.8);
+      box-shadow: none;
+    }
+
+    .button-docs-page .button-usage-card-kicker {
+      margin: 0 0 12px;
+      font-size: 12px;
+      line-height: 16px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--docs-v2-text-muted);
+    }
+
     .button-docs-page .button-usage-title {
       margin: 0;
       font-size: 16px;
       line-height: 20px;
       font-weight: 600;
       color: var(--docs-v2-text);
+    }
+
+    .button-docs-page .button-overview-grid {
+      display: grid;
+      gap: 24px;
+      max-width: var(--docs-v2-prose-measure);
     }
 
     .button-docs-page .button-usage-list {
@@ -146,6 +234,108 @@
     .button-docs-page .button-demo-panel--flush {
       padding: 0;
     }
+
+    .button-docs-page .button-pattern-stack {
+      display: grid;
+      gap: 24px;
+    }
+
+    .button-docs-page .button-pattern-block {
+      display: grid;
+      gap: 10px;
+    }
+
+    .button-docs-page .button-pattern-title {
+      margin: 0;
+      font-size: 16px;
+      line-height: 22px;
+      font-weight: 600;
+      color: var(--docs-v2-text);
+    }
+
+    .button-docs-page .button-pattern-caption {
+      margin: 0;
+      max-width: var(--docs-v2-prose-measure);
+      font-size: 14px;
+      line-height: 20px;
+      color: var(--docs-v2-text-secondary);
+    }
+
+    .button-docs-page .docs-token-grid {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .button-docs-page .docs-token-block + .docs-token-block {
+      margin-top: 24px;
+    }
+
+    .button-docs-page .docs-token-block .docs-card-title,
+    .button-docs-page .docs-token-block .docs-card-caption {
+      max-width: var(--docs-v2-prose-measure);
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    .button-docs-page .docs-token-block .docs-card-title {
+      margin-top: 0;
+      margin-bottom: 8px;
+    }
+
+    .button-docs-page .docs-token-block .docs-card-caption {
+      margin-top: 0;
+    }
+
+    .button-docs-page .docs-card-caption {
+      margin-top: 8px;
+      margin-bottom: 0;
+      font-size: 13px;
+      line-height: 20px;
+      color: var(--docs-v2-text-secondary);
+    }
+
+    .button-docs-page .docs-token-block .docs-token-table {
+      width: 100%;
+      margin: 16px 0 0;
+      border-collapse: separate;
+      border-spacing: 0;
+      border: 1px solid #D7DEE8;
+      border-radius: 8px;
+      overflow: hidden;
+      background: var(--docs-v2-table-surface);
+      box-shadow: none;
+    }
+
+    .button-docs-page .docs-token-table th,
+    .button-docs-page .docs-token-table td {
+      padding: 14px 12px;
+      border-bottom: 1px solid var(--docs-v2-border);
+      vertical-align: middle;
+      font-size: 14px;
+      line-height: 20px;
+      text-align: left;
+    }
+
+    .button-docs-page .docs-token-table th {
+      font-size: 12px;
+      line-height: 16px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--docs-v2-text-muted);
+      background: var(--docs-v2-table-header-surface);
+    }
+
+    .button-docs-page .docs-token-table tbody tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .button-docs-page .docs-token-block .docs-token-table th:first-child {
+      border-top-left-radius: 10px;
+    }
+
+    .button-docs-page .docs-token-block .docs-token-table th:last-child {
+      border-top-right-radius: 10px;
+    }
   </style>
 </head>
 <body class="docs-v2-page button-docs-page" data-docs-v2-nav-title="Design System" data-docs-v2-nav-copy="Components define reusable product UI patterns and behaviors." data-docs-v2-nav-kicker="Components">
@@ -155,8 +345,8 @@
     <main class="docs-v2-main">
       <section class="docs-v2-hero">
         <p class="docs-v2-eyebrow">Components / Buttons</p>
-        <h2 class="docs-v2-title">Action hierarchy, states, sizing, and grouped usage.</h2>
-        <p class="docs-v2-copy">Defines button types, sizes, states, grouped actions, and anatomy for the product UI.</p>
+        <h2 class="docs-v2-title">Buttons</h2>
+        <p class="docs-v2-copy">Action hierarchy, states, sizing, grouped usage, and technical guidance for product buttons.</p>
         <div class="docs-v2-chip-row">
           <span class="docs-v2-chip">Primary, Secondary, Link, Destructive</span>
           <span class="docs-v2-chip">md and sm sizes</span>
@@ -167,14 +357,14 @@
       <div class="docs-v2-page-shell docs-v2-page-shell--with-page-nav">
         <div class="docs-v2-page-content">
           <div class="button-stack">
-            <section class="docs-section" id="usage">
+            <section class="docs-section" id="overview">
               <div class="docs-section-header">
-                <h2 class="panel-example-title">Usage</h2>
-                <p class="docs-lead">Buttons define action hierarchy before they define style. Start by choosing the role of the action, then apply the correct treatment.</p>
+                <h2 class="panel-example-title">Overview</h2>
+                <p class="docs-lead docs-lead--full">Buttons communicate action priority before they communicate style. Choose the role of the action first, then apply the correct button treatment, size, and grouping pattern.</p>
               </div>
-              <div class="button-usage-stack">
-                <div class="button-usage-block">
-                  <h3 class="button-usage-title">Action hierarchy</h3>
+              <div class="button-overview-grid">
+                <article class="button-usage-card">
+                  <p class="button-usage-card-kicker">Action hierarchy</p>
                   <div class="button-usage-list">
                     <p class="button-usage-item"><span class="button-usage-label">Primary</span>Main confirm action in a view.</p>
                     <p class="button-usage-item"><span class="button-usage-label">Secondary</span>Supporting action that still needs button treatment.</p>
@@ -182,7 +372,7 @@
                     <p class="button-usage-item"><span class="button-usage-label">Destructive</span>Use only for irreversible actions.</p>
                     <p class="button-usage-item"><span class="button-usage-label">Cancel</span>Neutral button used only inside grouped actions, not as a promoted standalone action.</p>
                   </div>
-                </div>
+                </article>
 
                 <div class="button-usage-block">
                   <h3 class="button-usage-title">Grouped actions</h3>
@@ -193,6 +383,13 @@
                     <li>Keep grouped actions aligned and consistently spaced.</li>
                   </ul>
                 </div>
+              </div>
+            </section>
+
+            <section class="docs-section" id="variants-showcase">
+              <div class="docs-section-header">
+                <h2 class="panel-example-title">Variants</h2>
+                <p class="docs-lead">Use the examples below to compare the promoted button types, state behavior, size variants, and common composition patterns.</p>
               </div>
             </section>
 
@@ -348,46 +545,47 @@
                 <h2 class="panel-example-title">Patterns</h2>
                 <p class="docs-lead">These examples show common button compositions used across the product UI.</p>
               </div>
-            </section>
+              <div class="button-pattern-stack">
+                <section class="button-pattern-block" id="icon-usage" aria-label="Link buttons with icons">
+                  <h3 class="button-pattern-title">Link Buttons With Icons</h3>
+                  <p class="button-pattern-caption">Link buttons may include a leading or trailing icon. Icons inherit the link treatment and stay secondary to the action label.</p>
+                  <article class="button-demo-panel">
+                    <div class="button-icon-row">
+                      <div class="button-icon-strip">
+                        <button class="ui-button ui-button--md ui-button--link" type="button">
+                          <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                            <path d="M4 10h12M10 4l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                          <span>Continue to Services</span>
+                        </button>
+                        <button class="ui-button ui-button--md ui-button--link" type="button">
+                          <span>Read More</span>
+                          <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                            <path d="M7 5l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+                  </article>
+                </section>
 
-            <section class="example-block" id="icon-usage" aria-label="Link buttons with icons">
-              <h2 class="panel-example-title">Link Buttons With Icons</h2>
-              <p class="example-caption">Link buttons may include a leading or trailing icon. Icons inherit the link treatment and stay secondary to the action label.</p>
-              <article class="button-demo-panel">
-                <div class="button-icon-row">
-                  <div class="button-icon-strip">
-                    <button class="ui-button ui-button--md ui-button--link" type="button">
-                      <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
-                        <path d="M4 10h12M10 4l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-                      </svg>
-                      <span>Continue to Services</span>
-                    </button>
-                    <button class="ui-button ui-button--md ui-button--link" type="button">
-                      <span>Read More</span>
-                      <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
-                        <path d="M7 5l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-              </article>
-            </section>
-
-            <section class="example-block" id="grouped-actions" aria-label="Grouped actions">
-              <h2 class="panel-example-title">Button Groupings</h2>
-              <p class="example-caption">Grouped actions make hierarchy explicit and keep confirming actions aligned with their neutral companion.</p>
-              <article class="button-demo-panel">
-                <div class="button-group-grid">
-                  <div class="button-group-strip" aria-label="Cancel and save grouping">
-                    <button class="ui-button ui-button--md ui-button--neutral" type="button">Cancel</button>
-                    <button class="ui-button ui-button--md ui-button--primary" type="button">Save</button>
-                  </div>
-                  <div class="button-group-strip" aria-label="Cancel and delete grouping">
-                    <button class="ui-button ui-button--md ui-button--neutral" type="button">Cancel</button>
-                    <button class="ui-button ui-button--md ui-button--destructive" type="button">Delete</button>
-                  </div>
-                </div>
-              </article>
+                <section class="button-pattern-block" id="grouped-actions" aria-label="Grouped actions">
+                  <h3 class="button-pattern-title">Button Groupings</h3>
+                  <p class="button-pattern-caption">Grouped actions make hierarchy explicit and keep confirming actions aligned with their neutral companion.</p>
+                  <article class="button-demo-panel">
+                    <div class="button-group-grid">
+                      <div class="button-group-strip" aria-label="Cancel and save grouping">
+                        <button class="ui-button ui-button--md ui-button--neutral" type="button">Cancel</button>
+                        <button class="ui-button ui-button--md ui-button--primary" type="button">Save</button>
+                      </div>
+                      <div class="button-group-strip" aria-label="Cancel and delete grouping">
+                        <button class="ui-button ui-button--md ui-button--neutral" type="button">Cancel</button>
+                        <button class="ui-button ui-button--md ui-button--destructive" type="button">Delete</button>
+                      </div>
+                    </div>
+                  </article>
+                </section>
+              </div>
             </section>
 
             <section class="docs-section" id="anatomy">
@@ -422,58 +620,98 @@
               </div>
             </section>
 
-            <section class="docs-section" id="specifications">
+            <section class="docs-section" id="token-reference">
               <div class="docs-section-header">
-                <h2 class="panel-example-title">Specifications</h2>
-                <p class="docs-lead">These values define the current approved button direction.</p>
+                <h2 class="panel-example-title">Token Reference</h2>
+                <p class="docs-lead">Button tokens are grouped here for quick technical reference. Use the same section structure as other component pages, but keep the groups specific to button behavior.</p>
               </div>
               <div class="docs-token-grid">
-                <article class="docs-card docs-token-card">
-                  <h3 class="docs-card-title">Sizing and Type</h3>
+                <article class="docs-token-block">
+                  <h3 class="docs-card-title">Surface</h3>
+                  <p class="docs-card-caption">Core fill, text, and neutral surface tokens used by promoted button variants.</p>
                   <table class="docs-token-table">
                     <thead>
-                      <tr><th>Role</th><th>Token / Source</th><th>Value</th></tr>
+                      <tr><th>Role</th><th>Token</th><th>Value</th></tr>
                     </thead>
                     <tbody>
-                      <tr><td><code>md</code> height</td><td><code>.ui-button--md</code></td><td>36px</td></tr>
-                      <tr><td><code>md</code> horizontal padding</td><td><code>.ui-button--md</code></td><td>16px</td></tr>
-                      <tr><td><code>md</code> group min width</td><td><code>.button-group-strip .ui-button--md</code></td><td>96px</td></tr>
-                      <tr><td><code>sm</code> height</td><td><code>.ui-button--sm</code></td><td>32px</td></tr>
-                      <tr><td><code>sm</code> horizontal padding</td><td><code>.ui-button--sm</code></td><td>12px</td></tr>
-                      <tr><td><code>sm</code> group min width</td><td><code>.button-group-strip .ui-button--sm</code></td><td>80px</td></tr>
-                      <tr><td>Radius</td><td><code>--radius-field</code></td><td>4px</td></tr>
-                      <tr><td><code>md</code> text style</td><td><code>--font-button-md</code></td><td>600 / 14px / 20px</td></tr>
-                      <tr><td><code>sm</code> text style</td><td><code>--font-button-sm</code></td><td>600 / 13px / 18px</td></tr>
-                      <tr><td><code>md</code> icon size / gap</td><td><code>.ui-button--md svg</code> / <code>.ui-button--md</code></td><td>16px / 8px</td></tr>
-                      <tr><td><code>sm</code> icon size / gap</td><td><code>.ui-button--sm svg</code> / <code>.ui-button--sm</code></td><td>14px / 6px</td></tr>
-                      <tr><td>Focus ring</td><td><code>--focus-ring-shadow</code> / <code>--focus-ring-shadow-on-dark</code></td><td>Shared blue focus treatment</td></tr>
-                      <tr><td>Destructive focus ring</td><td><code>--focus-ring-shadow-destructive</code></td><td>Shared danger focus treatment</td></tr>
+                      <tr><td>Primary background</td><td><code>--color-bg-button-primary</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#2567F4"></span>Blue 500 (#2567F4)</span></td></tr>
+                      <tr><td>Primary text</td><td><code>--color-fg-button-primary</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#FFFFFF"></span>#FFFFFF</span></td></tr>
+                      <tr><td>Secondary background</td><td><code>--color-bg-button-secondary</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#EFF3FE"></span>Blue 100 (#EFF3FE)</span></td></tr>
+                      <tr><td>Secondary text</td><td><code>--color-fg-button-secondary</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#00389B"></span>Blue 700 (#00389B)</span></td></tr>
+                      <tr><td>Link text</td><td><code>--color-fg-button-link</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#2567F4"></span>Blue 500 (#2567F4)</span></td></tr>
+                      <tr><td>Destructive background</td><td><code>--color-bg-button-destructive</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#EE031D"></span>Red 500 (#EE031D)</span></td></tr>
+                      <tr><td>Destructive text</td><td><code>--color-fg-button-destructive</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#FFFFFF"></span>#FFFFFF</span></td></tr>
+                      <tr><td>Neutral background</td><td><code>--color-bg-button-neutral</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#EEF2F7"></span>Slate 100 (#EEF2F7)</span></td></tr>
+                      <tr><td>Neutral text</td><td><code>--color-fg-button-neutral</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#475467"></span>Slate 900 (#475467)</span></td></tr>
+                      <tr><td>Disabled background</td><td><code>--color-bg-button-disabled</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#F3F4F6"></span>Gray 100 (#F3F4F6)</span></td></tr>
+                      <tr><td>Disabled text</td><td><code>--color-fg-button-disabled</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#9CA3AF"></span>Gray 400 (#9CA3AF)</span></td></tr>
                     </tbody>
                   </table>
                 </article>
 
-                <article class="docs-card docs-token-card">
-                  <h3 class="docs-card-title">Button Color Roles</h3>
+                <article class="docs-token-block">
+                  <h3 class="docs-card-title">Typography</h3>
+                  <p class="docs-card-caption">Buttons use shared semibold label styles that scale by size, not by variant.</p>
                   <table class="docs-token-table">
                     <thead>
-                      <tr><th>Role</th><th>Source</th><th>Value</th></tr>
+                      <tr><th>Role</th><th>Token</th><th>Value</th></tr>
                     </thead>
                     <tbody>
-                      <tr><td>Primary background</td><td><code>--color-bg-button-primary</code> → <code>--color-interactive-primary</code></td><td>Blue 500 (#2567F4)</td></tr>
-                      <tr><td>Primary hover</td><td><code>--color-bg-button-primary-hover</code> → <code>--color-interactive-primary-hover</code></td><td>Blue 600 (#2251C5)</td></tr>
-                      <tr><td>Primary active</td><td><code>--color-bg-button-primary-active</code> → <code>--color-interactive-primary-active</code></td><td>Blue 700 (#00389B)</td></tr>
-                      <tr><td>Primary text</td><td><code>--color-fg-button-primary</code></td><td>#FFFFFF</td></tr>
-                      <tr><td>Secondary background</td><td><code>--color-bg-button-secondary</code> → <code>--color-interactive-surface</code></td><td>Blue 100 (#EFF3FE)</td></tr>
-                      <tr><td>Secondary hover</td><td><code>--color-bg-button-secondary-hover</code> → <code>--color-interactive-surface-hover</code></td><td>Blue 200 (#DBE5FD)</td></tr>
-                      <tr><td>Secondary text</td><td><code>--color-fg-button-secondary</code></td><td>Blue 700 (#00389B)</td></tr>
-                      <tr><td>Link text</td><td><code>--color-fg-button-link</code> → <code>--color-interactive-primary</code></td><td>Blue 500 (#2567F4)</td></tr>
-                      <tr><td>Link hover text</td><td><code>--color-fg-button-link-hover</code> → <code>--color-interactive-primary-active</code></td><td>Blue 700 (#00389B)</td></tr>
-                      <tr><td>Link hover surface</td><td><code>--color-bg-button-link-hover</code> → <code>--color-interactive-surface</code></td><td>Blue 100 (#EFF3FE)</td></tr>
-                      <tr><td>Destructive background</td><td><code>--color-bg-button-destructive</code></td><td>Red 500 (#EE031D)</td></tr>
-                      <tr><td>Destructive hover</td><td><code>--color-bg-button-destructive-hover</code></td><td>Red 600 (#DC2626)</td></tr>
-                      <tr><td>Destructive text</td><td><code>--color-fg-button-destructive</code></td><td>#FFFFFF</td></tr>
-                      <tr><td>Disabled background</td><td><code>--color-bg-button-disabled</code> → <code>--color-surface-disabled</code></td><td>Gray 100 (#F3F4F6)</td></tr>
-                      <tr><td>Disabled text</td><td><code>--color-fg-button-disabled</code> → <code>--color-text-disabled</code></td><td>Gray 400 (#9CA3AF)</td></tr>
+                      <tr><td>Medium label style</td><td><code>--font-button-md</code></td><td>600 / 14px / 20px</td></tr>
+                      <tr><td>Small label style</td><td><code>--font-button-sm</code></td><td>600 / 13px / 18px</td></tr>
+                      <tr><td>Primary label color</td><td><code>--color-fg-button-primary</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#FFFFFF"></span>#FFFFFF</span></td></tr>
+                      <tr><td>Secondary label color</td><td><code>--color-fg-button-secondary</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#00389B"></span>Blue 700 (#00389B)</span></td></tr>
+                      <tr><td>Link label color</td><td><code>--color-fg-button-link</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#2567F4"></span>Blue 500 (#2567F4)</span></td></tr>
+                      <tr><td>Destructive label color</td><td><code>--color-fg-button-destructive</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#FFFFFF"></span>#FFFFFF</span></td></tr>
+                      <tr><td>Neutral label color</td><td><code>--color-fg-button-neutral</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#475467"></span>Slate 900 (#475467)</span></td></tr>
+                      <tr><td>Disabled label color</td><td><code>--color-fg-button-disabled</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#9CA3AF"></span>Gray 400 (#9CA3AF)</span></td></tr>
+                    </tbody>
+                  </table>
+                </article>
+
+                <article class="docs-token-block">
+                  <h3 class="docs-card-title">Layout</h3>
+                  <p class="docs-card-caption">Sizing, padding, radius, and icon spacing rules shared across button variants.</p>
+                  <table class="docs-token-table">
+                    <thead>
+                      <tr><th>Role</th><th>Token</th><th>Value</th></tr>
+                    </thead>
+                    <tbody>
+                      <tr><td>Medium height</td><td><code>.ui-button--md</code></td><td>36px</td></tr>
+                      <tr><td>Medium horizontal padding</td><td><code>.ui-button--md</code></td><td>16px</td></tr>
+                      <tr><td>Medium group min width</td><td><code>.button-group-strip .ui-button--md</code></td><td>96px</td></tr>
+                      <tr><td>Small height</td><td><code>.ui-button--sm</code></td><td>32px</td></tr>
+                      <tr><td>Small horizontal padding</td><td><code>.ui-button--sm</code></td><td>12px</td></tr>
+                      <tr><td>Small group min width</td><td><code>.button-group-strip .ui-button--sm</code></td><td>80px</td></tr>
+                      <tr><td>Corner radius</td><td><code>--radius-field</code></td><td>4px</td></tr>
+                      <tr><td>Medium icon size and gap</td><td><code>.ui-button--md svg</code> / <code>.ui-button--md</code></td><td>16px / 8px</td></tr>
+                      <tr><td>Small icon size and gap</td><td><code>.ui-button--sm svg</code> / <code>.ui-button--sm</code></td><td>14px / 6px</td></tr>
+                    </tbody>
+                  </table>
+                </article>
+
+                <article class="docs-token-block">
+                  <h3 class="docs-card-title">State Tokens</h3>
+                  <p class="docs-card-caption">Buttons do not have record-row style status states, so the parallel group here is interaction and state behavior.</p>
+                  <table class="docs-token-table">
+                    <thead>
+                      <tr><th>Role</th><th>Token</th><th>Value</th></tr>
+                    </thead>
+                    <tbody>
+                      <tr><td>Primary hover background</td><td><code>--color-bg-button-primary-hover</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#2251C5"></span>Blue 600 (#2251C5)</span></td></tr>
+                      <tr><td>Primary active background</td><td><code>--color-bg-button-primary-active</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#00389B"></span>Blue 700 (#00389B)</span></td></tr>
+                      <tr><td>Secondary hover background</td><td><code>--color-bg-button-secondary-hover</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#DBE5FD"></span>Blue 200 (#DBE5FD)</span></td></tr>
+                      <tr><td>Secondary active background</td><td><code>--color-bg-button-secondary-active</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#B8CEFF"></span>Blue 300 (#B8CEFF)</span></td></tr>
+                      <tr><td>Link hover text</td><td><code>--color-fg-button-link-hover</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#00389B"></span>Blue 700 (#00389B)</span></td></tr>
+                      <tr><td>Link hover background</td><td><code>--color-bg-button-link-hover</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#EFF3FE"></span>Blue 100 (#EFF3FE)</span></td></tr>
+                      <tr><td>Link active text</td><td><code>--color-fg-button-link-active</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#002D7A"></span>Blue 800 (#002D7A)</span></td></tr>
+                      <tr><td>Link active background</td><td><code>--color-bg-button-link-active</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#DBE5FD"></span>Blue 200 (#DBE5FD)</span></td></tr>
+                      <tr><td>Destructive hover background</td><td><code>--color-bg-button-destructive-hover</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#DC2626"></span>Red 600 (#DC2626)</span></td></tr>
+                      <tr><td>Destructive active background</td><td><code>--color-bg-button-destructive-active</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#B91C1C"></span>Red 700 (#B91C1C)</span></td></tr>
+                      <tr><td>Neutral hover background</td><td><code>--color-bg-button-neutral-hover</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#E6ECF5"></span>Slate 200 (#E6ECF5)</span></td></tr>
+                      <tr><td>Neutral active background</td><td><code>--color-bg-button-neutral-active</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#DDE3EC"></span>Slate 300 (#DDE3EC)</span></td></tr>
+                      <tr><td>Standard focus ring</td><td><code>--focus-ring-shadow</code> / <code>--focus-ring-shadow-on-dark</code></td><td>Shared blue focus treatment</td></tr>
+                      <tr><td>Destructive focus ring</td><td><code>--focus-ring-shadow-destructive</code></td><td>Shared danger focus treatment</td></tr>
                     </tbody>
                   </table>
                 </article>
@@ -485,7 +723,8 @@
         <aside class="docs-v2-page-nav" aria-label="Page navigation">
           <p class="docs-v2-page-nav-title">On This Page</p>
           <nav class="docs-v2-page-nav-list">
-            <a class="docs-v2-page-nav-link" href="#usage">Usage</a>
+            <a class="docs-v2-page-nav-link" href="#overview">Overview</a>
+            <a class="docs-v2-page-nav-link" href="#variants-showcase">Variants</a>
             <a class="docs-v2-page-nav-link" href="#button-types">Button Types</a>
             <a class="docs-v2-page-nav-link" href="#state-reference">State Reference</a>
             <a class="docs-v2-page-nav-link" href="#size-variants">Size Variants</a>
@@ -493,7 +732,7 @@
             <a class="docs-v2-page-nav-link docs-v2-page-nav-link--sub" href="#icon-usage">Link Buttons With Icons</a>
             <a class="docs-v2-page-nav-link docs-v2-page-nav-link--sub" href="#grouped-actions">Button Groupings</a>
             <a class="docs-v2-page-nav-link" href="#anatomy">Anatomy</a>
-            <a class="docs-v2-page-nav-link" href="#specifications">Specifications</a>
+            <a class="docs-v2-page-nav-link" href="#token-reference">Token Reference</a>
           </nav>
         </aside>
       </div>
