@@ -75,6 +75,392 @@
     .section-docs-page .card-component {
       --card-rail-color: #2251C5;
     }
+
+    .section-docs-page .section-docs-stack {
+      display: grid;
+      gap: 0;
+    }
+
+    .section-docs-page .section-docs-stack > .docs-section,
+    .section-docs-page .section-docs-stack > .example-block {
+      padding: 40px 0 32px;
+      border-top: 1px solid var(--docs-v2-border);
+    }
+
+    .section-docs-page .section-docs-stack > .example-block {
+      padding-left: 16px;
+    }
+
+    .section-docs-page .section-docs-stack > :first-child {
+      padding-top: 0;
+      border-top: 0;
+    }
+
+    .section-docs-page .section-docs-stack > :last-child {
+      padding-bottom: 0;
+    }
+
+    .section-docs-page .section-docs-stack .panel-example-title {
+      margin: 0;
+      font-size: 20px;
+      line-height: 24px;
+      font-weight: 700;
+    }
+
+    .section-docs-page .section-docs-stack .example-block .panel-example-title {
+      font-size: 18px;
+      line-height: 22px;
+      font-weight: 600;
+    }
+
+    .section-docs-page .example-caption,
+    .section-docs-page .docs-lead,
+    .section-docs-page .docs-card-caption,
+    .section-docs-page .section-anatomy-note,
+    .section-docs-page .docs-list {
+      max-width: var(--docs-v2-prose-measure);
+    }
+
+    .section-docs-page .example-caption,
+    .section-docs-page .docs-lead {
+      margin: 0;
+      font-size: 14px;
+      line-height: 22px;
+      color: var(--docs-v2-text-secondary);
+    }
+
+    .section-docs-page .example-block {
+      display: grid;
+      gap: 0;
+    }
+
+    .section-docs-page .example-block > .panel-example-title,
+    .section-docs-page .example-block > .example-caption {
+      max-width: var(--docs-v2-prose-measure);
+    }
+
+    .section-docs-page .example-block > .panel-example-title + .example-caption {
+      margin-top: 6px;
+    }
+
+    .section-docs-page .example-caption + .example-caption,
+    .section-docs-page .docs-lead + .docs-lead,
+    .section-docs-page .docs-card-caption + .docs-card-caption {
+      margin-top: 10px;
+    }
+
+    .section-docs-page .example-block > .section-component,
+    .section-docs-page .example-block > .panel {
+      margin-top: 18px;
+    }
+
+    .section-docs-page .docs-section-header {
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .section-docs-page .docs-section-header > .panel-example-title + .docs-lead {
+      margin-top: 0;
+    }
+
+    .section-docs-page .docs-card,
+    .section-docs-page .section-overview-card,
+    .section-docs-page .section-guidance-card {
+      border-radius: 16px;
+      border: 1px solid var(--docs-v2-border);
+      background: rgba(255, 255, 255, 0.8);
+      box-shadow: none;
+    }
+
+    .section-docs-page .section-overview-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .section-docs-page .section-overview-card {
+      padding: 18px;
+    }
+
+    .section-docs-page .section-overview-kicker {
+      margin: 0 0 12px;
+      font-size: 12px;
+      line-height: 16px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--docs-v2-text-muted);
+    }
+
+    .section-docs-page .section-overview-list {
+      display: grid;
+      gap: 0;
+    }
+
+    .section-docs-page .section-overview-item {
+      margin: 0;
+      padding: 12px 0;
+      border-top: 1px solid var(--docs-v2-border);
+      font-size: 14px;
+      line-height: 20px;
+      color: var(--docs-v2-text-secondary);
+    }
+
+    .section-docs-page .section-overview-item:first-child {
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    .section-docs-page .section-overview-label {
+      display: block;
+      margin-bottom: 2px;
+      font-weight: 600;
+      color: var(--docs-v2-text);
+    }
+
+    .section-docs-page .section-guidance-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .section-docs-page .section-guidance-card {
+      display: grid;
+      gap: 0;
+      align-content: start;
+      grid-auto-rows: min-content;
+      padding: 18px;
+    }
+
+    .section-docs-page .section-guidance-card .docs-card-title {
+      margin: 0;
+      font-size: 18px;
+      line-height: 24px;
+      font-weight: 600;
+      color: var(--docs-v2-text);
+    }
+
+    .section-docs-page .section-guidance-list {
+      display: grid;
+      margin: 0;
+      margin-top: 10px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .section-docs-page .section-guidance-item {
+      margin: 0;
+      padding: 12px 0;
+      border-top: 1px solid var(--docs-v2-border);
+      font-size: 14px;
+      line-height: 20px;
+      color: var(--docs-v2-text-secondary);
+    }
+
+    .section-docs-page .section-guidance-item:first-child {
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    .section-docs-page .section-anatomy-grid,
+    .section-docs-page .docs-token-grid,
+    .section-docs-page .docs-stack-list {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .section-docs-page .section-anatomy-grid,
+    .section-docs-page .docs-token-grid {
+      gap: 16px;
+    }
+
+    .section-docs-page .section-anatomy-note {
+      margin: 14px 0 0;
+      font-size: 13px;
+      line-height: 20px;
+      color: var(--docs-v2-text-secondary);
+    }
+
+    .section-docs-page .section-anatomy-figure {
+      display: grid;
+      gap: 14px;
+      padding: 18px;
+      border: 1px dashed var(--color-border-strong);
+      border-radius: var(--radius-panel);
+      background: var(--color-surface);
+    }
+
+    .section-docs-page .section-anatomy-shell {
+      position: relative;
+      background: var(--section-bg);
+      padding-left: var(--section-padding-left);
+      border: 1px solid var(--color-divider);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .section-docs-page .section-anatomy-shell::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 8px;
+      bottom: 8px;
+      width: var(--section-rail-width);
+      border-radius: 999px;
+      background: var(--section-rail-color, var(--section-rail-violet));
+      opacity: var(--section-rail-opacity);
+    }
+
+    .section-docs-page .section-anatomy-header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12px;
+      align-items: start;
+      padding: var(--section-header-padding-y) var(--section-header-padding-x);
+    }
+
+    .section-docs-page .section-anatomy-heading {
+      display: grid;
+      gap: 6px;
+      min-width: 0;
+    }
+
+    .section-docs-page .section-anatomy-title {
+      width: 132px;
+      height: 12px;
+      border-radius: 999px;
+      background: var(--color-text-primary);
+      opacity: 0.92;
+    }
+
+    .section-docs-page .section-anatomy-meta {
+      width: 196px;
+      height: 10px;
+      border-radius: 999px;
+      background: rgba(107, 114, 128, 0.26);
+    }
+
+    .section-docs-page .section-anatomy-toggle {
+      width: 20px;
+      height: 20px;
+      border-radius: var(--radius-field);
+      border: 1px solid rgba(209, 213, 219, 0.9);
+      background: rgba(247, 249, 252, 0.9);
+    }
+
+    .section-docs-page .section-anatomy-body {
+      display: grid;
+      gap: 10px;
+      padding: var(--section-content-padding-top) var(--section-content-padding-x) var(--section-content-padding-bottom);
+    }
+
+    .section-docs-page .section-anatomy-line {
+      height: 10px;
+      border-radius: 999px;
+      background: rgba(55, 65, 81, 0.16);
+    }
+
+    .section-docs-page .section-anatomy-line--short {
+      width: 62%;
+    }
+
+    .section-docs-page .section-anatomy-related {
+      display: grid;
+      gap: 10px;
+      padding-top: var(--section-related-padding-top);
+      border-top: 1px solid var(--section-divider-color);
+    }
+
+    .section-docs-page .section-anatomy-related-label {
+      width: 92px;
+      height: 10px;
+      border-radius: 999px;
+      background: rgba(17, 24, 39, 0.18);
+    }
+
+    .section-docs-page .section-anatomy-card {
+      height: 64px;
+      border: 1px solid var(--color-border-subtle);
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.96);
+      box-shadow: 0 1px 2px rgba(17, 24, 39, 0.04);
+    }
+
+    .section-docs-page .docs-token-block + .docs-token-block {
+      margin-top: 24px;
+    }
+
+    .section-docs-page .docs-token-block .docs-card-title,
+    .section-docs-page .docs-token-block .docs-card-caption {
+      max-width: var(--docs-v2-prose-measure);
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    .section-docs-page .docs-token-block .docs-card-title {
+      margin-top: 0;
+      margin-bottom: 8px;
+    }
+
+    .section-docs-page .docs-token-block .docs-card-caption {
+      margin-top: 0;
+    }
+
+    .section-docs-page .docs-token-block .docs-token-table {
+      width: 100%;
+      margin: 16px 0 0;
+      border-collapse: separate;
+      border-spacing: 0;
+      border: 1px solid #D7DEE8;
+      border-radius: 8px;
+      overflow: hidden;
+      background: var(--docs-v2-table-surface);
+      box-shadow: none;
+    }
+
+    .section-docs-page .docs-token-table th,
+    .section-docs-page .docs-token-table td {
+      padding: 14px 12px;
+      border-bottom: 1px solid var(--docs-v2-border);
+      vertical-align: middle;
+      font-size: 14px;
+      line-height: 20px;
+      text-align: left;
+    }
+
+    .section-docs-page .docs-token-table th {
+      font-size: 12px;
+      line-height: 16px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--docs-v2-text-muted);
+      background: var(--docs-v2-table-header-surface);
+    }
+
+    .section-docs-page .docs-token-table tbody tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .section-docs-page .docs-token-block .docs-token-table th:first-child {
+      border-top-left-radius: 10px;
+    }
+
+    .section-docs-page .docs-token-block .docs-token-table th:last-child {
+      border-top-right-radius: 10px;
+    }
+
+    .section-docs-page .docs-v2-page-nav-link--sub {
+      padding-left: 22px;
+      font-size: 13px;
+    }
+
+    @media (max-width: 900px) {
+      .section-docs-page .section-overview-grid,
+      .section-docs-page .section-guidance-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
   </style>
 </head>
 <body
@@ -89,18 +475,81 @@
     <main class="docs-v2-main">
       <section class="docs-v2-hero">
         <p class="docs-v2-eyebrow">Components / Sections</p>
-        <h2 class="docs-v2-title">Internal grouping inside larger containers, with rails, supporting meta, and lighter-weight hierarchy than a full panel.</h2>
-        <p class="docs-v2-copy">Defines internal grouping inside larger containers, including rails, supporting metadata, and collapsible section structure.</p>
+        <h2 class="docs-v2-title">Sections</h2>
+        <p class="docs-v2-copy">Use sections to break larger panel content into smaller, scannable groups with optional rails, supporting metadata, and collapsible structure.</p>
         <div class="docs-v2-chip-row">
-          <span class="docs-v2-chip">Basic, metadata, form, and grouped sections</span>
-          <span class="docs-v2-chip">Rails, nested cards, and nested panels</span>
-          <span class="docs-v2-chip">Anatomy, behavior, and specs</span>
+          <span class="docs-v2-chip">Basic, meta, form, and grouped sections</span>
+          <span class="docs-v2-chip">Rails, nested cards, and panel-friendly structure</span>
+          <span class="docs-v2-chip">Anatomy, interaction, token reference</span>
         </div>
       </section>
 
       <div class="docs-v2-page-shell docs-v2-page-shell--with-page-nav">
         <div class="docs-v2-page-content">
-          <div class="card-stack" aria-label="Section documentation">
+          <div class="section-docs-stack" aria-label="Section documentation">
+            <section class="docs-section" id="overview">
+              <div class="docs-section-header">
+                <h2 class="panel-example-title">Overview</h2>
+                <p class="docs-lead">Sections break larger panel content into smaller, scannable domains. They create internal hierarchy inside a panel without introducing another full panel shell, and they work well for present levels, grouped field sets, related records, and supporting content areas.</p>
+              </div>
+              <div class="section-overview-grid">
+                <article class="section-overview-card">
+                  <p class="section-overview-kicker">Core Structure</p>
+                  <div class="section-overview-list">
+                    <p class="section-overview-item"><span class="section-overview-label">Live inside panels</span>Sections are intended to organize content inside larger panel bodies, not replace panels as page-level containers.</p>
+                    <p class="section-overview-item"><span class="section-overview-label">Header is required</span>Every section has a header with a title and a consistent top structure for optional supporting meta and a collapse toggle.</p>
+                    <p class="section-overview-item"><span class="section-overview-label">Content is required</span>The content region holds the section’s primary copy, fields, cards, or related grouped items.</p>
+                    <p class="section-overview-item"><span class="section-overview-label">Related content is optional</span>Use the related-content area when cards or records need clear separation from the primary field content.</p>
+                  </div>
+                </article>
+
+                <article class="section-overview-card">
+                  <p class="section-overview-kicker">Section Behavior</p>
+                  <div class="section-overview-list">
+                    <p class="section-overview-item"><span class="section-overview-label">Static or collapsible</span>Sections may stay open by default or collapse independently inside the surrounding panel.</p>
+                    <p class="section-overview-item"><span class="section-overview-label">Rails communicate grouping</span>Rail color differentiates domains or categories, not interaction state or selection.</p>
+                    <p class="section-overview-item"><span class="section-overview-label">Meta stays secondary</span>Supporting meta should remain quieter than the title while still giving useful scan-first context.</p>
+                    <p class="section-overview-item"><span class="section-overview-label">Hierarchy stays light</span>Sections should feel lighter-weight than panels so the panel remains the dominant container.</p>
+                  </div>
+                </article>
+              </div>
+            </section>
+
+            <section class="docs-section" id="guidance">
+              <div class="docs-section-header">
+                <h2 class="panel-example-title">Guidance</h2>
+                <p class="docs-lead">Use sections to organize related content inside a panel when a single panel body would otherwise become too long, too mixed, or harder to scan.</p>
+              </div>
+              <div class="section-guidance-grid">
+                <article class="section-guidance-card">
+                  <h3 class="docs-card-title">How To Use Sections</h3>
+                  <div class="section-guidance-list">
+                    <p class="section-guidance-item">Group related domains, field clusters, or supporting records into sections so each subsection reads as a clear unit.</p>
+                    <p class="section-guidance-item">Use sections when the content needs internal hierarchy but does not justify another full panel shell.</p>
+                    <p class="section-guidance-item">Keep section titles short and specific so the user can scan the larger panel quickly.</p>
+                    <p class="section-guidance-item">Use supporting meta only when it adds immediate context such as counts, status, or recent update information.</p>
+                  </div>
+                </article>
+
+                <article class="section-guidance-card">
+                  <h3 class="docs-card-title">Section Rules</h3>
+                  <div class="section-guidance-list">
+                    <p class="section-guidance-item">Do not use sections as a substitute for page-level or panel-level layout structure.</p>
+                    <p class="section-guidance-item">Keep header and content padding consistent across all section variants.</p>
+                    <p class="section-guidance-item">Use the related-content divider only when secondary cards or records need separation from the main fields.</p>
+                    <p class="section-guidance-item">Field groups inside a section need enough vertical spacing to read clearly without competing with the surrounding panel rhythm.</p>
+                  </div>
+                </article>
+              </div>
+            </section>
+
+            <section class="docs-section" id="variants-showcase">
+              <div class="docs-section-header">
+                <h2 class="panel-example-title">Variants</h2>
+                <p class="docs-lead">Use the examples below to compare the common section patterns: basic, supporting-meta, form-content, and grouped sections inside a panel.</p>
+              </div>
+            </section>
+
             <section class="example-block" id="basic-section" aria-label="Basic section example">
               <h2 class="panel-example-title">Basic Section</h2>
               <p class="example-caption">Use a basic section to subdivide content within a larger panel while keeping a lighter hierarchy than a full panel header. When no rail variant is applied, the section uses the default slate rail.</p>
@@ -309,132 +758,72 @@
               </article>
             </section>
 
-            <section class="docs-section" id="overview">
-              <div class="docs-section-header">
-                <h2 class="panel-example-title">Section Overview</h2>
-                <p class="docs-lead docs-lead--full">Sections break larger panel content into smaller, scannable domains. They are useful when a panel needs internal grouping for present levels, related content, field clusters, or supporting records without introducing another full panel shell.</p>
-              </div>
-            </section>
-
             <section class="docs-section" id="anatomy">
               <div class="docs-section-header">
                 <h2 class="panel-example-title">Anatomy</h2>
+                <p class="docs-lead">A section creates lighter-weight hierarchy inside a panel. It uses a required header and content region, with optional supporting meta, rail color, collapse behavior, and related content separation.</p>
               </div>
-              <div class="docs-card">
-                <div class="docs-anatomy-grid">
-                  <div class="section-anatomy-panel">
-                    <section class="section-component section-component--rail-coffee section-component--terminal">
-                      <div class="section-header">
-                        <span class="section-heading">
-                          <span class="section-title">Section Title</span>
-                          <span class="section-meta">
-                            <span>Supporting Meta</span>
-                            <span class="section-meta-separator" aria-hidden="true">&bull;</span>
-                            <span>Updated state</span>
-                          </span>
-                        </span>
-                        <svg class="section-chevron" viewBox="0 0 24 24" focusable="false" aria-hidden="true">
-                          <path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
+              <div class="section-anatomy-grid">
+                <article class="docs-card">
+                  <div class="section-anatomy-figure" aria-label="Section anatomy diagram">
+                    <div class="section-anatomy-shell">
+                      <div class="section-anatomy-header">
+                        <div class="section-anatomy-heading">
+                          <div class="section-anatomy-title"></div>
+                          <div class="section-anatomy-meta"></div>
+                        </div>
+                        <div class="section-anatomy-toggle"></div>
                       </div>
-                      <div class="section-content">
-                        <div class="section-anatomy-block">Content</div>
+                      <div class="section-anatomy-body">
+                        <div class="section-anatomy-line"></div>
+                        <div class="section-anatomy-line section-anatomy-line--short"></div>
                         <div class="section-anatomy-related">
-                          <div class="section-related-label">Related Content</div>
-                          <div class="section-anatomy-card">Card / Record</div>
+                          <div class="section-anatomy-related-label"></div>
+                          <div class="section-anatomy-card"></div>
                         </div>
                       </div>
-                    </section>
-                  </div>
-
-                  <div class="docs-parts-card">
-                    <h3 class="docs-card-title">Parts</h3>
-                    <div class="docs-part-list">
-                      <div class="docs-part-item"><strong>Rail</strong><p>Optional color accent that helps distinguish domains or categories inside a larger panel.</p></div>
-                      <div class="docs-part-item"><strong>Header</strong><p>Required; contains the title and optional supporting meta.</p></div>
-                      <div class="docs-part-item"><strong>Collapse toggle</strong><p>Optional; used when section content should be hideable without collapsing the whole panel.</p></div>
-                      <div class="docs-part-item"><strong>Content</strong><p>Required; contains copy, form fields, records, or other grouped items.</p></div>
-                      <div class="docs-part-item"><strong>Related content area</strong><p>Optional; supports cards, goals, or other secondary items separated by a divider.</p></div>
                     </div>
                   </div>
-                </div>
-              </div>
-            </section>
-
-            <section class="docs-section" id="variants">
-              <div class="docs-section-header">
-                <h2 class="panel-example-title">Variants and Optional Elements</h2>
-              </div>
-              <div class="docs-grid docs-grid--two">
-                <article class="docs-card">
-                  <h3 class="docs-card-title">Supported Patterns</h3>
-                  <ul class="docs-list">
-                    <li>Basic section</li>
-                    <li>Section with supporting meta</li>
-                    <li>Section with form fields</li>
-                    <li>Section with related cards</li>
-                    <li>Grouped sections inside a panel</li>
-                  </ul>
+                  <p class="section-anatomy-note">The header and content region are required. Supporting meta, the collapse toggle, rail color, and the related-content area are optional depending on how much hierarchy and support the section needs.</p>
                 </article>
 
-                <article class="docs-card">
-                  <h3 class="docs-card-title">Optional Elements</h3>
-                  <ul class="docs-list">
-                    <li>Supporting meta row</li>
-                    <li>Collapse toggle</li>
-                    <li>Related content divider</li>
-                    <li>Rail color variant</li>
-                    <li>Static header</li>
-                  </ul>
+                <article class="docs-card docs-parts-card">
+                  <h3 class="docs-card-title">Parts</h3>
+                  <div class="docs-part-list">
+                    <div class="docs-part-item"><strong>Rail</strong><p>Optional color accent that helps distinguish domains or categories inside a larger panel.</p></div>
+                    <div class="docs-part-item"><strong>Header</strong><p>Required top region that contains the title and the consistent placement of optional supporting meta and a collapse toggle.</p></div>
+                    <div class="docs-part-item"><strong>Title</strong><p>Primary label that anchors the section and keeps the larger panel easy to scan.</p></div>
+                    <div class="docs-part-item"><strong>Content</strong><p>Required content region that holds copy, form fields, records, or other grouped items.</p></div>
+                    <div class="docs-part-item"><strong>Related content area</strong><p>Optional secondary area separated by a divider when cards, goals, or records need visual distinction from the main content.</p></div>
+                  </div>
                 </article>
               </div>
             </section>
 
-            <section class="docs-section" id="specifications">
+            <section class="docs-section" id="interaction">
               <div class="docs-section-header">
-                <h2 class="panel-example-title">Specifications</h2>
+                <h2 class="panel-example-title">Interaction</h2>
+                <p class="docs-lead">Sections may be static or collapsible, but they should always behave as lighter-weight internal structure inside the surrounding panel.</p>
               </div>
-              <div class="docs-grid docs-grid--two">
-                <article class="docs-card">
-                  <h3 class="docs-card-title">Structure</h3>
-                  <ul class="docs-list">
-                    <li>Sections are intended to live inside larger panel content areas.</li>
-                    <li>Each section should have a title and a required content region.</li>
-                    <li>Supporting meta is optional and should remain quieter than the title.</li>
-                    <li>Use the related content area when cards or records need separation from the primary fields.</li>
-                  </ul>
+              <div class="section-guidance-grid">
+                <article class="section-guidance-card">
+                  <h3 class="docs-card-title">Collapsible Behavior</h3>
+                  <div class="section-guidance-list">
+                    <p class="section-guidance-item">Use a real button for collapsible section headers.</p>
+                    <p class="section-guidance-item">Keep <code>aria-expanded</code> and <code>aria-controls</code> in sync with the content region.</p>
+                    <p class="section-guidance-item">Collapsed sections hide only their own content, not the surrounding panel.</p>
+                    <p class="section-guidance-item">When sections are static, keep the same header structure without the collapse interaction.</p>
+                  </div>
                 </article>
 
-                <article class="docs-card">
-                  <h3 class="docs-card-title">Layout</h3>
-                  <ul class="docs-list">
-                    <li>The left rail should align with the section content area rather than the outer panel border.</li>
-                    <li>Header and content padding should stay consistent across all section variants.</li>
-                    <li>Field groups inside a section need more vertical spacing than the surrounding panel body.</li>
-                    <li>Stacked sibling sections are separated by the section divider by default.</li>
-                    <li>Use a divider before related cards or records.</li>
-                  </ul>
-                </article>
-
-                <article class="docs-card">
-                  <h3 class="docs-card-title">Behavior</h3>
-                  <ul class="docs-list">
-                    <li>Sections may be collapsible or static.</li>
-                    <li>When collapsible, the section header button controls the content region below it.</li>
-                    <li>Collapsed sections hide only their own content, not the surrounding panel.</li>
-                    <li>Sections use the default slate rail unless a variant is applied.</li>
-                    <li>Rail color should communicate grouping, not selection.</li>
-                  </ul>
-                </article>
-
-                <article class="docs-card">
-                  <h3 class="docs-card-title">Accessibility</h3>
-                  <ul class="docs-list">
-                    <li>Use a real button for collapsible section headers.</li>
-                    <li>Keep <code>aria-expanded</code> and <code>aria-controls</code> in sync with the content region.</li>
-                    <li>Meta text should remain secondary but readable.</li>
-                    <li>Fields and cards inside a section must stay keyboard reachable when expanded.</li>
-                  </ul>
+                <article class="section-guidance-card">
+                  <h3 class="docs-card-title">Visual Behavior</h3>
+                  <div class="section-guidance-list">
+                    <p class="section-guidance-item">The left rail should align with the section content area rather than the outer panel border.</p>
+                    <p class="section-guidance-item">Use the default slate rail unless a variant is applied for meaningful domain grouping.</p>
+                    <p class="section-guidance-item">Rail color should communicate grouping, not selection or active state.</p>
+                    <p class="section-guidance-item">Meta text should remain secondary but readable, and fields or cards inside a section must stay keyboard reachable when expanded.</p>
+                  </div>
                 </article>
               </div>
             </section>
@@ -442,10 +831,10 @@
             <section class="docs-section" id="token-reference">
               <div class="docs-section-header">
                 <h2 class="panel-example-title">Token Reference</h2>
-                <p class="docs-lead">Section tokens are grouped here for quick technical reference, separate from the design rules above.</p>
+                <p class="docs-lead">Section tokens are grouped here for quick technical reference. Structural and interaction rules are documented above so this section can stay focused on reusable tokens and token-backed values.</p>
               </div>
               <div class="docs-token-grid">
-                <article class="docs-card docs-token-card">
+                <article class="docs-token-block">
                   <h3 class="docs-card-title">Surface</h3>
                   <p class="docs-card-caption">Base surface and divider tokens for the section shell, including the default divider between stacked sections.</p>
                   <table class="docs-token-table">
@@ -462,7 +851,7 @@
                   </table>
                 </article>
 
-                <article class="docs-card docs-token-card">
+                <article class="docs-token-block">
                   <h3 class="docs-card-title">Typography</h3>
                   <p class="docs-card-caption">Title and supporting meta typography for the section header.</p>
                   <table class="docs-token-table">
@@ -471,15 +860,15 @@
                     </thead>
                     <tbody>
                       <tr><td>Section title</td><td><code>--font-heading-md</code></td><td>600 / 16px / 22px</td></tr>
-                      <tr><td>Section meta</td><td><code>--font-meta-sm</code> + <code>--section-meta-color</code></td><td>400 / 13px / 18px / Gray 500 (#6B7280)</td></tr>
-                      <tr><td>Chevron size</td><td><code>.section-chevron</code></td><td>20px × 20px</td></tr>
-                      <tr><td>Chevron default icon</td><td><code>--section-utility-icon-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#667085"></span>Slate 700 (#667085)</span></td></tr>
+                      <tr><td>Section meta style</td><td><code>--font-meta-sm</code></td><td>400 / 13px / 18px</td></tr>
+                      <tr><td>Section meta color</td><td><code>--section-meta-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#6B7280"></span>Gray 500 (#6B7280)</span></td></tr>
+                      <tr><td>Chevron icon</td><td><code>--section-utility-icon-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#667085"></span>Slate 700 (#667085)</span></td></tr>
                       <tr><td>Chevron hover icon</td><td><code>--section-utility-icon-hover-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#5A6470"></span>Slate 800 (#5A6470)</span></td></tr>
                     </tbody>
                   </table>
                 </article>
 
-                <article class="docs-card docs-token-card">
+                <article class="docs-token-block">
                   <h3 class="docs-card-title">Layout</h3>
                   <p class="docs-card-caption">Padding and spacing values used for section rhythm.</p>
                   <table class="docs-token-table">
@@ -490,13 +879,14 @@
                       <tr><td>Left inset</td><td><code>--section-padding-left</code></td><td>14px</td></tr>
                       <tr><td>Header padding</td><td><code>--section-header-padding-y / --section-header-padding-x</code></td><td>14px / 18px</td></tr>
                       <tr><td>Content padding</td><td><code>--section-content-padding-top / --section-content-padding-x / --section-content-padding-bottom</code></td><td>10px / 18px / 18px</td></tr>
+                      <tr><td>Section stack spacing</td><td><code>--section-spacing-after</code></td><td>20px</td></tr>
                       <tr><td>Field gap</td><td><code>--section-field-gap</code></td><td>28px</td></tr>
                       <tr><td>Related content spacing</td><td><code>--section-related-padding-top / --section-related-gap</code></td><td>20px / 12px</td></tr>
                     </tbody>
                   </table>
                 </article>
 
-                <article class="docs-card docs-token-card">
+                <article class="docs-token-block">
                   <h3 class="docs-card-title">Rail</h3>
                   <p class="docs-card-caption">Rail sizing, opacity, default color, and variants for grouped section states.</p>
                   <table class="docs-token-table">
@@ -528,14 +918,15 @@
         <aside class="docs-v2-page-nav" aria-label="Page navigation">
           <p class="docs-v2-page-nav-title">On This Page</p>
           <nav class="docs-v2-page-nav-list">
-            <a class="docs-v2-page-nav-link" href="#basic-section">Basic Section</a>
-            <a class="docs-v2-page-nav-link" href="#supporting-meta">Supporting Meta</a>
-            <a class="docs-v2-page-nav-link" href="#form-fields">Form Fields</a>
-            <a class="docs-v2-page-nav-link" href="#grouped-sections">Grouped Sections</a>
             <a class="docs-v2-page-nav-link" href="#overview">Overview</a>
+            <a class="docs-v2-page-nav-link" href="#guidance">Guidance</a>
+            <a class="docs-v2-page-nav-link" href="#variants-showcase">Variants</a>
+            <a class="docs-v2-page-nav-link docs-v2-page-nav-link--sub" href="#basic-section">Basic Section</a>
+            <a class="docs-v2-page-nav-link docs-v2-page-nav-link--sub" href="#supporting-meta">Supporting Meta</a>
+            <a class="docs-v2-page-nav-link docs-v2-page-nav-link--sub" href="#form-fields">Form Fields</a>
+            <a class="docs-v2-page-nav-link docs-v2-page-nav-link--sub" href="#grouped-sections">Grouped Sections</a>
             <a class="docs-v2-page-nav-link" href="#anatomy">Anatomy</a>
-            <a class="docs-v2-page-nav-link" href="#variants">Variants</a>
-            <a class="docs-v2-page-nav-link" href="#specifications">Specifications</a>
+            <a class="docs-v2-page-nav-link" href="#interaction">Interaction</a>
             <a class="docs-v2-page-nav-link" href="#token-reference">Token Reference</a>
           </nav>
         </aside>
