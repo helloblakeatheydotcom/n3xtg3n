@@ -144,151 +144,162 @@
 
     .component-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: 1fr;
       align-items: start;
-      gap: 18px;
+      gap: 20px;
     }
 
     .component-card {
       position: relative;
       overflow: hidden;
       display: grid;
+      grid-template-columns: minmax(280px, 46%) 1fr;
       width: 100%;
       min-width: 0;
-      gap: 16px;
-      padding: 22px;
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      background: var(--surface);
-      backdrop-filter: blur(10px);
-      box-shadow: var(--card-shadow);
+      min-height: 236px;
+      border: 2px solid #111827;
+      border-radius: 24px;
+      background: #fffdf9;
+      box-shadow: 8px 8px 0 rgba(37, 99, 235, 0.16);
     }
 
     .component-card::before {
-      content: "";
-      position: absolute;
-      inset: 0 auto 0 0;
-      width: 4px;
-      border-radius: 20px 0 0 20px;
-      background: linear-gradient(180deg, var(--card-accent, var(--accent)), rgba(124, 92, 255, 0.22));
+      display: none;
     }
 
-    .component-card--forms { --card-accent: #16a34a; }
-    .component-card--buttons { --card-accent: #2563eb; }
-    .component-card--panels { --card-accent: #2563eb; }
-    .component-card--cards { --card-accent: #7c5cff; }
-    .component-card--sections { --card-accent: #2563eb; }
-    .component-card--record-rows { --card-accent: #7c5cff; }
-    .component-card--notifications { --card-accent: #059669; }
-    .component-card--colors { --card-accent: #2563eb; }
-    .component-card--colors::before {
-      background: linear-gradient(180deg, #2563eb 0%, #7c5cff 32%, #16a34a 66%, #dd8a19 100%);
+    .component-card--forms { --visual-bg: #dcfce7; --badge-bg: #bbf7d0; }
+    .component-card--buttons { --visual-bg: #dbeafe; --badge-bg: #bfdbfe; }
+    .component-card--panels { --visual-bg: #dbeafe; --badge-bg: #bfdbfe; }
+    .component-card--cards { --visual-bg: #fce7f3; --badge-bg: #fbcfe8; }
+    .component-card--sections { --visual-bg: #ccfbf1; --badge-bg: #99f6e4; }
+    .component-card--record-rows { --visual-bg: #ede9fe; --badge-bg: #ddd6fe; }
+    .component-card--notifications { --visual-bg: #ecfccb; --badge-bg: #d9f99d; }
+    .component-card--colors { --visual-bg: #fef3c7; --badge-bg: #fde68a; }
+    .component-card--drafts { --visual-bg: #fed7aa; --badge-bg: #fdba74; }
+    .component-card--archive { --visual-bg: #e5e7eb; --badge-bg: #d1d5db; }
+
+    .component-visual {
+      position: relative;
+      display: grid;
+      place-items: center;
+      min-height: 236px;
+      padding: 22px;
+      overflow: hidden;
+      border-right: 2px solid #111827;
+      background: var(--visual-bg, #dbeafe);
     }
-    .component-card--drafts { --card-accent: #dd8a19; }
-    .component-card--archive { --card-accent: #dd8a19; }
+
+    .component-visual::before,
+    .component-visual::after {
+      content: "";
+      position: absolute;
+      border: 3px solid #111827;
+      pointer-events: none;
+    }
+
+    .component-visual::before {
+      width: 96px;
+      height: 96px;
+      right: 22px;
+      top: 18px;
+      background: rgba(255, 255, 255, 0.36);
+      transform: rotate(10deg);
+    }
+
+    .component-visual::after {
+      width: 54px;
+      height: 54px;
+      left: 24px;
+      bottom: 20px;
+      background: rgba(255, 255, 255, 0.5);
+      border-radius: 14px;
+      transform: rotate(-12deg);
+    }
+
+    .component-body-wrap {
+      display: grid;
+      align-content: center;
+      gap: 16px;
+      padding: 28px 30px 28px 28px;
+    }
 
     .component-top {
       display: flex;
-      align-items: start;
+      align-items: center;
       justify-content: space-between;
       gap: 16px;
+      flex-wrap: wrap;
     }
 
     .component-badge {
       display: inline-flex;
       align-items: center;
-      min-height: 28px;
-      padding: 0 10px;
+      min-height: 32px;
+      padding: 0 12px;
+      border: 2px solid #111827;
       border-radius: 999px;
-      background: var(--accent-soft);
-      color: var(--accent-deep);
+      background: var(--badge-bg, #ffffff);
+      color: #111827;
       font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.04em;
+      font-weight: 800;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-    }
-
-    .component-badge--blue {
-      background: rgba(61, 99, 221, 0.12);
-      color: #2f57d4;
-    }
-
-    .component-badge--amber {
-      background: rgba(221, 138, 25, 0.14);
-      color: #a86405;
-    }
-
-    .component-badge--cobalt {
-      background: rgba(37, 99, 235, 0.12);
-      color: #1d4ed8;
-    }
-
-    .component-badge--purple {
-      background: rgba(124, 92, 255, 0.12);
-      color: #6c55da;
-    }
-
-    .component-badge--green {
-      background: rgba(22, 163, 74, 0.12);
-      color: #15803d;
-    }
-
-    .component-card--colors .component-badge {
-      background: linear-gradient(135deg, rgba(37, 99, 235, 0.16), rgba(124, 92, 255, 0.14) 38%, rgba(22, 163, 74, 0.14) 72%, rgba(221, 138, 25, 0.16));
-      color: #1f3c88;
-      border: 1px solid rgba(61, 99, 221, 0.18);
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4);
+      box-shadow: 4px 4px 0 rgba(17, 24, 39, 0.08);
     }
 
     .component-status {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      color: var(--text-muted);
+      color: #374151;
       font-size: 12px;
-      font-weight: 600;
+      font-weight: 700;
     }
 
     .component-status::before {
       content: "";
-      width: 8px;
-      height: 8px;
+      width: 10px;
+      height: 10px;
+      border: 2px solid #111827;
       border-radius: 999px;
-      background: var(--card-accent, var(--accent));
-      box-shadow: 0 0 0 6px color-mix(in srgb, var(--card-accent, var(--accent)) 14%, transparent);
+      background: #2563eb;
+      box-shadow: none;
     }
 
     .component-card h3 {
       margin: 0;
-      font-size: 22px;
-      line-height: 1.15;
-      letter-spacing: -0.02em;
+      color: #2563eb;
+      font-size: 24px;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
     }
 
     .component-description {
       margin: 0;
-      color: var(--text-secondary);
-      font-size: 14px;
-      line-height: 1.65;
+      max-width: 44ch;
+      color: #374151;
+      font-size: 15px;
+      line-height: 1.7;
     }
 
     .component-meta {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
+      gap: 10px;
     }
 
     .meta-pill {
       display: inline-flex;
       align-items: center;
-      min-height: 28px;
+      min-height: 30px;
       padding: 0 10px;
-      border: 1px solid rgba(17, 24, 39, 0.08);
+      border: 2px solid #111827;
       border-radius: 999px;
-      background: rgba(255, 255, 255, 0.86);
-      color: var(--text-secondary);
+      background: #ffffff;
+      color: #374151;
       font-size: 12px;
-      font-weight: 600;
+      font-weight: 700;
+      box-shadow: 3px 3px 0 rgba(17, 24, 39, 0.08);
     }
 
     .component-link {
@@ -297,22 +308,24 @@
       justify-content: space-between;
       width: fit-content;
       gap: 10px;
-      min-height: 40px;
+      min-height: 42px;
       padding: 0 14px;
-      border-radius: 10px;
-      background: var(--text-primary);
+      border: 2px solid #111827;
+      border-radius: 12px;
+      background: #2563eb;
       color: #ffffff;
       text-decoration: none;
       font-size: 14px;
-      font-weight: 600;
+      font-weight: 700;
+      box-shadow: 5px 5px 0 #111827;
       transition: transform 0.16s ease, box-shadow 0.16s ease, background-color 0.16s ease;
     }
 
     .component-link:hover,
     .component-link:focus-visible {
-      background: #1f2937;
-      box-shadow: 0 10px 24px rgba(17, 24, 39, 0.12);
-      transform: translateY(-1px);
+      background: #1d4ed8;
+      box-shadow: 3px 3px 0 #111827;
+      transform: translate(2px, 2px);
       outline: none;
     }
 
@@ -321,17 +334,309 @@
       line-height: 1;
     }
 
+    .component-copy {
+      display: grid;
+      gap: 10px;
+    }
+
+    .neo-stack {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 12px;
+      width: min(100%, 290px);
+    }
+
+    .neo-surface {
+      position: relative;
+      border: 3px solid #111827;
+      border-radius: 22px;
+      background: #fffdf8;
+      box-shadow: 8px 8px 0 #111827;
+    }
+
+    .neo-window {
+      padding: 16px;
+    }
+
+    .neo-window-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .neo-window-dot {
+      width: 12px;
+      height: 12px;
+      border: 2px solid #111827;
+      border-radius: 999px;
+      background: var(--dot-color, #fde047);
+    }
+
+    .neo-window-title {
+      margin-left: auto;
+      width: 72px;
+      height: 12px;
+      border-radius: 999px;
+      background: #111827;
+    }
+
+    .neo-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 12px;
+      border: 3px solid #111827;
+      border-radius: 16px;
+      background: #ffffff;
+    }
+
+    .neo-rail {
+      width: 12px;
+      min-height: 36px;
+      flex: none;
+      border: 2px solid #111827;
+      border-radius: 999px;
+      background: var(--rail-color, #93c5fd);
+    }
+
+    .neo-lines {
+      display: grid;
+      gap: 6px;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .neo-line {
+      height: 10px;
+      border-radius: 999px;
+      background: #111827;
+    }
+
+    .neo-line--mid {
+      width: 78%;
+      background: #4b5563;
+    }
+
+    .neo-line--short {
+      width: 56%;
+      background: #6b7280;
+    }
+
+    .neo-tile-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      width: min(100%, 292px);
+    }
+
+    .neo-tile {
+      min-height: 98px;
+      padding: 14px;
+      border: 3px solid #111827;
+      border-radius: 20px;
+      background: #fffdf8;
+      box-shadow: 8px 8px 0 #111827;
+    }
+
+    .neo-tile--wide {
+      grid-column: 1 / -1;
+      min-height: 110px;
+    }
+
+    .neo-pill-row,
+    .neo-button-stack,
+    .neo-tag-cloud,
+    .neo-swatch-grid,
+    .neo-list-stack {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 12px;
+      width: min(100%, 292px);
+    }
+
+    .neo-pill-row {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .neo-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 36px;
+      padding: 0 14px;
+      border: 3px solid #111827;
+      border-radius: 999px;
+      background: var(--pill-bg, #ffffff);
+      color: #111827;
+      font-size: 13px;
+      font-weight: 800;
+      box-shadow: 4px 4px 0 #111827;
+    }
+
+    .neo-form {
+      position: relative;
+      z-index: 1;
+      width: min(100%, 296px);
+      padding: 18px;
+    }
+
+    .neo-label {
+      width: 82px;
+      height: 10px;
+      margin-bottom: 8px;
+      border-radius: 999px;
+      background: #111827;
+    }
+
+    .neo-input {
+      height: 44px;
+      margin-bottom: 12px;
+      border: 3px solid #111827;
+      border-radius: 14px;
+      background: var(--input-bg, #ffffff);
+    }
+
+    .neo-input--short {
+      width: 68%;
+      margin-bottom: 0;
+    }
+
+    .neo-button-stack {
+      justify-items: center;
+    }
+
+    .neo-button {
+      min-width: 186px;
+      min-height: 46px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 16px;
+      border: 3px solid #111827;
+      border-radius: 14px;
+      background: var(--button-bg, #ffffff);
+      color: #111827;
+      font-size: 14px;
+      font-weight: 800;
+      box-shadow: 6px 6px 0 #111827;
+    }
+
+    .neo-button--small {
+      min-width: 132px;
+      min-height: 40px;
+      margin-left: 92px;
+    }
+
+    .neo-tag-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .neo-swatch-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .neo-swatch {
+      min-height: 96px;
+      border: 3px solid #111827;
+      border-radius: 18px;
+      background: var(--swatch-bg, #ffffff);
+      box-shadow: 8px 8px 0 #111827;
+    }
+
+    .neo-folder-scene {
+      position: relative;
+      z-index: 1;
+      width: min(100%, 296px);
+      height: 170px;
+    }
+
+    .neo-folder,
+    .neo-paper {
+      position: absolute;
+      border: 3px solid #111827;
+      background: #fffdf8;
+      box-shadow: 8px 8px 0 #111827;
+    }
+
+    .neo-folder {
+      left: 26px;
+      right: 24px;
+      bottom: 20px;
+      height: 94px;
+      border-radius: 20px;
+      background: #facc15;
+    }
+
+    .neo-folder::before {
+      content: "";
+      position: absolute;
+      left: 18px;
+      top: -22px;
+      width: 112px;
+      height: 30px;
+      border: 3px solid #111827;
+      border-bottom: 0;
+      border-radius: 18px 18px 0 0;
+      background: #fcd34d;
+    }
+
+    .neo-paper {
+      width: 122px;
+      height: 132px;
+      top: 0;
+      right: 40px;
+      border-radius: 18px;
+      background: #ffffff;
+      transform: rotate(6deg);
+    }
+
+    .neo-paper::before,
+    .neo-paper::after {
+      content: "";
+      position: absolute;
+      left: 16px;
+      right: 16px;
+      height: 10px;
+      border-radius: 999px;
+      background: #2563eb;
+    }
+
+    .neo-paper::before {
+      top: 28px;
+    }
+
+    .neo-paper::after {
+      top: 48px;
+      right: 40px;
+      background: #6b7280;
+    }
+
     .archive-strip {
-      margin-top: 18px;
+      margin-top: 20px;
     }
 
     @media (max-width: 860px) {
-      .component-grid {
+      .component-card {
         grid-template-columns: 1fr;
       }
 
       .hero {
         padding: 28px 22px;
+      }
+
+      .component-visual {
+        min-height: 220px;
+        border-right: 0;
+        border-bottom: 2px solid #111827;
       }
     }
 
@@ -345,7 +650,12 @@
         flex-direction: column;
       }
 
+      .component-body-wrap {
+        padding: 24px 20px 22px;
+      }
+
       .component-top {
+        align-items: flex-start;
         flex-direction: column;
       }
     }
@@ -374,192 +684,392 @@
 
       <div class="component-grid">
         <article class="component-card component-card--panels">
-          <div class="component-top">
-            <span class="component-badge component-badge--cobalt">Layout</span>
-            <span class="component-status">Live guide</span>
+          <div class="component-visual" aria-hidden="true">
+            <div class="neo-stack">
+              <div class="neo-surface neo-window" style="transform: rotate(-4deg);">
+                <div class="neo-window-header">
+                  <span class="neo-window-dot" style="--dot-color:#60a5fa;"></span>
+                  <span class="neo-window-dot" style="--dot-color:#f472b6;"></span>
+                  <span class="neo-window-dot" style="--dot-color:#facc15;"></span>
+                  <span class="neo-window-title"></span>
+                </div>
+                <div class="neo-row">
+                  <span class="neo-rail" style="--rail-color:#60a5fa;"></span>
+                  <div class="neo-lines">
+                    <span class="neo-line"></span>
+                    <span class="neo-line neo-line--mid"></span>
+                  </div>
+                </div>
+                <div class="neo-row">
+                  <span class="neo-rail" style="--rail-color:#38bdf8;"></span>
+                  <div class="neo-lines">
+                    <span class="neo-line"></span>
+                    <span class="neo-line neo-line--short"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div>
-            <h3>Panel Component</h3>
-            <p class="component-description">Structured section containers with headers, optional actions, collapse behavior, and panel-specific spacing and interaction rules.</p>
+          <div class="component-body-wrap">
+            <div class="component-top">
+              <span class="component-badge component-badge--cobalt">Layout</span>
+              <span class="component-status">Live guide</span>
+            </div>
+            <div class="component-copy">
+              <h3>Panel Component</h3>
+              <p class="component-description">Structured section containers with headers, optional actions, collapse behavior, and panel-specific spacing and interaction rules.</p>
+            </div>
+            <div class="component-meta">
+              <span class="meta-pill">Collapsible</span>
+              <span class="meta-pill">Header actions</span>
+              <span class="meta-pill">Forms in panel</span>
+            </div>
+            <a class="component-link" href="panel-component.html">Open guide <span aria-hidden="true">→</span></a>
           </div>
-          <div class="component-meta">
-            <span class="meta-pill">Collapsible</span>
-            <span class="meta-pill">Header actions</span>
-            <span class="meta-pill">Forms in panel</span>
-          </div>
-          <a class="component-link" href="panel-component.html">Open guide <span aria-hidden="true">→</span></a>
         </article>
 
         <article class="component-card component-card--sections">
-          <div class="component-top">
-            <span class="component-badge component-badge--cobalt">Layout</span>
-            <span class="component-status">New guide</span>
+          <div class="component-visual" aria-hidden="true">
+            <div class="neo-stack">
+              <div class="neo-surface neo-window" style="transform: rotate(-6deg);">
+                <div class="neo-window-header">
+                  <span class="neo-window-dot" style="--dot-color:#2dd4bf;"></span>
+                  <span class="neo-window-dot" style="--dot-color:#67e8f9;"></span>
+                  <span class="neo-window-title"></span>
+                </div>
+                <div class="neo-row" style="background:#ccfbf1;">
+                  <span class="neo-rail" style="--rail-color:#14b8a6;"></span>
+                  <div class="neo-lines">
+                    <span class="neo-line"></span>
+                    <span class="neo-line neo-line--mid"></span>
+                  </div>
+                </div>
+              </div>
+              <div class="neo-row" style="width: 84%; margin-left: 56px; background:#ffffff; box-shadow:8px 8px 0 #111827;">
+                <span class="neo-rail" style="--rail-color:#22d3ee;"></span>
+                <div class="neo-lines">
+                  <span class="neo-line"></span>
+                  <span class="neo-line neo-line--short"></span>
+                </div>
+              </div>
+            </div>
           </div>
-          <div>
-            <h3>Section Component</h3>
-            <p class="component-description">Internal panel groupings with rails, supporting meta, collapsible headers, and space for related fields or cards.</p>
+          <div class="component-body-wrap">
+            <div class="component-top">
+              <span class="component-badge component-badge--cobalt">Layout</span>
+              <span class="component-status">New guide</span>
+            </div>
+            <div class="component-copy">
+              <h3>Section Component</h3>
+              <p class="component-description">Internal panel groupings with rails, supporting meta, collapsible headers, and space for related fields or cards.</p>
+            </div>
+            <div class="component-meta">
+              <span class="meta-pill">Rails</span>
+              <span class="meta-pill">Supporting meta</span>
+              <span class="meta-pill">Panel-friendly</span>
+            </div>
+            <a class="component-link" href="sections-components.html">Open guide <span aria-hidden="true">→</span></a>
           </div>
-          <div class="component-meta">
-            <span class="meta-pill">Rails</span>
-            <span class="meta-pill">Supporting meta</span>
-            <span class="meta-pill">Panel-friendly</span>
-          </div>
-          <a class="component-link" href="sections-components.html">Open guide <span aria-hidden="true">→</span></a>
         </article>
 
         <article class="component-card component-card--record-rows">
-          <div class="component-top">
-            <span class="component-badge component-badge--purple">Collections</span>
-            <span class="component-status">New guide</span>
+          <div class="component-visual" aria-hidden="true">
+            <div class="neo-list-stack">
+              <div class="neo-row" style="box-shadow:7px 7px 0 #111827;">
+                <span class="neo-rail" style="width:22px; min-height:22px; border-radius:6px; --rail-color:#ffffff;"></span>
+                <div class="neo-lines">
+                  <span class="neo-line"></span>
+                  <span class="neo-line neo-line--short"></span>
+                </div>
+              </div>
+              <div class="neo-row" style="background:#ddd6fe; box-shadow:7px 7px 0 #111827;">
+                <span class="neo-rail" style="width:22px; min-height:22px; border-radius:6px; --rail-color:#8b5cf6;"></span>
+                <div class="neo-lines">
+                  <span class="neo-line"></span>
+                  <span class="neo-line neo-line--mid"></span>
+                </div>
+              </div>
+              <div class="neo-row" style="box-shadow:7px 7px 0 #111827;">
+                <span class="neo-rail" style="width:22px; min-height:22px; border-radius:6px; --rail-color:#ffffff;"></span>
+                <div class="neo-lines">
+                  <span class="neo-line"></span>
+                  <span class="neo-line neo-line--short"></span>
+                </div>
+              </div>
+            </div>
           </div>
-          <div>
-            <h3>Record Rows</h3>
-            <p class="component-description">Compact selectable rows for services and assessments inside panels, with hover-revealed actions and lightweight status cues.</p>
+          <div class="component-body-wrap">
+            <div class="component-top">
+              <span class="component-badge component-badge--purple">Collections</span>
+              <span class="component-status">New guide</span>
+            </div>
+            <div class="component-copy">
+              <h3>Record Rows</h3>
+              <p class="component-description">Compact selectable rows for services and assessments inside panels, with hover-revealed actions and lightweight status cues.</p>
+            </div>
+            <div class="component-meta">
+              <span class="meta-pill">Selectable</span>
+              <span class="meta-pill">Dense metadata</span>
+              <span class="meta-pill">Row actions</span>
+            </div>
+            <a class="component-link" href="record-rows-components.html">Open guide <span aria-hidden="true">→</span></a>
           </div>
-          <div class="component-meta">
-            <span class="meta-pill">Selectable</span>
-            <span class="meta-pill">Dense metadata</span>
-            <span class="meta-pill">Row actions</span>
-          </div>
-          <a class="component-link" href="record-rows-components.html">Open guide <span aria-hidden="true">→</span></a>
         </article>
 
         <article class="component-card component-card--cards">
-          <div class="component-top">
-            <span class="component-badge component-badge--purple">Collections</span>
-            <span class="component-status">New guide</span>
+          <div class="component-visual" aria-hidden="true">
+            <div class="neo-tile-grid">
+              <div class="neo-tile">
+                <div class="neo-pill-row">
+                  <span class="neo-pill" style="--pill-bg:#f9a8d4;">Tag</span>
+                </div>
+                <div class="neo-lines" style="margin-top: 12px;">
+                  <span class="neo-line"></span>
+                  <span class="neo-line neo-line--short"></span>
+                </div>
+              </div>
+              <div class="neo-tile" style="transform: translateY(16px);">
+                <div class="neo-pill-row">
+                  <span class="neo-pill" style="--pill-bg:#c4b5fd;">Meta</span>
+                </div>
+                <div class="neo-lines" style="margin-top: 12px;">
+                  <span class="neo-line"></span>
+                  <span class="neo-line neo-line--mid"></span>
+                </div>
+              </div>
+            </div>
           </div>
-          <div>
-            <h3>Card Component</h3>
-            <p class="component-description">Compact summary surfaces for metadata, actions, standards, and lightweight content blocks with a quieter, denser hierarchy than panels.</p>
+          <div class="component-body-wrap">
+            <div class="component-top">
+              <span class="component-badge component-badge--purple">Collections</span>
+              <span class="component-status">New guide</span>
+            </div>
+            <div class="component-copy">
+              <h3>Card Component</h3>
+              <p class="component-description">Compact summary surfaces for metadata, actions, standards, and lightweight content blocks with a quieter, denser hierarchy than panels.</p>
+            </div>
+            <div class="component-meta">
+              <span class="meta-pill">Metadata cards</span>
+              <span class="meta-pill">Action states</span>
+              <span class="meta-pill">Grid layouts</span>
+            </div>
+            <a class="component-link" href="card-components.html">Open guide <span aria-hidden="true">→</span></a>
           </div>
-          <div class="component-meta">
-            <span class="meta-pill">Metadata cards</span>
-            <span class="meta-pill">Action states</span>
-            <span class="meta-pill">Grid layouts</span>
-          </div>
-          <a class="component-link" href="card-components.html">Open guide <span aria-hidden="true">→</span></a>
         </article>
 
         <article class="component-card component-card--forms">
-          <div class="component-top">
-            <span class="component-badge component-badge--green">Inputs</span>
-            <span class="component-status">Live guide</span>
+          <div class="component-visual" aria-hidden="true">
+            <div class="neo-surface neo-form">
+              <div class="neo-label"></div>
+              <div class="neo-input"></div>
+              <div class="neo-label" style="width: 108px;"></div>
+              <div class="neo-input" style="--input-bg:#dcfce7;"></div>
+              <div class="neo-label" style="width: 64px;"></div>
+              <div class="neo-input neo-input--short" style="--input-bg:#bfdbfe;"></div>
+            </div>
           </div>
-          <div>
-            <h3>Form Components</h3>
-            <p class="component-description">Field patterns, choices, helper text, validation states, and the shared form system used across entry screens.</p>
+          <div class="component-body-wrap">
+            <div class="component-top">
+              <span class="component-badge component-badge--green">Inputs</span>
+              <span class="component-status">Live guide</span>
+            </div>
+            <div class="component-copy">
+              <h3>Form Components</h3>
+              <p class="component-description">Field patterns, choices, helper text, validation states, and the shared form system used across entry screens.</p>
+            </div>
+            <div class="component-meta">
+              <span class="meta-pill">Fields</span>
+              <span class="meta-pill">Validation</span>
+              <span class="meta-pill">Choices</span>
+            </div>
+            <a class="component-link" href="form-components.html">Open guide <span aria-hidden="true">→</span></a>
           </div>
-          <div class="component-meta">
-            <span class="meta-pill">Fields</span>
-            <span class="meta-pill">Validation</span>
-            <span class="meta-pill">Choices</span>
-          </div>
-          <a class="component-link" href="form-components.html">Open guide <span aria-hidden="true">→</span></a>
         </article>
 
         <article class="component-card component-card--buttons">
-          <div class="component-top">
-            <span class="component-badge component-badge--cobalt">Actions</span>
-            <span class="component-status">New guide</span>
+          <div class="component-visual" aria-hidden="true">
+            <div class="neo-button-stack">
+              <span class="neo-button" style="--button-bg:#2563eb; color:#ffffff;">Primary</span>
+              <span class="neo-button">Secondary</span>
+              <span class="neo-button neo-button--small" style="--button-bg:#bfdbfe;">Link</span>
+            </div>
           </div>
-          <div>
-            <h3>Buttons</h3>
-            <p class="component-description">Core action hierarchy for primary, secondary, link, and destructive buttons, including grouped-action patterns and button-state references.</p>
+          <div class="component-body-wrap">
+            <div class="component-top">
+              <span class="component-badge component-badge--cobalt">Actions</span>
+              <span class="component-status">New guide</span>
+            </div>
+            <div class="component-copy">
+              <h3>Buttons</h3>
+              <p class="component-description">Core action hierarchy for primary, secondary, link, and destructive buttons, including grouped-action patterns and button-state references.</p>
+            </div>
+            <div class="component-meta">
+              <span class="meta-pill">Primary</span>
+              <span class="meta-pill">Secondary</span>
+              <span class="meta-pill">Link</span>
+            </div>
+            <a class="component-link" href="buttons-components.html">Open guide <span aria-hidden="true">→</span></a>
           </div>
-          <div class="component-meta">
-            <span class="meta-pill">Primary</span>
-            <span class="meta-pill">Secondary</span>
-            <span class="meta-pill">Link</span>
-          </div>
-          <a class="component-link" href="buttons-components.html">Open guide <span aria-hidden="true">→</span></a>
         </article>
 
         <article class="component-card component-card--notifications">
-          <div class="component-top">
-            <span class="component-badge component-badge--green">Feedback</span>
-            <span class="component-status">New guide</span>
+          <div class="component-visual" aria-hidden="true">
+            <div class="neo-stack">
+              <div class="neo-row" style="background:#bbf7d0; box-shadow:7px 7px 0 #111827;">
+                <span class="neo-rail" style="--rail-color:#16a34a;"></span>
+                <div class="neo-lines">
+                  <span class="neo-line"></span>
+                  <span class="neo-line neo-line--mid"></span>
+                </div>
+              </div>
+              <div class="neo-row" style="background:#fef3c7; box-shadow:7px 7px 0 #111827;">
+                <span class="neo-rail" style="--rail-color:#f59e0b;"></span>
+                <div class="neo-lines">
+                  <span class="neo-line"></span>
+                  <span class="neo-line neo-line--short"></span>
+                </div>
+              </div>
+              <div class="neo-row" style="background:#dbeafe; box-shadow:7px 7px 0 #111827;">
+                <span class="neo-rail" style="--rail-color:#2563eb;"></span>
+                <div class="neo-lines">
+                  <span class="neo-line"></span>
+                  <span class="neo-line neo-line--mid"></span>
+                </div>
+              </div>
+            </div>
           </div>
-          <div>
-            <h3>Inline Notices</h3>
-            <p class="component-description">Inline panel-level notices for contextual feedback, guidance, success, warnings, and errors inside the current workflow.</p>
+          <div class="component-body-wrap">
+            <div class="component-top">
+              <span class="component-badge component-badge--green">Feedback</span>
+              <span class="component-status">New guide</span>
+            </div>
+            <div class="component-copy">
+              <h3>Inline Notices</h3>
+              <p class="component-description">Inline panel-level notices for contextual feedback, guidance, success, warnings, and errors inside the current workflow.</p>
+            </div>
+            <div class="component-meta">
+              <span class="meta-pill">Inline notices</span>
+              <span class="meta-pill">Success state</span>
+              <span class="meta-pill">Panel-friendly</span>
+            </div>
+            <a class="component-link" href="notifications-components.html">Open guide <span aria-hidden="true">→</span></a>
           </div>
-          <div class="component-meta">
-            <span class="meta-pill">Inline notices</span>
-            <span class="meta-pill">Success state</span>
-            <span class="meta-pill">Panel-friendly</span>
-          </div>
-          <a class="component-link" href="notifications-components.html">Open guide <span aria-hidden="true">→</span></a>
         </article>
 
         <article class="component-card component-card--cards">
-          <div class="component-top">
-            <span class="component-badge component-badge--purple">Metadata</span>
-            <span class="component-status">New guide</span>
+          <div class="component-visual" aria-hidden="true">
+            <div class="neo-tag-cloud">
+              <span class="neo-pill" style="--pill-bg:#c4b5fd;">Status</span>
+              <span class="neo-pill" style="--pill-bg:#f9a8d4;">Category</span>
+              <span class="neo-pill" style="--pill-bg:#bfdbfe;">Draft</span>
+              <span class="neo-pill" style="--pill-bg:#fde68a;">Archived</span>
+            </div>
           </div>
-          <div>
-            <h3>Badges and Tags</h3>
-            <p class="component-description">Usage rules for category badges and status tags, including when to use one, both, or neither and how they map back to the approved color pairs.</p>
+          <div class="component-body-wrap">
+            <div class="component-top">
+              <span class="component-badge component-badge--purple">Metadata</span>
+              <span class="component-status">New guide</span>
+            </div>
+            <div class="component-copy">
+              <h3>Badges and Tags</h3>
+              <p class="component-description">Usage rules for category badges and status tags, including when to use one, both, or neither and how they map back to the approved color pairs.</p>
+            </div>
+            <div class="component-meta">
+              <span class="meta-pill">Category badge</span>
+              <span class="meta-pill">Status tag</span>
+              <span class="meta-pill">Usage rules</span>
+            </div>
+            <a class="component-link" href="badges-components.html">Open guide <span aria-hidden="true">→</span></a>
           </div>
-          <div class="component-meta">
-            <span class="meta-pill">Category badge</span>
-            <span class="meta-pill">Status tag</span>
-            <span class="meta-pill">Usage rules</span>
-          </div>
-          <a class="component-link" href="badges-components.html">Open guide <span aria-hidden="true">→</span></a>
         </article>
 
         <article class="component-card component-card--colors">
-          <div class="component-top">
-            <span class="component-badge component-badge--cobalt">Foundation</span>
-            <span class="component-status">Live guide</span>
+          <div class="component-visual" aria-hidden="true">
+            <div class="neo-swatch-grid">
+              <div class="neo-swatch" style="--swatch-bg:#2563eb;"></div>
+              <div class="neo-swatch" style="--swatch-bg:#8b5cf6;"></div>
+              <div class="neo-swatch" style="--swatch-bg:#22c55e;"></div>
+              <div class="neo-swatch" style="--swatch-bg:#f59e0b;"></div>
+            </div>
           </div>
-          <div>
-            <h3>Colors</h3>
-            <p class="component-description">Production component color scales, semantic mappings, badge palette, and status colors used across the active system.</p>
+          <div class="component-body-wrap">
+            <div class="component-top">
+              <span class="component-badge component-badge--cobalt">Foundation</span>
+              <span class="component-status">Live guide</span>
+            </div>
+            <div class="component-copy">
+              <h3>Colors</h3>
+              <p class="component-description">Production component color scales, semantic mappings, badge palette, and status colors used across the active system.</p>
+            </div>
+            <div class="component-meta">
+              <span class="meta-pill">Scales</span>
+              <span class="meta-pill">Token mappings</span>
+              <span class="meta-pill">Status palette</span>
+            </div>
+            <a class="component-link" href="colors.html">Open guide <span aria-hidden="true">→</span></a>
           </div>
-          <div class="component-meta">
-            <span class="meta-pill">Scales</span>
-            <span class="meta-pill">Token mappings</span>
-            <span class="meta-pill">Status palette</span>
-          </div>
-          <a class="component-link" href="colors.html">Open guide <span aria-hidden="true">→</span></a>
         </article>
 
         <article class="component-card component-card--drafts">
-          <div class="component-top">
-            <span class="component-badge component-badge--amber">Drafts</span>
-            <span class="component-status">Work in progress</span>
+          <div class="component-visual" aria-hidden="true">
+            <div class="neo-tile-grid">
+              <div class="neo-tile neo-tile--wide" style="transform: rotate(-3deg);">
+                <div class="neo-pill-row">
+                  <span class="neo-pill" style="--pill-bg:#fdba74;">Draft</span>
+                </div>
+                <div class="neo-lines" style="margin-top: 12px;">
+                  <span class="neo-line"></span>
+                  <span class="neo-line neo-line--mid"></span>
+                  <span class="neo-line neo-line--short"></span>
+                </div>
+              </div>
+              <div class="neo-tile" style="background:#fef3c7;"></div>
+              <div class="neo-tile" style="background:#bfdbfe;"></div>
+            </div>
           </div>
-          <div>
-            <h3>Testing Surface</h3>
-            <p class="component-description">A staging area for draft component variants, denser record-row explorations, and in-progress interaction experiments before promotion into shared docs.</p>
+          <div class="component-body-wrap">
+            <div class="component-top">
+              <span class="component-badge component-badge--amber">Drafts</span>
+              <span class="component-status">Work in progress</span>
+            </div>
+            <div class="component-copy">
+              <h3>Testing Surface</h3>
+              <p class="component-description">A staging area for draft component variants, denser record-row explorations, and in-progress interaction experiments before promotion into shared docs.</p>
+            </div>
+            <div class="component-meta">
+              <span class="meta-pill">Draft rows</span>
+              <span class="meta-pill">Panel variants</span>
+              <span class="meta-pill">In progress</span>
+            </div>
+            <a class="component-link" href="testing.html">Open testing page <span aria-hidden="true">→</span></a>
           </div>
-          <div class="component-meta">
-            <span class="meta-pill">Draft rows</span>
-            <span class="meta-pill">Panel variants</span>
-            <span class="meta-pill">In progress</span>
-          </div>
-          <a class="component-link" href="testing.html">Open testing page <span aria-hidden="true">→</span></a>
         </article>
       </div>
 
       <article class="component-card component-card--archive archive-strip">
-        <div class="component-top">
-          <span class="component-badge component-badge--amber">Archive</span>
-          <span class="component-status">Reference only</span>
+        <div class="component-visual" aria-hidden="true">
+          <div class="neo-folder-scene">
+            <div class="neo-paper"></div>
+            <div class="neo-folder"></div>
+          </div>
         </div>
-        <div>
-          <h3>Archived Components</h3>
-          <p class="component-description">Preserved component pages live here after a major structural update replaces the active version. Use the archive to review retired patterns without mixing them into the current docs.</p>
+        <div class="component-body-wrap">
+          <div class="component-top">
+            <span class="component-badge component-badge--amber">Archive</span>
+            <span class="component-status">Reference only</span>
+          </div>
+          <div class="component-copy">
+            <h3>Archived Components</h3>
+            <p class="component-description">Preserved component pages live here after a major structural update replaces the active version. Use the archive to review retired patterns without mixing them into the current docs.</p>
+          </div>
+          <div class="component-meta">
+            <span class="meta-pill">Panel v 1.0</span>
+            <span class="meta-pill">Purple forms archive</span>
+            <span class="meta-pill">Historical reference</span>
+            <span class="meta-pill">Archived docs</span>
+          </div>
+          <a class="component-link" href="archived-components.html">Open archive <span aria-hidden="true">→</span></a>
         </div>
-        <div class="component-meta">
-          <span class="meta-pill">Panel v 1.0</span>
-          <span class="meta-pill">Purple forms archive</span>
-          <span class="meta-pill">Historical reference</span>
-          <span class="meta-pill">Archived docs</span>
-        </div>
-        <a class="component-link" href="archived-components.html">Open archive <span aria-hidden="true">→</span></a>
       </article>
     </section>
   </main>
