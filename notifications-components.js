@@ -23,16 +23,36 @@ tabs.forEach((tab) => {
 
 const noticeToggles = Array.from(document.querySelectorAll('[data-notice-toggle]'));
 
+const getNoticeDetails = (toggle) => {
+  const controlsId = toggle.getAttribute('aria-controls');
+  if (controlsId) {
+    const controlledDetails = document.getElementById(controlsId);
+    if (controlledDetails) return controlledDetails;
+  }
+
+  return toggle.closest('.notice__disclosure')?.querySelector('[data-notice-details]') ?? null;
+};
+
+const syncNoticeDisclosure = (toggle, details, label) => {
+  const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+  details.classList.toggle('is-open', isOpen);
+  details.setAttribute('aria-hidden', String(!isOpen));
+
+  if (label) {
+    label.textContent = isOpen ? 'Hide details' : 'Show details';
+  }
+};
+
 noticeToggles.forEach((toggle) => {
-  const details = toggle.parentElement?.querySelector('[data-notice-details]');
-  const label = toggle.querySelector('span');
+  const details = getNoticeDetails(toggle);
+  const label = toggle.querySelector('[data-notice-toggle-label]') ?? toggle.querySelector('span');
   if (!details || !label) return;
 
+  syncNoticeDisclosure(toggle, details, label);
+
   toggle.addEventListener('click', () => {
-    const isOpen = toggle.getAttribute('aria-expanded') === 'true';
-    const nextOpen = !isOpen;
+    const nextOpen = toggle.getAttribute('aria-expanded') !== 'true';
     toggle.setAttribute('aria-expanded', String(nextOpen));
-    label.textContent = nextOpen ? 'Hide details' : 'Show details';
-    details.classList.toggle('is-open', nextOpen);
+    syncNoticeDisclosure(toggle, details, label);
   });
 });
