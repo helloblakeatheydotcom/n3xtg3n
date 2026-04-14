@@ -281,6 +281,37 @@
       box-shadow: none;
     }
 
+    .draft-color-illustration-stack {
+      display: grid;
+      gap: 18px;
+    }
+
+    .draft-color-illustration-note {
+      margin: 0;
+      max-width: 720px;
+      color: var(--color-text-secondary);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .draft-color-stage {
+      position: relative;
+      display: grid;
+      place-items: center;
+      min-height: 420px;
+      padding: clamp(20px, 4vw, 36px);
+      border: 1px solid rgba(201, 171, 133, 0.32);
+      border-radius: 24px;
+      overflow: hidden;
+      background: #f6ead8;
+    }
+
+    .draft-color-art {
+      display: block;
+      width: min(100%, 760px);
+      height: auto;
+    }
+
     .draft-blue-scale-stack {
       display: grid;
       gap: 18px;
@@ -380,6 +411,280 @@
       gap: 24px;
       width: 100%;
       max-width: 420px;
+    }
+
+    .draft-handoff-form {
+      display: grid;
+      gap: 16px;
+      width: 100%;
+    }
+
+    .draft-handoff-summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .draft-handoff-legend {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      font-size: 13px;
+      line-height: 20px;
+      color: var(--color-text-secondary);
+    }
+
+    .draft-handoff-legend-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .draft-handoff-legend-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--handoff-dot-color);
+    }
+
+    .draft-handoff-status {
+      font-size: 13px;
+      line-height: 20px;
+      font-weight: 500;
+      color: #335E2B;
+    }
+
+    .draft-handoff-days {
+      display: grid;
+      gap: 12px;
+    }
+
+    .draft-handoff-columns {
+      display: grid;
+      grid-template-columns: 64px minmax(0, 1fr) 272px;
+      gap: 12px;
+      align-items: end;
+      padding: 0 14px;
+    }
+
+    .draft-handoff-column-label {
+      margin: 0;
+      color: var(--field-label-color);
+      font: var(--font-label-md);
+      text-align: center;
+    }
+
+    .draft-handoff-day {
+      display: grid;
+      gap: 14px;
+      padding: 14px 14px 12px;
+      border: 1px solid #E6E9F0;
+      border-radius: 12px;
+      background: transparent;
+    }
+
+    .draft-handoff-day-head {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 12px;
+    }
+
+    .draft-handoff-day-name {
+      margin: 0;
+      color: var(--field-label-color);
+      font: var(--font-label-md);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-align: left;
+    }
+
+    .draft-handoff-release {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .draft-handoff-release-label {
+      margin: 0;
+      color: var(--field-label-color);
+      font: var(--font-label-md);
+      text-align: center;
+    }
+
+    .draft-handoff-release .draft-segmented-control {
+      width: 272px;
+      height: 32px;
+      flex: 0 0 auto;
+    }
+
+    .draft-handoff-release .draft-segmented-text {
+      padding: 0 14px;
+      font-size: 13px;
+      line-height: 18px;
+      white-space: nowrap;
+    }
+
+    .draft-handoff-row {
+      display: grid;
+      grid-template-columns: 64px minmax(0, 1fr) 272px;
+      gap: 12px;
+      align-items: center;
+      padding-top: 10px;
+      border-top: 1px solid #E8E1CC;
+    }
+
+    .draft-handoff-row:first-child {
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    .draft-handoff-row-label {
+      color: var(--color-text-primary);
+      font: var(--font-label-md);
+      white-space: nowrap;
+    }
+
+    .draft-handoff-row-control {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    .draft-handoff-row-control .draft-segmented-control {
+      width: 272px;
+      height: 32px;
+      flex: 0 0 auto;
+    }
+
+    .draft-handoff-row-control .draft-segmented-text {
+      padding: 0 14px;
+      font-size: 13px;
+      line-height: 18px;
+      white-space: nowrap;
+    }
+
+    .draft-handoff-combobox {
+      position: relative;
+      display: block;
+    }
+
+    .draft-handoff-input-wrap {
+      position: relative;
+      width: 100%;
+    }
+
+    .draft-handoff-input-wrap::after {
+      content: "";
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      width: 7px;
+      height: 7px;
+      border-left: 1.5px solid #6B7280;
+      border-bottom: 1.5px solid #6B7280;
+      transform: translateY(-65%) rotate(-45deg);
+      pointer-events: none;
+    }
+
+    .draft-handoff-location-input {
+      padding-right: 34px;
+    }
+
+    .draft-handoff-options {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: calc(100% + 4px);
+      z-index: 20;
+      display: grid;
+      border: 1px solid #D5DBE5;
+      border-radius: 8px;
+      background: #FFFFFF;
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.10);
+      overflow: hidden;
+    }
+
+    .draft-handoff-options[hidden] {
+      display: none;
+    }
+
+    .draft-handoff-option {
+      display: flex;
+      width: 100%;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 12px;
+      border: 0;
+      border-top: 1px solid #E5E7EB;
+      background: #FFFFFF;
+      color: #1F2937;
+      font-size: 14px;
+      line-height: 20px;
+      text-align: left;
+    }
+
+    .draft-handoff-option:first-child {
+      border-top: 0;
+    }
+
+    .draft-handoff-option:hover,
+    .draft-handoff-option:focus-visible {
+      background: #F8FAFC;
+      outline: none;
+    }
+
+    .draft-handoff-option--add {
+      color: #2251C5;
+      font-weight: 500;
+    }
+
+    .draft-handoff-option--empty {
+      color: #667085;
+    }
+
+    .draft-handoff-option-select {
+      flex: 1 1 auto;
+      min-width: 0;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      color: inherit;
+      font: inherit;
+      text-align: left;
+    }
+
+    .draft-handoff-option-select:hover,
+    .draft-handoff-option-select:focus-visible {
+      outline: none;
+    }
+
+    .draft-handoff-option-remove {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 20px;
+      height: 20px;
+      margin-left: 12px;
+      padding: 0;
+      border: 0;
+      border-radius: 999px;
+      background: transparent;
+      color: #98A2B3;
+      font-size: 12px;
+      line-height: 1;
+      flex: 0 0 auto;
+    }
+
+    .draft-handoff-option-remove:hover,
+    .draft-handoff-option-remove:focus-visible {
+      background: #F2F4F7;
+      color: #475467;
+      outline: none;
     }
 
     #draft-standard-panel-content .draft-standard-form .field-helper {
@@ -2783,6 +3088,298 @@
       </div>
     </article>
 
+    <article class="panel" data-collapsible-panel data-panel-id="draft-student-handoff">
+      <header class="panel-header">
+        <div class="panel-left">
+          <button class="panel-toggle" type="button" aria-expanded="true" aria-controls="draft-student-handoff-content">
+            <span class="sr-only">Collapse section</span>
+            <svg class="panel-chevron" viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+              <path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+          <h2 class="panel-title">Student Hand-off</h2>
+        </div>
+      </header>
+
+      <div id="draft-student-handoff-content" class="panel-content" role="region" aria-label="Student hand-off content">
+        <div class="panel-body">
+          <form class="draft-handoff-form" aria-label="Student hand-off schedule">
+            <div class="draft-handoff-summary">
+              <div class="draft-handoff-legend" aria-label="Hand-off legend">
+                <span class="draft-handoff-legend-item">
+                  <span class="draft-handoff-legend-dot" style="--handoff-dot-color:#4991F7;" aria-hidden="true"></span>
+                  <span>Pick-up</span>
+                </span>
+                <span class="draft-handoff-legend-item">
+                  <span class="draft-handoff-legend-dot" style="--handoff-dot-color:#16B364;" aria-hidden="true"></span>
+                  <span>Drop-off</span>
+                </span>
+              </div>
+              <p class="draft-handoff-status">All days covered</p>
+            </div>
+
+            <div class="draft-handoff-days">
+              <div class="draft-handoff-columns" aria-hidden="true">
+                <span></span>
+                <span></span>
+                <p class="draft-handoff-column-label">Hand-off requirement</p>
+              </div>
+
+              <section class="draft-handoff-day" aria-label="Monday hand-off">
+                <div class="draft-handoff-day-head">
+                  <p class="draft-handoff-day-name">Mon</p>
+                </div>
+                <div class="draft-handoff-fields">
+                  <div class="draft-handoff-row">
+                    <label class="draft-handoff-row-label" for="draft-handoff-mon-pickup">Pick-up</label>
+                    <div class="draft-handoff-combobox" data-location-field>
+                      <div class="field-input-wrapper draft-handoff-input-wrap">
+                        <input id="draft-handoff-mon-pickup" class="field-input draft-handoff-location-input" type="text" value="" autocomplete="off" data-location-input aria-haspopup="listbox" aria-expanded="false" />
+                      </div>
+                      <div class="draft-handoff-options" data-location-list role="listbox" hidden></div>
+                    </div>
+                    <div class="draft-handoff-row-control">
+                      <div class="draft-segmented-control draft-segmented-control--flat" role="radiogroup" aria-label="Monday pick-up student hand-off">
+                        <label class="draft-segmented-option">
+                          <input type="radio" name="draft-handoff-mon-pickup-release" value="must-be-met" checked />
+                          <span class="draft-segmented-text">Must Be Met</span>
+                        </label>
+                        <label class="draft-segmented-option">
+                          <input type="radio" name="draft-handoff-mon-pickup-release" value="can-be-alone" />
+                          <span class="draft-segmented-text">Can Be Alone</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="draft-handoff-row">
+                    <label class="draft-handoff-row-label" for="draft-handoff-mon-dropoff">Drop-off</label>
+                    <div class="draft-handoff-combobox" data-location-field>
+                      <div class="field-input-wrapper draft-handoff-input-wrap">
+                        <input id="draft-handoff-mon-dropoff" class="field-input draft-handoff-location-input" type="text" value="" autocomplete="off" data-location-input aria-haspopup="listbox" aria-expanded="false" />
+                      </div>
+                      <div class="draft-handoff-options" data-location-list role="listbox" hidden></div>
+                    </div>
+                    <div class="draft-handoff-row-control">
+                      <div class="draft-segmented-control draft-segmented-control--flat" role="radiogroup" aria-label="Monday drop-off student hand-off">
+                        <label class="draft-segmented-option">
+                          <input type="radio" name="draft-handoff-mon-dropoff-release" value="must-be-met" checked />
+                          <span class="draft-segmented-text">Must Be Met</span>
+                        </label>
+                        <label class="draft-segmented-option">
+                          <input type="radio" name="draft-handoff-mon-dropoff-release" value="can-be-alone" />
+                          <span class="draft-segmented-text">Can Be Alone</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <section class="draft-handoff-day" aria-label="Tuesday hand-off">
+                <div class="draft-handoff-day-head">
+                  <p class="draft-handoff-day-name">Tue</p>
+                </div>
+                <div class="draft-handoff-fields">
+                  <div class="draft-handoff-row">
+                    <label class="draft-handoff-row-label" for="draft-handoff-tue-pickup">Pick-up</label>
+                    <div class="draft-handoff-combobox" data-location-field>
+                      <div class="field-input-wrapper draft-handoff-input-wrap">
+                        <input id="draft-handoff-tue-pickup" class="field-input draft-handoff-location-input" type="text" value="" autocomplete="off" data-location-input aria-haspopup="listbox" aria-expanded="false" />
+                      </div>
+                      <div class="draft-handoff-options" data-location-list role="listbox" hidden></div>
+                    </div>
+                    <div class="draft-handoff-row-control">
+                      <div class="draft-segmented-control draft-segmented-control--flat" role="radiogroup" aria-label="Tuesday pick-up student hand-off">
+                        <label class="draft-segmented-option">
+                          <input type="radio" name="draft-handoff-tue-pickup-release" value="must-be-met" checked />
+                          <span class="draft-segmented-text">Must Be Met</span>
+                        </label>
+                        <label class="draft-segmented-option">
+                          <input type="radio" name="draft-handoff-tue-pickup-release" value="can-be-alone" />
+                          <span class="draft-segmented-text">Can Be Alone</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="draft-handoff-row">
+                    <label class="draft-handoff-row-label" for="draft-handoff-tue-dropoff">Drop-off</label>
+                    <div class="draft-handoff-combobox" data-location-field>
+                      <div class="field-input-wrapper draft-handoff-input-wrap">
+                        <input id="draft-handoff-tue-dropoff" class="field-input draft-handoff-location-input" type="text" value="" autocomplete="off" data-location-input aria-haspopup="listbox" aria-expanded="false" />
+                      </div>
+                      <div class="draft-handoff-options" data-location-list role="listbox" hidden></div>
+                    </div>
+                    <div class="draft-handoff-row-control">
+                      <div class="draft-segmented-control draft-segmented-control--flat" role="radiogroup" aria-label="Tuesday drop-off student hand-off">
+                        <label class="draft-segmented-option">
+                          <input type="radio" name="draft-handoff-tue-dropoff-release" value="must-be-met" checked />
+                          <span class="draft-segmented-text">Must Be Met</span>
+                        </label>
+                        <label class="draft-segmented-option">
+                          <input type="radio" name="draft-handoff-tue-dropoff-release" value="can-be-alone" />
+                          <span class="draft-segmented-text">Can Be Alone</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <section class="draft-handoff-day" aria-label="Wednesday hand-off">
+                <div class="draft-handoff-day-head">
+                  <p class="draft-handoff-day-name">Wed</p>
+                </div>
+                <div class="draft-handoff-fields">
+                  <div class="draft-handoff-row">
+                    <label class="draft-handoff-row-label" for="draft-handoff-wed-pickup">Pick-up</label>
+                    <div class="draft-handoff-combobox" data-location-field>
+                      <div class="field-input-wrapper draft-handoff-input-wrap">
+                        <input id="draft-handoff-wed-pickup" class="field-input draft-handoff-location-input" type="text" value="" autocomplete="off" data-location-input aria-haspopup="listbox" aria-expanded="false" />
+                      </div>
+                      <div class="draft-handoff-options" data-location-list role="listbox" hidden></div>
+                    </div>
+                    <div class="draft-handoff-row-control">
+                      <div class="draft-segmented-control draft-segmented-control--flat" role="radiogroup" aria-label="Wednesday pick-up student hand-off">
+                        <label class="draft-segmented-option">
+                          <input type="radio" name="draft-handoff-wed-pickup-release" value="must-be-met" checked />
+                          <span class="draft-segmented-text">Must Be Met</span>
+                        </label>
+                        <label class="draft-segmented-option">
+                          <input type="radio" name="draft-handoff-wed-pickup-release" value="can-be-alone" />
+                          <span class="draft-segmented-text">Can Be Alone</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="draft-handoff-row">
+                    <label class="draft-handoff-row-label" for="draft-handoff-wed-dropoff">Drop-off</label>
+                    <div class="draft-handoff-combobox" data-location-field>
+                      <div class="field-input-wrapper draft-handoff-input-wrap">
+                        <input id="draft-handoff-wed-dropoff" class="field-input draft-handoff-location-input" type="text" value="" autocomplete="off" data-location-input aria-haspopup="listbox" aria-expanded="false" />
+                      </div>
+                      <div class="draft-handoff-options" data-location-list role="listbox" hidden></div>
+                    </div>
+                    <div class="draft-handoff-row-control">
+                      <div class="draft-segmented-control draft-segmented-control--flat" role="radiogroup" aria-label="Wednesday drop-off student hand-off">
+                        <label class="draft-segmented-option">
+                          <input type="radio" name="draft-handoff-wed-dropoff-release" value="must-be-met" checked />
+                          <span class="draft-segmented-text">Must Be Met</span>
+                        </label>
+                        <label class="draft-segmented-option">
+                          <input type="radio" name="draft-handoff-wed-dropoff-release" value="can-be-alone" />
+                          <span class="draft-segmented-text">Can Be Alone</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <section class="draft-handoff-day" aria-label="Thursday hand-off">
+                <div class="draft-handoff-day-head">
+                  <p class="draft-handoff-day-name">Thu</p>
+                </div>
+                <div class="draft-handoff-fields">
+                  <div class="draft-handoff-row">
+                    <label class="draft-handoff-row-label" for="draft-handoff-thu-pickup">Pick-up</label>
+                    <div class="draft-handoff-combobox" data-location-field>
+                      <div class="field-input-wrapper draft-handoff-input-wrap">
+                        <input id="draft-handoff-thu-pickup" class="field-input draft-handoff-location-input" type="text" value="" autocomplete="off" data-location-input aria-haspopup="listbox" aria-expanded="false" />
+                      </div>
+                      <div class="draft-handoff-options" data-location-list role="listbox" hidden></div>
+                    </div>
+                    <div class="draft-handoff-row-control">
+                      <div class="draft-segmented-control draft-segmented-control--flat" role="radiogroup" aria-label="Thursday pick-up student hand-off">
+                        <label class="draft-segmented-option">
+                          <input type="radio" name="draft-handoff-thu-pickup-release" value="must-be-met" checked />
+                          <span class="draft-segmented-text">Must Be Met</span>
+                        </label>
+                        <label class="draft-segmented-option">
+                          <input type="radio" name="draft-handoff-thu-pickup-release" value="can-be-alone" />
+                          <span class="draft-segmented-text">Can Be Alone</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="draft-handoff-row">
+                    <label class="draft-handoff-row-label" for="draft-handoff-thu-dropoff">Drop-off</label>
+                    <div class="draft-handoff-combobox" data-location-field>
+                      <div class="field-input-wrapper draft-handoff-input-wrap">
+                        <input id="draft-handoff-thu-dropoff" class="field-input draft-handoff-location-input" type="text" value="" autocomplete="off" data-location-input aria-haspopup="listbox" aria-expanded="false" />
+                      </div>
+                      <div class="draft-handoff-options" data-location-list role="listbox" hidden></div>
+                    </div>
+                    <div class="draft-handoff-row-control">
+                      <div class="draft-segmented-control draft-segmented-control--flat" role="radiogroup" aria-label="Thursday drop-off student hand-off">
+                        <label class="draft-segmented-option">
+                          <input type="radio" name="draft-handoff-thu-dropoff-release" value="must-be-met" checked />
+                          <span class="draft-segmented-text">Must Be Met</span>
+                        </label>
+                        <label class="draft-segmented-option">
+                          <input type="radio" name="draft-handoff-thu-dropoff-release" value="can-be-alone" />
+                          <span class="draft-segmented-text">Can Be Alone</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <section class="draft-handoff-day" aria-label="Friday hand-off">
+                <div class="draft-handoff-day-head">
+                  <p class="draft-handoff-day-name">Fri</p>
+                </div>
+                <div class="draft-handoff-fields">
+                  <div class="draft-handoff-row">
+                    <label class="draft-handoff-row-label" for="draft-handoff-fri-pickup">Pick-up</label>
+                    <div class="draft-handoff-combobox" data-location-field>
+                      <div class="field-input-wrapper draft-handoff-input-wrap">
+                        <input id="draft-handoff-fri-pickup" class="field-input draft-handoff-location-input" type="text" value="" autocomplete="off" data-location-input aria-haspopup="listbox" aria-expanded="false" />
+                      </div>
+                      <div class="draft-handoff-options" data-location-list role="listbox" hidden></div>
+                    </div>
+                    <div class="draft-handoff-row-control">
+                      <div class="draft-segmented-control draft-segmented-control--flat" role="radiogroup" aria-label="Friday pick-up student hand-off">
+                        <label class="draft-segmented-option">
+                          <input type="radio" name="draft-handoff-fri-pickup-release" value="must-be-met" checked />
+                          <span class="draft-segmented-text">Must Be Met</span>
+                        </label>
+                        <label class="draft-segmented-option">
+                          <input type="radio" name="draft-handoff-fri-pickup-release" value="can-be-alone" />
+                          <span class="draft-segmented-text">Can Be Alone</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="draft-handoff-row">
+                    <label class="draft-handoff-row-label" for="draft-handoff-fri-dropoff">Drop-off</label>
+                    <div class="draft-handoff-combobox" data-location-field>
+                      <div class="field-input-wrapper draft-handoff-input-wrap">
+                        <input id="draft-handoff-fri-dropoff" class="field-input draft-handoff-location-input" type="text" value="" autocomplete="off" data-location-input aria-haspopup="listbox" aria-expanded="false" />
+                      </div>
+                      <div class="draft-handoff-options" data-location-list role="listbox" hidden></div>
+                    </div>
+                    <div class="draft-handoff-row-control">
+                      <div class="draft-segmented-control draft-segmented-control--flat" role="radiogroup" aria-label="Friday drop-off student hand-off">
+                        <label class="draft-segmented-option">
+                          <input type="radio" name="draft-handoff-fri-dropoff-release" value="must-be-met" checked />
+                          <span class="draft-segmented-text">Must Be Met</span>
+                        </label>
+                        <label class="draft-segmented-option">
+                          <input type="radio" name="draft-handoff-fri-dropoff-release" value="can-be-alone" />
+                          <span class="draft-segmented-text">Can Be Alone</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </form>
+        </div>
+      </div>
+    </article>
+
     <article class="panel" data-collapsible-panel data-panel-id="draft-segmented-controls">
       <header class="panel-header">
         <div class="panel-left">
@@ -2819,6 +3416,63 @@
                 </label>
               </div>
               <p class="draft-segmented-note">Segmented Yes / No example with no default selection.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="panel" data-collapsible-panel data-panel-id="draft-color-illustration">
+      <header class="panel-header">
+        <div class="panel-left">
+          <span class="panel-icon panel-icon--square" aria-hidden="true">
+            <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+              <path d="M12 4.5c4.97 0 9 3.58 9 8 0 1.57-.5 2.93-1.34 4.02-.78 1.01-2.2 1.48-3.35 1.08l-1.28-.44c-.86-.3-1.75.34-1.75 1.25v.09c0 1.66-1.34 3-3 3-4.42 0-8-4.03-8-9s4.03-8 9-8Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+              <circle cx="8.3" cy="10" r="1.2" fill="currentColor" />
+              <circle cx="12.4" cy="8.4" r="1.2" fill="currentColor" />
+              <circle cx="15.9" cy="10.6" r="1.2" fill="currentColor" />
+              <circle cx="8.9" cy="14.2" r="1.2" fill="currentColor" />
+            </svg>
+          </span>
+          <h2 class="panel-title">Color Illustration</h2>
+        </div>
+
+        <button class="panel-toggle" type="button" aria-expanded="true" aria-controls="draft-color-illustration-content">
+          <span class="sr-only">Collapse section</span>
+          <svg class="panel-chevron" viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+            <path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </button>
+      </header>
+
+      <div id="draft-color-illustration-content" class="panel-content" role="region" aria-label="Color illustration content">
+        <div class="panel-body">
+          <div class="draft-color-illustration-stack">
+            <p class="draft-color-illustration-note">A canvas illustration with layered paint splotches to represent color in a more expressive way than a simple swatch grid.</p>
+
+            <div class="draft-color-stage">
+              <svg class="draft-color-art" viewBox="0 0 820 560" role="img" aria-label="Illustrated artist canvas covered with colorful paint splotches">
+                <defs>
+                  <clipPath id="paint-area-clip">
+                    <rect x="266" y="108" width="288" height="260" rx="18" />
+                  </clipPath>
+                </defs>
+
+                <rect x="244" y="86" width="332" height="304" rx="26" fill="#c8915e" />
+                <rect x="266" y="108" width="288" height="260" rx="18" fill="#fff8ef" />
+
+                <g clip-path="url(#paint-area-clip)">
+                  <rect x="266" y="108" width="288" height="260" fill="#fff8ef" />
+                  <path d="M330 156c42-18 98 5 111 49 12 42-16 76-63 86-51 10-108-9-120-49-10-34 21-70 72-86Z" fill="#ff6b57" />
+                  <path d="M450 136c37-21 91-8 108 28 16 34-2 75-40 93-40 18-93 10-115-24-21-32 2-76 47-97Z" fill="#ffb01f" />
+                  <path d="M378 222c44-17 105 6 124 50 16 39-9 84-58 100-54 17-119-7-132-54-11-39 20-79 66-96Z" fill="#16b364" />
+                  <path d="M475 230c34-16 76-4 96 27 19 30 11 74-21 99-33 27-84 30-115 3-31-27-33-82-3-110 12-11 26-16 43-19Z" fill="#3b82f6" />
+                  <path d="M278 228c30-11 74-3 98 22 24 25 25 66 3 95-22 30-65 43-101 31-35-11-60-45-54-80 5-31 25-56 54-68Z" fill="#7c3aed" />
+                  <path d="M408 285c29-15 71-16 98 2 24 16 35 48 24 77-11 30-43 50-78 50-36 0-71-17-85-48-14-31 2-65 41-81Z" fill="#ec4899" />
+                  <path d="M302 104c23 6 41 22 45 44 4 22-7 43-31 54-24 11-55 5-71-16-16-21-11-54 13-71 12-9 29-13 44-11Z" fill="#ffd84d" />
+                  <path d="M500 118c19-6 43-2 59 11 16 13 24 35 18 53-6 18-24 33-46 37-24 4-50-5-64-24-13-18-12-45 4-59 8-8 18-14 29-18Z" fill="#00c2a8" />
+                </g>
+              </svg>
             </div>
           </div>
         </div>
@@ -2907,6 +3561,197 @@
         input.addEventListener("blur", () => {
           requestAnimationFrame(syncState);
         });
+      });
+    });
+
+    const draftLocationOptions = [
+      "Home (1066 Mulberry St)",
+      "Abbott Elementary (1290 Abbott Ave)",
+      "Boys and Girls Club (44 Mason St)",
+      "After-school Program (72 Elmwood Dr)",
+      "Grandparent Pickup (18 Willow Ct)",
+    ];
+
+    const normalizedLocationValue = (value) => value.trim().toLowerCase();
+
+    const renderLocationOptions = (input, list, showAll = false) => {
+      const rawValue = input.value.trim();
+      const value = normalizedLocationValue(rawValue);
+      const matches = draftLocationOptions.filter((option) => {
+        if (showAll || !value) {
+          return true;
+        }
+
+        return option.toLowerCase().includes(value);
+      });
+      const hasExactMatch = draftLocationOptions.some((option) => normalizedLocationValue(option) === value);
+
+      list.innerHTML = "";
+
+      matches.forEach((option) => {
+        const optionRow = document.createElement("div");
+        optionRow.className = "draft-handoff-option";
+
+        const optionButton = document.createElement("button");
+        optionButton.type = "button";
+        optionButton.className = "draft-handoff-option-select";
+        optionButton.dataset.locationAction = "select";
+        optionButton.dataset.locationValue = option;
+        optionButton.textContent = option;
+
+        const removeButton = document.createElement("button");
+        removeButton.type = "button";
+        removeButton.className = "draft-handoff-option-remove";
+        removeButton.dataset.locationAction = "remove";
+        removeButton.dataset.locationValue = option;
+        removeButton.setAttribute("aria-label", `Remove ${option}`);
+        removeButton.textContent = "X";
+
+        optionRow.append(optionButton, removeButton);
+        list.appendChild(optionRow);
+      });
+
+      if (rawValue && !hasExactMatch) {
+        const addButton = document.createElement("button");
+        addButton.type = "button";
+        addButton.className = "draft-handoff-option draft-handoff-option--add";
+        addButton.dataset.locationAction = "add";
+        addButton.dataset.locationValue = rawValue;
+        addButton.textContent = `+ Add "${rawValue}"`;
+        list.appendChild(addButton);
+      }
+
+      if (!list.children.length) {
+        const emptyState = document.createElement("div");
+        emptyState.className = "draft-handoff-option draft-handoff-option--empty";
+        emptyState.textContent = "No matches";
+        list.appendChild(emptyState);
+      }
+    };
+
+    const closeLocationField = (field) => {
+      const input = field.querySelector("[data-location-input]");
+      const list = field.querySelector("[data-location-list]");
+      if (!(input instanceof HTMLInputElement) || !(list instanceof HTMLElement)) {
+        return;
+      }
+
+      input.setAttribute("aria-expanded", "false");
+      list.hidden = true;
+    };
+
+    const openLocationField = (field, showAll = false) => {
+      const input = field.querySelector("[data-location-input]");
+      const list = field.querySelector("[data-location-list]");
+      if (!(input instanceof HTMLInputElement) || !(list instanceof HTMLElement)) {
+        return;
+      }
+
+      renderLocationOptions(input, list, showAll);
+      input.setAttribute("aria-expanded", "true");
+      list.hidden = false;
+    };
+
+    const refreshOpenLocationFields = () => {
+      document.querySelectorAll("[data-location-field]").forEach((field) => {
+        const input = field.querySelector("[data-location-input]");
+        const list = field.querySelector("[data-location-list]");
+        if (!(input instanceof HTMLInputElement) || !(list instanceof HTMLElement)) {
+          return;
+        }
+
+        if (input.getAttribute("aria-expanded") === "true") {
+          renderLocationOptions(input, list);
+        }
+      });
+    };
+
+    document.querySelectorAll("[data-location-field]").forEach((field) => {
+      const input = field.querySelector("[data-location-input]");
+      const list = field.querySelector("[data-location-list]");
+      if (!(input instanceof HTMLInputElement) || !(list instanceof HTMLElement)) {
+        return;
+      }
+
+      input.addEventListener("focus", () => {
+        document.querySelectorAll("[data-location-field]").forEach((otherField) => {
+          if (otherField !== field) {
+            closeLocationField(otherField);
+          }
+        });
+        openLocationField(field, true);
+      });
+
+      input.addEventListener("click", () => {
+        openLocationField(field, true);
+      });
+
+      input.addEventListener("input", () => {
+        openLocationField(field, false);
+      });
+
+      input.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          closeLocationField(field);
+          input.blur();
+        }
+      });
+
+      list.addEventListener("mousedown", (event) => {
+        event.preventDefault();
+      });
+
+      list.addEventListener("click", (event) => {
+        const target = event.target.closest("[data-location-action]");
+        if (!(target instanceof HTMLElement)) {
+          return;
+        }
+
+        const action = target.dataset.locationAction;
+        const nextValue = target.dataset.locationValue?.trim();
+        if (!nextValue) {
+          return;
+        }
+
+        if (action === "add") {
+          const exists = draftLocationOptions.some((option) => normalizedLocationValue(option) === normalizedLocationValue(nextValue));
+          if (!exists) {
+            draftLocationOptions.push(nextValue);
+          }
+        }
+
+        if (action === "remove") {
+          const optionIndex = draftLocationOptions.findIndex((option) => normalizedLocationValue(option) === normalizedLocationValue(nextValue));
+          if (optionIndex !== -1) {
+            draftLocationOptions.splice(optionIndex, 1);
+          }
+
+          document.querySelectorAll("[data-location-input]").forEach((otherInput) => {
+            if (!(otherInput instanceof HTMLInputElement)) {
+              return;
+            }
+
+            if (normalizedLocationValue(otherInput.value) === normalizedLocationValue(nextValue)) {
+              otherInput.value = "";
+            }
+          });
+
+          refreshOpenLocationFields();
+          openLocationField(field);
+          return;
+        }
+
+        input.value = nextValue;
+        refreshOpenLocationFields();
+        closeLocationField(field);
+      });
+    });
+
+    document.addEventListener("click", (event) => {
+      document.querySelectorAll("[data-location-field]").forEach((field) => {
+        if (!field.contains(event.target)) {
+          closeLocationField(field);
+        }
       });
     });
 
