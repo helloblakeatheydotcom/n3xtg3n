@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
       label: "Components",
       links: [
         { label: "Buttons", path: "docs-v2/components/buttons.html" },
-        { label: "Forms", path: "docs-v2/components/forms.html" },
+        { label: "Fields", path: "docs-v2/components/forms.html" },
         { label: "Inline Notices", path: "docs-v2/components/inline-notices.html" },
         { label: "Panels", path: "docs-v2/components/panels.html" },
         { label: "Sections", path: "docs-v2/components/sections.html" },

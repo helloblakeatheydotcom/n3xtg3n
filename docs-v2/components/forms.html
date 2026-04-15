@@ -3,31 +3,360 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Forms</title>
+  <title>Fields</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../../styles/tokens-form-components.css" />
+  <link rel="stylesheet" href="../../styles/tokens.css" />
   <link rel="stylesheet" href="../../styles/base.css" />
   <link rel="stylesheet" href="../../styles/forms.css" />
   <link rel="stylesheet" href="../../styles/panels.css" />
   <link rel="stylesheet" href="../../styles/demos.css" />
   <link rel="stylesheet" href="../../styles/docs-v2.css" />
   <style>
-    .form-docs-page-blue .choice-option {
+    .field-docs-page .choice-option {
       padding: 6px 8px;
       margin: 0 -8px;
       border-radius: 8px;
       transition: background-color 0.12s ease;
     }
 
-    .form-docs-page-blue .choice-option:hover {
+    .field-docs-page .choice-option:hover {
       background: var(--color-accent-tint-hover);
+    }
+
+    .field-docs-page .field-docs-stack {
+      display: grid;
+      gap: 0;
+    }
+
+    .field-docs-page .field-docs-stack > .docs-section,
+    .field-docs-page .field-docs-stack > .example-block {
+      padding: 40px 0 32px;
+      border-top: 1px solid var(--docs-v2-border);
+    }
+
+    .field-docs-page .field-docs-stack > .example-block {
+      padding-left: 16px;
+    }
+
+    .field-docs-page .field-docs-stack > :first-child {
+      padding-top: 0;
+      border-top: 0;
+    }
+
+    .field-docs-page .field-docs-stack > :last-child {
+      padding-bottom: 0;
+    }
+
+    .field-docs-page .field-docs-stack .panel-example-title {
+      margin: 0;
+      font-size: 20px;
+      line-height: 24px;
+      font-weight: 700;
+    }
+
+    .field-docs-page .field-docs-stack .example-block .panel-example-title {
+      font-size: 18px;
+      line-height: 22px;
+      font-weight: 600;
+    }
+
+    .field-docs-page .example-caption,
+    .field-docs-page .docs-lead,
+    .field-docs-page .docs-card-caption,
+    .field-docs-page .field-anatomy-note,
+    .field-docs-page .docs-list {
+      max-width: var(--docs-v2-prose-measure);
+    }
+
+    .field-docs-page .example-caption,
+    .field-docs-page .docs-lead {
+      margin: 0;
+      font-size: 14px;
+      line-height: 22px;
+      color: var(--docs-v2-text-secondary);
+    }
+
+    .field-docs-page .example-block {
+      display: grid;
+      gap: 0;
+    }
+
+    .field-docs-page .example-block > .panel-example-title,
+    .field-docs-page .example-block > .example-caption {
+      max-width: var(--docs-v2-prose-measure);
+    }
+
+    .field-docs-page .example-block > .panel-example-title + .example-caption {
+      margin-top: 6px;
+    }
+
+    .field-docs-page .example-caption + .example-caption,
+    .field-docs-page .docs-lead + .docs-lead,
+    .field-docs-page .docs-card-caption + .docs-card-caption {
+      margin-top: 10px;
+    }
+
+    .field-docs-page .example-block > .card,
+    .field-docs-page .example-block > .panel {
+      margin-top: 18px;
+    }
+
+    .field-docs-page .docs-section-header {
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .field-docs-page .docs-section-header > .panel-example-title + .docs-lead {
+      margin-top: 0;
+    }
+
+    .field-docs-page .docs-card,
+    .field-docs-page .field-overview-card,
+    .field-docs-page .field-behavior-card,
+    .field-docs-page .card {
+      border-radius: 16px;
+      border: 1px solid var(--docs-v2-border);
+      background: rgba(255, 255, 255, 0.82);
+      box-shadow: none;
+    }
+
+    .field-docs-page .field-overview-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .field-docs-page .field-overview-card {
+      padding: 18px;
+    }
+
+    .field-docs-page .field-overview-kicker {
+      margin: 0 0 12px;
+      font-size: 12px;
+      line-height: 16px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--docs-v2-text-muted);
+    }
+
+    .field-docs-page .field-overview-list {
+      display: grid;
+      gap: 0;
+    }
+
+    .field-docs-page .field-overview-item {
+      margin: 0;
+      padding: 12px 0;
+      border-top: 1px solid var(--docs-v2-border);
+      font-size: 14px;
+      line-height: 20px;
+      color: var(--docs-v2-text-secondary);
+    }
+
+    .field-docs-page .field-overview-item:first-child {
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    .field-docs-page .field-overview-label {
+      display: block;
+      margin-bottom: 2px;
+      font-weight: 600;
+      color: var(--docs-v2-text);
+    }
+
+    .field-docs-page .field-behavior-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .field-docs-page .field-behavior-card {
+      display: grid;
+      gap: 0;
+      align-content: start;
+      grid-auto-rows: min-content;
+      padding: 18px;
+    }
+
+    .field-docs-page .field-behavior-card .docs-card-title {
+      margin: 0;
+      font-size: 18px;
+      line-height: 24px;
+      font-weight: 600;
+      color: var(--docs-v2-text);
+    }
+
+    .field-docs-page .field-behavior-list {
+      display: grid;
+      margin: 0;
+      margin-top: 10px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .field-docs-page .field-behavior-item {
+      margin: 0;
+      padding: 12px 0;
+      border-top: 1px solid var(--docs-v2-border);
+      font-size: 14px;
+      line-height: 20px;
+      color: var(--docs-v2-text-secondary);
+    }
+
+    .field-docs-page .field-behavior-item:first-child {
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    .field-docs-page .field-anatomy-grid,
+    .field-docs-page .docs-token-grid,
+    .field-docs-page .docs-stack-list {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .field-docs-page .field-anatomy-grid,
+    .field-docs-page .docs-token-grid {
+      gap: 16px;
+    }
+
+    .field-docs-page .field-anatomy-card {
+      padding: 18px;
+    }
+
+    .field-docs-page .field-anatomy-stack {
+      display: grid;
+      gap: 16px;
+    }
+
+    .field-docs-page .field-anatomy-specimen {
+      display: grid;
+      gap: 12px;
+    }
+
+    .field-docs-page .field-anatomy-panel {
+      padding: 18px;
+      border: 1px dashed var(--docs-v2-border-strong);
+      border-radius: 12px;
+      background: rgba(248, 250, 253, 0.9);
+    }
+
+    .field-docs-page .field-anatomy-panel .field-body,
+    .field-docs-page .field-anatomy-panel .choice-group {
+      max-width: none;
+    }
+
+    .field-docs-page .field-anatomy-note {
+      margin: 14px 0 0;
+      font-size: 13px;
+      line-height: 20px;
+      color: var(--docs-v2-text-secondary);
+    }
+
+    .field-docs-page .field-caption {
+      color: var(--docs-v2-text-secondary);
+    }
+
+    .field-docs-page .demo-cell--caption-bottom .field-caption {
+      margin-top: var(--space-4);
+    }
+
+    .field-docs-page .choice-options--horizontal {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0 var(--space-8);
+      margin-left: 0;
+      margin-top: var(--space-3);
+    }
+
+    .field-docs-page .choice-options--horizontal .choice-option {
+      margin-bottom: 0;
+      align-items: center;
+    }
+
+    .field-docs-page .docs-token-block + .docs-token-block {
+      margin-top: 24px;
+    }
+
+    .field-docs-page .docs-token-block .docs-card-title,
+    .field-docs-page .docs-token-block .docs-card-caption {
+      max-width: var(--docs-v2-prose-measure);
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    .field-docs-page .docs-token-block .docs-card-title {
+      margin-top: 0;
+      margin-bottom: 8px;
+    }
+
+    .field-docs-page .docs-token-block .docs-card-caption {
+      margin-top: 0;
+    }
+
+    .field-docs-page .docs-token-block .docs-token-table {
+      width: 100%;
+      margin: 16px 0 0;
+      border-collapse: separate;
+      border-spacing: 0;
+      border: 1px solid #D7DEE8;
+      border-radius: 8px;
+      overflow: hidden;
+      background: var(--docs-v2-table-surface);
+      box-shadow: none;
+    }
+
+    .field-docs-page .docs-token-table th,
+    .field-docs-page .docs-token-table td {
+      padding: 14px 12px;
+      border-bottom: 1px solid var(--docs-v2-border);
+      vertical-align: middle;
+      font-size: 14px;
+      line-height: 20px;
+      text-align: left;
+    }
+
+    .field-docs-page .docs-token-table th {
+      font-size: 12px;
+      line-height: 16px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--docs-v2-text-muted);
+      background: var(--docs-v2-table-header-surface);
+    }
+
+    .field-docs-page .docs-token-table tbody tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .field-docs-page .docs-token-block .docs-token-table th:first-child {
+      border-top-left-radius: 10px;
+    }
+
+    .field-docs-page .docs-token-block .docs-token-table th:last-child {
+      border-top-right-radius: 10px;
+    }
+
+    .field-docs-page .docs-v2-page-nav-link--sub {
+      padding-left: 22px;
+      font-size: 13px;
+    }
+
+    @media (max-width: 900px) {
+      .field-docs-page .field-overview-grid,
+      .field-docs-page .field-behavior-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
     }
   </style>
 </head>
 <body
-  class="docs-v2-page form-docs-page form-docs-page-blue"
+  class="docs-v2-page field-docs-page"
   data-docs-v2-nav-title="Design System"
   data-docs-v2-nav-copy="Components define reusable product UI patterns and behaviors."
   data-docs-v2-nav-kicker="Components"
@@ -37,23 +366,58 @@
 
     <main class="docs-v2-main">
       <section class="docs-v2-hero">
-        <p class="docs-v2-eyebrow">Components / Forms</p>
-        <h2 class="docs-v2-title">Structured entry patterns for fields, selections, states, and validation.</h2>
-        <p class="docs-v2-copy">Defines field types, selections, states, validation, and helper text patterns for structured product input.</p>
+        <p class="docs-v2-eyebrow">Components / Fields</p>
+        <h2 class="docs-v2-title">Fields</h2>
+        <p class="docs-v2-copy">Use fields for structured text entry, single-select and multi-select choices, helper text, validation, and view-only states inside panels and longer process forms.</p>
         <div class="docs-v2-chip-row">
-          <span class="docs-v2-chip">Field types and states</span>
-          <span class="docs-v2-chip">Checkboxes and radios</span>
-          <span class="docs-v2-chip">Anatomy, usage, and specs</span>
+          <span class="docs-v2-chip">Text-based and choice-based fields</span>
+          <span class="docs-v2-chip">State grids and validation behavior</span>
+          <span class="docs-v2-chip">Anatomy, behavior, token reference</span>
         </div>
       </section>
 
       <div class="docs-v2-page-shell docs-v2-page-shell--with-page-nav">
         <div class="docs-v2-page-content">
-          <div class="panel-stack" aria-label="Form documentation">
-            <section class="example-block" id="field-types" aria-label="Field types example">
-              <h2 class="panel-example-title">Field Types</h2>
-              <p class="example-caption">Use these core form controls for structured text entry, dates, selections, numbers, and formatted inputs.</p>
-              <section class="card" aria-label="Field types">
+          <div class="field-docs-stack" aria-label="Field documentation">
+            <section class="docs-section" id="overview">
+              <div class="docs-section-header">
+                <h2 class="panel-example-title">Overview</h2>
+                <p class="docs-lead">Fields provide the shared entry patterns for text controls, selections, helper text, validation, placeholder text, and view-only states. They should feel consistent whether they appear in compact forms, long process pages, or grouped panels.</p>
+              </div>
+              <div class="field-overview-grid">
+                <article class="field-overview-card">
+                  <p class="field-overview-kicker">Core Structure</p>
+                  <div class="field-overview-list">
+                    <p class="field-overview-item"><span class="field-overview-label">Label first</span>Every field needs a clear visible label unless an equivalent accessible name is provided elsewhere.</p>
+                    <p class="field-overview-item"><span class="field-overview-label">Shared support region</span>Helper text and error text occupy the same space below the control so the rhythm stays stable.</p>
+                    <p class="field-overview-item"><span class="field-overview-label">Two main families</span>Text-based fields handle direct entry, while choice-based fields guide users through single-select and multi-select decisions.</p>
+                    <p class="field-overview-item"><span class="field-overview-label">Consistent states</span>Hover, focus, error, disabled, and managed-required states should read predictably across all controls.</p>
+                  </div>
+                </article>
+
+                <article class="field-overview-card">
+                  <p class="field-overview-kicker">Usage Pattern</p>
+                  <div class="field-overview-list">
+                    <p class="field-overview-item"><span class="field-overview-label">Text entry stays lightweight</span>Use direct-entry controls for names, dates, short values, formatted inputs, and longer narrative content.</p>
+                    <p class="field-overview-item"><span class="field-overview-label">Choice fields stay grouped</span>Checkboxes and radios should be presented as labeled groups with clear option structure.</p>
+                    <p class="field-overview-item"><span class="field-overview-label">Validation stays local</span>Field errors should explain what needs correction at the point of entry rather than relying on distant page-level messages.</p>
+                    <p class="field-overview-item"><span class="field-overview-label">Managed values stay visible</span>When a required value is controlled elsewhere, keep it visible here and direct the user to the source of truth.</p>
+                  </div>
+                </article>
+              </div>
+            </section>
+
+            <section class="docs-section" id="field-types">
+              <div class="docs-section-header">
+                <h2 class="panel-example-title">Field Types</h2>
+                <p class="docs-lead">Field types are separated into text-based controls and choice-based controls so users can distinguish direct entry from guided selection patterns.</p>
+              </div>
+            </section>
+
+            <section class="example-block" id="text-based-fields" aria-label="Text-based fields example">
+              <h2 class="panel-example-title">Text-Based Fields</h2>
+              <p class="example-caption">Text-based fields support structured text entry, dates, selections, numbers, and formatted values.</p>
+              <section class="card" aria-label="Text-based field types">
                 <div class="demo-grid">
                   <div class="demo-cell demo-cell--input">
                     <div class="field-body">
@@ -135,10 +499,137 @@
               </section>
             </section>
 
-            <section class="example-block" id="field-states" aria-label="Field states example">
-              <h2 class="panel-example-title">Field States</h2>
-              <p class="example-caption">Text-entry controls should communicate required, optional, hover, focus, error, and view-only states consistently.</p>
-              <section class="card states-demo" aria-label="Field states">
+            <section class="example-block" id="choice-based-fields" aria-label="Choice-based fields example">
+              <h2 class="panel-example-title">Choice-Based Fields</h2>
+              <p class="example-caption">Choice-based fields include checkbox groups for multi-select input and radio groups for single-select decisions.</p>
+              <section class="card" aria-label="Choice-based field types">
+                <div class="demo-grid">
+                  <div class="demo-cell demo-cell--panel demo-cell--caption-bottom">
+                    <div class="choice-group">
+                      <label class="field-label">Stocking Stuffers</label>
+                      <div class="field-helper-slot">
+                        <p class="field-helper">Checkbox groups support selecting more than one option.</p>
+                      </div>
+                      <div class="choice-options">
+                        <label class="choice-option">
+                          <input type="checkbox" />
+                          <div>
+                            <div class="choice-label">Apple sauce</div>
+                            <div class="choice-desc">A single-serving cup of cinnamon apple goodness.</div>
+                          </div>
+                        </label>
+                        <label class="choice-option">
+                          <input type="checkbox" checked />
+                          <div>
+                            <div class="choice-label">Peppermint patties</div>
+                            <div class="choice-desc">Classic dark chocolate and mint, unwrapped and ready.</div>
+                          </div>
+                        </label>
+                        <label class="choice-option">
+                          <input type="checkbox" />
+                          <div>
+                            <div class="choice-label">Orange cranberry muffin</div>
+                            <div class="choice-desc">Freshly baked, with a hint of orange zest.</div>
+                          </div>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="field-caption">Checkbox Group</div>
+                  </div>
+
+                  <div class="demo-cell demo-cell--panel demo-cell--caption-bottom">
+                    <div class="choice-group">
+                      <label class="field-label">Parent Attended Meeting</label>
+                      <div class="field-helper-slot">
+                        <p class="field-helper">Radio groups support selecting exactly one option.</p>
+                      </div>
+                      <div class="choice-options choice-options--horizontal">
+                        <label class="choice-option">
+                          <input type="radio" name="v2-parent-attended-meeting" checked />
+                          <span class="choice-label">Yes</span>
+                        </label>
+                        <label class="choice-option">
+                          <input type="radio" name="v2-parent-attended-meeting" />
+                          <span class="choice-label">No</span>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="field-caption">Radio Group</div>
+                  </div>
+                </div>
+              </section>
+            </section>
+
+            <section class="docs-section" id="field-anatomy">
+              <div class="docs-section-header">
+                <h2 class="panel-example-title">Field Anatomy</h2>
+                <p class="docs-lead">Text-based fields and choice-based fields share a common structure: visible labeling, a primary interactive region, and a supporting area for helper or error content.</p>
+              </div>
+              <div class="field-anatomy-grid">
+                <article class="docs-card field-anatomy-card">
+                  <div class="field-anatomy-stack">
+                    <div class="field-anatomy-specimen">
+                      <h3 class="docs-card-title">Text Entry Field</h3>
+                      <div class="field-anatomy-panel">
+                        <div class="field-body">
+                          <label class="field-label">Field Label</label>
+                          <div class="field-input-wrapper">
+                            <input class="field-input" type="text" value="Field Input" aria-label="Example input" />
+                          </div>
+                          <div class="field-helper-slot"><p class="field-helper">Helper text</p></div>
+                          <div class="field-error">Error message</div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="field-anatomy-specimen">
+                      <h3 class="docs-card-title">Choice Group Field</h3>
+                      <div class="field-anatomy-panel">
+                        <div class="choice-group">
+                          <label class="field-label">Group Label</label>
+                          <div class="field-helper-slot"><p class="field-helper">Helper text</p></div>
+                          <div class="choice-options">
+                            <label class="choice-option">
+                              <input type="checkbox" checked />
+                              <span class="choice-label">Choice option</span>
+                            </label>
+                            <label class="choice-option">
+                              <input type="checkbox" />
+                              <span class="choice-label">Second option</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="field-anatomy-note">Choice groups share the same label and support region as text fields, but replace the single control with a structured option list.</p>
+                </article>
+
+                <article class="docs-card docs-parts-card">
+                  <h3 class="docs-card-title">Parts</h3>
+                  <div class="docs-part-list">
+                    <div class="docs-part-item"><strong>Label</strong><p>Required for identification and should communicate required or optional status when needed.</p></div>
+                    <div class="docs-part-item"><strong>Input control</strong><p>The primary interactive region for text entry, selection, or direct value input.</p></div>
+                    <div class="docs-part-item"><strong>Helper text</strong><p>Optional guidance that supports correct entry before an error is introduced.</p></div>
+                    <div class="docs-part-item"><strong>Error message</strong><p>Optional validation feedback that replaces helper text and explains what needs correction.</p></div>
+                    <div class="docs-part-item"><strong>Choice options</strong><p>For checkbox and radio groups, each option includes a control, label, and optional description.</p></div>
+                    <div class="docs-part-item"><strong>Managed-required state</strong><p>Used when a missing required value is visible here but must be updated in another part of the workflow.</p></div>
+                  </div>
+                </article>
+              </div>
+            </section>
+
+            <section class="docs-section" id="text-field-states">
+              <div class="docs-section-header">
+                <h2 class="panel-example-title">Text Field States</h2>
+                <p class="docs-lead">Text-entry controls should communicate required, optional, hover, focus, error, and view-only states consistently while keeping the field shape and supporting rhythm stable.</p>
+              </div>
+            </section>
+
+            <section class="example-block" id="text-field-states-grid" aria-label="Text field states example">
+              <h2 class="panel-example-title">Text Field States Grid</h2>
+              <p class="example-caption">This grid shows the standard text-field states side by side for comparison.</p>
+              <section class="card states-demo" aria-label="Text field states">
                 <div class="demo-grid">
                   <div class="demo-cell demo-cell--input demo-cell--fullwidth demo-cell--interactive">
                     <div class="field-body">
@@ -194,7 +685,7 @@
                         <input id="v2-state-hover" type="text" class="field-input" placeholder="Enter student name" />
                       </div>
                       <div class="field-helper-slot">
-                        <p class="field-helper">Hover state for demonstration.</p>
+                        <p class="field-helper">Hover state.</p>
                       </div>
                     </div>
                     <div class="field-caption">Hover</div>
@@ -225,7 +716,7 @@
                         <input id="v2-state-focused" type="text" class="field-input" value="Blak" />
                       </div>
                       <div class="field-helper-slot">
-                        <p class="field-helper">Focused state with 1.5px blue outline and focus ring.</p>
+                        <p class="field-helper">Focused state with visible focus ring.</p>
                       </div>
                     </div>
                     <div class="field-caption">Focused</div>
@@ -290,10 +781,17 @@
                         </span>
                       </div>
                     </div>
-                    <div class="field-caption">Required and Disabled (view only)</div>
+                    <div class="field-caption">Required and Disabled</div>
                   </div>
                 </div>
               </section>
+            </section>
+
+            <section class="docs-section" id="choice-field-states">
+              <div class="docs-section-header">
+                <h2 class="panel-example-title">Choice Field States</h2>
+                <p class="docs-lead">Choice controls mirror the same validation and support rules as text fields, but communicate state through the option controls, option labels, and grouped structure.</p>
+              </div>
             </section>
 
             <section class="example-block" id="checkbox-states" aria-label="Checkbox states example">
@@ -333,7 +831,7 @@
                           <input type="checkbox" />
                           <div>
                             <div class="choice-label">Puppy dog</div>
-                            <div class="choice-desc">Included here for illustrative purposes only. 🙂</div>
+                            <div class="choice-desc">Sample descriptive option text.</div>
                           </div>
                         </label>
                       </div>
@@ -479,15 +977,15 @@
                     <div class="choice-group">
                       <label class="field-label">Parent Attended Meeting</label>
                       <div class="field-helper-slot">
-                        <p class="field-helper">Use the horizontal Yes/No pattern for compact binary decisions.</p>
+                        <p class="field-helper">Horizontal Yes/No layout supports compact binary decisions.</p>
                       </div>
                       <div class="choice-options choice-options--horizontal">
                         <label class="choice-option">
-                          <input type="radio" name="v2-parent-attended-meeting" checked />
+                          <input type="radio" name="v2-parent-attended-meeting-state" checked />
                           <span class="choice-label">Yes</span>
                         </label>
                         <label class="choice-option">
-                          <input type="radio" name="v2-parent-attended-meeting" />
+                          <input type="radio" name="v2-parent-attended-meeting-state" />
                           <span class="choice-label">No</span>
                         </label>
                       </div>
@@ -591,149 +1089,30 @@
               </section>
             </section>
 
-            <section class="docs-section" id="overview">
+            <section class="docs-section" id="behavior">
               <div class="docs-section-header">
-                <h2 class="panel-example-title">Form Overview</h2>
-                <p class="docs-lead docs-lead--full">Form components provide the shared entry patterns for text fields, selection controls, helper text, validation, placeholder text, and view-only states. They are designed to support both direct data entry and more structured workflows inside panels and full-page forms.</p>
+                <h2 class="panel-example-title">Behavior</h2>
+                <p class="docs-lead">Field behavior should stay predictable across input types so users can move between text entry and choices without relearning validation, focus, or support patterns.</p>
               </div>
-            </section>
-
-            <section class="docs-section" id="anatomy">
-              <div class="docs-section-header">
-                <h2 class="panel-example-title">Anatomy</h2>
-              </div>
-              <div class="docs-card">
-                <div class="docs-anatomy-grid">
-                  <div class="docs-anatomy-stack">
-                    <div class="docs-anatomy-specimen">
-                      <h3 class="docs-card-title">Text Entry Field</h3>
-                      <div class="docs-anatomy-panel">
-                        <div class="docs-anatomy-body">
-                          <div class="field-label">Field Label</div>
-                          <div class="field-input-wrapper">
-                            <input class="field-input" type="text" value="Field Input" aria-label="Example input" />
-                          </div>
-                          <div class="field-helper-slot"><p class="field-helper">Helper text</p></div>
-                          <div class="field-error">Error message</div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="docs-anatomy-specimen">
-                      <h3 class="docs-card-title">Choice Group Field</h3>
-                      <div class="docs-anatomy-panel">
-                        <div class="docs-anatomy-body">
-                          <div class="field-label">Group Label</div>
-                          <div class="field-helper-slot"><p class="field-helper">Helper text</p></div>
-                          <div class="choice-options">
-                            <label class="choice-option">
-                              <input type="checkbox" checked />
-                              <span class="choice-label">Choice option</span>
-                            </label>
-                            <label class="choice-option">
-                              <input type="checkbox" />
-                              <span class="choice-label">Second option</span>
-                            </label>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+              <div class="field-behavior-grid">
+                <article class="field-behavior-card">
+                  <h3 class="docs-card-title">Text Field Behavior</h3>
+                  <div class="field-behavior-list">
+                    <p class="field-behavior-item">Hover strengthens the border and lightly tints the field surface.</p>
+                    <p class="field-behavior-item">Focus uses a visible focus ring without changing the overall field shape.</p>
+                    <p class="field-behavior-item">Validation can occur on blur, and invalid fields should set <code>aria-invalid</code> and show a local error message.</p>
+                    <p class="field-behavior-item">Managed-required fields keep the disabled surface while still showing required-state feedback and a next-step link.</p>
                   </div>
+                </article>
 
-                  <div class="docs-parts-card">
-                    <h3 class="docs-card-title">Parts</h3>
-                    <div class="docs-part-list">
-                      <div class="docs-part-item"><strong>Label</strong><p>Required for clear identification and should communicate required or optional status when needed.</p></div>
-                      <div class="docs-part-item"><strong>Input control</strong><p>The primary interactive region for text entry, selection, or choice input, including placeholder text when no value has been entered.</p></div>
-                      <div class="docs-part-item"><strong>Helper text</strong><p>Optional; gives supporting guidance before an error is introduced.</p></div>
-                      <div class="docs-part-item"><strong>Error message</strong><p>Optional; appears when validation fails, replaces helper text, and should clearly explain what needs correction.</p></div>
-                      <div class="docs-part-item"><strong>Required and disabled state</strong><p>Optional; communicates that a required value is missing but must be managed in another part of the workflow.</p></div>
-                      <div class="docs-part-item"><strong>Choice options</strong><p>For checkbox and radio groups, helper text sits above the options and each option includes a control, label, and optional description.</p></div>
-                    </div>
+                <article class="field-behavior-card">
+                  <h3 class="docs-card-title">Choice Field Behavior</h3>
+                  <div class="field-behavior-list">
+                    <p class="field-behavior-item">Checkbox groups support multi-select input, while radio groups support exactly one selected option.</p>
+                    <p class="field-behavior-item">Option hover should reinforce the label and control without introducing a separate card-like selection pattern.</p>
+                    <p class="field-behavior-item">Helper text sits above the options, and error treatment should remain attached to the group rather than to an individual choice.</p>
+                    <p class="field-behavior-item">All options must remain keyboard reachable with visible focus and standard checked-state feedback.</p>
                   </div>
-                </div>
-              </div>
-            </section>
-
-            <section class="docs-section" id="variants">
-              <div class="docs-section-header">
-                <h2 class="panel-example-title">Variants and Optional Elements</h2>
-              </div>
-              <div class="docs-grid docs-grid--two">
-                <article class="docs-card">
-                  <h3 class="docs-card-title">Supported Patterns</h3>
-                  <ul class="docs-list">
-                    <li>Text input</li>
-                    <li>Text area</li>
-                    <li>Date and time fields</li>
-                    <li>Select list</li>
-                    <li>Number with stepper</li>
-                    <li>Checkbox group</li>
-                    <li>Radio group</li>
-                  </ul>
-                </article>
-
-                <article class="docs-card">
-                  <h3 class="docs-card-title">Optional Elements</h3>
-                  <ul class="docs-list">
-                    <li>Helper text</li>
-                    <li>Error message</li>
-                    <li>Required and optional indicators</li>
-                    <li>Placeholder text</li>
-                    <li>Descriptions inside checkbox or radio options</li>
-                    <li>View-only icons and required-and-disabled states</li>
-                  </ul>
-                </article>
-              </div>
-            </section>
-
-            <section class="docs-section" id="specifications">
-              <div class="docs-section-header">
-                <h2 class="panel-example-title">Specifications</h2>
-              </div>
-              <div class="docs-grid docs-grid--two">
-                <article class="docs-card">
-                  <h3 class="docs-card-title">Structure</h3>
-                  <ul class="docs-list">
-                    <li>Each field should include a visible label unless an equivalent accessible name is provided elsewhere.</li>
-                    <li>Helper text and error text share the same supporting region below the control.</li>
-                    <li>Placeholder text is secondary guidance only and should not replace labels or helper text.</li>
-                    <li>Checkbox and radio groups should be presented as grouped options with clear labels and optional descriptions.</li>
-                  </ul>
-                </article>
-
-                <article class="docs-card">
-                  <h3 class="docs-card-title">Sizing</h3>
-                  <ul class="docs-list">
-                    <li>Single-line fields use a 40px control height.</li>
-                    <li>Field labels use 14px type at 600 weight, and entered field values use 14px type at 400 weight.</li>
-                    <li>Field helper and error text use 13px type.</li>
-                    <li>Choice option descriptions use 12px type.</li>
-                    <li>Placeholder text uses a lighter weight and lower-contrast neutral color than entered field values.</li>
-                    <li>Choice controls use a 16px control size with consistent option spacing.</li>
-                  </ul>
-                </article>
-
-                <article class="docs-card">
-                  <h3 class="docs-card-title">Behavior</h3>
-                  <ul class="docs-list">
-                    <li>Hover applies a tinted background and accent border for standard entry controls.</li>
-                    <li>Focus increases border emphasis and should preserve clear contrast.</li>
-                    <li>Error states use the danger border and replace helper text with the error message.</li>
-                    <li>Required-and-disabled states keep a disabled field surface while using an error border and linked follow-up action.</li>
-                    <li>Interactive demos may validate on blur and update live while correcting errors.</li>
-                  </ul>
-                </article>
-
-                <article class="docs-card">
-                  <h3 class="docs-card-title">Accessibility</h3>
-                  <ul class="docs-list">
-                    <li>Use semantic label associations for all text-entry controls.</li>
-                    <li>Required fields should announce validation errors with <code>aria-invalid</code> and live error text where appropriate.</li>
-                    <li>Checkbox and radio groups should remain keyboard accessible and preserve visible focus states.</li>
-                    <li>Required-and-disabled states should signal missing required information while directing the user to the page where the value can be updated.</li>
-                    <li>Placeholder text should remain legible but visually secondary to entered values.</li>
-                  </ul>
                 </article>
               </div>
             </section>
@@ -741,12 +1120,12 @@
             <section class="docs-section" id="token-reference">
               <div class="docs-section-header">
                 <h2 class="panel-example-title">Token Reference</h2>
-                <p class="docs-lead">Form tokens are grouped here for quick technical reference, separate from the usage rules above.</p>
+                <p class="docs-lead">Field tokens are grouped here for quick technical reference. Behavior rules are documented above so this section can stay focused on reusable tokens and token-backed values.</p>
               </div>
               <div class="docs-token-grid">
-                <article class="docs-card docs-token-card">
-                  <h3 class="docs-card-title">Field Surface</h3>
-                  <p class="docs-card-caption">Core control sizing, borders, and background tokens for text-entry fields.</p>
+                <article class="docs-token-block">
+                  <h3 class="docs-card-title">Text Field Surface</h3>
+                  <p class="docs-card-caption">Core sizing, borders, and background tokens for text-entry controls.</p>
                   <table class="docs-token-table">
                     <thead>
                       <tr><th>Role</th><th>Token</th><th>Value</th></tr>
@@ -759,34 +1138,16 @@
                       <tr><td>Hover border</td><td><code>--field-border-hover</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#7EA6FB"></span>Blue 400 (#7EA6FB)</span></td></tr>
                       <tr><td>Focus border</td><td><code>--field-border-focus</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#2567F4"></span>Blue 500 (#2567F4)</span></td></tr>
                       <tr><td>Field background</td><td><code>--field-bg</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#FFFFFF"></span>#FFFFFF</span></td></tr>
-                      <tr><td>Hover background</td><td><code>--field-bg-hover</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#F7FAFF"></span>Blue 50 (#F7FAFF)</span></td></tr>
-                      <tr><td>Stepper control background</td><td><code>--field-stepper-bg</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#F7F9FC"></span>Slate 50 (#F7F9FC)</span></td></tr>
-                      <tr><td>Stepper hover background</td><td><code>--field-stepper-hover-bg</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#EEF2F7"></span>Slate 100 (#EEF2F7)</span></td></tr>
+                      <tr><td>Hover background</td><td><code>--field-bg-hover</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#EFF3FE"></span>Blue 100 (#EFF3FE)</span></td></tr>
+                      <tr><td>Stepper background</td><td><code>--field-stepper-bg</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#F7F9FC"></span>Slate 50 (#F7F9FC)</span></td></tr>
+                      <tr><td>Stepper hover</td><td><code>--field-stepper-hover-bg</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#EEF2F7"></span>Slate 100 (#EEF2F7)</span></td></tr>
                     </tbody>
                   </table>
                 </article>
 
-                <article class="docs-card docs-token-card">
-                  <h3 class="docs-card-title">Input Layout</h3>
-                  <p class="docs-card-caption">Structural spacing and icon offsets for text-entry fields and their supporting regions.</p>
-                  <table class="docs-token-table">
-                    <thead>
-                      <tr><th>Role</th><th>Token</th><th>Value</th></tr>
-                    </thead>
-                    <tbody>
-                      <tr><td>Field max width</td><td><code>.field-body</code></td><td>360px</td></tr>
-                      <tr><td>Label bottom spacing</td><td><code>.field-label</code></td><td>4px</td></tr>
-                      <tr><td>Helper slot top spacing</td><td><code>.field-helper-slot</code></td><td>4px</td></tr>
-                      <tr><td>Helper slot minimum height</td><td><code>.field-helper-slot</code></td><td>20px</td></tr>
-                      <tr><td>Default icon inset</td><td><code>.field-icon-lock</code></td><td>10px from right</td></tr>
-                      <tr><td>Managed-required right padding</td><td><code>.is-managed-required .field-input</code></td><td>32px</td></tr>
-                    </tbody>
-                  </table>
-                </article>
-
-                <article class="docs-card docs-token-card">
-                  <h3 class="docs-card-title">Typography</h3>
-                  <p class="docs-card-caption">Label, helper, and field text tokens.</p>
+                <article class="docs-token-block">
+                  <h3 class="docs-card-title">Typography and Support</h3>
+                  <p class="docs-card-caption">Label, helper, value, and error tokens shared across field types.</p>
                   <table class="docs-token-table">
                     <thead>
                       <tr><th>Role</th><th>Token</th><th>Value</th></tr>
@@ -795,69 +1156,20 @@
                       <tr><td>Label color</td><td><code>--field-label-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#111827"></span>Gray 800 (#111827)</span></td></tr>
                       <tr><td>Helper color</td><td><code>--field-helper-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#6B7280"></span>Gray 500 (#6B7280)</span></td></tr>
                       <tr><td>Field text color</td><td><code>--field-text-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#374151"></span>Gray 700 (#374151)</span></td></tr>
-                      <tr><td>Field helper text style</td><td><code>--font-supporting-md</code></td><td>400 / 13px / 20px</td></tr>
-                      <tr><td>Choice option description style</td><td><code>--font-supporting-sm</code></td><td>400 / 12px / 16px</td></tr>
-                      <tr><td>Label text style</td><td><code>--font-label-md</code></td><td>600 / 14px / 20px</td></tr>
-                      <tr><td>Field text style</td><td><code>--font-control-md</code></td><td>400 / 14px / 20px</td></tr>
-                      <tr><td>Error text weight</td><td><code>.field-error</code></td><td>500</td></tr>
                       <tr><td>Placeholder color</td><td><code>--color-placeholder</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#9CA3AF"></span>Gray 400 (#9CA3AF)</span></td></tr>
                       <tr><td>Error color</td><td><code>--field-error-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#EE031D"></span>Red 500 (#EE031D)</span></td></tr>
                       <tr><td>Error link color</td><td><code>--field-error-link-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#2251C5"></span>Blue 600 (#2251C5)</span></td></tr>
+                      <tr><td>Label style</td><td><code>--font-label-md</code></td><td>600 / 14px / 20px</td></tr>
+                      <tr><td>Field value style</td><td><code>--font-control-md</code></td><td>400 / 14px / 20px</td></tr>
+                      <tr><td>Helper style</td><td><code>--font-supporting-md</code></td><td>400 / 13px / 20px</td></tr>
+                      <tr><td>Choice description style</td><td><code>--font-supporting-sm</code></td><td>400 / 12px / 16px</td></tr>
                     </tbody>
                   </table>
                 </article>
 
-                <article class="docs-card docs-token-card">
-                  <h3 class="docs-card-title">Disabled State</h3>
-                  <p class="docs-card-caption">Tokens used for fields that are visible but unavailable for editing.</p>
-                  <table class="docs-token-table">
-                    <thead>
-                      <tr><th>Role</th><th>Token</th><th>Value</th></tr>
-                    </thead>
-                    <tbody>
-                      <tr><td>Disabled border</td><td><code>.is-disabled .field-input</code></td><td>none</td></tr>
-                      <tr><td>Disabled background</td><td><code>--color-disabled-bg</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#F9FAFB"></span>Gray 50 (#F9FAFB)</span></td></tr>
-                      <tr><td>Disabled text</td><td><code>--color-disabled-text</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#4B5563"></span>Gray 600 (#4B5563)</span></td></tr>
-                      <tr><td>Disabled icon</td><td><code>--color-disabled-icon</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#6B7280"></span>Gray 500 (#6B7280)</span></td></tr>
-                    </tbody>
-                  </table>
-                </article>
-
-                <article class="docs-card docs-token-card">
-                  <h3 class="docs-card-title">Required and Disabled State</h3>
-                  <p class="docs-card-caption">Formatting used for required values that are visible here but managed on another page.</p>
-                  <table class="docs-token-table">
-                    <thead>
-                      <tr><th>Role</th><th>Token</th><th>Value</th></tr>
-                    </thead>
-                    <tbody>
-                      <tr><td>Field background</td><td><code>--color-disabled-bg</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#F9FAFB"></span>Gray 50 (#F9FAFB)</span></td></tr>
-                      <tr><td>Field border</td><td><code>--color-danger</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#EE031D"></span>Red 500 (#EE031D)</span></td></tr>
-                      <tr><td>Field icon</td><td><code>--color-disabled-icon</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#6B7280"></span>Gray 500 (#6B7280)</span></td></tr>
-                      <tr><td>Error text</td><td><code>--field-error-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#EE031D"></span>Red 500 (#EE031D)</span></td></tr>
-                      <tr><td>Action link</td><td><code>--field-error-link-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#2251C5"></span>Blue 600 (#2251C5)</span></td></tr>
-                    </tbody>
-                  </table>
-                </article>
-
-                <article class="docs-card docs-token-card">
-                  <h3 class="docs-card-title">Error State</h3>
-                  <p class="docs-card-caption">Tokens used when a field is invalid and the error message replaces helper text.</p>
-                  <table class="docs-token-table">
-                    <thead>
-                      <tr><th>Role</th><th>Token</th><th>Value</th></tr>
-                    </thead>
-                    <tbody>
-                      <tr><td>Error border</td><td><code>--color-danger</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#EE031D"></span>Red 500 (#EE031D)</span></td></tr>
-                      <tr><td>Error hover background</td><td><code>--color-danger-bg</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#FFF9FA"></span>Red 50 (#FFF9FA)</span></td></tr>
-                      <tr><td>Error text</td><td><code>--field-error-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#EE031D"></span>Red 500 (#EE031D)</span></td></tr>
-                    </tbody>
-                  </table>
-                </article>
-
-                <article class="docs-card docs-token-card">
+                <article class="docs-token-block">
                   <h3 class="docs-card-title">Choice Controls</h3>
-                  <p class="docs-card-caption">Checkbox and radio sizing, spacing, and checked-state tokens.</p>
+                  <p class="docs-card-caption">Sizing, spacing, and checked-state tokens used by checkbox and radio groups.</p>
                   <table class="docs-token-table">
                     <thead>
                       <tr><th>Role</th><th>Token</th><th>Value</th></tr>
@@ -865,33 +1177,34 @@
                     <tbody>
                       <tr><td>Control size</td><td><code>--choice-control-size</code></td><td>16px</td></tr>
                       <tr><td>Default border</td><td><code>--choice-control-border</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#D1D5DB"></span>Gray 300 (#D1D5DB)</span></td></tr>
+                      <tr><td>Control background</td><td><code>--choice-control-bg</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#FFFFFF"></span>#FFFFFF</span></td></tr>
                       <tr><td>Checked background</td><td><code>--choice-control-checked-bg</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#2567F4"></span>Blue 500 (#2567F4)</span></td></tr>
                       <tr><td>Checked border</td><td><code>--choice-control-checked-border</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#2567F4"></span>Blue 500 (#2567F4)</span></td></tr>
-                      <tr><td>Checked hover background</td><td><code>--choice-control-hover-checked</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#2251C5"></span>Blue 600 (#2251C5)</span></td></tr>
                       <tr><td>Hover border</td><td><code>--choice-control-hover-border</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#2567F4"></span>Blue 500 (#2567F4)</span></td></tr>
+                      <tr><td>Checked hover</td><td><code>--choice-control-hover-checked</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#2251C5"></span>Blue 600 (#2251C5)</span></td></tr>
+                      <tr><td>Label color</td><td><code>--choice-label-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#111827"></span>Gray 800 (#111827)</span></td></tr>
+                      <tr><td>Label hover</td><td><code>--choice-label-hover</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#2251C5"></span>Blue 600 (#2251C5)</span></td></tr>
+                      <tr><td>Description color</td><td><code>--choice-desc-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#6B7280"></span>Gray 500 (#6B7280)</span></td></tr>
                       <tr><td>Option gap</td><td><code>--choice-option-gap</code></td><td>8px</td></tr>
                       <tr><td>Option spacing</td><td><code>--choice-option-spacing-y</code></td><td>8px</td></tr>
+                      <tr><td>Choice group offset</td><td><code>--choice-group-offset-x</code></td><td>24px</td></tr>
                     </tbody>
                   </table>
                 </article>
 
-                <article class="docs-card docs-token-card">
-                  <h3 class="docs-card-title">Choice Controls Layout</h3>
-                  <p class="docs-card-caption">Choice-group layout offsets and supporting system spacing.</p>
+                <article class="docs-token-block">
+                  <h3 class="docs-card-title">State and Disabled Tokens</h3>
+                  <p class="docs-card-caption">Tokens used for invalid, disabled, and view-only field states.</p>
                   <table class="docs-token-table">
                     <thead>
                       <tr><th>Role</th><th>Token</th><th>Value</th></tr>
                     </thead>
                     <tbody>
-                      <tr><td>Label to helper spacing</td><td><code>.field-label</code> + <code>.field-helper-slot</code></td><td>4px</td></tr>
-                      <tr><td>Helper to first option spacing</td><td><code>.choice-options</code></td><td>12px</td></tr>
-                      <tr><td>Choice group offset</td><td><code>--choice-group-offset-x</code></td><td>24px</td></tr>
-                      <tr><td>Horizontal option gap</td><td><code>--choice-option-horizontal-gap</code></td><td>32px</td></tr>
-                      <tr><td>Field radius</td><td><code>--radius-field</code></td><td>4px</td></tr>
-                      <tr><td>Field focus ring</td><td><code>--focus-ring-shadow-field</code></td><td>inset 0 0 0 1.5px Blue 500 (#2567F4), 0 0 0 2px rgba(37, 103, 244, 0.12)</td></tr>
-                      <tr><td>Field error focus ring</td><td><code>--focus-ring-shadow-field-error</code></td><td>0 0 0 1.5px #FFFFFF, 0 0 0 3px Red 500 (#EE031D)</td></tr>
-                      <tr><td>Choice error focus ring</td><td><code>--focus-ring-shadow-choice-error</code></td><td>inset 0 0 0 1.5px Red 500 (#EE031D), 0 0 0 1.5px #FFFFFF, 0 0 0 3px Red 500 (#EE031D)</td></tr>
-                      <tr><td>Strong focus ring</td><td><code>--focus-ring-shadow-strong</code></td><td>inset 0 0 0 1.5px Blue 500 (#2567F4), 0 0 0 1.5px #FFFFFF, 0 0 0 3px Blue 500 (#2567F4)</td></tr>
+                      <tr><td>Disabled background</td><td><code>--color-disabled-bg</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#F9FAFB"></span>Gray 50 (#F9FAFB)</span></td></tr>
+                      <tr><td>Disabled text</td><td><code>--color-disabled-text</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#4B5563"></span>Gray 600 (#4B5563)</span></td></tr>
+                      <tr><td>Disabled icon</td><td><code>--color-disabled-icon</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#6B7280"></span>Gray 500 (#6B7280)</span></td></tr>
+                      <tr><td>Error border</td><td><code>--color-danger</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#EE031D"></span>Red 500 (#EE031D)</span></td></tr>
+                      <tr><td>Error background</td><td><code>--color-danger-bg</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#FFF9FA"></span>Red 50 (#FFF9FA)</span></td></tr>
                     </tbody>
                   </table>
                 </article>
@@ -903,14 +1216,17 @@
         <aside class="docs-v2-page-nav" aria-label="Page navigation">
           <p class="docs-v2-page-nav-title">On This Page</p>
           <nav class="docs-v2-page-nav-list">
+            <a class="docs-v2-page-nav-link" href="#overview">Overview</a>
             <a class="docs-v2-page-nav-link" href="#field-types">Field Types</a>
-            <a class="docs-v2-page-nav-link" href="#field-states">Field States</a>
-            <a class="docs-v2-page-nav-link" href="#checkbox-states">Checkbox States</a>
-            <a class="docs-v2-page-nav-link" href="#radio-states">Radio States</a>
-            <a class="docs-v2-page-nav-link" href="#overview">Form Overview</a>
-            <a class="docs-v2-page-nav-link" href="#anatomy">Anatomy</a>
-            <a class="docs-v2-page-nav-link" href="#variants">Variants</a>
-            <a class="docs-v2-page-nav-link" href="#specifications">Specifications</a>
+            <a class="docs-v2-page-nav-link docs-v2-page-nav-link--sub" href="#text-based-fields">Text-Based Fields</a>
+            <a class="docs-v2-page-nav-link docs-v2-page-nav-link--sub" href="#choice-based-fields">Choice-Based Fields</a>
+            <a class="docs-v2-page-nav-link" href="#field-anatomy">Field Anatomy</a>
+            <a class="docs-v2-page-nav-link" href="#text-field-states">Text Field States</a>
+            <a class="docs-v2-page-nav-link docs-v2-page-nav-link--sub" href="#text-field-states-grid">Text Field States Grid</a>
+            <a class="docs-v2-page-nav-link" href="#choice-field-states">Choice Field States</a>
+            <a class="docs-v2-page-nav-link docs-v2-page-nav-link--sub" href="#checkbox-states">Checkbox States</a>
+            <a class="docs-v2-page-nav-link docs-v2-page-nav-link--sub" href="#radio-states">Radio States</a>
+            <a class="docs-v2-page-nav-link" href="#behavior">Behavior</a>
             <a class="docs-v2-page-nav-link" href="#token-reference">Token Reference</a>
           </nav>
         </aside>
