@@ -1,0 +1,1230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Record Rows</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../styles/tokens.css" />
+  <link rel="stylesheet" href="../styles/base.css" />
+  <link rel="stylesheet" href="../styles/forms.css" />
+  <link rel="stylesheet" href="../styles/panels.css" />
+  <link rel="stylesheet" href="../styles/record-rows.css" />
+  <link rel="stylesheet" href="../styles/demos.css" />
+  <link rel="stylesheet" href="../styles/docs.css" />
+  <style>
+    .record-row-docs-page {
+      --choice-control-checked-bg: #2567F4;
+      --choice-control-checked-border: #2567F4;
+      --choice-control-hover-checked: #2251C5;
+      --record-row-hover-rail-color: #2251C5;
+      --record-row-selected-bg: #F7FAFF;
+    }
+
+    .record-row-docs-stack {
+      display: grid;
+      gap: 0;
+    }
+
+    .record-row-docs-stack > .example-block,
+    .record-row-docs-stack > .docs-section {
+      padding: 40px 0 32px;
+      border-top: 1px solid var(--docs-v2-border);
+    }
+
+    .record-row-docs-stack > .example-block {
+      padding-left: 16px;
+    }
+
+    .record-row-docs-stack > :first-child {
+      padding-top: 0;
+      border-top: 0;
+    }
+
+    .record-row-docs-stack > :last-child {
+      padding-bottom: 0;
+    }
+
+    .record-row-docs-stack .panel-example-title {
+      font-size: 20px;
+      line-height: 24px;
+      font-weight: 700;
+      margin: 0;
+    }
+
+    .record-row-docs-stack .example-block .panel-example-title {
+      font-size: 18px;
+      line-height: 22px;
+      font-weight: 600;
+    }
+
+    .record-row-docs-stack .example-caption,
+    .record-row-docs-stack .docs-lead,
+    .record-row-docs-stack .docs-card-caption,
+    .record-row-docs-stack .docs-list {
+      max-width: var(--docs-v2-prose-measure);
+    }
+
+    .record-row-docs-stack .example-caption {
+      margin: 0;
+      font-size: 14px;
+      line-height: 22px;
+      color: var(--docs-v2-text-secondary);
+    }
+
+    .record-row-docs-stack .example-block {
+      display: grid;
+      gap: 0;
+    }
+
+    .record-row-docs-stack .example-block > .panel-example-title,
+    .record-row-docs-stack .example-block > .example-caption {
+      max-width: var(--docs-v2-prose-measure);
+    }
+
+    .record-row-docs-stack .example-block > .panel-example-title + .example-caption {
+      margin-top: 6px;
+    }
+
+    .record-row-docs-stack .example-caption + .example-caption,
+    .record-row-docs-stack .docs-lead + .docs-lead,
+    .record-row-docs-stack .docs-card-caption + .docs-card-caption {
+      margin-top: 10px;
+    }
+
+    .record-row-docs-stack .example-block > .record-row-example-surface,
+    .record-row-docs-stack .example-block > .panel {
+      margin-top: 18px;
+    }
+
+    .record-row-docs-stack .docs-section-header {
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .record-row-docs-stack .docs-section-header > .panel-example-title + .docs-lead {
+      margin-top: 0;
+    }
+
+    .record-row-docs-stack .docs-lead {
+      margin: 0;
+      font-size: 14px;
+      line-height: 22px;
+      color: var(--docs-v2-text-secondary);
+    }
+
+    .record-row-docs-page .record-row-example-surface,
+    .record-row-docs-page .docs-card {
+      border-radius: 16px;
+      border: 1px solid var(--docs-v2-border);
+      background: rgba(255, 255, 255, 0.8);
+      box-shadow: none;
+    }
+
+    .record-row-docs-page .record-row-example-surface {
+      overflow: hidden;
+    }
+
+    .record-row-docs-page .docs-anatomy-grid,
+    .record-row-docs-page .docs-token-grid {
+      gap: 16px;
+    }
+
+    .record-row-docs-page .docs-anatomy-grid,
+    .record-row-docs-page .docs-token-grid,
+    .record-row-docs-page .docs-stack-list {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .record-row-docs-page .docs-parts-card,
+    .record-row-docs-page .docs-token-card {
+      border-radius: 10px;
+      border: 1px solid var(--docs-v2-border);
+      background: var(--docs-v2-table-surface);
+      box-shadow: none;
+    }
+
+    .record-row-docs-page .docs-token-card {
+      overflow: hidden;
+      padding: 0;
+    }
+
+    .record-row-docs-page .docs-card-title,
+    .record-row-docs-page .docs-token-card > .docs-card-caption,
+    .record-row-docs-page .docs-token-card > .docs-list,
+    .record-row-docs-page .docs-token-card > table,
+    .record-row-docs-page .docs-parts-card > .docs-list {
+      margin-left: 18px;
+      margin-right: 18px;
+    }
+
+    .record-row-docs-page .docs-token-card > .docs-card-title,
+    .record-row-docs-page .docs-parts-card > .docs-card-title {
+      margin: 18px 18px 0;
+    }
+
+    .record-row-docs-page .docs-card-caption {
+      margin-top: 8px;
+      margin-bottom: 0;
+      font-size: 13px;
+      line-height: 20px;
+      color: var(--docs-v2-text-secondary);
+    }
+
+    .record-row-docs-page .docs-token-table {
+      width: calc(100% - 36px);
+      margin: 16px 18px 18px;
+      border-collapse: collapse;
+    }
+
+    .record-row-docs-page .docs-token-table th,
+    .record-row-docs-page .docs-token-table td {
+      padding: 14px 12px;
+      border-bottom: 1px solid var(--docs-v2-border);
+      vertical-align: middle;
+      font-size: 14px;
+      line-height: 20px;
+    }
+
+    .record-row-docs-page .docs-token-table th {
+      font-size: 12px;
+      line-height: 16px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--docs-v2-text-muted);
+      background: var(--docs-v2-table-header-surface);
+    }
+
+    .record-row-docs-page .docs-token-table tbody tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .record-row-docs-page .docs-stack-list {
+      display: grid;
+      gap: 16px;
+    }
+
+    .record-row-docs-page .record-row-guidance-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .record-row-docs-page .record-row-guidance-card {
+      display: grid;
+      gap: 0;
+      align-content: start;
+      grid-auto-rows: min-content;
+      padding: 18px;
+      border: 1px solid var(--docs-v2-border);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.8);
+    }
+
+    .record-row-docs-page .record-row-guidance-card .docs-card-title {
+      margin: 0;
+      font-size: 18px;
+      line-height: 24px;
+      font-weight: 600;
+      color: var(--docs-v2-text);
+    }
+
+    .record-row-docs-page .record-row-guidance-list {
+      display: grid;
+      margin: 0;
+      margin-top: 10px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .record-row-docs-page .record-row-guidance-item {
+      margin: 0;
+      padding: 12px 0;
+      border-top: 1px solid var(--docs-v2-border);
+      font-size: 14px;
+      line-height: 20px;
+      color: var(--docs-v2-text-secondary);
+    }
+
+    .record-row-docs-page .record-row-guidance-item:first-child {
+      margin-top: 0;
+      border-top: 0;
+    }
+
+    @media (max-width: 900px) {
+      .record-row-docs-page .record-row-guidance-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .record-row-docs-page .docs-token-block + .docs-token-block {
+      margin-top: 24px;
+    }
+
+    .record-row-docs-page .docs-token-block .docs-card-title,
+    .record-row-docs-page .docs-token-block .docs-card-caption {
+      max-width: var(--docs-v2-prose-measure);
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    .record-row-docs-page .docs-token-block .docs-card-title {
+      margin-top: 0;
+      margin-bottom: 8px;
+    }
+
+    .record-row-docs-page .docs-token-block .docs-card-caption {
+      margin-top: 0;
+    }
+
+    .record-row-docs-page .docs-token-block .docs-token-table {
+      width: 100%;
+      margin: 16px 0 0;
+      border-collapse: separate;
+      border-spacing: 0;
+      border: 1px solid #D7DEE8;
+      border-radius: 8px;
+      overflow: hidden;
+      background: var(--docs-v2-table-surface);
+    }
+
+    .record-row-docs-page .docs-token-block .docs-token-table th:first-child {
+      border-top-left-radius: 10px;
+    }
+
+    .record-row-docs-page .docs-token-block .docs-token-table th:last-child {
+      border-top-right-radius: 10px;
+    }
+
+    .record-row-docs-page .docs-v2-page-nav-link--sub {
+      padding-left: 24px;
+      font-size: 13px;
+      line-height: 18px;
+    }
+
+    .record-row-docs-page .record-row-anatomy-demo {
+      display: grid;
+      gap: 18px;
+      max-width: 100%;
+      padding: 8px 0 4px;
+    }
+
+    .record-row-docs-page .record-row-anatomy-surface {
+      width: min(100%, 760px);
+      overflow: visible;
+      background: transparent;
+      border: 0;
+      border-radius: 0;
+      box-shadow: none;
+    }
+
+    .record-row-docs-page .record-row-anatomy-surface .record-row-list {
+      border: 1px dotted #CBD5E1;
+      border-top: 1px dotted #CBD5E1;
+      border-bottom: 1px dotted #CBD5E1;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .record-row-docs-page .record-row-anatomy-surface .record-row {
+      border-top: 0;
+    }
+
+    .record-row-docs-page .record-row-anatomy-row {
+      background: #FFFFFF;
+    }
+
+    .record-row-docs-page .record-row-anatomy-row::before {
+      opacity: 1;
+    }
+
+    .record-row-docs-page .record-row-anatomy-row:hover,
+    .record-row-docs-page .record-row-anatomy-row:focus-within {
+      background: #FFFFFF;
+    }
+
+    .record-row-docs-page .record-row-anatomy-metahead {
+      position: relative;
+      flex-wrap: wrap;
+      row-gap: 6px;
+    }
+
+    .record-row-docs-page .record-row-anatomy-actions {
+      position: relative;
+    }
+
+    .record-row-docs-page .record-row-anatomy-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      background: #EAF1FF;
+      color: #2251C5;
+      font-size: 11px;
+      line-height: 1;
+      font-weight: 700;
+      box-shadow: inset 0 0 0 1px #D7E3FF;
+      vertical-align: middle;
+      flex: none;
+    }
+
+    .record-row-docs-page .record-row-anatomy-number--inline {
+      margin-left: 6px;
+    }
+
+    .record-row-docs-page .record-row-anatomy-number--above {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      z-index: 1;
+    }
+
+    .record-row-docs-page .record-row-anatomy-reference {
+      display: grid;
+      gap: 8px;
+      max-width: none;
+      margin: 0;
+      padding-left: 22px;
+      color: var(--docs-v2-text-secondary);
+      font-size: 14px;
+      line-height: 22px;
+    }
+
+    .record-row-docs-page .record-row-anatomy-reference li::marker {
+      color: var(--docs-v2-text);
+      font-weight: 700;
+    }
+
+    .record-row-docs-page .record-row-anatomy-groups {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      max-width: var(--docs-v2-prose-measure);
+    }
+
+    .record-row-docs-page .record-row-anatomy-groups > section {
+      padding: 18px;
+      border: 1px solid var(--docs-v2-border);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.8);
+    }
+
+    .record-row-docs-page .record-row-anatomy-group-title {
+      margin: 0 0 10px;
+      font-size: 12px;
+      line-height: 16px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--docs-v2-text-muted);
+    }
+
+    .record-row-docs-page .record-row-anatomy-reference-title {
+      margin: 0 0 10px;
+      font-size: 18px;
+      line-height: 24px;
+      font-weight: 600;
+      color: var(--docs-v2-text);
+    }
+
+    .record-row-docs-page .record-row-anatomy-reference-intro {
+      margin: 0 0 12px;
+      max-width: var(--docs-v2-prose-measure);
+      font-size: 13px;
+      line-height: 20px;
+      color: var(--docs-v2-text-secondary);
+    }
+
+    .record-row-docs-page .record-row-anatomy-reference-label {
+      display: block;
+      color: var(--docs-v2-text);
+      font-weight: 600;
+    }
+
+    .record-row-docs-page .record-row-anatomy-reference-copy {
+      display: block;
+      margin-top: 2px;
+    }
+
+    @media (max-width: 900px) {
+      .record-row-docs-page .record-row-anatomy-groups {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+  </style>
+</head>
+<body
+  class="docs-v2-page panel-docs-page record-row-docs-page"
+  data-docs-v2-nav-title="Design System"
+  data-docs-v2-nav-copy="Components define reusable product UI patterns and behaviors."
+  data-docs-v2-nav-kicker="Components"
+>
+  <div class="docs-v2-layout">
+    <aside class="docs-v2-sidebar" data-docs-v2-nav></aside>
+
+    <main class="docs-v2-main">
+      <section class="docs-v2-hero">
+        <p class="docs-v2-eyebrow">Components / Record Rows</p>
+        <h2 class="docs-v2-title">Record Rows</h2>
+        <p class="docs-v2-copy">Compact, scan-first rows for services, assessments, goals, and other repeatable records.</p>
+        <div class="docs-v2-chip-row">
+          <span class="docs-v2-chip">Basic, selectable, dense, and empty states</span>
+          <span class="docs-v2-chip">Blue hover rail and selected state</span>
+          <span class="docs-v2-chip">Anatomy, specs, and technical reference</span>
+        </div>
+      </section>
+
+      <div class="docs-v2-page-shell docs-v2-page-shell--with-page-nav">
+        <div class="docs-v2-page-content">
+          <div class="record-row-docs-stack" aria-label="Record row documentation">
+            <section class="docs-section" id="overview">
+              <div class="docs-section-header">
+                <h2 class="panel-example-title">Overview</h2>
+                <p class="docs-lead docs-lead--full">Record rows are compact, high-density containers for repeatable records inside panels. Use them for services, assessments, goals, and similar entities when the interface needs strong scanability, explicit selection, and lightweight actions without the weight of a full card.</p>
+              </div>
+            </section>
+
+            <section class="docs-section" id="variants-showcase">
+              <div class="docs-section-header">
+                <h2 class="panel-example-title">Variants</h2>
+                <p class="docs-lead">Use the examples below to compare the base row, badge and status treatment, selectable rows, empty containers, and denser row content.</p>
+              </div>
+            </section>
+
+            <section class="example-block" id="basic-row" aria-label="Basic record row example">
+              <h2 class="panel-example-title">Basic Record Row</h2>
+              <p class="example-caption">The base record row presents a single item with a clear title and supporting metadata. It is designed for fast scanning and consistent alignment across repeated data.</p>
+              <p class="example-caption">Use this pattern when content is straightforward and does not require status indicators, selection, or extended detail.</p>
+              <article class="panel record-row-example-surface" aria-label="Basic record row panel">
+                <div class="record-row-list" aria-label="Basic record row example">
+                  <article class="record-row record-row--no-selection">
+                    <div class="record-row-main">
+                      <div class="record-row-content">
+                        <div class="record-row-top">
+                          <div class="record-row-metahead">
+                            <span class="record-row-eyebrow">Assessment</span>
+                          </div>
+                          <div class="record-row-actions" aria-label="Career interest inventory actions">
+                            <button class="record-row-action-button record-row-action-button--edit" type="button">
+                              <span class="sr-only">Edit Career Interest Inventory</span>
+                              <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                                <path d="M12 20h9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                                <path d="M16.5 3.5a2.1 2.1 0 1 1 3 3L7 19l-4 1 1-4Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+                              </svg>
+                            </button>
+                            <button class="record-row-action-button record-row-action-button--delete" type="button">
+                              <span class="sr-only">Delete Career Interest Inventory</span>
+                              <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                                <path d="M3 6h18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                                <path d="M8 6V4h8v2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M19 6l-1 14H6L5 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+                                <path d="M10 10v6M14 10v6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                              </svg>
+                            </button>
+                          </div>
+                        </div>
+                        <h3 class="record-row-title">Career Interest Inventory</h3>
+                        <p class="record-row-line">Student interests aligned most strongly with health science and technology pathways.</p>
+                        <p class="record-row-line record-row-line--meta record-row-line--stack">
+                          <span class="record-row-meta-label">Date</span>
+                          <span class="record-row-meta-value">Feb 18, 2026</span>
+                        </p>
+                      </div>
+                    </div>
+                  </article>
+                </div>
+              </article>
+            </section>
+
+            <section class="example-block" id="badge-status-row" aria-label="Record row with badge example">
+              <h2 class="panel-example-title">Record Row With Badge/Status</h2>
+              <p class="example-caption">Record rows can include both a badge and a distinct status when the row needs to communicate type and state at the same time. The badge should continue to identify the record category or delivery type.</p>
+              <p class="example-caption">Use a compact top-row status tag for states such as Waived or Inactive. Pair it with a small dot and a divider when row state needs to remain separate from the badge.</p>
+              <article class="panel record-row-example-surface" aria-label="Record row with badge panel">
+                <div class="record-row-list" aria-label="Record row with badge example">
+                  <article class="record-row record-row--no-selection record-row--waived">
+                    <div class="record-row-main">
+                      <div class="record-row-content">
+                        <div class="record-row-top">
+                          <div class="record-row-metahead">
+                            <span class="record-row-eyebrow">Assessment</span>
+                            <span class="record-row-badge record-row-badge--cyan">Academic</span>
+                            <span class="record-row-status-divider" aria-hidden="true"></span>
+                            <span class="record-row-status record-row-status--waived"><span class="record-row-status-dot" aria-hidden="true"></span><span>Waived</span></span>
+                          </div>
+                          <div class="record-row-actions" aria-label="Woodcock-Johnson IV actions">
+                            <button class="record-row-action-button record-row-action-button--edit" type="button">
+                              <span class="sr-only">Edit Woodcock-Johnson IV</span>
+                              <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                                <path d="M12 20h9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                                <path d="M16.5 3.5a2.1 2.1 0 1 1 3 3L7 19l-4 1 1-4Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+                              </svg>
+                            </button>
+                            <button class="record-row-action-button record-row-action-button--delete" type="button">
+                              <span class="sr-only">Delete Woodcock-Johnson IV</span>
+                              <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                                <path d="M3 6h18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                                <path d="M8 6V4h8v2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M19 6l-1 14H6L5 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+                                <path d="M10 10v6M14 10v6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                              </svg>
+                            </button>
+                          </div>
+                        </div>
+                        <h3 class="record-row-title">Woodcock-Johnson IV</h3>
+                        <p class="record-row-line">Academic Achievement <span class="record-row-separator">•</span> Initial Evaluation</p>
+                        <p class="record-row-line record-row-line--meta">
+                          <span class="record-row-meta-label">Date</span>
+                          <span class="record-row-meta-value">Mar 12, 2025</span>
+                          <span class="record-row-separator">•</span>
+                          <span class="record-row-meta-label">Examiner</span>
+                          <span class="record-row-meta-value">Dr. Melissa Grant</span>
+                        </p>
+                      </div>
+                    </div>
+                  </article>
+
+                  <article class="record-row record-row--no-selection record-row--inactive">
+                    <div class="record-row-main">
+                      <div class="record-row-content">
+                        <div class="record-row-top">
+                          <div class="record-row-metahead">
+                            <span class="record-row-eyebrow">Service</span>
+                            <span class="record-row-badge record-row-badge--rose">Indirect</span>
+                            <span class="record-row-status-divider" aria-hidden="true"></span>
+                            <span class="record-row-status record-row-status--inactive"><span class="record-row-status-dot" aria-hidden="true"></span><span>Inactive</span></span>
+                          </div>
+                          <div class="record-row-actions" aria-label="Occupational Therapy consultation actions">
+                            <button class="record-row-action-button record-row-action-button--edit" type="button">
+                              <span class="sr-only">Edit Occupational Therapy Consultation</span>
+                              <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                                <path d="M12 20h9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                                <path d="M16.5 3.5a2.1 2.1 0 1 1 3 3L7 19l-4 1 1-4Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+                              </svg>
+                            </button>
+                            <button class="record-row-action-button record-row-action-button--delete" type="button">
+                              <span class="sr-only">Delete Occupational Therapy Consultation</span>
+                              <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                                <path d="M3 6h18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                                <path d="M8 6V4h8v2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M19 6l-1 14H6L5 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+                                <path d="M10 10v6M14 10v6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                              </svg>
+                            </button>
+                          </div>
+                        </div>
+                        <h3 class="record-row-title">Occupational Therapy Consultation</h3>
+                        <p class="record-row-line">General Education Classroom <span class="record-row-separator">•</span> Consultation</p>
+                        <p class="record-row-line record-row-line--meta">
+                          <span class="record-row-meta-label">Date</span>
+                          <span class="record-row-meta-value">Aug 15, 2025 – Dec 20, 2025</span>
+                          <span class="record-row-separator">•</span>
+                          <span class="record-row-meta-label">Provider</span>
+                          <span class="record-row-meta-value">Jamie Rivera</span>
+                        </p>
+                      </div>
+                    </div>
+                  </article>
+                </div>
+              </article>
+            </section>
+
+            <section class="example-block" id="selectable-rows" aria-label="Selectable assessment rows example">
+              <h2 class="panel-example-title">Selectable Record Rows</h2>
+              <p class="example-caption">Record rows can support selection when users need to choose one or more items from a list. Selection controls appear at the start of the row and do not change the overall layout or hierarchy.</p>
+              <p class="example-caption">Use this pattern for workflows such as including assessments, assigning items, or bulk actions. Selection should remain lightweight and not introduce additional container styles.</p>
+              <article class="panel record-row-example-surface" aria-label="Selectable record row panel">
+                <div class="record-row-list" aria-label="Assessment record rows">
+                  <article class="record-row" data-selectable-record-row tabindex="0" aria-label="Woodcock-Johnson IV record row">
+                    <div class="record-row-main">
+                      <div class="record-row-selection">
+                        <input type="checkbox" aria-label="Select Woodcock-Johnson IV assessment" />
+                      </div>
+                      <div class="record-row-content">
+                        <div class="record-row-top">
+                          <div class="record-row-metahead">
+                            <span class="record-row-eyebrow">Assessment</span>
+                            <span class="record-row-badge record-row-badge--cobalt">Academic</span>
+                          </div>
+                          <div class="record-row-actions" aria-label="Woodcock-Johnson IV actions">
+                            <button class="record-row-action-button record-row-action-button--edit" type="button">
+                              <span class="sr-only">Edit Woodcock-Johnson IV</span>
+                              <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                                <path d="M12 20h9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                                <path d="M16.5 3.5a2.1 2.1 0 1 1 3 3L7 19l-4 1 1-4Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+                              </svg>
+                            </button>
+                            <button class="record-row-action-button record-row-action-button--delete" type="button">
+                              <span class="sr-only">Delete Woodcock-Johnson IV</span>
+                              <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                                <path d="M3 6h18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                                <path d="M8 6V4h8v2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M19 6l-1 14H6L5 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+                                <path d="M10 10v6M14 10v6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                              </svg>
+                            </button>
+                          </div>
+                        </div>
+                        <h3 class="record-row-title">Woodcock-Johnson IV</h3>
+                        <p class="record-row-line">Academic Achievement <span class="record-row-separator">•</span> Initial Evaluation</p>
+                        <p class="record-row-line record-row-line--meta">
+                          <span class="record-row-meta-label">Date</span>
+                          <span class="record-row-meta-value">Mar 12, 2025</span>
+                          <span class="record-row-separator">•</span>
+                          <span class="record-row-meta-label">Examiner</span>
+                          <span class="record-row-meta-value">Dr. Melissa Grant</span>
+                          <span class="record-row-separator">•</span>
+                          <span class="record-row-meta-label">Detail</span>
+                          <span class="record-row-meta-value">Score Report Attached</span>
+                        </p>
+                      </div>
+                    </div>
+                  </article>
+
+                  <article class="record-row" data-selectable-record-row tabindex="0" aria-label="CELF assessment record row">
+                    <div class="record-row-main">
+                      <div class="record-row-selection">
+                        <input type="checkbox" aria-label="Select Clinical Evaluation of Language Fundamentals assessment" checked />
+                      </div>
+                      <div class="record-row-content">
+                        <div class="record-row-top">
+                          <div class="record-row-metahead">
+                            <span class="record-row-eyebrow">Assessment</span>
+                            <span class="record-row-badge record-row-badge--purple">Speech / Language</span>
+                          </div>
+                          <div class="record-row-actions" aria-label="CELF actions">
+                            <button class="record-row-action-button record-row-action-button--edit" type="button">
+                              <span class="sr-only">Edit Clinical Evaluation of Language Fundamentals</span>
+                              <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                                <path d="M12 20h9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                                <path d="M16.5 3.5a2.1 2.1 0 1 1 3 3L7 19l-4 1 1-4Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+                              </svg>
+                            </button>
+                            <button class="record-row-action-button record-row-action-button--delete" type="button">
+                              <span class="sr-only">Delete Clinical Evaluation of Language Fundamentals</span>
+                              <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                                <path d="M3 6h18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                                <path d="M8 6V4h8v2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M19 6l-1 14H6L5 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+                                <path d="M10 10v6M14 10v6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                              </svg>
+                            </button>
+                          </div>
+                        </div>
+                        <h3 class="record-row-title">Clinical Evaluation of Language Fundamentals</h3>
+                        <p class="record-row-line">Language Skills <span class="record-row-separator">•</span> Reevaluation</p>
+                        <p class="record-row-line record-row-line--meta">
+                          <span class="record-row-meta-label">Date</span>
+                          <span class="record-row-meta-value">Oct 08, 2025</span>
+                          <span class="record-row-separator">•</span>
+                          <span class="record-row-meta-label">Examiner</span>
+                          <span class="record-row-meta-value">Amy Johnson</span>
+                          <span class="record-row-separator">•</span>
+                          <span class="record-row-meta-label">Detail</span>
+                          <span class="record-row-meta-value">Summary Entered</span>
+                        </p>
+                      </div>
+                    </div>
+                  </article>
+                </div>
+              </article>
+            </section>
+
+            <section class="example-block" id="empty-container" aria-label="Empty record row container example">
+              <h2 class="panel-example-title">Empty Container</h2>
+              <article class="panel record-row-example-surface" aria-label="Empty record row panel">
+                <div class="record-row-list" aria-label="Empty services list">
+                  <div class="record-row-empty">No services added for this section.</div>
+                </div>
+              </article>
+            </section>
+
+            <section class="example-block" id="dense-rows" aria-label="Dense record row examples">
+              <h2 class="panel-example-title">Dense Record Row</h2>
+              <p class="example-caption">Record rows can accommodate multiple lines of structured metadata while maintaining a compact, scan-friendly layout. Information should be grouped logically and presented in a consistent order across rows.</p>
+              <p class="example-caption">Use this pattern for more detailed items such as services, assessments, or plans where additional context is required, but a full card layout would add unnecessary visual weight.</p>
+              <article class="panel record-row-example-surface" aria-label="Reusable record row panel">
+                <div class="record-row-list" aria-label="Reusable record types">
+                  <section class="record-row-group" aria-label="Service rows">
+                    <h3 class="record-row-group-header">Services</h3>
+                    <article class="record-row record-row--no-selection">
+                      <div class="record-row-main">
+                        <div class="record-row-content">
+                          <div class="record-row-top">
+                            <div class="record-row-metahead">
+                              <span class="record-row-eyebrow">Service</span>
+                              <span class="record-row-badge record-row-badge--emerald">Consult</span>
+                            </div>
+                            <div class="record-row-actions" aria-label="Occupational Therapy actions">
+                              <button class="record-row-action-button record-row-action-button--edit" type="button">
+                                <span class="sr-only">Edit Occupational Therapy</span>
+                                <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                                  <path d="M12 20h9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                                  <path d="M16.5 3.5a2.1 2.1 0 1 1 3 3L7 19l-4 1 1-4Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+                                </svg>
+                              </button>
+                              <button class="record-row-action-button record-row-action-button--delete" type="button">
+                                <span class="sr-only">Delete Occupational Therapy</span>
+                                <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                                  <path d="M3 6h18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                                  <path d="M8 6V4h8v2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                                  <path d="M19 6l-1 14H6L5 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+                                  <path d="M10 10v6M14 10v6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                                </svg>
+                              </button>
+                            </div>
+                          </div>
+                          <h3 class="record-row-title">Occupational Therapy</h3>
+                          <p class="record-row-line">General Ed Classroom <span class="record-row-separator">•</span> Small Group</p>
+                          <p class="record-row-line record-row-line--meta">
+                            <span class="record-row-meta-label">Date</span>
+                            <span class="record-row-meta-value">Aug 20, 2025 – May 28, 2026</span>
+                            <span class="record-row-separator">•</span>
+                            <span class="record-row-meta-label">Frequency</span>
+                            <span class="record-row-meta-value">1x/week</span>
+                            <span class="record-row-separator">•</span>
+                            <span class="record-row-meta-label">Duration</span>
+                            <span class="record-row-meta-value">30 min</span>
+                            <span class="record-row-separator">•</span>
+                            <span class="record-row-meta-label">Provider</span>
+                            <span class="record-row-meta-value">Sarah Lee</span>
+                          </p>
+                        </div>
+                      </div>
+                    </article>
+
+                    <article class="record-row record-row--no-selection">
+                      <div class="record-row-main">
+                        <div class="record-row-content">
+                          <div class="record-row-top">
+                            <div class="record-row-metahead">
+                              <span class="record-row-eyebrow">Service</span>
+                              <span class="record-row-badge record-row-badge--teal">Direct</span>
+                            </div>
+                            <div class="record-row-actions" aria-label="Reading Support actions">
+                              <button class="record-row-action-button record-row-action-button--edit" type="button">
+                                <span class="sr-only">Edit Reading Support</span>
+                                <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                                  <path d="M12 20h9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                                  <path d="M16.5 3.5a2.1 2.1 0 1 1 3 3L7 19l-4 1 1-4Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+                                </svg>
+                              </button>
+                              <button class="record-row-action-button record-row-action-button--delete" type="button">
+                                <span class="sr-only">Delete Reading Support</span>
+                                <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                                  <path d="M3 6h18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                                  <path d="M8 6V4h8v2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                                  <path d="M19 6l-1 14H6L5 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+                                  <path d="M10 10v6M14 10v6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                                </svg>
+                              </button>
+                            </div>
+                          </div>
+                          <h3 class="record-row-title">Reading Support</h3>
+                          <p class="record-row-line">General Ed Classroom <span class="record-row-separator">•</span> Group</p>
+                          <p class="record-row-line record-row-line--meta">
+                            <span class="record-row-meta-label">Date</span>
+                            <span class="record-row-meta-value">Aug 20, 2025 – May 28, 2026</span>
+                            <span class="record-row-separator">•</span>
+                            <span class="record-row-meta-label">Frequency</span>
+                            <span class="record-row-meta-value">2x/week</span>
+                            <span class="record-row-separator">•</span>
+                            <span class="record-row-meta-label">Duration</span>
+                            <span class="record-row-meta-value">30 min</span>
+                            <span class="record-row-separator">•</span>
+                            <span class="record-row-meta-label">Provider</span>
+                            <span class="record-row-meta-value">Monica Harris</span>
+                          </p>
+                        </div>
+                      </div>
+                    </article>
+                  </section>
+
+                  <section class="record-row-group" aria-label="Assessment rows">
+                    <h3 class="record-row-group-header">Assessments</h3>
+                    <article class="record-row record-row--no-selection">
+                      <div class="record-row-main">
+                        <div class="record-row-content">
+                          <div class="record-row-top">
+                            <div class="record-row-metahead">
+                              <span class="record-row-eyebrow">Assessment</span>
+                              <span class="record-row-badge record-row-badge--cobalt">Academic</span>
+                            </div>
+                            <div class="record-row-actions" aria-label="Woodcock-Johnson IV actions">
+                              <button class="record-row-action-button record-row-action-button--edit" type="button">
+                                <span class="sr-only">Edit Woodcock-Johnson IV</span>
+                                <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                                  <path d="M12 20h9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                                  <path d="M16.5 3.5a2.1 2.1 0 1 1 3 3L7 19l-4 1 1-4Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+                                </svg>
+                              </button>
+                              <button class="record-row-action-button record-row-action-button--delete" type="button">
+                                <span class="sr-only">Delete Woodcock-Johnson IV</span>
+                                <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                                  <path d="M3 6h18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                                  <path d="M8 6V4h8v2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                                  <path d="M19 6l-1 14H6L5 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+                                  <path d="M10 10v6M14 10v6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                                </svg>
+                              </button>
+                            </div>
+                          </div>
+                          <h3 class="record-row-title">Woodcock-Johnson IV</h3>
+                          <p class="record-row-line">Academic Achievement <span class="record-row-separator">•</span> Initial Evaluation</p>
+                          <p class="record-row-line record-row-line--meta">
+                            <span class="record-row-meta-label">Date</span>
+                            <span class="record-row-meta-value">Mar 12, 2025</span>
+                            <span class="record-row-separator">•</span>
+                            <span class="record-row-meta-label">Examiner</span>
+                            <span class="record-row-meta-value">Dr. Melissa Grant</span>
+                            <span class="record-row-separator">•</span>
+                            <span class="record-row-meta-label">Detail</span>
+                            <span class="record-row-meta-value">Score Report Attached</span>
+                          </p>
+                        </div>
+                      </div>
+                    </article>
+
+                    <article class="record-row record-row--no-selection">
+                      <div class="record-row-main">
+                        <div class="record-row-content">
+                          <div class="record-row-top">
+                            <div class="record-row-metahead">
+                              <span class="record-row-eyebrow">Assessment</span>
+                              <span class="record-row-badge record-row-badge--purple">Speech / Language</span>
+                            </div>
+                            <div class="record-row-actions" aria-label="CELF actions">
+                              <button class="record-row-action-button record-row-action-button--edit" type="button">
+                                <span class="sr-only">Edit Clinical Evaluation of Language Fundamentals</span>
+                                <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                                  <path d="M12 20h9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                                  <path d="M16.5 3.5a2.1 2.1 0 1 1 3 3L7 19l-4 1 1-4Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+                                </svg>
+                              </button>
+                              <button class="record-row-action-button record-row-action-button--delete" type="button">
+                                <span class="sr-only">Delete Clinical Evaluation of Language Fundamentals</span>
+                                <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                                  <path d="M3 6h18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                                  <path d="M8 6V4h8v2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                                  <path d="M19 6l-1 14H6L5 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+                                  <path d="M10 10v6M14 10v6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                                </svg>
+                              </button>
+                            </div>
+                          </div>
+                          <h3 class="record-row-title">Clinical Evaluation of Language Fundamentals</h3>
+                          <p class="record-row-line">Language Skills <span class="record-row-separator">•</span> Reevaluation</p>
+                          <p class="record-row-line record-row-line--meta">
+                            <span class="record-row-meta-label">Date</span>
+                            <span class="record-row-meta-value">Oct 08, 2025</span>
+                            <span class="record-row-separator">•</span>
+                            <span class="record-row-meta-label">Examiner</span>
+                            <span class="record-row-meta-value">Amy Johnson</span>
+                            <span class="record-row-separator">•</span>
+                            <span class="record-row-meta-label">Detail</span>
+                            <span class="record-row-meta-value">Summary Entered</span>
+                          </p>
+                        </div>
+                      </div>
+                    </article>
+
+                    <article class="record-row record-row--no-selection">
+                      <div class="record-row-main">
+                        <div class="record-row-content">
+                          <div class="record-row-top">
+                            <div class="record-row-metahead">
+                              <span class="record-row-eyebrow">Assessment</span>
+                              <span class="record-row-badge record-row-badge--rose">Behavior</span>
+                            </div>
+                            <div class="record-row-actions" aria-label="BASC-3 actions">
+                              <button class="record-row-action-button record-row-action-button--edit" type="button">
+                                <span class="sr-only">Edit BASC-3</span>
+                                <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                                  <path d="M12 20h9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                                  <path d="M16.5 3.5a2.1 2.1 0 1 1 3 3L7 19l-4 1 1-4Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+                                </svg>
+                              </button>
+                              <button class="record-row-action-button record-row-action-button--delete" type="button">
+                                <span class="sr-only">Delete BASC-3</span>
+                                <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                                  <path d="M3 6h18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                                  <path d="M8 6V4h8v2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                                  <path d="M19 6l-1 14H6L5 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+                                  <path d="M10 10v6M14 10v6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                                </svg>
+                              </button>
+                            </div>
+                          </div>
+                          <h3 class="record-row-title">BASC-3</h3>
+                          <p class="record-row-line">Behavior Rating Scale <span class="record-row-separator">•</span> Teacher Form</p>
+                          <p class="record-row-line record-row-line--meta">
+                            <span class="record-row-meta-label">Date</span>
+                            <span class="record-row-meta-value">Jan 22, 2026</span>
+                            <span class="record-row-separator">•</span>
+                            <span class="record-row-meta-label">Examiner</span>
+                            <span class="record-row-meta-value">Lauren Perez</span>
+                            <span class="record-row-separator">•</span>
+                            <span class="record-row-meta-label">Detail</span>
+                            <span class="record-row-meta-value">At-risk attention scores</span>
+                          </p>
+                        </div>
+                      </div>
+                    </article>
+                  </section>
+                </div>
+              </article>
+            </section>
+
+            <section class="docs-section" id="anatomy">
+              <div class="docs-section-header">
+                <h2 class="panel-example-title">Anatomy</h2>
+                <p class="docs-lead">The row keeps a compact hierarchy: selection first, then record identity, then optional actions. The top row may also contain a distinct status treatment with a divider, dot, and heavier label when row state needs to remain separate from the badge.</p>
+              </div>
+              <div class="record-row-anatomy-demo">
+                <article class="panel record-row-example-surface record-row-anatomy-surface" aria-label="Record row anatomy specimen">
+                  <div class="record-row-list" aria-label="Annotated record row">
+                    <article class="record-row record-row--no-selection record-row-anatomy-row">
+                      <div class="record-row-main">
+                        <div class="record-row-content">
+                          <div class="record-row-top">
+                            <div class="record-row-metahead record-row-anatomy-metahead">
+                              <span class="record-row-eyebrow">Service <span class="record-row-anatomy-number record-row-anatomy-number--inline">1</span></span>
+                              <span class="record-row-badge record-row-badge--emerald">Direct</span>
+                              <span class="record-row-status-divider" aria-hidden="true"></span>
+                              <span class="record-row-status record-row-status--inactive"><span class="record-row-status-dot" aria-hidden="true"></span><span>Active</span></span>
+                              <span class="record-row-anatomy-number record-row-anatomy-number--inline">2</span>
+                            </div>
+                            <div class="record-row-actions record-row-anatomy-actions" aria-label="Speech services actions">
+                              <span class="record-row-anatomy-number record-row-anatomy-number--above">3</span>
+                              <button class="record-row-action-button record-row-action-button--edit" type="button" aria-label="Edit Speech and Language Therapy">
+                                <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                                  <path d="M12 20h9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                                  <path d="M16.5 3.5a2.1 2.1 0 1 1 3 3L7 19l-4 1 1-4Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+                                </svg>
+                              </button>
+                              <button class="record-row-action-button record-row-action-button--delete" type="button" aria-label="Delete Speech and Language Therapy">
+                                <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                                  <path d="M3 6h18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                                  <path d="M8 6V4h8v2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                                  <path d="M19 6l-1 14H6L5 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+                                  <path d="M10 10v6M14 10v6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                                </svg>
+                              </button>
+                            </div>
+                          </div>
+                          <h3 class="record-row-title">Speech and Language Therapy <span class="record-row-anatomy-number record-row-anatomy-number--inline">4</span></h3>
+                          <p class="record-row-line">Group session in general education <span class="record-row-separator">•</span> Weekly delivery <span class="record-row-anatomy-number record-row-anatomy-number--inline">5</span></p>
+                          <p class="record-row-line record-row-line--meta">
+                            <span class="record-row-meta-label">Schedule</span>
+                            <span class="record-row-meta-value">2x / week</span>
+                            <span class="record-row-separator">•</span>
+                            <span class="record-row-meta-label">Provider</span>
+                            <span class="record-row-meta-value">Ana Vega</span> <span class="record-row-anatomy-number record-row-anatomy-number--inline">6</span>
+                          </p>
+                        </div>
+                      </div>
+                    </article>
+                  </div>
+                </article>
+                <div>
+                  <h3 class="record-row-anatomy-reference-title">Parts</h3>
+                  <p class="record-row-anatomy-reference-intro">Each numbered element corresponds to a part of the record row shown above.</p>
+                  <div class="record-row-anatomy-groups">
+                    <section>
+                      <h4 class="record-row-anatomy-group-title">Context</h4>
+                      <ol class="record-row-anatomy-reference">
+                        <li value="1">
+                          <span class="record-row-anatomy-reference-label">Eyebrow</span>
+                          <span class="record-row-anatomy-reference-copy">Eyebrow: optional; identifies the record type such as Service, Assessment, or Goal.</span>
+                        </li>
+                        <li value="2">
+                          <span class="record-row-anatomy-reference-label">Status / Badge</span>
+                          <span class="record-row-anatomy-reference-copy">Badge: optional; surfaces a short status or category.</span>
+                          <span class="record-row-anatomy-reference-copy">Top-row status: optional; uses a divider, compact tag, small dot, and state color without replacing the badge.</span>
+                        </li>
+                      </ol>
+                    </section>
+
+                    <section>
+                      <h4 class="record-row-anatomy-group-title">Content</h4>
+                      <ol class="record-row-anatomy-reference">
+                        <li value="4">
+                          <span class="record-row-anatomy-reference-label">Title</span>
+                          <span class="record-row-anatomy-reference-copy">Title: required; primary record identifier.</span>
+                        </li>
+                        <li value="5">
+                          <span class="record-row-anatomy-reference-label">Support Line</span>
+                          <span class="record-row-anatomy-reference-copy">Supporting line: optional; adds one compact line of context beneath the title.</span>
+                        </li>
+                      </ol>
+                    </section>
+
+                    <section>
+                      <h4 class="record-row-anatomy-group-title">Metadata</h4>
+                      <ol class="record-row-anatomy-reference">
+                        <li value="6">
+                          <span class="record-row-anatomy-reference-label">Metadata</span>
+                          <span class="record-row-anatomy-reference-copy">Metadata lines: one or two compact lines of supporting detail using label/value pairs when needed.</span>
+                        </li>
+                      </ol>
+                    </section>
+
+                    <section>
+                      <h4 class="record-row-anatomy-group-title">Controls</h4>
+                      <ol class="record-row-anatomy-reference">
+                        <li value="3">
+                          <span class="record-row-anatomy-reference-label">Actions</span>
+                          <span class="record-row-anatomy-reference-copy">Row actions: optional; typically edit and delete, and they remain visible at all times.</span>
+                        </li>
+                      </ol>
+                    </section>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section class="docs-section" id="layout-behavior">
+              <div class="docs-section-header">
+                <h2 class="panel-example-title">Layout and Behavior</h2>
+                <p class="docs-lead">These rules define how record rows behave within a container.</p>
+              </div>
+              <div class="record-row-guidance-grid">
+                <article class="record-row-guidance-card">
+                  <h3 class="docs-card-title">Layout</h3>
+                  <div class="record-row-guidance-list">
+                    <p class="record-row-guidance-item">Record rows are used within a parent container such as a panel or section.</p>
+                    <p class="record-row-guidance-item">Content is arranged in a single compact column.</p>
+                    <p class="record-row-guidance-item">Selection aligns left, actions align right.</p>
+                  </div>
+                </article>
+                <article class="record-row-guidance-card">
+                  <h3 class="docs-card-title">Content</h3>
+                  <div class="record-row-guidance-list">
+                    <p class="record-row-guidance-item">Titles and supporting text remain grouped.</p>
+                    <p class="record-row-guidance-item">Supporting lines provide brief context beneath the title.</p>
+                    <p class="record-row-guidance-item">Metadata uses label/value pairs for structured details.</p>
+                  </div>
+                </article>
+                <article class="record-row-guidance-card">
+                  <h3 class="docs-card-title">Status and Context</h3>
+                  <div class="record-row-guidance-list">
+                    <p class="record-row-guidance-item">Category and state may both appear in the top row.</p>
+                    <p class="record-row-guidance-item">Separate them visually using spacing or a divider.</p>
+                    <p class="record-row-guidance-item">Do not replace the badge when displaying state.</p>
+                  </div>
+                </article>
+                <article class="record-row-guidance-card">
+                  <h3 class="docs-card-title">Separation</h3>
+                  <div class="record-row-guidance-list">
+                    <p class="record-row-guidance-item">Use dividers between rows.</p>
+                    <p class="record-row-guidance-item">Avoid individual card borders for each row.</p>
+                  </div>
+                </article>
+              </div>
+            </section>
+
+            <section class="docs-section" id="token-reference">
+              <div class="docs-section-header">
+                <h2 class="panel-example-title">Token Reference</h2>
+                <p class="docs-lead">Record row tokens are grouped here for quick technical reference. Badge pair definitions live on the <a href="../foundations/color.html">Color</a> page.</p>
+              </div>
+              <article class="docs-token-block">
+                <h3 class="docs-card-title">Surface</h3>
+                <p class="docs-card-caption">Row borders, hover state, selected state, and hover rail.</p>
+                <table class="docs-token-table">
+                  <thead>
+                    <tr><th>Role</th><th>Token</th><th>Value</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Row border</td><td><code>--record-row-border-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#E5E7EB"></span>Gray 200 (#E5E7EB)</span></td></tr>
+                    <tr><td>Hover background</td><td><code>--record-row-hover-bg</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#FFFFFF"></span>#FFFFFF</span></td></tr>
+                    <tr><td>Selected background</td><td><code>--record-row-selected-bg</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#F7FAFF"></span>Blue 50 (#F7FAFF)</span></td></tr>
+                    <tr><td>Hover rail</td><td><code>--record-row-hover-rail-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#2251C5"></span>Blue 600 (#2251C5)</span></td></tr>
+                    <tr><td>Checkbox checked</td><td><code>.record-row-selection input</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#2567F4"></span>Blue 500 (#2567F4)</span></td></tr>
+                  </tbody>
+                </table>
+              </article>
+
+              <article class="docs-token-block">
+                <h3 class="docs-card-title">Typography Roles</h3>
+                <p class="docs-card-caption">Typography tokens are defined on the <a href="../foundations/typography.html">Typography</a> page. Record rows use the following shared roles.</p>
+                <table class="docs-token-table">
+                  <thead>
+                    <tr><th>Element</th><th>Typography role</th><th>Token</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Eyebrow</td><td>Eyebrow / Compact</td><td><code>--font-eyebrow-sm</code></td></tr>
+                    <tr><td>Title</td><td>Label / Standard</td><td><code>--font-label-md</code></td></tr>
+                    <tr><td>Supporting line</td><td>Body / Compact</td><td><code>--font-body-sm</code></td></tr>
+                    <tr><td>Metadata line</td><td>Metadata / Standard</td><td><code>--font-meta-sm</code></td></tr>
+                  </tbody>
+                </table>
+              </article>
+
+              <article class="docs-token-block">
+                <h3 class="docs-card-title">Layout</h3>
+                <p class="docs-card-caption">Compact row padding, content spacing, and rail placement.</p>
+                <table class="docs-token-table">
+                  <thead>
+                    <tr><th>Role</th><th>Token</th><th>Value</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Vertical padding</td><td><code>--record-row-padding-y</code></td><td>10px</td></tr>
+                    <tr><td>Right padding</td><td><code>--record-row-padding-right</code></td><td>18px</td></tr>
+                    <tr><td>Left padding</td><td><code>--record-row-padding-left</code></td><td>28px</td></tr>
+                    <tr><td>Content gap</td><td><code>--record-row-content-gap</code></td><td>10px</td></tr>
+                    <tr><td>Rail inset</td><td><code>--record-row-rail-inset-left</code></td><td>14px</td></tr>
+                    <tr><td>Rail width</td><td><code>--record-row-rail-width</code></td><td>3px</td></tr>
+                  </tbody>
+                </table>
+              </article>
+
+              <article class="docs-token-block">
+                <h3 class="docs-card-title">Status States</h3>
+                <p class="docs-card-caption">Stateful rows keep standard text colors and use compact top-row status tags to communicate Waived and Inactive states.</p>
+                <table class="docs-token-table">
+                  <thead>
+                    <tr><th>Role</th><th>Token</th><th>Value</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Status weight</td><td><code>--record-row-status-font-weight</code></td><td>600</td></tr>
+                    <tr><td>Waived status background</td><td><code>--record-row-status-waived-bg</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#DBEAFE"></span>#DBEAFE</span></td></tr>
+                    <tr><td>Waived status color</td><td><code>--record-row-status-waived-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#1D4ED8"></span>#1D4ED8</span></td></tr>
+                    <tr><td>Inactive row background</td><td><code>--record-row-status-inactive-bg</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#FFFFFF"></span>#FFFFFF</span></td></tr>
+                    <tr><td>Inactive status background</td><td><code>--record-row-status-inactive-badge-bg</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#F3F4F6"></span>Gray 100 (#F3F4F6)</span></td></tr>
+                    <tr><td>Inactive status color</td><td><code>--record-row-status-inactive-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#4B5563"></span>Gray 600 (#4B5563)</span></td></tr>
+                  </tbody>
+                </table>
+              </article>
+            </section>
+          </div>
+        </div>
+
+        <aside class="docs-v2-page-nav" aria-label="Page navigation">
+          <p class="docs-v2-page-nav-title">On This Page</p>
+          <nav class="docs-v2-page-nav-list">
+            <a class="docs-v2-page-nav-link" href="#overview">Overview</a>
+            <a class="docs-v2-page-nav-link" href="#variants-showcase">Variants</a>
+            <a class="docs-v2-page-nav-link docs-v2-page-nav-link--sub" href="#basic-row">Basic Record Row</a>
+            <a class="docs-v2-page-nav-link docs-v2-page-nav-link--sub" href="#badge-status-row">Badge / Status Row</a>
+            <a class="docs-v2-page-nav-link docs-v2-page-nav-link--sub" href="#selectable-rows">Selectable Rows</a>
+            <a class="docs-v2-page-nav-link docs-v2-page-nav-link--sub" href="#empty-container">Empty Container</a>
+            <a class="docs-v2-page-nav-link docs-v2-page-nav-link--sub" href="#dense-rows">Dense Record Row</a>
+            <a class="docs-v2-page-nav-link" href="#anatomy">Anatomy</a>
+            <a class="docs-v2-page-nav-link" href="#layout-behavior">Layout and Behavior</a>
+            <a class="docs-v2-page-nav-link" href="#token-reference">Token Reference</a>
+          </nav>
+        </aside>
+      </div>
+    </main>
+  </div>
+
+  <script src="../scripts/docs.js"></script>
+  <script src="../v1/record-rows-components.js"></script>
+</body>
+</html>

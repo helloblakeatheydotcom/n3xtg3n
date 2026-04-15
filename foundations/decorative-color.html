@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Decorative Color</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../styles/tokens.css" />
+  <link rel="stylesheet" href="../styles/base.css" />
+  <link rel="stylesheet" href="../styles/demos.css" />
+  <link rel="stylesheet" href="../styles/docs.css" />
+  <style>
+    .decorative-stack {
+      display: grid;
+      gap: 0;
+    }
+
+    .decorative-stack > .docs-section {
+      padding: 40px 0 32px;
+      border-top: 1px solid var(--docs-v2-border);
+    }
+
+    .decorative-stack > .docs-section:first-child {
+      padding-top: 0;
+      border-top: 0;
+    }
+
+    .decorative-stack > .docs-section:last-child {
+      padding-bottom: 0;
+    }
+
+    .decorative-stack .docs-section-header {
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .decorative-stack .panel-example-title {
+      margin: 0;
+      font-size: 20px;
+      line-height: 28px;
+      font-weight: 700;
+    }
+
+    .decorative-stack .docs-lead {
+      margin: 0;
+      max-width: var(--docs-v2-prose-measure);
+      font-size: 14px;
+      line-height: 22px;
+      color: var(--docs-v2-text-secondary);
+    }
+
+    .decorative-stack .docs-lead + .docs-lead {
+      margin-top: 10px;
+    }
+
+    .decorative-guidance-grid,
+    .decorative-accent-grid,
+    .decorative-rail-grid,
+    .decorative-badge-grid {
+      display: grid;
+      gap: 24px;
+    }
+
+    .decorative-guidance-grid,
+    .decorative-accent-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .decorative-rail-grid,
+    .decorative-badge-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .decorative-table-block {
+      padding: 0;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
+    }
+
+    .decorative-section-title {
+      margin: 0 0 10px;
+      font-size: 18px;
+      line-height: 24px;
+      font-weight: 600;
+      color: var(--docs-v2-text);
+    }
+
+    .decorative-section-note {
+      margin: 0 0 14px;
+      max-width: var(--docs-v2-prose-measure);
+      font-size: 13px;
+      line-height: 20px;
+      color: var(--docs-v2-text-secondary);
+    }
+
+    .decorative-token-table {
+      width: 100%;
+      margin-top: 0;
+      table-layout: fixed;
+      border-collapse: collapse;
+      border: 0;
+      border-radius: 10px;
+      overflow: hidden;
+      background: var(--docs-v2-table-surface);
+      box-shadow: 0 0 0 1px var(--docs-v2-border);
+    }
+
+    .decorative-token-table th,
+    .decorative-token-table td {
+      padding: 12px 10px;
+      border-bottom: 1px solid #E8EDF4;
+      vertical-align: top;
+      font-size: 13px;
+      line-height: 18px;
+      text-align: left;
+      white-space: normal;
+      word-break: normal;
+      overflow-wrap: break-word;
+    }
+
+    .decorative-token-table th:first-child,
+    .decorative-token-table td:first-child {
+      padding-left: 18px;
+    }
+
+    .decorative-token-table thead th {
+      background: var(--docs-v2-table-header-surface);
+      font-size: 12px;
+      line-height: 16px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--docs-v2-text-muted);
+    }
+
+    .decorative-token-table tbody tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .decorative-token-table--families th:nth-child(1),
+    .decorative-token-table--families td:nth-child(1) {
+      width: 30%;
+    }
+
+    .decorative-token-table--families th:nth-child(2),
+    .decorative-token-table--families td:nth-child(2) {
+      width: 18%;
+    }
+
+    .decorative-token-table--families th:nth-child(3),
+    .decorative-token-table--families td:nth-child(3) {
+      width: 28%;
+    }
+
+    .decorative-token-table--families th:nth-child(4),
+    .decorative-token-table--families td:nth-child(4) {
+      width: 24%;
+    }
+
+    .decorative-token-table--variants th:nth-child(1),
+    .decorative-token-table--variants td:nth-child(1) {
+      width: 38%;
+    }
+
+    .decorative-token-table--variants th:nth-child(2),
+    .decorative-token-table--variants td:nth-child(2) {
+      width: 22%;
+    }
+
+    .decorative-token-table--variants th:nth-child(3),
+    .decorative-token-table--variants td:nth-child(3) {
+      width: 20%;
+    }
+
+    .decorative-token-table--variants th:nth-child(4),
+    .decorative-token-table--variants td:nth-child(4) {
+      width: 20%;
+    }
+
+    .decorative-token-pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 24px;
+      max-width: 100%;
+      padding: 0 8px;
+      border: 1px solid var(--docs-v2-border);
+      border-radius: 6px;
+      background: #FFFFFF;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 12px;
+      line-height: 16px;
+      font-weight: 400;
+      color: #2251C5;
+      white-space: nowrap;
+    }
+
+    .decorative-token-pill-stack {
+      display: inline-grid;
+      gap: 6px;
+    }
+
+    .decorative-token-pill-line {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .decorative-token-pill-label {
+      font-size: 11px;
+      line-height: 16px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--docs-v2-text-muted);
+    }
+
+    .decorative-color-cell,
+    .decorative-token-cell {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .decorative-primitive-stack {
+      display: inline-grid;
+      gap: 6px;
+    }
+
+    .decorative-primitive-line {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .decorative-primitive-label {
+      font-size: 11px;
+      line-height: 16px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--docs-v2-text-muted);
+    }
+
+    .decorative-swatch {
+      width: 14px;
+      height: 14px;
+      border-radius: 3px;
+      flex: 0 0 auto;
+      border: 1px solid rgba(17, 24, 39, 0.08);
+      background: var(--swatch-color);
+    }
+
+    .decorative-accent-card,
+    .decorative-guidance-card {
+      padding: 18px;
+      border: 1px solid var(--docs-v2-border);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.8);
+    }
+
+    .decorative-rail-card,
+    .decorative-badge-card {
+      display: grid;
+      gap: 6px;
+      padding: 16px;
+      border: 1px solid var(--docs-v2-border);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.8);
+    }
+
+    .decorative-rail-header {
+      display: grid;
+      grid-template-columns: 4px minmax(0, 1fr);
+      gap: 12px;
+      align-items: start;
+    }
+
+    .decorative-rail-marker {
+      width: 4px;
+      min-height: 34px;
+      border-radius: 999px;
+      background: var(--rail-color);
+    }
+
+    .decorative-card-title {
+      margin: 0;
+      font-size: 15px;
+      line-height: 20px;
+      font-weight: 600;
+      color: var(--docs-v2-text);
+    }
+
+    .decorative-card-meta {
+      margin: 2px 0 0;
+      font-size: 12px;
+      line-height: 16px;
+      font-weight: 500;
+      color: var(--docs-v2-text-muted);
+    }
+
+    .decorative-card-use {
+      margin: 0;
+      font-size: 12px;
+      line-height: 16px;
+      color: var(--docs-v2-text-secondary);
+    }
+
+    .decorative-badge-preview {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 22px;
+      gap: 10px;
+      align-items: start;
+    }
+
+    .decorative-badge-card .decorative-card-title {
+      font-size: 12px;
+      line-height: 16px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--docs-v2-text-muted);
+    }
+
+    .decorative-badge-preview-main {
+      display: grid;
+      gap: 6px;
+    }
+
+    .decorative-badge-preview-bar {
+      height: 24px;
+      border-radius: 6px;
+      background: var(--badge-bg);
+      border: 1px solid rgba(17, 24, 39, 0.04);
+    }
+
+    .decorative-badge-preview-chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 22px;
+      padding: 0 10px;
+      border-radius: 999px;
+      background: var(--badge-bg);
+      color: var(--badge-fg);
+      font-size: 12px;
+      line-height: 16px;
+      font-weight: 600;
+      width: fit-content;
+    }
+
+    .decorative-badge-preview-accent {
+      width: 22px;
+      height: 22px;
+      border-radius: 4px;
+      background: var(--badge-fg);
+      border: 1px solid rgba(17, 24, 39, 0.04);
+    }
+
+    .decorative-badge-specs {
+      display: grid;
+      gap: 3px;
+      margin: 0;
+      margin-top: 4px;
+    }
+
+    .decorative-badge-spec-line {
+      display: flex;
+      gap: 6px;
+      align-items: baseline;
+      justify-content: flex-start;
+      font-size: 12px;
+      line-height: 16px;
+      color: var(--docs-v2-text-muted);
+      margin: 0;
+    }
+
+    .decorative-badge-spec-label {
+      font-weight: 600;
+      color: var(--docs-v2-text-muted);
+    }
+
+    .decorative-badge-spec-value {
+      color: var(--docs-v2-text-secondary);
+      font-weight: 400;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
+
+    .decorative-accent-kicker,
+    .decorative-guidance-kicker {
+      margin: 0 0 12px;
+      font-size: 12px;
+      line-height: 16px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--docs-v2-text-muted);
+    }
+
+    .decorative-accent-name {
+      margin: 0 0 14px;
+      font-size: 18px;
+      line-height: 24px;
+      font-weight: 600;
+      color: var(--docs-v2-text);
+    }
+
+    .decorative-accent-stack {
+      display: grid;
+      gap: 10px;
+    }
+
+    .decorative-accent-bar {
+      height: 24px;
+      border-radius: 8px;
+      background: var(--bar-color);
+      border: 1px solid rgba(17, 24, 39, 0.06);
+    }
+
+    .decorative-accent-meta {
+      margin: 0;
+      font-size: 13px;
+      line-height: 20px;
+      color: var(--docs-v2-text-secondary);
+    }
+
+    .decorative-guidance-rows {
+      display: grid;
+      gap: 0;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .decorative-guidance-row {
+      padding: 12px 0;
+      border-top: 1px solid var(--docs-v2-border);
+      font-size: 14px;
+      line-height: 20px;
+      color: var(--docs-v2-text-secondary);
+    }
+
+    .decorative-guidance-row:first-child {
+      padding-top: 0;
+      border-top: 0;
+    }
+
+    .decorative-guidance-label {
+      display: block;
+      margin-bottom: 4px;
+      font-weight: 600;
+      color: var(--docs-v2-text);
+    }
+
+    @media (max-width: 1080px) {
+      .decorative-guidance-grid,
+      .decorative-accent-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .decorative-rail-grid,
+      .decorative-badge-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 720px) {
+      .decorative-rail-grid,
+      .decorative-badge-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+  </style>
+</head>
+<body
+  class="docs-v2-page"
+  data-docs-v2-nav-title="Design System"
+  data-docs-v2-nav-copy="Foundations define the shared system rules before those rules appear in components."
+  data-docs-v2-nav-kicker="Foundations"
+>
+  <div class="docs-v2-layout">
+    <aside class="docs-v2-sidebar" data-docs-v2-nav></aside>
+
+    <main class="docs-v2-main">
+      <section class="docs-v2-hero">
+        <p class="docs-v2-eyebrow">Foundations / Decorative Color</p>
+        <h2 class="docs-v2-title">Decorative Color</h2>
+        <p class="docs-v2-copy">Defines the decorative palettes used for rails, badge and tag variation, and accent treatments that add visual range without adding shared system meaning.</p>
+        <div class="docs-v2-chip-row">
+          <span class="docs-v2-chip">Rails</span>
+          <span class="docs-v2-chip">Badge and tag variants</span>
+          <span class="docs-v2-chip">Accent families</span>
+        </div>
+      </section>
+
+      <div class="docs-v2-page-shell docs-v2-page-shell--with-page-nav">
+        <div class="docs-v2-page-content">
+          <div class="decorative-stack">
+            <section class="docs-section" id="overview">
+              <div class="docs-section-header">
+                <h2 class="panel-example-title">Overview</h2>
+                <p class="docs-lead">Decorative colors provide visual variation but do not communicate system state on their own.</p>
+                <p class="docs-lead">Use them to theme rails, vary badges and tags, and introduce accent families where the goal is distinction, tone, or visual interest rather than shared semantic meaning.</p>
+              </div>
+            </section>
+
+            <section class="docs-section" id="guidance">
+              <div class="docs-section-header">
+                <h2 class="panel-example-title">Guidance</h2>
+                <p class="docs-lead">Use decorative color when variation, theme, or distinction is the goal. Use semantic color when the interface must communicate shared meaning such as state, feedback, interaction, or accessibility treatment.</p>
+              </div>
+              <div class="decorative-guidance-grid">
+                <article class="decorative-guidance-card">
+                  <p class="decorative-guidance-kicker">Use Decorative Color For</p>
+                  <ul class="decorative-guidance-rows">
+                    <li class="decorative-guidance-row"><span class="decorative-guidance-label">Theming rails and accents</span>Section rails, decorative stripes, and accent families that help neighboring content feel distinct.</li>
+                    <li class="decorative-guidance-row"><span class="decorative-guidance-label">Adding categorical variation</span>Badge and tag variants that broaden the palette without introducing shared semantic meaning.</li>
+                    <li class="decorative-guidance-row"><span class="decorative-guidance-label">Adding flair without state</span>Surfaces or accents that should feel expressive but should not imply success, warning, danger, or interaction.</li>
+                  </ul>
+                </article>
+                <article class="decorative-guidance-card">
+                  <p class="decorative-guidance-kicker">Use Semantic Color For</p>
+                  <ul class="decorative-guidance-rows">
+                    <li class="decorative-guidance-row"><span class="decorative-guidance-label">Interaction and focus</span>Primary actions, hover states, active states, focus rings, and interactive surfaces.</li>
+                    <li class="decorative-guidance-row"><span class="decorative-guidance-label">Feedback and validation</span>Info, success, warning, and danger treatments for notices, messages, errors, and destructive states.</li>
+                    <li class="decorative-guidance-row"><span class="decorative-guidance-label">Shared system meaning</span>Any color that needs to carry a reusable meaning across components belongs in the semantic layer, not the decorative layer.</li>
+                  </ul>
+                </article>
+              </div>
+            </section>
+
+            <section class="docs-section" id="accent-families">
+              <div class="docs-section-header">
+                <h2 class="panel-example-title">Accent Families</h2>
+                <p class="docs-lead">These decorative families can be used for rails, supporting accents, and non-semantic visual variation. They should not replace semantic tokens for status, feedback, interaction, or accessibility states.</p>
+              </div>
+              <div class="decorative-accent-grid">
+                <article class="decorative-accent-card">
+                  <p class="decorative-accent-kicker">Neutral and Supporting</p>
+                  <h3 class="decorative-accent-name">Slate, Sand, and Coffee</h3>
+                  <div class="decorative-accent-stack">
+                    <div class="decorative-accent-bar" style="--bar-color:#667085"></div>
+                    <div class="decorative-accent-bar" style="--bar-color:#DBC1AC"></div>
+                    <div class="decorative-accent-bar" style="--bar-color:#6F4E37"></div>
+                  </div>
+                  <p class="decorative-accent-meta">Use for quieter decorative rails, earthy themed categories, or softer visual grouping.</p>
+                </article>
+                <article class="decorative-accent-card">
+                  <p class="decorative-accent-kicker">Cool Accent</p>
+                  <h3 class="decorative-accent-name">Violet, Sky, and Indigo</h3>
+                  <div class="decorative-accent-stack">
+                    <div class="decorative-accent-bar" style="--bar-color:#9D8FFF"></div>
+                    <div class="decorative-accent-bar" style="--bar-color:#38BDF8"></div>
+                    <div class="decorative-accent-bar" style="--bar-color:#4B61D1"></div>
+                  </div>
+                  <p class="decorative-accent-meta">Use when a themed surface needs more visual range than the semantic blue interaction system provides.</p>
+                </article>
+                <article class="decorative-accent-card">
+                  <p class="decorative-accent-kicker">Fresh Accent</p>
+                  <h3 class="decorative-accent-name">Emerald and Teal</h3>
+                  <div class="decorative-accent-stack">
+                    <div class="decorative-accent-bar" style="--bar-color:#10B981"></div>
+                    <div class="decorative-accent-bar" style="--bar-color:#0D9488"></div>
+                  </div>
+                  <p class="decorative-accent-meta">Use for distinct but non-semantic visual categories that should feel fresh, calm, or environmental.</p>
+                </article>
+                <article class="decorative-accent-card">
+                  <p class="decorative-accent-kicker">Warm Accent</p>
+                  <h3 class="decorative-accent-name">Amber, Cayenne, and Rose</h3>
+                  <div class="decorative-accent-stack">
+                    <div class="decorative-accent-bar" style="--bar-color:#FFBF00"></div>
+                    <div class="decorative-accent-bar" style="--bar-color:#EA580C"></div>
+                    <div class="decorative-accent-bar" style="--bar-color:#CA1F7B"></div>
+                  </div>
+                  <p class="decorative-accent-meta">Use sparingly for high-energy decorative accents that should stand out without implying feedback state.</p>
+                </article>
+              </div>
+            </section>
+
+            <section class="docs-section" id="rails">
+              <div class="docs-section-header">
+                <h2 class="panel-example-title">Decorative Rails</h2>
+                <p class="docs-lead">Rail colors are used for decorative section accents. They provide variation and help adjacent content feel distinct, but they do not communicate system state on their own.</p>
+              </div>
+              <div class="decorative-rail-grid">
+                <article class="decorative-rail-card">
+                  <div class="decorative-rail-header">
+                    <div class="decorative-rail-marker" style="--rail-color:#667085"></div>
+                    <div>
+                      <h3 class="decorative-card-title">Default</h3>
+                      <p class="decorative-card-meta">Slate 700</p>
+                    </div>
+                  </div>
+                  <p class="decorative-card-use">Sections</p>
+                </article>
+                <article class="decorative-rail-card">
+                  <div class="decorative-rail-header">
+                    <div class="decorative-rail-marker" style="--rail-color:#DBC1AC"></div>
+                    <div>
+                      <h3 class="decorative-card-title">Sand</h3>
+                      <p class="decorative-card-meta">#DBC1AC</p>
+                    </div>
+                  </div>
+                  <p class="decorative-card-use">Sections</p>
+                </article>
+                <article class="decorative-rail-card">
+                  <div class="decorative-rail-header">
+                    <div class="decorative-rail-marker" style="--rail-color:#6F4E37"></div>
+                    <div>
+                      <h3 class="decorative-card-title">Coffee</h3>
+                      <p class="decorative-card-meta">#6F4E37</p>
+                    </div>
+                  </div>
+                  <p class="decorative-card-use">Sections</p>
+                </article>
+                <article class="decorative-rail-card">
+                  <div class="decorative-rail-header">
+                    <div class="decorative-rail-marker" style="--rail-color:#9D8FFF"></div>
+                    <div>
+                      <h3 class="decorative-card-title">Violet</h3>
+                      <p class="decorative-card-meta">Violet 500</p>
+                    </div>
+                  </div>
+                  <p class="decorative-card-use">Sections</p>
+                </article>
+                <article class="decorative-rail-card">
+                  <div class="decorative-rail-header">
+                    <div class="decorative-rail-marker" style="--rail-color:#38BDF8"></div>
+                    <div>
+                      <h3 class="decorative-card-title">Sky</h3>
+                      <p class="decorative-card-meta">#38BDF8</p>
+                    </div>
+                  </div>
+                  <p class="decorative-card-use">Sections</p>
+                </article>
+                <article class="decorative-rail-card">
+                  <div class="decorative-rail-header">
+                    <div class="decorative-rail-marker" style="--rail-color:#4B61D1"></div>
+                    <div>
+                      <h3 class="decorative-card-title">Indigo</h3>
+                      <p class="decorative-card-meta">#4B61D1</p>
+                    </div>
+                  </div>
+                  <p class="decorative-card-use">Sections</p>
+                </article>
+                <article class="decorative-rail-card">
+                  <div class="decorative-rail-header">
+                    <div class="decorative-rail-marker" style="--rail-color:#10B981"></div>
+                    <div>
+                      <h3 class="decorative-card-title">Emerald</h3>
+                      <p class="decorative-card-meta">Emerald 500</p>
+                    </div>
+                  </div>
+                  <p class="decorative-card-use">Sections</p>
+                </article>
+                <article class="decorative-rail-card">
+                  <div class="decorative-rail-header">
+                    <div class="decorative-rail-marker" style="--rail-color:#0D9488"></div>
+                    <div>
+                      <h3 class="decorative-card-title">Teal</h3>
+                      <p class="decorative-card-meta">#0D9488</p>
+                    </div>
+                  </div>
+                  <p class="decorative-card-use">Sections</p>
+                </article>
+                <article class="decorative-rail-card">
+                  <div class="decorative-rail-header">
+                    <div class="decorative-rail-marker" style="--rail-color:#FFBF00"></div>
+                    <div>
+                      <h3 class="decorative-card-title">Amber</h3>
+                      <p class="decorative-card-meta">#FFBF00</p>
+                    </div>
+                  </div>
+                  <p class="decorative-card-use">Sections</p>
+                </article>
+                <article class="decorative-rail-card">
+                  <div class="decorative-rail-header">
+                    <div class="decorative-rail-marker" style="--rail-color:#EA580C"></div>
+                    <div>
+                      <h3 class="decorative-card-title">Cayenne</h3>
+                      <p class="decorative-card-meta">#EA580C</p>
+                    </div>
+                  </div>
+                  <p class="decorative-card-use">Sections</p>
+                </article>
+                <article class="decorative-rail-card">
+                  <div class="decorative-rail-header">
+                    <div class="decorative-rail-marker" style="--rail-color:#CA1F7B"></div>
+                    <div>
+                      <h3 class="decorative-card-title">Rose</h3>
+                      <p class="decorative-card-meta">#CA1F7B</p>
+                    </div>
+                  </div>
+                  <p class="decorative-card-use">Sections</p>
+                </article>
+              </div>
+            </section>
+
+            <section class="docs-section" id="badge-tag-variants">
+              <div class="docs-section-header">
+                <h2 class="panel-example-title">Badge and Tag Variants</h2>
+                <p class="docs-lead">Each variant is a background and foreground pair. These are decorative treatments that provide visual range, but they do not replace semantic feedback or interaction color.</p>
+              </div>
+              <div class="decorative-badge-grid">
+                <article class="decorative-badge-card" style="--badge-bg:#E9E2FF; --badge-fg:#4C2FBD;">
+                  <h3 class="decorative-card-title">Purple</h3>
+                  <div class="decorative-badge-preview">
+                    <div class="decorative-badge-preview-main">
+                      <div class="decorative-badge-preview-bar"></div>
+                      <span class="decorative-badge-preview-chip">Purple</span>
+                    </div>
+                    <div class="decorative-badge-preview-accent"></div>
+                  </div>
+                  <div class="decorative-badge-specs">
+                    <p class="decorative-badge-spec-line"><span class="decorative-badge-spec-label">bg:</span> <span class="decorative-badge-spec-value">Violet 200</span></p>
+                    <p class="decorative-badge-spec-line"><span class="decorative-badge-spec-label">fg:</span> <span class="decorative-badge-spec-value">Violet 900</span></p>
+                  </div>
+                </article>
+                <article class="decorative-badge-card" style="--badge-bg:#E0E7FF; --badge-fg:#3730A3;">
+                  <h3 class="decorative-card-title">Indigo</h3>
+                  <div class="decorative-badge-preview">
+                    <div class="decorative-badge-preview-main">
+                      <div class="decorative-badge-preview-bar"></div>
+                      <span class="decorative-badge-preview-chip">Indigo</span>
+                    </div>
+                    <div class="decorative-badge-preview-accent"></div>
+                  </div>
+                  <div class="decorative-badge-specs">
+                    <p class="decorative-badge-spec-line"><span class="decorative-badge-spec-label">bg:</span> <span class="decorative-badge-spec-value">#E0E7FF</span></p>
+                    <p class="decorative-badge-spec-line"><span class="decorative-badge-spec-label">fg:</span> <span class="decorative-badge-spec-value">#3730A3</span></p>
+                  </div>
+                </article>
+                <article class="decorative-badge-card" style="--badge-bg:#DBE5FD; --badge-fg:#2251C5;">
+                  <h3 class="decorative-card-title">Cobalt</h3>
+                  <div class="decorative-badge-preview">
+                    <div class="decorative-badge-preview-main">
+                      <div class="decorative-badge-preview-bar"></div>
+                      <span class="decorative-badge-preview-chip">Cobalt</span>
+                    </div>
+                    <div class="decorative-badge-preview-accent"></div>
+                  </div>
+                  <div class="decorative-badge-specs">
+                    <p class="decorative-badge-spec-line"><span class="decorative-badge-spec-label">bg:</span> <span class="decorative-badge-spec-value">Blue 200</span></p>
+                    <p class="decorative-badge-spec-line"><span class="decorative-badge-spec-label">fg:</span> <span class="decorative-badge-spec-value">Blue 600</span></p>
+                  </div>
+                </article>
+                <article class="decorative-badge-card" style="--badge-bg:#CFFAFE; --badge-fg:#0E7490;">
+                  <h3 class="decorative-card-title">Cyan</h3>
+                  <div class="decorative-badge-preview">
+                    <div class="decorative-badge-preview-main">
+                      <div class="decorative-badge-preview-bar"></div>
+                      <span class="decorative-badge-preview-chip">Cyan</span>
+                    </div>
+                    <div class="decorative-badge-preview-accent"></div>
+                  </div>
+                  <div class="decorative-badge-specs">
+                    <p class="decorative-badge-spec-line"><span class="decorative-badge-spec-label">bg:</span> <span class="decorative-badge-spec-value">#CFFAFE</span></p>
+                    <p class="decorative-badge-spec-line"><span class="decorative-badge-spec-label">fg:</span> <span class="decorative-badge-spec-value">#0E7490</span></p>
+                  </div>
+                </article>
+                <article class="decorative-badge-card" style="--badge-bg:#CCFBF1; --badge-fg:#0F6B62;">
+                  <h3 class="decorative-card-title">Teal</h3>
+                  <div class="decorative-badge-preview">
+                    <div class="decorative-badge-preview-main">
+                      <div class="decorative-badge-preview-bar"></div>
+                      <span class="decorative-badge-preview-chip">Teal</span>
+                    </div>
+                    <div class="decorative-badge-preview-accent"></div>
+                  </div>
+                  <div class="decorative-badge-specs">
+                    <p class="decorative-badge-spec-line"><span class="decorative-badge-spec-label">bg:</span> <span class="decorative-badge-spec-value">#CCFBF1</span></p>
+                    <p class="decorative-badge-spec-line"><span class="decorative-badge-spec-label">fg:</span> <span class="decorative-badge-spec-value">#0F6B62</span></p>
+                  </div>
+                </article>
+                <article class="decorative-badge-card" style="--badge-bg:#D1FAE5; --badge-fg:#065F46;">
+                  <h3 class="decorative-card-title">Emerald</h3>
+                  <div class="decorative-badge-preview">
+                    <div class="decorative-badge-preview-main">
+                      <div class="decorative-badge-preview-bar"></div>
+                      <span class="decorative-badge-preview-chip">Emerald</span>
+                    </div>
+                    <div class="decorative-badge-preview-accent"></div>
+                  </div>
+                  <div class="decorative-badge-specs">
+                    <p class="decorative-badge-spec-line"><span class="decorative-badge-spec-label">bg:</span> <span class="decorative-badge-spec-value">Emerald 100</span></p>
+                    <p class="decorative-badge-spec-line"><span class="decorative-badge-spec-label">fg:</span> <span class="decorative-badge-spec-value">Emerald 800</span></p>
+                  </div>
+                </article>
+                <article class="decorative-badge-card" style="--badge-bg:#FFC641; --badge-fg:#352005;">
+                  <h3 class="decorative-card-title">Amber</h3>
+                  <div class="decorative-badge-preview">
+                    <div class="decorative-badge-preview-main">
+                      <div class="decorative-badge-preview-bar"></div>
+                      <span class="decorative-badge-preview-chip">Amber</span>
+                    </div>
+                    <div class="decorative-badge-preview-accent"></div>
+                  </div>
+                  <div class="decorative-badge-specs">
+                    <p class="decorative-badge-spec-line"><span class="decorative-badge-spec-label">bg:</span> <span class="decorative-badge-spec-value">Amber 400</span></p>
+                    <p class="decorative-badge-spec-line"><span class="decorative-badge-spec-label">fg:</span> <span class="decorative-badge-spec-value">Amber 950</span></p>
+                  </div>
+                </article>
+                <article class="decorative-badge-card" style="--badge-bg:#FFEDD5; --badge-fg:#9A3412;">
+                  <h3 class="decorative-card-title">Orange</h3>
+                  <div class="decorative-badge-preview">
+                    <div class="decorative-badge-preview-main">
+                      <div class="decorative-badge-preview-bar"></div>
+                      <span class="decorative-badge-preview-chip">Orange</span>
+                    </div>
+                    <div class="decorative-badge-preview-accent"></div>
+                  </div>
+                  <div class="decorative-badge-specs">
+                    <p class="decorative-badge-spec-line"><span class="decorative-badge-spec-label">bg:</span> <span class="decorative-badge-spec-value">#FFEDD5</span></p>
+                    <p class="decorative-badge-spec-line"><span class="decorative-badge-spec-label">fg:</span> <span class="decorative-badge-spec-value">#9A3412</span></p>
+                  </div>
+                </article>
+                <article class="decorative-badge-card" style="--badge-bg:#FCE7F3; --badge-fg:#9D174D;">
+                  <h3 class="decorative-card-title">Rose</h3>
+                  <div class="decorative-badge-preview">
+                    <div class="decorative-badge-preview-main">
+                      <div class="decorative-badge-preview-bar"></div>
+                      <span class="decorative-badge-preview-chip">Rose</span>
+                    </div>
+                    <div class="decorative-badge-preview-accent"></div>
+                  </div>
+                  <div class="decorative-badge-specs">
+                    <p class="decorative-badge-spec-line"><span class="decorative-badge-spec-label">bg:</span> <span class="decorative-badge-spec-value">#FCE7F3</span></p>
+                    <p class="decorative-badge-spec-line"><span class="decorative-badge-spec-label">fg:</span> <span class="decorative-badge-spec-value">#9D174D</span></p>
+                  </div>
+                </article>
+                <article class="decorative-badge-card" style="--badge-bg:#FEF2F2; --badge-fg:#991B1B;">
+                  <h3 class="decorative-card-title">Red</h3>
+                  <div class="decorative-badge-preview">
+                    <div class="decorative-badge-preview-main">
+                      <div class="decorative-badge-preview-bar"></div>
+                      <span class="decorative-badge-preview-chip">Red</span>
+                    </div>
+                    <div class="decorative-badge-preview-accent"></div>
+                  </div>
+                  <div class="decorative-badge-specs">
+                    <p class="decorative-badge-spec-line"><span class="decorative-badge-spec-label">bg:</span> <span class="decorative-badge-spec-value">Red 100</span></p>
+                    <p class="decorative-badge-spec-line"><span class="decorative-badge-spec-label">fg:</span> <span class="decorative-badge-spec-value">Red 800</span></p>
+                  </div>
+                </article>
+                <article class="decorative-badge-card" style="--badge-bg:#F5F0E8; --badge-fg:#5C4A2A;">
+                  <h3 class="decorative-card-title">Sand</h3>
+                  <div class="decorative-badge-preview">
+                    <div class="decorative-badge-preview-main">
+                      <div class="decorative-badge-preview-bar"></div>
+                      <span class="decorative-badge-preview-chip">Sand</span>
+                    </div>
+                    <div class="decorative-badge-preview-accent"></div>
+                  </div>
+                  <div class="decorative-badge-specs">
+                    <p class="decorative-badge-spec-line"><span class="decorative-badge-spec-label">bg:</span> <span class="decorative-badge-spec-value">#F5F0E8</span></p>
+                    <p class="decorative-badge-spec-line"><span class="decorative-badge-spec-label">fg:</span> <span class="decorative-badge-spec-value">#5C4A2A</span></p>
+                  </div>
+                </article>
+                <article class="decorative-badge-card" style="--badge-bg:#E6ECF5; --badge-fg:#334155;">
+                  <h3 class="decorative-card-title">Slate</h3>
+                  <div class="decorative-badge-preview">
+                    <div class="decorative-badge-preview-main">
+                      <div class="decorative-badge-preview-bar"></div>
+                      <span class="decorative-badge-preview-chip">Slate</span>
+                    </div>
+                    <div class="decorative-badge-preview-accent"></div>
+                  </div>
+                  <div class="decorative-badge-specs">
+                    <p class="decorative-badge-spec-line"><span class="decorative-badge-spec-label">bg:</span> <span class="decorative-badge-spec-value">Slate 200</span></p>
+                    <p class="decorative-badge-spec-line"><span class="decorative-badge-spec-label">fg:</span> <span class="decorative-badge-spec-value">#334155</span></p>
+                  </div>
+                </article>
+              </div>
+            </section>
+
+          </div>
+        </div>
+
+        <aside class="docs-v2-page-nav" aria-label="Page navigation">
+          <p class="docs-v2-page-nav-title">On This Page</p>
+          <nav class="docs-v2-page-nav-list">
+            <a class="docs-v2-page-nav-link" href="#overview">Overview</a>
+            <a class="docs-v2-page-nav-link" href="#guidance">Guidance</a>
+            <a class="docs-v2-page-nav-link" href="#accent-families">Accent Families</a>
+            <a class="docs-v2-page-nav-link" href="#rails">Rails</a>
+            <a class="docs-v2-page-nav-link" href="#badge-tag-variants">Badge and Tag Variants</a>
+          </nav>
+        </aside>
+      </div>
+    </main>
+  </div>
+
+  <script src="../scripts/docs.js"></script>
+</body>
+</html>

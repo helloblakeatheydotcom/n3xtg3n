@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NextGen Inline Notices</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../styles/tokens.css" />
+  <link rel="stylesheet" href="../styles/base.css" />
+  <link rel="stylesheet" href="../styles/panels.css" />
+  <link rel="stylesheet" href="../styles/demos.css" />
+  <link rel="stylesheet" href="../styles/notifications.css" />
+</head>
+<body class="panel-page component-docs-page form-docs-page">
+  <div class="page-nav">
+    <a class="page-back-link" href="index.html" aria-label="Back to component index">
+      <span aria-hidden="true">←</span>
+      <span>Back to index</span>
+    </a>
+  </div>
+  <header class="page-header">
+    <p class="page-kicker">Component</p>
+    <h1 class="page-title">Inline Notices</h1>
+    <p class="component-page-intro">Inline notices provide contextual feedback inside panels and workflows. They should support the task in front of the user without taking over the page or replacing stronger system-level messaging patterns.</p>
+  </header>
+
+  <main class="layout-shell panel-docs">
+    <div class="panel-tabs" role="tablist" aria-label="Inline notice documentation tabs">
+      <button
+        id="tab-btn-examples"
+        class="panel-tab is-active"
+        type="button"
+        role="tab"
+        aria-selected="true"
+        aria-controls="tab-examples"
+        data-tab-target="tab-examples"
+      >
+        Examples
+      </button>
+      <button
+        id="tab-btn-anatomy"
+        class="panel-tab"
+        type="button"
+        role="tab"
+        aria-selected="false"
+        aria-controls="tab-anatomy"
+        data-tab-target="tab-anatomy"
+      >
+        Anatomy and Specs
+      </button>
+    </div>
+
+    <section id="tab-examples" class="tab-panel" role="tabpanel" aria-labelledby="tab-btn-examples">
+      <div class="panel-stack" aria-label="Inline notice examples">
+        <section class="example-block" aria-label="Info notice example">
+          <h2 class="panel-example-title">Info Notice</h2>
+          <p class="example-caption">Use this inline info notice for contextual guidance that explains what belongs in the current section before the user begins entering details.</p>
+          <article class="panel">
+            <header class="panel-header">
+              <div class="panel-left">
+                <h3 class="panel-title">Panel Context</h3>
+              </div>
+            </header>
+            <div class="panel-content">
+              <div class="panel-body">
+                <div class="notice-stack">
+                  <section class="notice notice--info" aria-label="Info notice">
+                    <span class="notice__icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <path d="M12 16v-5"></path>
+                        <path d="M12 8h.01"></path>
+                      </svg>
+                    </span>
+                    <div class="notice__content">
+                      <h3 class="notice__title">Document the student's special education services</h3>
+                      <p class="notice__text">Include service type, delivery details, and the staff responsible for implementing.</p>
+                    </div>
+                  </section>
+                </div>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <section class="example-block" aria-label="Titleless notice example">
+          <h2 class="panel-example-title">Titleless Notice</h2>
+          <p class="example-caption">Use the titleless pattern when the message can stay clear as one short sentence and does not need a separate heading.</p>
+          <article class="panel">
+            <header class="panel-header">
+              <div class="panel-left">
+                <h3 class="panel-title">Panel Context</h3>
+              </div>
+            </header>
+            <div class="panel-content">
+              <div class="panel-body">
+                <div class="notice-stack">
+                  <section class="notice notice--info" aria-label="Titleless info notice">
+                    <span class="notice__icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <path d="M12 16v-5"></path>
+                        <path d="M12 8h.01"></path>
+                      </svg>
+                    </span>
+                    <div class="notice__content">
+                      <p class="notice__text">Add service frequency, duration, and start date for each service before you create the final document.</p>
+                    </div>
+                  </section>
+                </div>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <section class="example-block" aria-label="Warning notice example">
+          <h2 class="panel-example-title">Warning Notice</h2>
+          <p class="example-caption">Use this warning notice when the user can still continue working, but specific information should be completed before they finalize the document.</p>
+          <article class="panel">
+            <header class="panel-header">
+              <div class="panel-left">
+                <h3 class="panel-title">Panel Context</h3>
+              </div>
+            </header>
+            <div class="panel-content">
+              <div class="panel-body">
+                <div class="notice-stack">
+                  <section class="notice notice--warning" aria-label="Warning notice">
+                    <span class="notice__icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m21.73 18-8-14a2 2 0 0 0-3.46 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"></path>
+                        <path d="M12 9v5"></path>
+                        <path d="M12 17h.01"></path>
+                      </svg>
+                    </span>
+                    <div class="notice__content">
+                      <h3 class="notice__title">Service dates are incomplete.</h3>
+                      <p class="notice__text">Please add service dates to all services before you create the final document.</p>
+                    </div>
+                  </section>
+                </div>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <section class="example-block" aria-label="Success notice example">
+          <h2 class="panel-example-title">Success Notice</h2>
+          <p class="example-caption">Use this success notice for local confirmation inside a panel when a supporting step completes successfully and the user can continue reviewing the section.</p>
+          <article class="panel">
+            <header class="panel-header">
+              <div class="panel-left">
+                <h3 class="panel-title">Panel Context</h3>
+              </div>
+            </header>
+            <div class="panel-content">
+              <div class="panel-body">
+                <div class="notice-stack">
+                  <section class="notice notice--success" aria-label="Success notice">
+                    <span class="notice__icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <path d="m9 12 2 2 4-4"></path>
+                      </svg>
+                    </span>
+                    <div class="notice__content">
+                      <h3 class="notice__title">Service details were saved successfully.</h3>
+                      <p class="notice__text">Review the selections below and continue when you are ready.</p>
+                    </div>
+                  </section>
+                </div>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <section class="example-block" aria-label="Error notice example">
+          <h2 class="panel-example-title">Error Notice</h2>
+          <p class="example-caption">Use this inline error notice when required information is missing and the current section cannot be completed until the user fixes it.</p>
+          <article class="panel">
+            <header class="panel-header">
+              <div class="panel-left">
+                <h3 class="panel-title">Panel Context</h3>
+              </div>
+            </header>
+            <div class="panel-content">
+              <div class="panel-body">
+                <div class="notice-stack">
+                  <section class="notice notice--error" aria-label="Error notice">
+                    <span class="notice__icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <path d="m9 9 6 6"></path>
+                        <path d="m15 9-6 6"></path>
+                      </svg>
+                    </span>
+                    <div class="notice__content">
+                      <h3 class="notice__title">Required service details are missing</h3>
+                      <p class="notice__text">Add the missing information before this section can be completed.</p>
+                    </div>
+                  </section>
+                </div>
+              </div>
+            </div>
+          </article>
+        </section>
+      </div>
+    </section>
+
+    <section id="tab-anatomy" class="tab-panel" role="tabpanel" aria-labelledby="tab-btn-anatomy" hidden>
+      <div class="docs-sections">
+        <section class="docs-section">
+          <div class="docs-section-header">
+            <h2 class="panel-example-title">Overview</h2>
+            <p class="docs-lead">Inline notices are designed to sit inside panels and support the user’s current workflow. They should stay concise, scannable, and visually supportive of the surrounding content rather than behaving like a separate banner system.</p>
+          </div>
+        </section>
+
+        <section class="docs-section">
+          <div class="docs-section-header">
+            <h2 class="panel-example-title">Anatomy</h2>
+            <p class="docs-lead">An inline notice contains a left icon and supporting message content inside a lightly tinted container. Most notices use a short title plus body copy, but a titleless version is also allowed when a single concise sentence is enough.</p>
+          </div>
+          <article class="docs-card">
+            <div class="notice-anatomy" aria-label="Inline notice anatomy diagram">
+              <div class="notice-anatomy-header">
+                <div class="notice-anatomy-icon"></div>
+                <div class="notice-anatomy-body">
+                  <div class="notice-anatomy-title"></div>
+                  <div class="notice-anatomy-text"></div>
+                  <div class="notice-anatomy-text notice-anatomy-text--short"></div>
+                </div>
+              </div>
+            </div>
+            <div class="docs-parts-list">
+              <div class="docs-part-item"><strong>Container</strong><p>Lightly tinted surface with a 1px variant border.</p></div>
+              <div class="docs-part-item"><strong>Icon</strong><p>16px leading icon that communicates the notice type.</p></div>
+              <div class="docs-part-item"><strong>Title</strong><p>Short directive or state label that anchors the message. This is optional when the notice can be expressed clearly in one line.</p></div>
+              <div class="docs-part-item"><strong>Body text</strong><p>Supportive instructional or confirmation copy that expands on the title.</p></div>
+            </div>
+          </article>
+        </section>
+
+        <section class="docs-section">
+          <div class="docs-section-header">
+            <h2 class="panel-example-title">Usage</h2>
+            <p class="docs-lead">Use inline notices for contextual feedback inside a panel. Reserve stronger page-level feedback, like snackbar or toast patterns, for cross-page or save-confirmation events.</p>
+          </div>
+          <article class="docs-card">
+            <ul class="docs-list">
+              <li>Use info notices for contextual guidance that supports the current task.</li>
+              <li>Use warning notices for issues that need attention soon but do not fully block progress.</li>
+              <li>Use success notices for local confirmation inside the current workflow.</li>
+              <li>Use error notices when the user must resolve an issue inside the current panel before continuing.</li>
+              <li>Keep the title concise and the body copy directly tied to the task in front of the user.</li>
+              <li>Omit the title only when the notice can stay clear and scannable as a single short sentence.</li>
+              <li>Place notices inside panels rather than above the page shell.</li>
+            </ul>
+          </article>
+        </section>
+
+        <section class="docs-section">
+          <div class="docs-section-header">
+            <h2 class="panel-example-title">Specifications</h2>
+            <p class="docs-lead">These inline notice variants are documented from the current approved direction on the testing surface.</p>
+          </div>
+          <div class="docs-token-grid">
+            <article class="docs-card docs-token-card">
+              <h3 class="docs-card-title">Structure</h3>
+              <table class="docs-token-table">
+                <thead>
+                  <tr><th>Role</th><th>Token / Source</th><th>Value</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>Container padding</td><td>Component rule</td><td>12px top and bottom, 14px left and right</td></tr>
+                  <tr><td>Border radius</td><td><code>--radius-panel</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#FFFFFF"></span>8px</span></td></tr>
+                  <tr><td>Icon size</td><td>Component rule</td><td>16px</td></tr>
+                  <tr><td>Icon to content gap</td><td>Component rule</td><td>14px</td></tr>
+                  <tr><td>Icon alignment</td><td>Component behavior</td><td>Align icon to the title row; if there is no title, align it to the first line of body text</td></tr>
+                  <tr><td>Title</td><td>Component behavior</td><td>Optional when the message remains clear as a single concise sentence</td></tr>
+                </tbody>
+              </table>
+            </article>
+
+            <article class="docs-card docs-token-card">
+              <h3 class="docs-card-title">Info Variant</h3>
+              <table class="docs-token-table">
+                <thead>
+                  <tr><th>Role</th><th>Token / Source</th><th>Value</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>Background</td><td><code>--notice-info-bg</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#EFF3FE"></span>Blue 100 (#EFF3FE)</span></td></tr>
+                  <tr><td>Border</td><td><code>--notice-info-border-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#DBE5FD"></span>Blue 200 (#DBE5FD)</span></td></tr>
+                  <tr><td>Title</td><td><code>--notice-info-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#00389B"></span>Blue 700 (#00389B)</span></td></tr>
+                  <tr><td>Body</td><td><code>--notice-info-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#00389B"></span>Blue 700 (#00389B)</span></td></tr>
+                  <tr><td>Icon</td><td><code>--notice-info-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#00389B"></span>Blue 700 (#00389B)</span></td></tr>
+                </tbody>
+              </table>
+            </article>
+
+            <article class="docs-card docs-token-card">
+              <h3 class="docs-card-title">Warning Variant</h3>
+              <table class="docs-token-table">
+                <thead>
+                  <tr><th>Role</th><th>Token / Source</th><th>Value</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>Background</td><td><code>--notice-warning-bg</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#FFFBEB"></span>Amber 50 (#FFFBEB)</span></td></tr>
+                  <tr><td>Border</td><td><code>--notice-warning-border-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#FFE480"></span>Amber 200 (#FFE480)</span></td></tr>
+                  <tr><td>Title</td><td><code>--notice-warning-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#374151"></span>Gray 700 (#374151)</span></td></tr>
+                  <tr><td>Body</td><td><code>--notice-warning-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#374151"></span>Gray 700 (#374151)</span></td></tr>
+                  <tr><td>Icon</td><td><code>--notice-warning-icon-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#FAB81F"></span>Amber 500 (#FAB81F)</span></td></tr>
+                </tbody>
+              </table>
+            </article>
+
+            <article class="docs-card docs-token-card">
+              <h3 class="docs-card-title">Success Variant</h3>
+              <table class="docs-token-table">
+                <thead>
+                  <tr><th>Role</th><th>Token / Source</th><th>Value</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>Background</td><td><code>--notice-success-bg</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#ECFDF5"></span>Emerald 50 (#ECFDF5)</span></td></tr>
+                  <tr><td>Border</td><td><code>--notice-success-border-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#A7F3D0"></span>Emerald 200 (#A7F3D0)</span></td></tr>
+                  <tr><td>Title</td><td><code>--notice-success-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#047857"></span>Emerald 700 (#047857)</span></td></tr>
+                  <tr><td>Body</td><td><code>--notice-success-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#047857"></span>Emerald 700 (#047857)</span></td></tr>
+                  <tr><td>Icon</td><td><code>--notice-success-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#047857"></span>Emerald 700 (#047857)</span></td></tr>
+                </tbody>
+              </table>
+            </article>
+
+            <article class="docs-card docs-token-card">
+              <h3 class="docs-card-title">Error Variant</h3>
+              <table class="docs-token-table">
+                <thead>
+                  <tr><th>Role</th><th>Token / Source</th><th>Value</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>Background</td><td><code>--notice-error-bg</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#FEF2F2"></span>Red 100 (#FEF2F2)</span></td></tr>
+                  <tr><td>Border</td><td><code>--notice-error-border-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#FCA5A5"></span>Red 300 (#FCA5A5)</span></td></tr>
+                  <tr><td>Title</td><td><code>--notice-error-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#B91C1C"></span>Red 700 (#B91C1C)</span></td></tr>
+                  <tr><td>Body</td><td><code>--notice-error-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#B91C1C"></span>Red 700 (#B91C1C)</span></td></tr>
+                  <tr><td>Icon</td><td><code>--notice-error-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#B91C1C"></span>Red 700 (#B91C1C)</span></td></tr>
+                </tbody>
+              </table>
+            </article>
+          </div>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <script src="notifications-components.js"></script>
+</body>
+</html>

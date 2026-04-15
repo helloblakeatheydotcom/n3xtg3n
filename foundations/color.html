@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Color</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../styles/tokens.css" />
+  <link rel="stylesheet" href="../styles/base.css" />
+  <link rel="stylesheet" href="../styles/demos.css" />
+  <link rel="stylesheet" href="../styles/docs.css" />
+  <style>
+    .color-stack {
+      display: grid;
+      gap: 0;
+    }
+
+    .color-stack > .docs-section {
+      padding: 40px 0 32px;
+      border-top: 1px solid var(--docs-v2-border);
+    }
+
+    .color-stack > .docs-section:first-child {
+      padding-top: 0;
+      border-top: 0;
+    }
+
+    .color-stack > .docs-section:last-child {
+      padding-bottom: 0;
+    }
+
+    .color-stack .docs-section-header {
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .color-stack .panel-example-title {
+      margin: 0;
+      font-size: 20px;
+      line-height: 28px;
+      font-weight: 700;
+    }
+
+    .color-stack .docs-lead {
+      margin: 0;
+      max-width: var(--docs-v2-prose-measure);
+      font-size: 14px;
+      line-height: 22px;
+      color: var(--docs-v2-text-secondary);
+    }
+
+    .color-stack .docs-lead + .docs-lead {
+      margin-top: 10px;
+    }
+
+    .color-scale-grid,
+    .color-semantic-groups,
+    .color-decorative-grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .color-semantic-groups,
+    .color-decorative-grid {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 24px;
+    }
+
+    .color-scale-card,
+    .color-decorative-card {
+      padding: 18px;
+      border: 1px solid var(--docs-v2-border);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.8);
+      box-shadow: none;
+    }
+
+    .color-table-block,
+    .color-semantic-card,
+    .color-decorative-card {
+      padding: 0;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
+    }
+
+    .color-scale-title,
+    .color-semantic-title {
+      margin: 0 0 10px;
+      font-size: 12px;
+      line-height: 16px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--docs-v2-text);
+    }
+
+    .color-scale-header {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 12px;
+      align-items: baseline;
+      margin-bottom: 14px;
+    }
+
+    .color-scale-header .color-scale-title {
+      margin: 0;
+      color: var(--docs-v2-text-primary);
+    }
+
+    .color-scale-header .color-scale-note {
+      margin: 0;
+      max-width: none;
+      flex: 1 1 420px;
+    }
+
+    .color-scale-note,
+    .color-section-note {
+      margin: 0 0 14px;
+      max-width: var(--docs-v2-prose-measure);
+      font-size: 13px;
+      line-height: 20px;
+      color: var(--docs-v2-text-secondary);
+    }
+
+    .color-token-table {
+      width: 100%;
+      margin-top: 0;
+      table-layout: fixed;
+      border-collapse: collapse;
+      border: 0;
+      border-radius: 10px;
+      overflow: hidden;
+      background: var(--docs-v2-table-surface);
+      box-shadow: 0 0 0 1px var(--docs-v2-border);
+    }
+
+    .color-token-table th,
+    .color-token-table td {
+      padding: 12px 10px;
+      border-bottom: 1px solid #E8EDF4;
+      vertical-align: top;
+      font-size: 13px;
+      line-height: 18px;
+      white-space: normal;
+      word-break: normal;
+      overflow-wrap: break-word;
+    }
+
+    .color-token-table th:first-child,
+    .color-token-table td:first-child {
+      padding-left: 18px;
+    }
+
+    .color-token-table thead th {
+      background: var(--docs-v2-table-header-surface);
+      font-size: 12px;
+      line-height: 16px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--docs-v2-text-muted);
+      padding-top: 12px;
+      padding-bottom: 12px;
+    }
+
+    .color-token-table tbody tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .color-token-table th:first-child {
+      border-top-left-radius: 16px;
+    }
+
+    .color-token-table th:last-child {
+      border-top-right-radius: 16px;
+    }
+
+    .color-token-table td:nth-child(3),
+    .color-token-table td:nth-child(4) {
+      white-space: normal;
+      word-break: normal;
+      overflow-wrap: anywhere;
+      hyphens: auto;
+    }
+
+    .color-token-table--semantic th:nth-child(1),
+    .color-token-table--semantic td:nth-child(1) {
+      width: 34%;
+    }
+
+    .color-token-table--semantic th:nth-child(2),
+    .color-token-table--semantic td:nth-child(2) {
+      width: 16%;
+    }
+
+    .color-token-table--semantic th:nth-child(3),
+    .color-token-table--semantic td:nth-child(3) {
+      width: 28%;
+    }
+
+    .color-token-table--semantic th:nth-child(4),
+    .color-token-table--semantic td:nth-child(4) {
+      width: 22%;
+    }
+
+    .color-token-table--decorative th:nth-child(1),
+    .color-token-table--decorative td:nth-child(1) {
+      width: 36%;
+    }
+
+    .color-token-table--decorative th:nth-child(2),
+    .color-token-table--decorative td:nth-child(2) {
+      width: 22%;
+    }
+
+    .color-token-table--decorative th:nth-child(3),
+    .color-token-table--decorative td:nth-child(3) {
+      width: 21%;
+    }
+
+    .color-token-table--decorative th:nth-child(4),
+    .color-token-table--decorative td:nth-child(4) {
+      width: 21%;
+    }
+
+    .color-token-table .color-token-cell {
+      display: inline-flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      white-space: normal;
+      align-items: center;
+    }
+
+    .color-token-pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 24px;
+      max-width: 100%;
+      padding: 0 8px;
+      border: 1px solid var(--docs-v2-border);
+      border-radius: 6px;
+      background: #FFFFFF;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 12px;
+      line-height: 16px;
+      font-weight: 400;
+      color: #2251C5;
+      white-space: nowrap;
+    }
+
+    .color-category-pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 2px 7px;
+      border: 1px solid #E3E8EF;
+      border-radius: 999px;
+      background: #FFFFFF;
+      font-size: 11px;
+      line-height: 15px;
+      font-weight: 600;
+      color: var(--docs-v2-text-secondary);
+      white-space: nowrap;
+    }
+
+    .color-category-pill--surface {
+      border-color: #DDE3EC;
+      background: #F7F9FC;
+      color: #5A6470;
+    }
+
+    .color-category-pill--border {
+      border-color: #E5E7EB;
+      background: #F9FAFB;
+      color: #4B5563;
+    }
+
+    .color-category-pill--text {
+      border-color: #E5E7EB;
+      background: #F3F4F6;
+      color: #374151;
+    }
+
+    .color-category-pill--feedback {
+      border-color: #FFE480;
+      background: #FFFBEB;
+      color: #7A4E04;
+    }
+
+    .color-category-pill--interact {
+      border-color: #DBE5FD;
+      background: #EFF3FE;
+      color: #2251C5;
+    }
+
+    .color-semantic-role-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .color-semantic-group-list {
+      display: grid;
+      gap: 24px;
+    }
+
+    .color-semantic-role-card {
+      display: grid;
+      gap: 14px;
+      padding: 18px 20px;
+      border: 1px solid var(--docs-v2-border);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.76);
+    }
+
+    .color-semantic-role-header {
+      display: grid;
+      gap: 6px;
+    }
+
+    .color-semantic-role-title {
+      margin: 0;
+      font-size: 18px;
+      line-height: 24px;
+      font-weight: 600;
+      color: var(--docs-v2-text-primary);
+    }
+
+    .color-semantic-role-note {
+      margin: 0;
+      font-size: 13px;
+      line-height: 20px;
+      color: var(--docs-v2-text-secondary);
+    }
+
+    .color-role-list {
+      display: grid;
+      gap: 0;
+    }
+
+    .color-role-item {
+      display: grid;
+      gap: 6px;
+      padding: 12px 0;
+      border-top: 1px solid #E9EEF5;
+    }
+
+    .color-role-item:first-child {
+      padding-top: 0;
+      border-top: 0;
+    }
+
+    .color-role-token-line {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .color-primitive-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0;
+      font-size: 12px;
+      line-height: 16px;
+      font-weight: 500;
+      color: var(--docs-v2-text-secondary);
+      white-space: nowrap;
+    }
+
+    .color-role-desc {
+      margin: 0;
+      font-size: 13px;
+      line-height: 20px;
+      color: var(--docs-v2-text-secondary);
+    }
+
+    .color-token-dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 3px;
+      flex: 0 0 auto;
+    }
+
+    .color-overview-model {
+      display: grid;
+      gap: 14px;
+      padding: 22px;
+      border: 1px solid var(--docs-v2-border);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.8);
+    }
+
+    .color-overview-model-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr);
+      gap: 12px;
+      align-items: center;
+    }
+
+    .color-overview-model-step {
+      display: grid;
+      gap: 10px;
+      justify-items: stretch;
+    }
+
+    .color-overview-model-label {
+      margin: 0;
+      font-size: 12px;
+      line-height: 16px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--docs-v2-text-muted);
+      text-align: center;
+    }
+
+    .color-overview-model-card {
+      display: grid;
+      gap: 6px;
+      padding: 14px 16px;
+      border: 1px solid var(--docs-v2-border);
+      border-radius: 10px;
+      background: #FFFFFF;
+      text-align: center;
+    }
+
+    .color-overview-model-title {
+      margin: 0;
+      font-size: 14px;
+      line-height: 20px;
+      font-weight: 600;
+      color: var(--docs-v2-text-primary);
+    }
+
+    .color-overview-model-token {
+      margin: 0;
+      font-size: 12px;
+      line-height: 16px;
+      font-weight: 600;
+      color: var(--docs-v2-accent-hover);
+    }
+
+    .color-inline-token {
+      display: inline-flex;
+      align-items: center;
+      padding: 3px 8px;
+      border: 1px solid #D7E3FB;
+      border-radius: 8px;
+      background: #F8FBFF;
+      font-size: 12px;
+      line-height: 16px;
+      font-weight: 600;
+      color: var(--docs-v2-accent-hover);
+      white-space: nowrap;
+      vertical-align: baseline;
+    }
+
+    .color-overview-note {
+      max-width: none;
+      margin-bottom: 0;
+      font-style: italic;
+    }
+
+    .color-overview-model-arrow {
+      display: grid;
+      place-items: center;
+      font-size: 24px;
+      line-height: 1;
+      color: var(--docs-v2-text-muted);
+    }
+
+    .color-foundation-cards {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .color-foundation-card {
+      display: grid;
+      gap: 8px;
+      padding: 14px 16px;
+      border: 1px solid var(--docs-v2-border);
+      border-radius: 10px;
+      background: #FFFFFF;
+    }
+
+    .color-foundation-swatch {
+      width: 100%;
+      max-width: 76px;
+      height: 42px;
+      border-radius: 8px;
+      border: 1px solid #E3E8EF;
+      background: var(--swatch-color);
+    }
+
+    .color-foundation-title {
+      margin: 0;
+      font-size: 14px;
+      line-height: 20px;
+      font-weight: 600;
+      color: var(--docs-v2-text-primary);
+    }
+
+    .color-foundation-meta {
+      margin: 0;
+      font-size: 12px;
+      line-height: 16px;
+      font-weight: 500;
+      color: var(--docs-v2-text-muted);
+    }
+
+    .color-foundation-desc {
+      margin: 0;
+      font-size: 13px;
+      line-height: 20px;
+      color: var(--docs-v2-text-secondary);
+    }
+
+    @media (max-width: 900px) {
+      .color-overview-model-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .color-overview-model-arrow {
+        transform: rotate(90deg);
+      }
+
+      .color-foundation-cards {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .color-semantic-role-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+  </style>
+</head>
+<body
+  class="docs-v2-page"
+  data-docs-v2-nav-title="Design System"
+  data-docs-v2-nav-copy="Foundations define the shared system rules before those rules appear in components."
+  data-docs-v2-nav-kicker="Foundations"
+>
+  <div class="docs-v2-layout">
+    <aside class="docs-v2-sidebar" data-docs-v2-nav></aside>
+
+    <main class="docs-v2-main">
+      <section class="docs-v2-hero">
+        <p class="docs-v2-eyebrow">Foundations / Color</p>
+        <h2 class="docs-v2-title">Color</h2>
+        <p class="docs-v2-copy">Defines the primitive scales and semantic color roles used across the product UI. Component-level aliases live on their respective component pages.</p>
+        <div class="docs-v2-chip-row">
+          <span class="docs-v2-chip">Primitives</span>
+          <span class="docs-v2-chip">Semantic tokens</span>
+        </div>
+      </section>
+
+      <div class="docs-v2-page-shell docs-v2-page-shell--with-page-nav">
+        <div class="docs-v2-page-content">
+          <div class="color-stack">
+            <section class="docs-section" id="overview">
+              <div class="docs-section-header">
+                <h2 class="panel-example-title">Overview</h2>
+                <p class="docs-lead">This page documents primitives first and semantic tokens second. The system uses a three-tier model: primitive scales define available colors, semantic tokens assign meaning, and component aliases apply them. Only the first two tiers live here.</p>
+              </div>
+
+              <div class="color-overview-model">
+                <div class="color-overview-model-grid">
+                  <div class="color-overview-model-step">
+                    <p class="color-overview-model-label">Primitive</p>
+                    <div class="color-overview-model-card">
+                      <p class="color-overview-model-title">Raw scale value</p>
+                      <p class="color-overview-model-token">Blue 500 • #2567F4</p>
+                    </div>
+                  </div>
+                  <div class="color-overview-model-arrow" aria-hidden="true">→</div>
+                  <div class="color-overview-model-step">
+                    <p class="color-overview-model-label">Semantic</p>
+                    <div class="color-overview-model-card">
+                      <p class="color-overview-model-title">Assigned meaning</p>
+                      <p class="color-overview-model-token">--color-interactive-primary</p>
+                    </div>
+                  </div>
+                  <div class="color-overview-model-arrow" aria-hidden="true">→</div>
+                  <div class="color-overview-model-step">
+                    <p class="color-overview-model-label">Component alias</p>
+                    <div class="color-overview-model-card">
+                      <p class="color-overview-model-title">Applied usage</p>
+                      <p class="color-overview-model-token">--color-bg-button-primary</p>
+                    </div>
+                  </div>
+                </div>
+                <p class="color-section-note color-overview-note">Component aliases such as <span class="color-inline-token">--record-row-hover-rail-color</span> or <span class="color-inline-token">--notice-info-bg</span> are documented on their respective component pages, not here.</p>
+              </div>
+            </section>
+
+            <section class="docs-section" id="primitives">
+              <div class="docs-section-header">
+                <h2 class="panel-example-title">Primitives</h2>
+                <p class="docs-lead">These are the raw scales used to build the semantic system. They are ordered from foundational neutrals through interaction and feedback families.</p>
+              </div>
+
+              <div class="color-scale-grid">
+                <div class="color-table-block">
+                  <h3 class="color-scale-title">Foundation</h3>
+                  <div class="color-foundation-cards">
+                    <article class="color-foundation-card">
+                      <div class="color-foundation-swatch" style="--swatch-color:#FFFFFF"></div>
+                      <p class="color-foundation-title">White</p>
+                      <p class="color-foundation-meta">#FFFFFF</p>
+                      <p class="color-foundation-desc">Base UI surface for controls, panels, and component containers.</p>
+                    </article>
+                    <article class="color-foundation-card">
+                      <div class="color-foundation-swatch" style="--swatch-color:#FAFBFD"></div>
+                      <p class="color-foundation-title">Page background</p>
+                      <p class="color-foundation-meta">#FAFBFD</p>
+                      <p class="color-foundation-desc">Application shell background behind content surfaces and layouts.</p>
+                    </article>
+                  </div>
+                </div>
+
+                <div class="docs-card color-scale-card">
+                  <div class="color-scale-header">
+                    <h3 class="color-scale-title">Gray</h3>
+                    <p class="color-scale-note">Core neutral scale for text, dividers, disabled states, and base component neutrals.</p>
+                  </div>
+                  <div class="color-scale-row">
+                    <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#F9FAFB"></div><div class="color-scale-stop">50</div><div class="color-scale-hex">#F9FAFB</div></div>
+                    <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#F3F4F6"></div><div class="color-scale-stop">100</div><div class="color-scale-hex">#F3F4F6</div></div>
+                    <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#E5E7EB"></div><div class="color-scale-stop">200</div><div class="color-scale-hex">#E5E7EB</div></div>
+                    <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#D1D5DB"></div><div class="color-scale-stop">300</div><div class="color-scale-hex">#D1D5DB</div></div>
+                    <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#9CA3AF"></div><div class="color-scale-stop">400</div><div class="color-scale-hex">#9CA3AF</div></div>
+                    <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#6B7280"></div><div class="color-scale-stop">500</div><div class="color-scale-hex">#6B7280</div></div>
+                    <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#4B5563"></div><div class="color-scale-stop">600</div><div class="color-scale-hex">#4B5563</div></div>
+                    <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#374151"></div><div class="color-scale-stop">700</div><div class="color-scale-hex">#374151</div></div>
+                    <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#111827"></div><div class="color-scale-stop">800</div><div class="color-scale-hex">#111827</div></div>
+                    <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#030712"></div><div class="color-scale-stop">900</div><div class="color-scale-hex">#030712</div></div>
+                  </div>
+                </div>
+
+                <div class="docs-card color-scale-card">
+                  <div class="color-scale-header">
+                    <h3 class="color-scale-title">Slate</h3>
+                    <p class="color-scale-note">Cooler neutral scale used for secondary text, subtle surfaces, and structural emphasis.</p>
+                  </div>
+                  <div class="color-scale-row">
+                    <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#F7F9FC"></div><div class="color-scale-stop">50</div><div class="color-scale-hex">#F7F9FC</div></div>
+                    <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#EEF2F7"></div><div class="color-scale-stop">100</div><div class="color-scale-hex">#EEF2F7</div></div>
+                    <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#E6ECF5"></div><div class="color-scale-stop">200</div><div class="color-scale-hex">#E6ECF5</div></div>
+                    <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#DDE3EC"></div><div class="color-scale-stop">300</div><div class="color-scale-hex">#DDE3EC</div></div>
+                    <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#C7D0DD"></div><div class="color-scale-stop">400</div><div class="color-scale-hex">#C7D0DD</div></div>
+                    <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#AAB4C3"></div><div class="color-scale-stop">500</div><div class="color-scale-hex">#AAB4C3</div></div>
+                    <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#8B94A5"></div><div class="color-scale-stop">600</div><div class="color-scale-hex">#8B94A5</div></div>
+                    <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#667085"></div><div class="color-scale-stop">700</div><div class="color-scale-hex">#667085</div></div>
+                    <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#5A6470"></div><div class="color-scale-stop">800</div><div class="color-scale-hex">#5A6470</div></div>
+                    <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#47505C"></div><div class="color-scale-stop">900</div><div class="color-scale-hex">#47505C</div></div>
+                  </div>
+                </div>
+
+                <div class="docs-card color-scale-card">
+                  <div class="color-scale-header">
+                    <h3 class="color-scale-title">Blue</h3>
+                    <p class="color-scale-note">Primary interaction scale for active states, focus treatments, links, and blue semantic feedback.</p>
+                  </div>
+                  <div class="color-scale-row">
+                    <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#F7FAFF"></div><div class="color-scale-stop">50</div><div class="color-scale-hex">#F7FAFF</div></div>
+                    <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#EFF3FE"></div><div class="color-scale-stop">100</div><div class="color-scale-hex">#EFF3FE</div></div>
+                    <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#DBE5FD"></div><div class="color-scale-stop">200</div><div class="color-scale-hex">#DBE5FD</div></div>
+                    <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#B8CEFF"></div><div class="color-scale-stop">300</div><div class="color-scale-hex">#B8CEFF</div></div>
+                    <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#7EA6FB"></div><div class="color-scale-stop">400</div><div class="color-scale-hex">#7EA6FB</div></div>
+                    <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#2567F4"></div><div class="color-scale-stop">500</div><div class="color-scale-hex">#2567F4</div></div>
+                    <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#2251C5"></div><div class="color-scale-stop">600</div><div class="color-scale-hex">#2251C5</div></div>
+                    <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#00389B"></div><div class="color-scale-stop">700</div><div class="color-scale-hex">#00389B</div></div>
+                    <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#002D7A"></div><div class="color-scale-stop">800</div><div class="color-scale-hex">#002D7A</div></div>
+                    <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#001E52"></div><div class="color-scale-stop">900</div><div class="color-scale-hex">#001E52</div></div>
+                    <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#001433"></div><div class="color-scale-stop">950</div><div class="color-scale-hex">#001433</div></div>
+                  </div>
+                </div>
+
+                <div class="docs-card color-scale-card">
+                  <div class="color-scale-header">
+                    <h3 class="color-scale-title">Violet</h3>
+                    <p class="color-scale-note">Supporting decorative family retained for legacy and decorative use, not primary interaction.</p>
+                  </div>
+                  <div class="color-scale-row">
+                    <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#FAF8FF"></div><div class="color-scale-stop">50</div><div class="color-scale-hex">#FAF8FF</div></div>
+                    <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#F3EEFF"></div><div class="color-scale-stop">100</div><div class="color-scale-hex">#F3EEFF</div></div>
+                    <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#E9E2FF"></div><div class="color-scale-stop">200</div><div class="color-scale-hex">#E9E2FF</div></div>
+                    <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#C7C2FF"></div><div class="color-scale-stop">300</div><div class="color-scale-hex">#C7C2FF</div></div>
+                    <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#AFA7FF"></div><div class="color-scale-stop">400</div><div class="color-scale-hex">#AFA7FF</div></div>
+                    <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#9D8FFF"></div><div class="color-scale-stop">500</div><div class="color-scale-hex">#9D8FFF</div></div>
+                    <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#7C5CFF"></div><div class="color-scale-stop">600</div><div class="color-scale-hex">#7C5CFF</div></div>
+                    <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#6C55DA"></div><div class="color-scale-stop">700</div><div class="color-scale-hex">#6C55DA</div></div>
+                    <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#5B42C4"></div><div class="color-scale-stop">800</div><div class="color-scale-hex">#5B42C4</div></div>
+                    <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#4C2FBD"></div><div class="color-scale-stop">900</div><div class="color-scale-hex">#4C2FBD</div></div>
+                  </div>
+                </div>
+
+                <div class="docs-card color-scale-card">
+                  <div class="color-scale-header">
+                    <h3 class="color-scale-title">Emerald</h3>
+                    <p class="color-scale-note">Success family used for positive states, confirmations, and success feedback.</p>
+                  </div>
+                  <div class="color-scale-row">
+                    <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#ECFDF5"></div><div class="color-scale-stop">50</div><div class="color-scale-hex">#ECFDF5</div></div>
+                    <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#D1FAE5"></div><div class="color-scale-stop">100</div><div class="color-scale-hex">#D1FAE5</div></div>
+                    <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#A7F3D0"></div><div class="color-scale-stop">200</div><div class="color-scale-hex">#A7F3D0</div></div>
+                    <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#6EE7B7"></div><div class="color-scale-stop">300</div><div class="color-scale-hex">#6EE7B7</div></div>
+                    <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#34D399"></div><div class="color-scale-stop">400</div><div class="color-scale-hex">#34D399</div></div>
+                    <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#10B981"></div><div class="color-scale-stop">500</div><div class="color-scale-hex">#10B981</div></div>
+                    <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#059669"></div><div class="color-scale-stop">600</div><div class="color-scale-hex">#059669</div></div>
+                    <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#047857"></div><div class="color-scale-stop">700</div><div class="color-scale-hex">#047857</div></div>
+                    <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#065F46"></div><div class="color-scale-stop">800</div><div class="color-scale-hex">#065F46</div></div>
+                    <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#064E3B"></div><div class="color-scale-stop">900</div><div class="color-scale-hex">#064E3B</div></div>
+                  </div>
+                </div>
+
+                <div class="docs-card color-scale-card">
+                  <div class="color-scale-header">
+                    <h3 class="color-scale-title">Amber</h3>
+                    <p class="color-scale-note">Warning family used for cautions, amber badges, and warning feedback.</p>
+                  </div>
+                  <div class="color-scale-row">
+                    <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#FFFBEB"></div><div class="color-scale-stop">50</div><div class="color-scale-hex">#FFFBEB</div></div>
+                    <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#FFF3C4"></div><div class="color-scale-stop">100</div><div class="color-scale-hex">#FFF3C4</div></div>
+                    <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#FFE480"></div><div class="color-scale-stop">200</div><div class="color-scale-hex">#FFE480</div></div>
+                    <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#FFCF3D"></div><div class="color-scale-stop">300</div><div class="color-scale-hex">#FFCF3D</div></div>
+                    <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#FFC641"></div><div class="color-scale-stop">400</div><div class="color-scale-hex">#FFC641</div></div>
+                    <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#FAB81F"></div><div class="color-scale-stop">500</div><div class="color-scale-hex">#FAB81F</div></div>
+                    <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#D4920A"></div><div class="color-scale-stop">600</div><div class="color-scale-hex">#D4920A</div></div>
+                    <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#A86E06"></div><div class="color-scale-stop">700</div><div class="color-scale-hex">#A86E06</div></div>
+                    <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#7A4E04"></div><div class="color-scale-stop">800</div><div class="color-scale-hex">#7A4E04</div></div>
+                    <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#553304"></div><div class="color-scale-stop">900</div><div class="color-scale-hex">#553304</div></div>
+                    <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#352005"></div><div class="color-scale-stop">950</div><div class="color-scale-hex">#352005</div></div>
+                  </div>
+                </div>
+
+                <div class="docs-card color-scale-card">
+                  <div class="color-scale-header">
+                    <h3 class="color-scale-title">Red</h3>
+                    <p class="color-scale-note">Danger family used for destructive actions, errors, and validation.</p>
+                  </div>
+                  <div class="color-scale-row">
+                    <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#FFF9FA"></div><div class="color-scale-stop">50</div><div class="color-scale-hex">#FFF9FA</div></div>
+                    <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#FEF2F2"></div><div class="color-scale-stop">100</div><div class="color-scale-hex">#FEF2F2</div></div>
+                    <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#FECACA"></div><div class="color-scale-stop">200</div><div class="color-scale-hex">#FECACA</div></div>
+                    <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#FCA5A5"></div><div class="color-scale-stop">300</div><div class="color-scale-hex">#FCA5A5</div></div>
+                    <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#F87171"></div><div class="color-scale-stop">400</div><div class="color-scale-hex">#F87171</div></div>
+                    <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#EE031D"></div><div class="color-scale-stop">500</div><div class="color-scale-hex">#EE031D</div></div>
+                    <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#DC2626"></div><div class="color-scale-stop">600</div><div class="color-scale-hex">#DC2626</div></div>
+                    <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#B91C1C"></div><div class="color-scale-stop">700</div><div class="color-scale-hex">#B91C1C</div></div>
+                    <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#991B1B"></div><div class="color-scale-stop">800</div><div class="color-scale-hex">#991B1B</div></div>
+                    <div class="color-scale-chip"><div class="color-scale-swatch" style="--swatch-color:#7F1D1D"></div><div class="color-scale-stop">900</div><div class="color-scale-hex">#7F1D1D</div></div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section class="docs-section" id="semantic-tokens">
+              <div class="docs-section-header">
+                <h2 class="panel-example-title">Semantic Tokens</h2>
+                <p class="docs-lead">These are the shared color roles used across the system. Each token appears once, grouped by the purpose it serves. Component aliases and pattern-specific implementations belong on their component pages.</p>
+              </div>
+              <div class="color-semantic-group-list">
+                <article class="color-table-block">
+                  <h3 class="color-semantic-title">Surface</h3>
+                  <p class="color-section-note">Shared surface roles for page chrome, default containers, subtle utilities, disabled controls, and feedback backgrounds.</p>
+                  <table class="color-token-table color-token-table--semantic">
+                    <thead><tr><th>Token</th><th>Primitive</th><th>Purpose</th><th>Used by</th></tr></thead>
+                    <tbody>
+                      <tr><td><span class="color-token-pill">--color-surface-page</span></td><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#FAFBFD"></span>#FAFBFD</span></td><td>Application background behind content surfaces.</td><td>App shell, docs shell</td></tr>
+                      <tr><td><span class="color-token-pill">--color-surface-default</span></td><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#FFFFFF"></span>#FFFFFF</span></td><td>Default surface for controls and containers.</td><td>All components</td></tr>
+                      <tr><td><span class="color-token-pill">--color-surface-subtle</span></td><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#F7F9FC"></span>Slate 50</span></td><td>Low-emphasis utility surface.</td><td>Utility surfaces</td></tr>
+                      <tr><td><span class="color-token-pill">--color-surface-disabled</span></td><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#F9FAFB"></span>Gray 50</span></td><td>Disabled control background.</td><td>Disabled controls</td></tr>
+                      <tr><td><span class="color-token-pill">--color-surface-info</span></td><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#EFF3FE"></span>Blue 100</span></td><td>Informational background role.</td><td>Info states, notices</td></tr>
+                      <tr><td><span class="color-token-pill">--color-surface-success</span></td><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#ECFDF5"></span>Emerald 50</span></td><td>Success background role.</td><td>Success states, notices</td></tr>
+                      <tr><td><span class="color-token-pill">--color-surface-warning</span></td><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#FFFBEB"></span>Amber 50</span></td><td>Warning background role.</td><td>Warning states, notices</td></tr>
+                      <tr><td><span class="color-token-pill">--color-surface-danger</span></td><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#FEF2F2"></span>Red 100</span></td><td>Danger and error background role.</td><td>Error states, notices</td></tr>
+                    </tbody>
+                  </table>
+                </article>
+
+                <article class="color-table-block">
+                  <h3 class="color-semantic-title">Border</h3>
+                  <p class="color-section-note">Boundary roles for subtle containers, default controls, stronger structure, dividers, and feedback states.</p>
+                  <table class="color-token-table color-token-table--semantic">
+                    <thead><tr><th>Token</th><th>Primitive</th><th>Purpose</th><th>Used by</th></tr></thead>
+                    <tbody>
+                      <tr><td><span class="color-token-pill">--color-border-subtle</span></td><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#EEF2F7"></span>Slate 100</span></td><td>Subtle container and low-contrast border.</td><td>Containers, grouped UI</td></tr>
+                      <tr><td><span class="color-token-pill">--color-border-default</span></td><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#D1D5DB"></span>Gray 300</span></td><td>Default border for controls and simple surfaces.</td><td>Inputs, controls</td></tr>
+                      <tr><td><span class="color-token-pill">--color-border-strong</span></td><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#AAB4C3"></span>Slate 500</span></td><td>Higher-emphasis structural boundary.</td><td>Dense layouts, grouped UI</td></tr>
+                      <tr><td><span class="color-token-pill">--color-divider</span></td><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#E5E7EB"></span>Gray 200</span></td><td>Divider between adjacent items.</td><td>Lists, tables, sections</td></tr>
+                      <tr><td><span class="color-token-pill">--color-border-info</span></td><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#DBE5FD"></span>Blue 200</span></td><td>Informational border role.</td><td>Info states, notices</td></tr>
+                      <tr><td><span class="color-token-pill">--color-border-success</span></td><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#A7F3D0"></span>Emerald 200</span></td><td>Success border role.</td><td>Success states, notices</td></tr>
+                      <tr><td><span class="color-token-pill">--color-border-warning</span></td><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#FDE68A"></span>Amber 200</span></td><td>Warning border role.</td><td>Warning states</td></tr>
+                      <tr><td><span class="color-token-pill">--color-border-danger</span></td><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#FCA5A5"></span>Red 300</span></td><td>Danger and error border role.</td><td>Error states, notices</td></tr>
+                    </tbody>
+                  </table>
+                </article>
+
+                <article class="color-table-block">
+                  <h3 class="color-semantic-title">Text</h3>
+                  <p class="color-section-note">Primary, supporting, placeholder, disabled, and feedback text roles used across product surfaces.</p>
+                  <table class="color-token-table color-token-table--semantic">
+                    <thead><tr><th>Token</th><th>Primitive</th><th>Purpose</th><th>Used by</th></tr></thead>
+                    <tbody>
+                      <tr><td><span class="color-token-pill">--color-text-primary</span></td><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#111827"></span>Gray 800</span></td><td>Highest-emphasis headings and labels.</td><td>Titles, key labels</td></tr>
+                      <tr><td><span class="color-token-pill">--color-text-body</span></td><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#374151"></span>Gray 700</span></td><td>Default readable body content.</td><td>Paragraphs, control values</td></tr>
+                      <tr><td><span class="color-token-pill">--color-text-muted</span></td><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#5A6470"></span>Slate 800</span></td><td>General muted and secondary text role.</td><td>Supporting content, utility text</td></tr>
+                      <tr><td><span class="color-token-pill">--color-text-helper</span></td><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#6B7280"></span>Gray 500</span></td><td>Helper text and metadata.</td><td>Helper text, metadata</td></tr>
+                      <tr><td><span class="color-token-pill">--color-text-placeholder</span></td><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#9CA3AF"></span>Gray 400</span></td><td>Placeholder text inside empty controls.</td><td>Fields</td></tr>
+                      <tr><td><span class="color-token-pill">--color-text-disabled</span></td><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#4B5563"></span>Gray 600</span></td><td>Disabled text role.</td><td>Disabled controls</td></tr>
+                      <tr><td><span class="color-token-pill">--color-text-info</span></td><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#00389B"></span>Blue 700</span></td><td>Informational text role.</td><td>Info states, notices</td></tr>
+                      <tr><td><span class="color-token-pill">--color-text-success</span></td><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#047857"></span>Emerald 700</span></td><td>Success text role.</td><td>Success states, notices</td></tr>
+                      <tr><td><span class="color-token-pill">--color-text-warning</span></td><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#374151"></span>Gray 700</span></td><td>Warning text role.</td><td>Warning states, notices</td></tr>
+                      <tr><td><span class="color-token-pill">--color-text-danger</span></td><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#EE031D"></span>Red 500</span></td><td>Danger and error text role.</td><td>Error states, destructive actions</td></tr>
+                    </tbody>
+                  </table>
+                </article>
+
+                <article class="color-table-block">
+                  <h3 class="color-semantic-title">Icon</h3>
+                  <p class="color-section-note">Neutral and feedback icon roles that parallel the text system without introducing component-specific meaning.</p>
+                  <table class="color-token-table color-token-table--semantic">
+                    <thead><tr><th>Token</th><th>Primitive</th><th>Purpose</th><th>Used by</th></tr></thead>
+                    <tbody>
+                      <tr><td><span class="color-token-pill">--color-icon-default</span></td><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#5A6470"></span>Slate 800</span></td><td>Default neutral icon role.</td><td>Standard icons</td></tr>
+                      <tr><td><span class="color-token-pill">--color-icon-muted</span></td><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#5A6470"></span>Slate 800</span></td><td>Muted neutral icon role.</td><td>Utility icons</td></tr>
+                      <tr><td><span class="color-token-pill">--color-icon-disabled</span></td><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#6B7280"></span>Gray 500</span></td><td>Disabled icon role.</td><td>Disabled controls</td></tr>
+                      <tr><td><span class="color-token-pill">--color-icon-info</span></td><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#00389B"></span>Blue 700</span></td><td>Informational icon role.</td><td>Info states, notices</td></tr>
+                      <tr><td><span class="color-token-pill">--color-icon-success</span></td><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#047857"></span>Emerald 700</span></td><td>Success icon role.</td><td>Success states, notices</td></tr>
+                      <tr><td><span class="color-token-pill">--color-icon-warning</span></td><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#F59E0B"></span>Amber 500</span></td><td>Warning icon role.</td><td>Warning states, notices</td></tr>
+                      <tr><td><span class="color-token-pill">--color-icon-danger</span></td><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#B91C1C"></span>Red 700</span></td><td>Danger and error icon role.</td><td>Error states, notices</td></tr>
+                    </tbody>
+                  </table>
+                </article>
+
+                <article class="color-table-block">
+                  <h3 class="color-semantic-title">Interactive</h3>
+                  <p class="color-section-note">Interaction roles for primary actions, hover and active states, supporting fills, and interactive borders.</p>
+                  <table class="color-token-table color-token-table--semantic">
+                    <thead><tr><th>Token</th><th>Primitive</th><th>Purpose</th><th>Used by</th></tr></thead>
+                    <tbody>
+                      <tr><td><span class="color-token-pill">--color-interactive-primary</span></td><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#2567F4"></span>Blue 500</span></td><td>Primary interaction color.</td><td>Actions, selected states, links</td></tr>
+                      <tr><td><span class="color-token-pill">--color-interactive-primary-hover</span></td><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#2251C5"></span>Blue 600</span></td><td>Hover interaction color.</td><td>Buttons, links, controls</td></tr>
+                      <tr><td><span class="color-token-pill">--color-interactive-primary-active</span></td><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#00389B"></span>Blue 700</span></td><td>Active interaction color.</td><td>Pressed states</td></tr>
+                      <tr><td><span class="color-token-pill">--color-interactive-surface</span></td><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#F7FAFF"></span>Blue 50</span></td><td>Soft interactive surface.</td><td>Selected fills</td></tr>
+                      <tr><td><span class="color-token-pill">--color-interactive-surface-hover</span></td><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#EFF3FE"></span>Blue 100</span></td><td>Hover interactive surface.</td><td>Light hover fills</td></tr>
+                      <tr><td><span class="color-token-pill">--color-interactive-surface-pressed</span></td><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#DBE5FD"></span>Blue 200</span></td><td>Pressed interactive surface.</td><td>Pressed fills</td></tr>
+                      <tr><td><span class="color-token-pill">--color-interactive-border-hover</span></td><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#7EA6FB"></span>Blue 400</span></td><td>Hover border on interactive controls.</td><td>Controls, utility actions</td></tr>
+                    </tbody>
+                  </table>
+                </article>
+
+                <article class="color-table-block">
+                  <h3 class="color-semantic-title">Focus</h3>
+                  <p class="color-section-note">Focus colors only. Implementation recipes such as shadow stacks are defined elsewhere, but the semantic focus colors and borders are documented here.</p>
+                  <table class="color-token-table color-token-table--semantic">
+                    <thead><tr><th>Token</th><th>Primitive</th><th>Purpose</th><th>Used by</th></tr></thead>
+                    <tbody>
+                      <tr><td><span class="color-token-pill">--color-interactive-border-focus</span></td><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#2567F4"></span>Blue 500</span></td><td>Focus border on interactive controls.</td><td>Controls, inputs</td></tr>
+                      <tr><td><span class="color-token-pill">--color-focus-ring</span></td><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#B8CEFF"></span>Blue 300</span></td><td>Default focus ring color.</td><td>Focused controls</td></tr>
+                      <tr><td><span class="color-token-pill">--color-focus-ring-danger</span></td><td><span class="color-token-cell"><span class="color-token-dot" style="--token-color:#EE031D"></span>Red 500</span></td><td>Danger focus ring color for invalid or destructive states.</td><td>Invalid and destructive states</td></tr>
+                    </tbody>
+                  </table>
+                </article>
+              </div>
+            </section>
+
+          </div>
+        </div>
+
+        <aside class="docs-v2-page-nav" aria-label="Page navigation">
+          <p class="docs-v2-page-nav-title">On This Page</p>
+          <nav class="docs-v2-page-nav-list">
+            <a class="docs-v2-page-nav-link" href="#overview">Overview</a>
+            <a class="docs-v2-page-nav-link" href="#primitives">Primitives</a>
+            <a class="docs-v2-page-nav-link" href="#semantic-tokens">Semantic Tokens</a>
+          </nav>
+        </aside>
+      </div>
+    </main>
+  </div>
+
+  <script src="../scripts/docs.js"></script>
+</body>
+</html>

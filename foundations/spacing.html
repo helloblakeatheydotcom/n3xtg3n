@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Spacing</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../styles/tokens.css" />
+  <link rel="stylesheet" href="../styles/base.css" />
+  <link rel="stylesheet" href="../styles/docs.css" />
+  <style>
+    .space-stack {
+      display: grid;
+      gap: 0;
+    }
+
+    .space-stack > .docs-section {
+      padding: 40px 0 32px;
+      border-top: 1px solid var(--docs-v2-border);
+    }
+
+    .space-stack > .docs-section:first-child {
+      padding-top: 0;
+      border-top: 0;
+    }
+
+    .space-stack > .docs-section:last-child {
+      padding-bottom: 0;
+    }
+
+    .space-stack .docs-section-header {
+      display: grid;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    .space-stack .panel-example-title {
+      margin: 0;
+      font-size: 20px;
+      line-height: 28px;
+      font-weight: 700;
+    }
+
+    .space-stack .docs-lead {
+      margin: 0;
+      max-width: var(--docs-v2-prose-measure);
+      font-size: 14px;
+      line-height: 22px;
+      color: var(--docs-v2-text-secondary);
+    }
+
+    .space-stack .docs-lead + .docs-lead {
+      margin-top: 10px;
+    }
+
+    .space-pattern-grid,
+    .space-mapping-grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .space-pattern-grid,
+    .space-mapping-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .space-pattern-card,
+    .space-rules-card,
+    .space-mapping-card {
+      padding: 18px;
+      border: 1px solid var(--docs-v2-border);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.8);
+      box-shadow: none;
+    }
+
+    .space-preview {
+      display: grid;
+      gap: 6px;
+    }
+
+    .space-bar {
+      width: var(--space-preview-width);
+      max-width: 100%;
+      height: 14px;
+      border-radius: 0;
+      background: #2567F4;
+    }
+
+    .space-caption {
+      margin: 0;
+      font-size: 12px;
+      line-height: 16px;
+      color: var(--docs-v2-text-muted);
+    }
+
+    .space-card-kicker,
+    .space-table-title {
+      margin: 0 0 12px;
+      font-size: 12px;
+      line-height: 16px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--docs-v2-text-muted);
+    }
+
+    .space-card-title,
+    .space-table-heading {
+      margin: 0 0 10px;
+      font-size: 18px;
+      line-height: 24px;
+      font-weight: 600;
+      color: var(--docs-v2-text);
+    }
+
+    .space-table-heading {
+      margin-bottom: 14px;
+    }
+
+    .space-card-copy {
+      margin: 0;
+      font-size: 13px;
+      line-height: 20px;
+      color: var(--docs-v2-text-secondary);
+    }
+
+    .space-card-copy + .space-card-copy {
+      margin-top: 8px;
+    }
+
+    .space-rule-list {
+      display: grid;
+      gap: 0;
+      margin: 14px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .space-rule-item {
+      padding: 12px 0;
+      border-top: 1px solid var(--docs-v2-border);
+      font-size: 14px;
+      line-height: 20px;
+      color: var(--docs-v2-text-secondary);
+    }
+
+    .space-rule-item:first-child {
+      padding-top: 0;
+      border-top: 0;
+    }
+
+    .space-rule-label {
+      display: block;
+      margin-bottom: 4px;
+      font-weight: 600;
+      color: var(--docs-v2-text);
+    }
+
+    .space-inline-pair {
+      display: inline-flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: baseline;
+    }
+
+    .space-specimen {
+      display: grid;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .space-specimen-row {
+      display: grid;
+      gap: 0;
+      border: 1px solid var(--docs-v2-border);
+      border-radius: 8px;
+      background: #FFFFFF;
+      overflow: hidden;
+    }
+
+    .space-specimen-line {
+      padding: 12px 14px;
+      border-top: 1px solid var(--docs-v2-border);
+      font-size: 13px;
+      line-height: 20px;
+      color: var(--docs-v2-text-secondary);
+    }
+
+    .space-specimen-line:first-child {
+      border-top: 0;
+    }
+
+    .space-inline-code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 12px;
+      line-height: 16px;
+      color: #2251C5;
+    }
+
+    .space-token-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--docs-v2-table-surface);
+      border: 0;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 0 0 1px var(--docs-v2-border);
+    }
+
+    .space-token-table th,
+    .space-token-table td {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--docs-v2-border);
+      text-align: left;
+      vertical-align: middle;
+      font-size: 14px;
+      line-height: 20px;
+    }
+
+    .space-token-table thead th {
+      background: var(--docs-v2-table-header-surface);
+      font-size: 12px;
+      line-height: 16px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--docs-v2-text-muted);
+    }
+
+    .space-token-table tbody tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .space-token-table td:first-child {
+      white-space: nowrap;
+    }
+
+    .space-token-pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 10px;
+      border: 1px solid #D6E2FF;
+      border-radius: 6px;
+      background: #FFFFFF;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 12px;
+      line-height: 16px;
+      color: #2251C5;
+    }
+
+    .space-token-table th:nth-child(1),
+    .space-token-table td:nth-child(1) {
+      width: 18%;
+    }
+
+    .space-token-table th:nth-child(2),
+    .space-token-table td:nth-child(2) {
+      width: 14%;
+    }
+
+    .space-token-table th:nth-child(3),
+    .space-token-table td:nth-child(3) {
+      width: 14%;
+    }
+
+    .space-token-table th:nth-child(4),
+    .space-token-table td:nth-child(4) {
+      width: 12%;
+    }
+
+    .space-token-table th:nth-child(5),
+    .space-token-table td:nth-child(5) {
+      width: 42%;
+    }
+
+    .space-rhythm-list {
+      display: grid;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .space-rhythm-item {
+      padding: 12px 14px;
+      border: 1px solid var(--docs-v2-border);
+      border-radius: 10px;
+      background: #F8F8FA;
+      font-size: 13px;
+      line-height: 20px;
+      color: var(--docs-v2-text-secondary);
+    }
+
+    @media (max-width: 1080px) {
+      .space-pattern-grid,
+      .space-mapping-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+  </style>
+</head>
+<body
+  class="docs-v2-page"
+  data-docs-v2-nav-title="Design System"
+  data-docs-v2-nav-copy="Foundations define the shared system rules before those rules appear in components."
+  data-docs-v2-nav-kicker="Foundations"
+>
+  <div class="docs-v2-layout">
+    <aside class="docs-v2-sidebar" data-docs-v2-nav></aside>
+
+    <main class="docs-v2-main">
+      <section class="docs-v2-hero">
+        <p class="docs-v2-eyebrow">Foundations / Spacing</p>
+        <h2 class="docs-v2-title">Spacing</h2>
+        <p class="docs-v2-copy">Defines the spacing scale, layout rhythm, and common inset and gap patterns used across the product UI.</p>
+        <div class="docs-v2-chip-row">
+          <span class="docs-v2-chip">Scale</span>
+          <span class="docs-v2-chip">Patterns</span>
+          <span class="docs-v2-chip">Padding vs Gap</span>
+          <span class="docs-v2-chip">Rhythm</span>
+          <span class="docs-v2-chip">Current system mappings</span>
+        </div>
+      </section>
+
+      <div class="docs-v2-page-shell docs-v2-page-shell--with-page-nav">
+        <div class="docs-v2-page-content">
+          <div class="space-stack">
+            <section class="docs-section" id="overview">
+              <div class="docs-section-header">
+                <h2 class="panel-example-title">Overview</h2>
+                <p class="docs-lead">The spacing system uses a compact scale built around 4px increments. The same tokens are reused for field padding, panel insets, section rhythm, and vertical spacing between component groups.</p>
+                <p class="docs-lead">Use spacing by role rather than by component. Insets define internal breathing room, gaps define relationships between adjacent items, and stack spacing controls the rhythm between larger blocks.</p>
+              </div>
+            </section>
+
+            <section class="docs-section" id="spacing-principles">
+              <div class="docs-section-header">
+                <h2 class="panel-example-title">Spacing Principles</h2>
+                <p class="docs-lead">Use spacing by role, not by component. Prefer consistent steps over one-off values. Use gap for relationships and padding for containment.</p>
+              </div>
+            </section>
+
+            <section class="docs-section" id="scale">
+              <div class="docs-section-header">
+                <h2 class="panel-example-title">Scale</h2>
+                <p class="docs-lead">These are the current shared spacing tokens used across the active component system.</p>
+              </div>
+              <table class="space-token-table">
+                <thead>
+                  <tr>
+                    <th>Token</th>
+                    <th>Multiplier</th>
+                    <th>REM</th>
+                    <th>PX</th>
+                    <th>Visual</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td><span class="space-token-pill">--space-0</span></td><td>0x</td><td>0rem</td><td>0px</td><td><div class="space-preview" style="--space-preview-width:0px;"><div class="space-bar"></div></div></td></tr>
+                  <tr><td><span class="space-token-pill">--space-0-5</span></td><td>0.5x</td><td>0.125rem</td><td>2px</td><td><div class="space-preview" style="--space-preview-width:2px;"><div class="space-bar"></div></div></td></tr>
+                  <tr><td><span class="space-token-pill">--space-1</span></td><td>1x</td><td>0.25rem</td><td>4px</td><td><div class="space-preview" style="--space-preview-width:4px;"><div class="space-bar"></div></div></td></tr>
+                  <tr><td><span class="space-token-pill">--space-1-5</span></td><td>1.5x</td><td>0.375rem</td><td>6px</td><td><div class="space-preview" style="--space-preview-width:6px;"><div class="space-bar"></div></div></td></tr>
+                  <tr><td><span class="space-token-pill">--space-2</span></td><td>2x</td><td>0.5rem</td><td>8px</td><td><div class="space-preview" style="--space-preview-width:8px;"><div class="space-bar"></div></div></td></tr>
+                  <tr><td><span class="space-token-pill">--space-3</span></td><td>3x</td><td>0.75rem</td><td>12px</td><td><div class="space-preview" style="--space-preview-width:12px;"><div class="space-bar"></div></div></td></tr>
+                  <tr><td><span class="space-token-pill">--space-4</span></td><td>4x</td><td>1rem</td><td>16px</td><td><div class="space-preview" style="--space-preview-width:16px;"><div class="space-bar"></div></div></td></tr>
+                  <tr><td><span class="space-token-pill">--space-5</span></td><td>5x</td><td>1.25rem</td><td>20px</td><td><div class="space-preview" style="--space-preview-width:20px;"><div class="space-bar"></div></div></td></tr>
+                  <tr><td><span class="space-token-pill">--space-6</span></td><td>6x</td><td>1.5rem</td><td>24px</td><td><div class="space-preview" style="--space-preview-width:24px;"><div class="space-bar"></div></div></td></tr>
+                  <tr><td><span class="space-token-pill">--space-8</span></td><td>8x</td><td>2rem</td><td>32px</td><td><div class="space-preview" style="--space-preview-width:32px;"><div class="space-bar"></div></div></td></tr>
+                  <tr><td><span class="space-token-pill">--space-10</span></td><td>10x</td><td>2.5rem</td><td>40px</td><td><div class="space-preview" style="--space-preview-width:40px;"><div class="space-bar"></div></div></td></tr>
+                  <tr><td><span class="space-token-pill">--space-12</span></td><td>12x</td><td>3rem</td><td>48px</td><td><div class="space-preview" style="--space-preview-width:48px;"><div class="space-bar"></div></div></td></tr>
+                  <tr><td><span class="space-token-pill">--space-16</span></td><td>16x</td><td>4rem</td><td>64px</td><td><div class="space-preview" style="--space-preview-width:64px;"><div class="space-bar"></div></div></td></tr>
+                </tbody>
+              </table>
+            </section>
+
+            <section class="docs-section" id="patterns">
+              <div class="docs-section-header">
+                <h2 class="panel-example-title">Patterns</h2>
+                <p class="docs-lead">These patterns show how the spacing scale should be applied inside components and between related items.</p>
+              </div>
+              <div class="space-pattern-grid">
+                <article class="space-pattern-card">
+                  <p class="space-card-kicker">Insets</p>
+                  <h3 class="space-card-title">Padding inside components</h3>
+                  <p class="space-card-copy">Use smaller steps for compact controls and larger steps for structural containers.</p>
+                  <ul class="space-rule-list">
+                    <li class="space-rule-item">
+                      <span class="space-rule-label">Fields</span>
+                      Horizontal padding uses <span class="space-inline-code">--space-3</span>. Vertical padding uses <span class="space-inline-code">--space-2</span>.
+                    </li>
+                    <li class="space-rule-item">
+                      <span class="space-rule-label">Panels</span>
+                      Horizontal insets use <span class="space-inline-code">--space-6</span>. Panel body top padding uses <span class="space-inline-code">--space-4</span>.
+                    </li>
+                    <li class="space-rule-item">
+                      <span class="space-rule-label">Sections</span>
+                      Use inset values aligned with panel rhythm to maintain consistency across larger containers.
+                    </li>
+                  </ul>
+                </article>
+                <article class="space-pattern-card">
+                  <p class="space-card-kicker">Gaps</p>
+                  <h3 class="space-card-title">Spacing between related items</h3>
+                  <p class="space-card-copy">Use gaps to express relationships, not structure.</p>
+                  <ul class="space-rule-list">
+                    <li class="space-rule-item">
+                      <span class="space-rule-label">Small internal relationships</span>
+                      Use <span class="space-inline-code">--space-2</span> and <span class="space-inline-code">--space-3</span> for labels, choices, and utility controls.
+                    </li>
+                    <li class="space-rule-item">
+                      <span class="space-rule-label">Content groups</span>
+                      Use <span class="space-inline-code">--space-5</span> for stacked fields and section content.
+                    </li>
+                    <li class="space-rule-item">
+                      <span class="space-rule-label">Container stacks</span>
+                      Use <span class="space-inline-code">--space-8</span> for panel-to-panel spacing and larger grouped content.
+                    </li>
+                  </ul>
+                </article>
+              </div>
+            </section>
+
+            <section class="docs-section" id="padding-vs-gap">
+              <div class="docs-section-header">
+                <h2 class="panel-example-title">Padding vs Gap</h2>
+                <p class="docs-lead">Choosing the right spacing tool.</p>
+              </div>
+              <ul class="space-rule-list">
+                <li class="space-rule-item">
+                  <span class="space-rule-label">Padding</span>
+                  Defines internal space within a field, card, panel, or section.
+                </li>
+                <li class="space-rule-item">
+                  <span class="space-rule-label">Gap</span>
+                  Defines relationships between adjacent elements.
+                </li>
+                <li class="space-rule-item">
+                  <span class="space-rule-label">Margin</span>
+                  Avoid for layout. Use only for page-level exceptions.
+                </li>
+              </ul>
+            </section>
+
+            <section class="docs-section" id="rhythm">
+              <div class="docs-section-header">
+                <h2 class="panel-example-title">Rhythm</h2>
+                <p class="docs-lead">These ranges define the vertical spacing patterns used across the system.</p>
+              </div>
+              <div class="space-rhythm-list">
+                <div class="space-rhythm-item">Tight rhythm: <span class="space-inline-code">8px – 12px</span></div>
+                <div class="space-rhythm-item">Standard rhythm: <span class="space-inline-code">16px – 20px</span></div>
+                <div class="space-rhythm-item">Section rhythm: <span class="space-inline-code">24px – 32px</span></div>
+              </div>
+            </section>
+
+            <section class="docs-section" id="current-system">
+              <div class="docs-section-header">
+                <h2 class="panel-example-title">Current System</h2>
+                <p class="docs-lead">These mappings show how the active components are already using the spacing scale today.</p>
+              </div>
+              <div class="space-mapping-grid">
+                <article class="space-mapping-card">
+                  <p class="space-card-kicker">Forms</p>
+                  <h3 class="space-card-title">Compact input and choice spacing</h3>
+                  <ul class="space-rule-list">
+                    <li class="space-rule-item"><span class="space-rule-label">Field padding</span><span class="space-inline-pair"><span class="space-inline-code">x = --space-3</span><span class="space-inline-code">y = --space-2</span></span></li>
+                    <li class="space-rule-item"><span class="space-rule-label">Choice group offset</span><span class="space-inline-code">--choice-group-offset-x = --space-6</span>.</li>
+                    <li class="space-rule-item"><span class="space-rule-label">Choice option spacing</span><span class="space-inline-code">--choice-option-spacing-y = --space-2</span>.</li>
+                  </ul>
+                </article>
+                <article class="space-mapping-card">
+                  <p class="space-card-kicker">Panels</p>
+                  <h3 class="space-card-title">Wide horizontal insets with tight vertical rhythm</h3>
+                  <ul class="space-rule-list">
+                    <li class="space-rule-item"><span class="space-rule-label">Header inset</span><span class="space-inline-code">--panel-header-padding-x = --space-6</span>.</li>
+                    <li class="space-rule-item"><span class="space-rule-label">Body inset</span><span class="space-inline-code">--panel-body-padding-x = --space-6</span>.</li>
+                    <li class="space-rule-item"><span class="space-rule-label">Body top / bottom</span><span class="space-inline-code">--space-4</span> top and <span class="space-inline-code">--space-8</span> bottom.</li>
+                  </ul>
+                </article>
+                <article class="space-mapping-card">
+                  <p class="space-card-kicker">Sections</p>
+                  <h3 class="space-card-title">Content rhythm inside larger containers</h3>
+                  <ul class="space-rule-list">
+                    <li class="space-rule-item"><span class="space-rule-label">Section spacing after</span><span class="space-inline-code">--section-spacing-after = --space-5</span>.</li>
+                    <li class="space-rule-item"><span class="space-rule-label">Content gap</span><span class="space-inline-code">--section-content-gap = --space-5</span>.</li>
+                    <li class="space-rule-item"><span class="space-rule-label">Related content</span><span class="space-inline-code">--section-related-padding-top = --space-5</span> and <span class="space-inline-code">--section-related-gap = --space-3</span>.</li>
+                  </ul>
+                </article>
+                <article class="space-mapping-card">
+                  <p class="space-card-kicker">Cards and Rows</p>
+                  <h3 class="space-card-title">Dense information surfaces</h3>
+                  <ul class="space-rule-list">
+                    <li class="space-rule-item"><span class="space-rule-label">Record row spacing</span>Rows use compact fixed paddings and a small internal content gap to stay dense and scannable.</li>
+                    <li class="space-rule-item"><span class="space-rule-label">Card spacing</span>Cards use small internal gaps and tighter padding than panels so lists can stay compact.</li>
+                    <li class="space-rule-item"><span class="space-rule-label">System direction</span>Dense surfaces stay tighter than forms and panels, but still pull from the same 4px-based rhythm.</li>
+                  </ul>
+                </article>
+              </div>
+            </section>
+          </div>
+        </div>
+
+        <aside class="docs-v2-page-nav" aria-label="Page navigation">
+          <p class="docs-v2-page-nav-title">On This Page</p>
+          <nav class="docs-v2-page-nav-list">
+            <a class="docs-v2-page-nav-link" href="#overview">Overview</a>
+            <a class="docs-v2-page-nav-link" href="#spacing-principles">Spacing Principles</a>
+            <a class="docs-v2-page-nav-link" href="#scale">Scale</a>
+            <a class="docs-v2-page-nav-link" href="#patterns">Patterns</a>
+            <a class="docs-v2-page-nav-link" href="#padding-vs-gap">Padding vs Gap</a>
+            <a class="docs-v2-page-nav-link" href="#rhythm">Rhythm</a>
+            <a class="docs-v2-page-nav-link" href="#current-system">Current System</a>
+          </nav>
+        </aside>
+      </div>
+    </main>
+  </div>
+
+  <script src="../scripts/docs.js"></script>
+</body>
+</html>

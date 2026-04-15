@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NextGen Form Components Purple Archive</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../styles/tokens-form-purple-archive.css" />
+  <link rel="stylesheet" href="../styles/base.css" />
+  <link rel="stylesheet" href="../styles/forms.css" />
+  <link rel="stylesheet" href="../styles/panels.css" />
+  <link rel="stylesheet" href="../styles/demos.css" />
+</head>
+<body class="panel-page form-docs-page component-docs-page">
+  <div class="page-nav">
+    <a class="page-back-link" href="archived-components.html" aria-label="Back to archived components">
+      <span aria-hidden="true">←</span>
+      <span>Back to archived components</span>
+    </a>
+  </div>
+  <header class="page-header">
+    <p class="page-kicker">Archived Component</p>
+    <h1 class="page-title">Form Components Purple Archive</h1>
+    <p class="component-page-intro">Archived reference for the original purple form treatment. This page is preserved for comparison while the canonical form components page uses blue interaction tokens.</p>
+  </header>
+
+  <main class="layout-shell panel-docs">
+    <div class="panel-tabs" role="tablist" aria-label="Form documentation tabs">
+      <button
+        id="tab-btn-examples"
+        class="panel-tab is-active"
+        type="button"
+        role="tab"
+        aria-selected="true"
+        aria-controls="tab-examples"
+        data-tab-target="tab-examples"
+      >
+        Examples
+      </button>
+      <button
+        id="tab-btn-anatomy"
+        class="panel-tab"
+        type="button"
+        role="tab"
+        aria-selected="false"
+        aria-controls="tab-anatomy"
+        data-tab-target="tab-anatomy"
+      >
+        Anatomy and Specs
+      </button>
+    </div>
+
+    <section id="tab-examples" class="tab-panel" role="tabpanel" aria-labelledby="tab-btn-examples">
+      <div class="panel-stack" aria-label="Form examples">
+        <section class="example-block" aria-label="Field types example">
+          <h2 class="panel-example-title">Field Types</h2>
+          <p class="example-caption">Use these core form controls for structured text entry, dates, selections, numbers, and formatted inputs.</p>
+          <section class="card" aria-label="Field types">
+            <div class="demo-grid">
+              <div class="demo-cell demo-cell--input">
+                <div class="field-body">
+                  <label class="field-label" for="full-name">Full Name</label>
+                  <div class="field-input-wrapper">
+                    <input id="full-name" type="text" class="field-input" value="Blake Zimmerman" />
+                  </div>
+                </div>
+                <div class="field-caption">Text Input</div>
+              </div>
+
+              <div class="demo-cell demo-cell--input demo-cell--textarea">
+                <div class="field-body">
+                  <label class="field-label" for="parent-input">Parent Input</label>
+                  <textarea id="parent-input" class="field-textarea" placeholder="Enter parent narrative...">Joe and Angie provided insight into Jeffrey’s daily struggles at home with keeping up…</textarea>
+                </div>
+                <div class="field-caption">Text Area</div>
+              </div>
+
+              <div class="demo-cell demo-cell--input">
+                <div class="field-body">
+                  <label class="field-label" for="meeting-date">Meeting Date</label>
+                  <div class="field-input-wrapper">
+                    <input id="meeting-date" type="date" class="field-input" />
+                  </div>
+                </div>
+                <div class="field-caption">Date</div>
+              </div>
+
+              <div class="demo-cell demo-cell--input">
+                <div class="field-body">
+                  <label class="field-label" for="iep-type">IEP Type</label>
+                  <div class="field-input-wrapper field-select-wrapper">
+                    <select id="iep-type" class="field-select">
+                      <option>Revision Without a Meeting</option>
+                      <option>Annual Review</option>
+                      <option>Initial IEP</option>
+                      <option>Reevaluation</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="field-caption">Select List</div>
+              </div>
+
+              <div class="demo-cell demo-cell--input">
+                <div class="field-body">
+                  <label class="field-label" for="service-minutes">Service Minutes</label>
+                  <div class="field-input-wrapper number-stepper">
+                    <input id="service-minutes" type="number" class="field-input" value="35" step="1" />
+                    <div class="stepper-controls">
+                      <button type="button" class="step-btn step-up" aria-label="Increase">▲</button>
+                      <button type="button" class="step-btn step-down" aria-label="Decrease">▼</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="field-caption">Number with Stepper</div>
+              </div>
+
+              <div class="demo-cell demo-cell--input">
+                <div class="field-body">
+                  <label class="field-label" for="home-phone">Home Phone</label>
+                  <div class="field-input-wrapper">
+                    <input id="home-phone" type="tel" class="field-input phone-input" value="+1 (864) 867-5309" />
+                  </div>
+                </div>
+                <div class="field-caption">Phone Number</div>
+              </div>
+
+              <div class="demo-cell demo-cell--input">
+                <div class="field-body">
+                  <label class="field-label" for="start-time">Start Time</label>
+                  <div class="field-input-wrapper">
+                    <input id="start-time" type="time" class="field-input" />
+                  </div>
+                </div>
+                <div class="field-caption">Time Picker</div>
+              </div>
+            </div>
+          </section>
+        </section>
+
+        <section class="example-block" aria-label="Field states example">
+          <h2 class="panel-example-title">Field States</h2>
+          <p class="example-caption">Text-entry controls should communicate required, optional, hover, focus, error, and view-only states consistently.</p>
+          <section class="card states-demo" aria-label="Field states">
+            <div class="demo-grid">
+              <div class="demo-cell demo-cell--input demo-cell--fullwidth demo-cell--interactive">
+                <div class="field-body">
+                  <label class="field-label" for="state-interactive">
+                    Student Name<span class="required-asterisk">*</span>
+                  </label>
+                  <div class="field-input-wrapper">
+                    <input id="state-interactive" type="text" class="field-input" placeholder="Enter student name" />
+                  </div>
+                  <div class="field-helper-slot">
+                    <p class="field-helper">Enter the full legal name as it appears on the student record.</p>
+                  </div>
+                  <div class="field-error field-error--live" id="state-interactive-error" aria-live="polite"></div>
+                </div>
+                <div class="field-caption">Interactive required field</div>
+              </div>
+
+              <div class="demo-cell demo-cell--input">
+                <div class="field-body">
+                  <label class="field-label" for="state-default">
+                    Student Name <span class="optional">(optional)</span>
+                  </label>
+                  <div class="field-input-wrapper">
+                    <input id="state-default" type="text" class="field-input" placeholder="Enter student name" />
+                  </div>
+                  <div class="field-helper-slot">
+                    <p class="field-helper">Helper text for optional field.</p>
+                  </div>
+                </div>
+                <div class="field-caption">Default</div>
+              </div>
+
+              <div class="demo-cell demo-cell--input">
+                <div class="field-body is-error">
+                  <label class="field-label" for="state-error">
+                    Student Name<span class="required-asterisk">*</span>
+                  </label>
+                  <div class="field-input-wrapper">
+                    <input id="state-error" type="text" class="field-input" placeholder="Enter student name" />
+                  </div>
+                  <div class="field-helper-slot"></div>
+                  <div class="field-error">This field is required.</div>
+                </div>
+                <div class="field-caption">Error</div>
+              </div>
+
+              <div class="demo-cell demo-cell--input">
+                <div class="field-body is-hover">
+                  <label class="field-label" for="state-hover">
+                    Student Name <span class="optional">(optional)</span>
+                  </label>
+                  <div class="field-input-wrapper">
+                    <input id="state-hover" type="text" class="field-input" placeholder="Enter student name" />
+                  </div>
+                  <div class="field-helper-slot">
+                    <p class="field-helper">Hover state for demonstration.</p>
+                  </div>
+                </div>
+                <div class="field-caption">Hover</div>
+              </div>
+
+              <div class="demo-cell demo-cell--input">
+                <div class="field-body is-error is-error-hover">
+                  <label class="field-label" for="state-error-hover">
+                    Student Name<span class="required-asterisk">*</span>
+                  </label>
+                  <div class="field-input-wrapper">
+                    <input id="state-error-hover" type="text" class="field-input" placeholder="Enter student name" />
+                  </div>
+                  <div class="field-helper-slot">
+                    <p class="field-helper">Hover + error with tinted background.</p>
+                  </div>
+                  <div class="field-error">This field is required.</div>
+                </div>
+                <div class="field-caption">Error Hover</div>
+              </div>
+
+              <div class="demo-cell demo-cell--input">
+                <div class="field-body is-focus">
+                  <label class="field-label" for="state-focused">
+                    Student Name <span class="optional">(optional)</span>
+                  </label>
+                  <div class="field-input-wrapper">
+                    <input id="state-focused" type="text" class="field-input" value="Blak" />
+                  </div>
+                  <div class="field-helper-slot">
+                    <p class="field-helper">Focused state with 2px outline.</p>
+                  </div>
+                </div>
+                <div class="field-caption">Focused</div>
+              </div>
+
+              <div class="demo-cell demo-cell--input">
+                <div class="field-body is-error is-error-focus">
+                  <label class="field-label" for="state-error-focused">
+                    Student Name<span class="required-asterisk">*</span>
+                  </label>
+                  <div class="field-input-wrapper">
+                    <input id="state-error-focused" type="text" class="field-input" />
+                  </div>
+                  <div class="field-helper-slot">
+                    <p class="field-helper">Focused + error (no tinted background).</p>
+                  </div>
+                  <div class="field-error">This field is required.</div>
+                </div>
+                <div class="field-caption">Error Focused</div>
+              </div>
+
+              <div class="demo-cell demo-cell--input">
+                <div class="field-body is-disabled">
+                  <label class="field-label" for="state-disabled">
+                    Student Name <span class="readonly">(read only)</span>
+                  </label>
+                  <div class="field-input-wrapper">
+                    <input id="state-disabled" type="text" class="field-input" value="Blake Zimmerman" readonly />
+                    <svg class="field-icon-lock" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M17 11V7a5 5 0 0 0-10 0v4H5a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7a2 2 0 0 0-2-2h-2zm-8-4a3 3 0 0 1 6 0v4H9V7z"/>
+                    </svg>
+                  </div>
+                  <div class="field-helper-slot">
+                    <p class="field-helper">View-only value, not editable.</p>
+                  </div>
+                </div>
+                <div class="field-caption">Disabled (view only)</div>
+              </div>
+
+              <div class="demo-cell demo-cell--input">
+                <div class="field-body is-disabled is-managed-required">
+                  <label class="field-label" for="state-alert">
+                    Primary Disability<span class="required-asterisk">*</span>
+                    <span class="readonly">(managed in the Eligibility page)</span>
+                  </label>
+                  <div class="field-input-wrapper">
+                    <input id="state-alert" type="text" class="field-input" readonly />
+                    <svg class="field-icon-lock" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M17 11V7a5 5 0 0 0-10 0v4H5a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7a2 2 0 0 0-2-2h-2zm-8-4a3 3 0 0 1 6 0v4H9V7z"/>
+                    </svg>
+                  </div>
+                  <div class="field-helper-slot">
+                    <div class="field-error">Primary Disability is required.</div>
+                    <span class="field-error-linkline">
+                      <a class="field-error-link" href="#">
+                        <span>Update in the Eligibility page</span>
+                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M5 12h14" />
+                          <path d="m13 5 7 7-7 7" />
+                        </svg>
+                      </a>
+                    </span>
+                  </div>
+                </div>
+                <div class="field-caption">Required and Disabled (view only)</div>
+              </div>
+            </div>
+          </section>
+        </section>
+
+        <section class="example-block" aria-label="Checkbox states example">
+          <h2 class="panel-example-title">Checkbox States</h2>
+          <p class="example-caption">Checkbox groups support multi-select content, helper text, descriptive options, and standard hover, selected, and error states.</p>
+          <section class="card" aria-label="Checkbox states">
+            <div class="demo-grid">
+              <div class="demo-cell demo-cell--panel demo-cell--interactive">
+                <div class="choice-group">
+                  <label class="field-label">Stocking Stuffers</label>
+                  <div class="field-helper-slot">
+                    <p class="field-helper">Choose what you’d like in your stocking this year.</p>
+                  </div>
+                  <div class="choice-options">
+                    <label class="choice-option">
+                      <input type="checkbox" />
+                      <div>
+                        <div class="choice-label">Apple sauce</div>
+                        <div class="choice-desc">A single-serving cup of cinnamon apple goodness.</div>
+                      </div>
+                    </label>
+                    <label class="choice-option">
+                      <input type="checkbox" checked />
+                      <div>
+                        <div class="choice-label">Peppermint patties</div>
+                        <div class="choice-desc">Classic dark chocolate and mint, unwrapped and ready.</div>
+                      </div>
+                    </label>
+                    <label class="choice-option">
+                      <input type="checkbox" />
+                      <div>
+                        <div class="choice-label">Orange cranberry muffin</div>
+                        <div class="choice-desc">Freshly baked, with a hint of orange zest.</div>
+                      </div>
+                    </label>
+                    <label class="choice-option">
+                      <input type="checkbox" />
+                      <div>
+                        <div class="choice-label">Puppy dog</div>
+                        <div class="choice-desc">Included here for illustrative purposes only. 🙂</div>
+                      </div>
+                    </label>
+                  </div>
+                </div>
+                <div class="field-caption">Interactive field</div>
+              </div>
+
+              <div class="demo-cell demo-cell--panel demo-cell--static">
+                <div class="choice-group">
+                  <label class="field-label">Stocking Stuffers</label>
+                  <div class="field-helper-slot"><p class="field-helper">Default state (no hover, no selection).</p></div>
+                  <div class="choice-options">
+                    <label class="choice-option">
+                      <input type="checkbox" />
+                      <span class="choice-label">Apple sauce</span>
+                    </label>
+                    <label class="choice-option">
+                      <input type="checkbox" />
+                      <span class="choice-label">Peppermint patties</span>
+                    </label>
+                  </div>
+                </div>
+                <div class="field-caption">Default</div>
+              </div>
+
+              <div class="demo-cell demo-cell--panel demo-cell--static demo-cell--hover">
+                <div class="choice-group">
+                  <label class="field-label">Stocking Stuffers</label>
+                  <div class="field-helper-slot"><p class="field-helper">First option in hover state.</p></div>
+                  <div class="choice-options">
+                    <label class="choice-option">
+                      <input type="checkbox" />
+                      <span class="choice-label">Apple sauce</span>
+                    </label>
+                    <label class="choice-option">
+                      <input type="checkbox" />
+                      <span class="choice-label">Peppermint patties</span>
+                    </label>
+                  </div>
+                </div>
+                <div class="field-caption">Hover</div>
+              </div>
+
+              <div class="demo-cell demo-cell--panel demo-cell--static demo-cell--selected">
+                <div class="choice-group">
+                  <label class="field-label">Stocking Stuffers</label>
+                  <div class="field-helper-slot"><p class="field-helper">First option selected.</p></div>
+                  <div class="choice-options">
+                    <label class="choice-option">
+                      <input type="checkbox" checked />
+                      <span class="choice-label">Apple sauce</span>
+                    </label>
+                    <label class="choice-option">
+                      <input type="checkbox" />
+                      <span class="choice-label">Peppermint patties</span>
+                    </label>
+                  </div>
+                </div>
+                <div class="field-caption">Selected</div>
+              </div>
+
+              <div class="demo-cell demo-cell--panel demo-cell--static demo-cell--selected-hover">
+                <div class="choice-group">
+                  <label class="field-label">Stocking Stuffers</label>
+                  <div class="field-helper-slot"><p class="field-helper">Selected + hover emphasis.</p></div>
+                  <div class="choice-options">
+                    <label class="choice-option">
+                      <input type="checkbox" checked />
+                      <span class="choice-label">Apple sauce</span>
+                    </label>
+                    <label class="choice-option">
+                      <input type="checkbox" />
+                      <span class="choice-label">Peppermint patties</span>
+                    </label>
+                  </div>
+                </div>
+                <div class="field-caption">Selected Hover</div>
+              </div>
+
+              <div class="demo-cell demo-cell--panel demo-cell--static demo-cell--error">
+                <div class="error-wrap">
+                  <div class="choice-group">
+                    <label class="field-label">Stocking Stuffers</label>
+                    <div class="field-helper-slot"><p class="field-helper">At least one choice is required.</p></div>
+                    <div class="choice-options">
+                      <label class="choice-option">
+                        <input type="checkbox" />
+                        <span class="choice-label">Apple sauce</span>
+                      </label>
+                      <label class="choice-option">
+                        <input type="checkbox" />
+                        <span class="choice-label">Peppermint patties</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="field-caption">Error</div>
+              </div>
+              <div class="demo-cell"></div>
+            </div>
+          </section>
+        </section>
+
+        <section class="example-block" aria-label="Radio states example">
+          <h2 class="panel-example-title">Radio States</h2>
+          <p class="example-caption">Radio groups mirror checkbox behavior, but guide the user toward a single required or optional selection.</p>
+          <section class="card" aria-label="Radio states">
+            <div class="demo-grid">
+              <div class="demo-cell demo-cell--panel demo-cell--interactive">
+                <div class="choice-group">
+                  <label class="field-label">Holiday Drinks</label>
+                  <div class="field-helper-slot">
+                    <p class="field-helper">Pick the drink you’d most like with your stocking.</p>
+                  </div>
+                  <div class="choice-options">
+                    <label class="choice-option">
+                      <input type="radio" name="drink" />
+                      <div>
+                        <div class="choice-label">Hot chocolate</div>
+                        <div class="choice-desc">Rich and creamy, topped with marshmallows.</div>
+                      </div>
+                    </label>
+                    <label class="choice-option">
+                      <input type="radio" name="drink" checked />
+                      <div>
+                        <div class="choice-label">Spiced cider</div>
+                        <div class="choice-desc">Warm apple cider with cinnamon and cloves.</div>
+                      </div>
+                    </label>
+                    <label class="choice-option">
+                      <input type="radio" name="drink" />
+                      <div>
+                        <div class="choice-label">Peppermint mocha</div>
+                        <div class="choice-desc">Espresso, chocolate, and a hint of peppermint.</div>
+                      </div>
+                    </label>
+                  </div>
+                </div>
+                <div class="field-caption">Interactive field</div>
+              </div>
+
+              <div class="demo-cell demo-cell--panel demo-cell--interactive">
+                <div class="choice-group">
+                  <label class="field-label">Parent Attended Meeting</label>
+                  <div class="field-helper-slot">
+                    <p class="field-helper">Use the horizontal Yes/No pattern for compact binary decisions.</p>
+                  </div>
+                  <div class="choice-options choice-options--horizontal">
+                    <label class="choice-option">
+                      <input type="radio" name="parent-attended-meeting" checked />
+                      <span class="choice-label">Yes</span>
+                    </label>
+                    <label class="choice-option">
+                      <input type="radio" name="parent-attended-meeting" />
+                      <span class="choice-label">No</span>
+                    </label>
+                  </div>
+                </div>
+                <div class="field-caption">Horizontal Yes / No</div>
+              </div>
+
+              <div class="demo-cell demo-cell--panel demo-cell--static">
+                <div class="choice-group">
+                  <label class="field-label">Holiday Drinks</label>
+                  <div class="field-helper-slot"><p class="field-helper">Default state (no hover, no selection).</p></div>
+                  <div class="choice-options">
+                    <label class="choice-option">
+                      <input type="radio" />
+                      <span class="choice-label">Hot chocolate</span>
+                    </label>
+                    <label class="choice-option">
+                      <input type="radio" />
+                      <span class="choice-label">Spiced cider</span>
+                    </label>
+                  </div>
+                </div>
+                <div class="field-caption">Default</div>
+              </div>
+
+              <div class="demo-cell demo-cell--panel demo-cell--static demo-cell--hover">
+                <div class="choice-group">
+                  <label class="field-label">Holiday Drinks</label>
+                  <div class="field-helper-slot"><p class="field-helper">First option in hover state.</p></div>
+                  <div class="choice-options">
+                    <label class="choice-option">
+                      <input type="radio" />
+                      <span class="choice-label">Hot chocolate</span>
+                    </label>
+                    <label class="choice-option">
+                      <input type="radio" />
+                      <span class="choice-label">Spiced cider</span>
+                    </label>
+                  </div>
+                </div>
+                <div class="field-caption">Hover</div>
+              </div>
+
+              <div class="demo-cell demo-cell--panel demo-cell--static demo-cell--selected">
+                <div class="choice-group">
+                  <label class="field-label">Holiday Drinks</label>
+                  <div class="field-helper-slot"><p class="field-helper">First option selected.</p></div>
+                  <div class="choice-options">
+                    <label class="choice-option">
+                      <input type="radio" checked />
+                      <span class="choice-label">Hot chocolate</span>
+                    </label>
+                    <label class="choice-option">
+                      <input type="radio" />
+                      <span class="choice-label">Spiced cider</span>
+                    </label>
+                  </div>
+                </div>
+                <div class="field-caption">Selected</div>
+              </div>
+
+              <div class="demo-cell demo-cell--panel demo-cell--static demo-cell--selected-hover">
+                <div class="choice-group">
+                  <label class="field-label">Holiday Drinks</label>
+                  <div class="field-helper-slot"><p class="field-helper">Selected + hover emphasis.</p></div>
+                  <div class="choice-options">
+                    <label class="choice-option">
+                      <input type="radio" checked />
+                      <span class="choice-label">Hot chocolate</span>
+                    </label>
+                    <label class="choice-option">
+                      <input type="radio" />
+                      <span class="choice-label">Spiced cider</span>
+                    </label>
+                  </div>
+                </div>
+                <div class="field-caption">Selected Hover</div>
+              </div>
+
+              <div class="demo-cell demo-cell--panel demo-cell--static demo-cell--error">
+                <div class="error-wrap">
+                  <div class="choice-group">
+                    <label class="field-label">Holiday Drinks</label>
+                    <div class="field-helper-slot"><p class="field-helper">A choice is required.</p></div>
+                    <div class="choice-options">
+                      <label class="choice-option">
+                        <input type="radio" />
+                        <span class="choice-label">Hot chocolate</span>
+                      </label>
+                      <label class="choice-option">
+                        <input type="radio" />
+                        <span class="choice-label">Spiced cider</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="field-caption">Error</div>
+              </div>
+              <div class="demo-cell"></div>
+            </div>
+          </section>
+        </section>
+      </div>
+    </section>
+
+    <section id="tab-anatomy" class="tab-panel" role="tabpanel" aria-labelledby="tab-btn-anatomy" hidden>
+      <div class="docs-sections">
+        <section class="docs-section">
+          <div class="docs-section-header">
+            <h2 class="panel-example-title">Form Overview</h2>
+            <p class="docs-lead docs-lead--full">Form components provide the shared entry patterns for text fields, selection controls, helper text, validation, placeholder text, and view-only states. They are designed to support both direct data entry and more structured workflows inside panels and full-page forms.</p>
+          </div>
+        </section>
+
+        <section class="docs-section">
+          <div class="docs-section-header">
+            <h2 class="panel-example-title">Anatomy</h2>
+          </div>
+          <div class="docs-card">
+            <div class="docs-anatomy-grid">
+              <div class="docs-anatomy-stack">
+                <div class="docs-anatomy-specimen">
+                  <h3 class="docs-card-title">Text Entry Field</h3>
+                  <div class="docs-anatomy-panel">
+                    <div class="docs-anatomy-body">
+                      <div class="field-label">Field Label</div>
+                      <div class="field-input-wrapper">
+                        <input class="field-input" type="text" value="Field Input" aria-label="Example input" />
+                      </div>
+                      <div class="field-helper-slot"><p class="field-helper">Helper text</p></div>
+                      <div class="field-error">Error message</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="docs-anatomy-specimen">
+                  <h3 class="docs-card-title">Choice Group Field</h3>
+                  <div class="docs-anatomy-panel">
+                    <div class="docs-anatomy-body">
+                      <div class="field-label">Group Label</div>
+                      <div class="field-helper-slot"><p class="field-helper">Helper text</p></div>
+                      <div class="choice-options">
+                        <label class="choice-option">
+                          <input type="checkbox" checked />
+                          <span class="choice-label">Choice option</span>
+                        </label>
+                        <label class="choice-option">
+                          <input type="checkbox" />
+                          <span class="choice-label">Second option</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="docs-parts-card">
+                <h3 class="docs-card-title">Parts</h3>
+                <div class="docs-part-list">
+                  <div class="docs-part-item"><strong>Label</strong><p>Required for clear identification and should communicate required or optional status when needed.</p></div>
+                  <div class="docs-part-item"><strong>Input control</strong><p>The primary interactive region for text entry, selection, or choice input, including placeholder text when no value has been entered.</p></div>
+                  <div class="docs-part-item"><strong>Helper text</strong><p>Optional; gives supporting guidance before an error is introduced.</p></div>
+                  <div class="docs-part-item"><strong>Error message</strong><p>Optional; appears when validation fails, replaces helper text, and should clearly explain what needs correction.</p></div>
+                  <div class="docs-part-item"><strong>Required and disabled state</strong><p>Optional; communicates that a required value is missing but must be managed in another part of the workflow.</p></div>
+                  <div class="docs-part-item"><strong>Choice options</strong><p>For checkbox and radio groups, helper text sits above the options and each option includes a control, label, and optional description.</p></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="docs-section">
+          <div class="docs-section-header">
+            <h2 class="panel-example-title">Variants and Optional Elements</h2>
+          </div>
+          <div class="docs-grid docs-grid--two">
+            <article class="docs-card">
+              <h3 class="docs-card-title">Supported Patterns</h3>
+              <ul class="docs-list">
+                <li>Text input</li>
+                <li>Text area</li>
+                <li>Date and time fields</li>
+                <li>Select list</li>
+                <li>Number with stepper</li>
+                <li>Checkbox group</li>
+                <li>Radio group</li>
+              </ul>
+            </article>
+
+            <article class="docs-card">
+              <h3 class="docs-card-title">Optional Elements</h3>
+              <ul class="docs-list">
+                <li>Helper text</li>
+                <li>Error message</li>
+                <li>Required and optional indicators</li>
+                <li>Placeholder text</li>
+                <li>Descriptions inside checkbox or radio options</li>
+                <li>View-only icons and required-and-disabled states</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <section class="docs-section">
+          <div class="docs-section-header">
+            <h2 class="panel-example-title">Specifications</h2>
+          </div>
+          <div class="docs-grid docs-grid--two">
+            <article class="docs-card">
+              <h3 class="docs-card-title">Structure</h3>
+              <ul class="docs-list">
+                <li>Each field should include a visible label unless an equivalent accessible name is provided elsewhere.</li>
+                <li>Helper text and error text share the same supporting region below the control.</li>
+                <li>Placeholder text is secondary guidance only and should not replace labels or helper text.</li>
+                <li>Checkbox and radio groups should be presented as grouped options with clear labels and optional descriptions.</li>
+              </ul>
+            </article>
+
+            <article class="docs-card">
+              <h3 class="docs-card-title">Sizing</h3>
+              <ul class="docs-list">
+                <li>Single-line fields use a 40px control height.</li>
+                <li>Field labels use 14px type at 600 weight, and entered field values use 14px type at 400 weight.</li>
+                <li>Helper and error text use 13px type.</li>
+                <li>Placeholder text uses a lighter weight and lower-contrast neutral color than entered field values.</li>
+                <li>Choice controls use a 16px control size with consistent option spacing.</li>
+              </ul>
+            </article>
+
+            <article class="docs-card">
+              <h3 class="docs-card-title">Behavior</h3>
+              <ul class="docs-list">
+                <li>Hover applies a tinted background and accent border for standard entry controls.</li>
+                <li>Focus increases border emphasis and should preserve clear contrast.</li>
+                <li>Error states use the danger border and replace helper text with the error message.</li>
+                <li>Required-and-disabled states keep a disabled field surface while using an error border and linked follow-up action.</li>
+                <li>Interactive demos may validate on blur and update live while correcting errors.</li>
+              </ul>
+            </article>
+
+            <article class="docs-card">
+              <h3 class="docs-card-title">Accessibility</h3>
+              <ul class="docs-list">
+                <li>Use semantic label associations for all text-entry controls.</li>
+                <li>Required fields should announce validation errors with `aria-invalid` and live error text where appropriate.</li>
+                <li>Checkbox and radio groups should remain keyboard accessible and preserve visible focus states.</li>
+                <li>Required-and-disabled states should signal missing required information while directing the user to the page where the value can be updated.</li>
+                <li>Placeholder text should remain legible but visually secondary to entered values.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <section class="docs-section">
+          <div class="docs-section-header">
+            <h2 class="panel-example-title">Token Reference</h2>
+            <p class="docs-lead">Form tokens are grouped here for quick technical reference, separate from the usage rules above.</p>
+          </div>
+          <div class="docs-token-grid">
+            <article class="docs-card docs-token-card">
+              <h3 class="docs-card-title">Field Surface</h3>
+              <p class="docs-card-caption">Core control sizing, borders, and background tokens for text-entry fields.</p>
+              <table class="docs-token-table">
+                <thead>
+                  <tr><th>Role</th><th>Token</th><th>Value</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>Field height</td><td><code>--field-height</code></td><td>40px</td></tr>
+                  <tr><td>Horizontal padding</td><td><code>--field-padding-x</code></td><td>12px</td></tr>
+                  <tr><td>Vertical padding</td><td><code>--field-padding-y</code></td><td>8px</td></tr>
+                  <tr><td>Default border</td><td><code>--field-border-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#D1D5DB"></span>Gray 300 (#D1D5DB)</span></td></tr>
+                  <tr><td>Hover border</td><td><code>--field-border-hover</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#AFA7FF"></span>Violet 400 (#AFA7FF)</span></td></tr>
+                  <tr><td>Focus border</td><td><code>--field-border-focus</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#7C5CFF"></span>Violet 600 (#7C5CFF)</span></td></tr>
+                  <tr><td>Field background</td><td><code>--field-bg</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#FFFFFF"></span>#FFFFFF</span></td></tr>
+                  <tr><td>Hover background</td><td><code>--field-bg-hover</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#FAF8FF"></span>Violet 50 (#FAF8FF)</span></td></tr>
+                  <tr><td>Stepper control background</td><td><code>--field-stepper-bg</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#F7F9FC"></span>Slate 50 (#F7F9FC)</span></td></tr>
+                  <tr><td>Stepper hover background</td><td><code>--field-stepper-hover-bg</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#EEF2F7"></span>Slate 100 (#EEF2F7)</span></td></tr>
+                </tbody>
+              </table>
+            </article>
+
+            <article class="docs-card docs-token-card">
+              <h3 class="docs-card-title">Input Layout</h3>
+              <p class="docs-card-caption">Structural spacing and icon offsets for text-entry fields and their supporting regions.</p>
+              <table class="docs-token-table">
+                <thead>
+                  <tr><th>Role</th><th>Token</th><th>Value</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>Field max width</td><td><code>.field-body</code></td><td>360px</td></tr>
+                  <tr><td>Label bottom spacing</td><td><code>.field-label</code></td><td>4px</td></tr>
+                  <tr><td>Helper slot top spacing</td><td><code>.field-helper-slot</code></td><td>4px</td></tr>
+                  <tr><td>Helper slot minimum height</td><td><code>.field-helper-slot</code></td><td>20px</td></tr>
+                  <tr><td>Default icon inset</td><td><code>.field-icon-lock</code></td><td>10px from right</td></tr>
+                  <tr><td>Managed-required right padding</td><td><code>.is-managed-required .field-input</code></td><td>32px</td></tr>
+                </tbody>
+              </table>
+            </article>
+
+            <article class="docs-card docs-token-card">
+              <h3 class="docs-card-title">Typography</h3>
+              <p class="docs-card-caption">Label, helper, and field text tokens.</p>
+              <table class="docs-token-table">
+                <thead>
+                  <tr><th>Role</th><th>Token</th><th>Value</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>Label color</td><td><code>--field-label-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#111827"></span>Gray 800 (#111827)</span></td></tr>
+                  <tr><td>Helper color</td><td><code>--field-helper-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#6B7280"></span>Gray 500 (#6B7280)</span></td></tr>
+                  <tr><td>Field text color</td><td><code>--field-text-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#374151"></span>Gray 700 (#374151)</span></td></tr>
+                  <tr><td>Label weight</td><td><code>.field-label</code></td><td>600</td></tr>
+                  <tr><td>Field text weight</td><td><code>.field-input</code></td><td>400</td></tr>
+                  <tr><td>Error text weight</td><td><code>.field-error</code></td><td>500</td></tr>
+                  <tr><td>Placeholder color</td><td><code>--color-placeholder</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#9CA3AF"></span>Gray 400 (#9CA3AF)</span></td></tr>
+                  <tr><td>Error color</td><td><code>--field-error-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#EE031D"></span>Red 500 (#EE031D)</span></td></tr>
+                  <tr><td>Error link color</td><td><code>--field-error-link-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#1E40AF"></span>#1E40AF</span></td></tr>
+                </tbody>
+              </table>
+            </article>
+
+            <article class="docs-card docs-token-card">
+              <h3 class="docs-card-title">Disabled State</h3>
+              <p class="docs-card-caption">Tokens used for fields that are visible but unavailable for editing.</p>
+              <table class="docs-token-table">
+                <thead>
+                  <tr><th>Role</th><th>Token</th><th>Value</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>Disabled border</td><td><code>.is-disabled .field-input</code></td><td>none</td></tr>
+                  <tr><td>Disabled background</td><td><code>--color-disabled-bg</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#F9FAFB"></span>Gray 50 (#F9FAFB)</span></td></tr>
+                  <tr><td>Disabled text</td><td><code>--color-disabled-text</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#4B5563"></span>Gray 600 (#4B5563)</span></td></tr>
+                  <tr><td>Disabled icon</td><td><code>--color-disabled-icon</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#6B7280"></span>Gray 500 (#6B7280)</span></td></tr>
+                </tbody>
+              </table>
+            </article>
+
+            <article class="docs-card docs-token-card">
+              <h3 class="docs-card-title">Required and Disabled State</h3>
+              <p class="docs-card-caption">Formatting used for required values that are visible here but managed on another page.</p>
+              <table class="docs-token-table">
+                <thead>
+                  <tr><th>Role</th><th>Token</th><th>Value</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>Field background</td><td><code>--color-disabled-bg</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#F9FAFB"></span>Gray 50 (#F9FAFB)</span></td></tr>
+                  <tr><td>Field border</td><td><code>--color-danger</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#EE031D"></span>Red 500 (#EE031D)</span></td></tr>
+                  <tr><td>Field icon</td><td><code>--color-disabled-icon</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#6B7280"></span>Gray 500 (#6B7280)</span></td></tr>
+                  <tr><td>Error text</td><td><code>--field-error-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#EE031D"></span>Red 500 (#EE031D)</span></td></tr>
+                  <tr><td>Action link</td><td><code>--field-error-link-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#1E40AF"></span>#1E40AF</span></td></tr>
+                </tbody>
+              </table>
+            </article>
+
+            <article class="docs-card docs-token-card">
+              <h3 class="docs-card-title">Error State</h3>
+              <p class="docs-card-caption">Tokens used when a field is invalid and the error message replaces helper text.</p>
+              <table class="docs-token-table">
+                <thead>
+                  <tr><th>Role</th><th>Token</th><th>Value</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>Error border</td><td><code>--color-danger</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#EE031D"></span>Red 500 (#EE031D)</span></td></tr>
+                  <tr><td>Error hover background</td><td><code>--color-danger-bg</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#FFF9FA"></span>Red 50 (#FFF9FA)</span></td></tr>
+                  <tr><td>Error text</td><td><code>--field-error-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#EE031D"></span>Red 500 (#EE031D)</span></td></tr>
+                </tbody>
+              </table>
+            </article>
+
+            <article class="docs-card docs-token-card">
+              <h3 class="docs-card-title">Choice Controls</h3>
+              <p class="docs-card-caption">Checkbox and radio sizing, spacing, and checked-state tokens.</p>
+              <table class="docs-token-table">
+                <thead>
+                  <tr><th>Role</th><th>Token</th><th>Value</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>Control size</td><td><code>--choice-control-size</code></td><td>16px</td></tr>
+                  <tr><td>Default border</td><td><code>--choice-control-border</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#D1D5DB"></span>Gray 300 (#D1D5DB)</span></td></tr>
+                  <tr><td>Checked background</td><td><code>--choice-control-checked-bg</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#7C5CFF"></span>Violet 600 (#7C5CFF)</span></td></tr>
+                  <tr><td>Checked border</td><td><code>--choice-control-checked-border</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#7C5CFF"></span>Violet 600 (#7C5CFF)</span></td></tr>
+                  <tr><td>Checked hover background</td><td><code>--choice-control-hover-checked</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#6C55DA"></span>Violet 700 (#6C55DA)</span></td></tr>
+                  <tr><td>Hover border</td><td><code>--choice-control-hover-border</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#7C5CFF"></span>Violet 600 (#7C5CFF)</span></td></tr>
+                  <tr><td>Option gap</td><td><code>--choice-option-gap</code></td><td>8px</td></tr>
+                  <tr><td>Option spacing</td><td><code>--choice-option-spacing-y</code></td><td>8px</td></tr>
+                </tbody>
+              </table>
+            </article>
+
+            <article class="docs-card docs-token-card">
+              <h3 class="docs-card-title">Choice Controls Layout</h3>
+              <p class="docs-card-caption">Choice-group layout offsets and supporting system spacing.</p>
+              <table class="docs-token-table">
+                <thead>
+                  <tr><th>Role</th><th>Token</th><th>Value</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>Label to helper spacing</td><td><code>.field-label</code> + <code>.field-helper-slot</code></td><td>4px</td></tr>
+                  <tr><td>Helper to first option spacing</td><td><code>.choice-options</code></td><td>12px</td></tr>
+                  <tr><td>Choice group offset</td><td><code>--choice-group-offset-x</code></td><td>24px</td></tr>
+                  <tr><td>Field radius</td><td><code>--radius-field</code></td><td>4px</td></tr>
+                  <tr><td>Focus ring</td><td><code>--color-focus-ring</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#C7C2FF"></span>Violet 300 (#C7C2FF)</span></td></tr>
+                </tbody>
+              </table>
+            </article>
+
+          </div>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <script src="form-components.js"></script>
+</body>
+</html>
