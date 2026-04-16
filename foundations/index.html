@@ -10,8 +10,111 @@
   <link rel="stylesheet" href="../styles/tokens.css" />
   <link rel="stylesheet" href="../styles/base.css" />
   <link rel="stylesheet" href="../styles/docs.css" />
+  <style>
+    .foundations-page .foundation-card-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .foundations-page .foundation-card {
+      display: grid;
+      gap: 18px;
+      padding: 22px;
+      border: 1px solid var(--docs-v2-border);
+      border-radius: 20px;
+      background:
+        radial-gradient(circle at top right, rgba(37, 103, 244, 0.08), transparent 32%),
+        linear-gradient(180deg, #FFFFFF 0%, #FBFCFF 100%);
+      text-decoration: none;
+      transition: border-color 0.16s ease, transform 0.16s ease, box-shadow 0.16s ease;
+    }
+
+    .foundations-page .foundation-card:hover {
+      border-color: #D7E1F2;
+      transform: translateY(-1px);
+      box-shadow: 0 14px 28px rgba(17, 24, 39, 0.07);
+    }
+
+    .foundations-page .foundation-card:focus-visible {
+      outline: none;
+      box-shadow: inset 0 0 0 1.5px #2567F4, 0 0 0 2px rgba(37, 103, 244, 0.12);
+    }
+
+    .foundations-page .foundation-card-head {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 14px;
+      align-items: start;
+    }
+
+    .foundations-page .foundation-card-icon {
+      width: 48px;
+      height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 14px;
+      background: #EEF4FF;
+      color: #2567F4;
+      box-shadow: inset 0 0 0 1px #DCE7FF;
+      flex: 0 0 auto;
+    }
+
+    .foundations-page .foundation-card-icon svg {
+      width: 24px;
+      height: 24px;
+      stroke: currentColor;
+      stroke-width: 2;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .foundations-page .foundation-card-title {
+      margin: 0;
+      color: var(--docs-v2-text);
+      font-size: 20px;
+      line-height: 1.15;
+      font-weight: 700;
+    }
+
+    .foundations-page .foundation-card-copy {
+      margin: 0;
+      color: var(--docs-v2-text-secondary);
+      font-size: 14px;
+      line-height: 1.6;
+      max-width: 34ch;
+    }
+
+    .foundations-page .foundation-card-meta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--docs-v2-accent-hover);
+      font-size: 13px;
+      line-height: 20px;
+      font-weight: 600;
+    }
+
+    .foundations-page .foundation-card-meta svg {
+      width: 14px;
+      height: 14px;
+      stroke: currentColor;
+      stroke-width: 2;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    @media (max-width: 900px) {
+      .foundations-page .foundation-card-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+  </style>
 </head>
-<body class="docs-v2-page" data-docs-v2-nav-title="Design System" data-docs-v2-nav-copy="Foundations define the shared visual and structural rules that components build on." data-docs-v2-nav-kicker="EdPlan NextGen">
+<body class="docs-v2-page foundations-page" data-docs-v2-nav-title="Design System" data-docs-v2-nav-copy="Foundations define the shared visual and structural rules that every system builds on." data-docs-v2-nav-kicker="EdPlan NextGen">
   <div class="docs-v2-layout">
     <aside class="docs-v2-sidebar" data-docs-v2-nav></aside>
 
@@ -19,45 +122,112 @@
       <section class="docs-v2-hero">
         <p class="docs-v2-eyebrow">Foundations</p>
         <h2 class="docs-v2-title">Shared rules used across the system.</h2>
-        <p class="docs-v2-copy">Foundations document the shared tokens, visual rules, and structural conventions that should stay consistent across components.</p>
+        <p class="docs-v2-copy">Foundations document the shared spacing, typography, and color rules that make the rest of the design system coherent. Start here when a decision affects more than one system or needs to stay stable across the product.</p>
       </section>
 
       <section class="docs-v2-panel">
         <div class="docs-v2-section-head">
-          <h3 class="docs-v2-section-title">Foundation Pages</h3>
-          <p class="docs-v2-section-copy">Use these pages as the current reference for shared system foundations.</p>
+          <h3 class="docs-v2-section-title">Foundation Areas</h3>
+          <p class="docs-v2-section-copy">Each foundation page defines a shared rule set used across the rest of the design system. Start with the rule you need, then apply it consistently inside the relevant systems.</p>
         </div>
-        <div class="docs-v2-card-grid">
-          <article class="docs-v2-card">
-            <h4 class="docs-v2-card-title">Color</h4>
-            <p class="docs-v2-card-copy">Documents primitive scales and the shared semantic color roles used across the system.</p>
-            <a class="docs-v2-cta" href="./color.html">Open Color</a>
-            <a class="docs-v2-source-link" href="../v1/colors.html">Legacy source: v1/colors.html</a>
-          </article>
-          <article class="docs-v2-card">
-            <h4 class="docs-v2-card-title">Decorative Color</h4>
-            <p class="docs-v2-card-copy">Separates rails, badge and tag variants, and non-semantic accent families from the main semantic color system.</p>
-            <a class="docs-v2-cta" href="./decorative-color.html">Open Decorative Color</a>
-          </article>
-          <article class="docs-v2-card">
-            <h4 class="docs-v2-card-title">Spacing</h4>
-            <p class="docs-v2-card-copy">Defines the spacing scale, layout rhythm, and the inset and gap patterns reused across forms, panels, sections, cards, and rows.</p>
-            <a class="docs-v2-cta" href="./spacing.html">Open Spacing</a>
-          </article>
-          <article class="docs-v2-card">
-            <h4 class="docs-v2-card-title">Typography</h4>
-            <p class="docs-v2-card-copy">Documents the current typeface, weights, generic size scale, and the text patterns already in use across the system.</p>
-            <a class="docs-v2-cta" href="./typography.html">Open Typography</a>
-          </article>
-          <article class="docs-v2-card">
-            <h4 class="docs-v2-card-title">Future foundations</h4>
-            <p class="docs-v2-card-copy">Spacing, radius, elevation, and iconography can be added here later if they become formalized.</p>
-          </article>
+
+        <div class="foundation-card-grid">
+          <a class="foundation-card" href="./spacing.html">
+            <div class="foundation-card-head">
+              <span class="foundation-card-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <rect width="6" height="10" x="9" y="7" rx="2" />
+                  <path d="M4 22V2" />
+                  <path d="M20 22V2" />
+                </svg>
+              </span>
+              <div>
+                <h4 class="foundation-card-title">Spacing</h4>
+                <p class="foundation-card-copy">Scale, rhythm, insets, and gap rules that control layout consistency across screens and systems.</p>
+              </div>
+            </div>
+            <span class="foundation-card-meta">
+              <span>Open Spacing</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 12h14" />
+                <path d="m13 5 7 7-7 7" />
+              </svg>
+            </span>
+          </a>
+
+          <a class="foundation-card" href="./typography.html">
+            <div class="foundation-card-head">
+              <span class="foundation-card-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <text x="4.1" y="17.1" font-size="14.4" font-weight="700" fill="currentColor" stroke="none">T</text>
+                  <text x="11.1" y="17.1" font-size="9.6" font-weight="500" fill="currentColor" fill-opacity="0.62" stroke="none">Aa</text>
+                </svg>
+              </span>
+              <div>
+                <h4 class="foundation-card-title">Typography</h4>
+                <p class="foundation-card-copy">Type scale, roles, weight, and text behavior used to create hierarchy and readable product UI.</p>
+              </div>
+            </div>
+            <span class="foundation-card-meta">
+              <span>Open Typography</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 12h14" />
+                <path d="m13 5 7 7-7 7" />
+              </svg>
+            </span>
+          </a>
+
+          <a class="foundation-card" href="./color.html">
+            <div class="foundation-card-head">
+              <span class="foundation-card-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <circle cx="9.3" cy="12.7" r="4.5" fill="#AFC8FF" stroke="none" />
+                  <circle cx="15.3" cy="9.7" r="4.5" fill="#2567F4" fill-opacity="0.9" stroke="none" />
+                </svg>
+              </span>
+              <div>
+                <h4 class="foundation-card-title">Color</h4>
+                <p class="foundation-card-copy">Primitive scales and semantic roles that give product surfaces, borders, text, and status clear meaning.</p>
+              </div>
+            </div>
+            <span class="foundation-card-meta">
+              <span>Open Color</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 12h14" />
+                <path d="m13 5 7 7-7 7" />
+              </svg>
+            </span>
+          </a>
+
+          <a class="foundation-card" href="./decorative-color.html">
+            <div class="foundation-card-head">
+              <span class="foundation-card-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <rect x="4" y="5" width="7" height="5" rx="1.5" fill="#F6C8D2" stroke="none" />
+                  <rect x="12.5" y="4.5" width="6.5" height="7.5" rx="1.5" fill="#E8D9FF" stroke="none" />
+                  <rect x="6" y="12" width="5.5" height="6.5" rx="1.5" fill="#F9DDE6" stroke="none" />
+                  <rect x="13" y="13.5" width="7" height="4.5" rx="1.5" fill="#D9C4FF" stroke="none" />
+                </svg>
+              </span>
+              <div>
+                <h4 class="foundation-card-title">Decorative Color</h4>
+                <p class="foundation-card-copy">Accent families and non-semantic variation used for rails, badges, and visual differentiation without changing meaning.</p>
+              </div>
+            </div>
+            <span class="foundation-card-meta">
+              <span>Open Decorative Color</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 12h14" />
+                <path d="m13 5 7 7-7 7" />
+              </svg>
+            </span>
+          </a>
         </div>
       </section>
     </main>
   </div>
 
+  <script src="../scripts/docs-config.js"></script>
   <script src="../scripts/docs.js"></script>
 </body>
 </html>

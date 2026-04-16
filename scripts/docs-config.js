@@ -1,0 +1,202 @@
+window.DOCS_CONFIG = {
+  pages: [
+    {
+      key: "home",
+      title: "Home",
+      navLabel: "Home",
+      path: "index.html",
+    },
+    {
+      key: "foundations",
+      title: "Foundations",
+      path: "foundations/index.html",
+      description: "Foundations define the shared rules for spacing, type, color, and visual structure across the system.",
+      directoryTitle: "Foundations",
+      directoryCopy: "Foundations define the shared visual and structural rules that components and patterns build on.",
+      children: [
+        {
+          key: "spacing",
+          title: "Spacing",
+          path: "foundations/spacing.html",
+          description: "Scale, rhythm, inset, and gap patterns reused across the system.",
+        },
+        {
+          key: "typography",
+          title: "Typography",
+          path: "foundations/typography.html",
+          description: "Typeface, scale, and text roles used across product UI.",
+        },
+        {
+          key: "color",
+          title: "Color",
+          path: "foundations/color.html",
+          description: "Primitive scales and semantic color roles for shared meaning.",
+        },
+        {
+          key: "decorative-color",
+          title: "Decorative Color",
+          path: "foundations/decorative-color.html",
+          description: "Accent families, rails, and decorative color usage that sit outside the semantic color system.",
+        },
+      ],
+    },
+    {
+      key: "systems",
+      title: "Components",
+      path: "systems/index.html",
+      description: "Components organize reusable product UI into scalable domains so the library can grow without bloating the Home page.",
+      directoryTitle: "Component Categories",
+      directoryCopy: "Use Components to browse reusable product UI by domain rather than by one long page list.",
+      children: [
+        {
+          key: "systems-inputs",
+          title: "Inputs",
+          path: "systems/inputs.html",
+          description: "Text entry and selection controls used for structured input inside panels and process flows.",
+          children: [
+            {
+              key: "fields",
+              title: "Fields",
+              path: "systems/fields.html",
+              description: "Text-based input patterns for entry, helper text, validation, and view-only states.",
+            },
+            {
+              key: "choice-controls",
+              title: "Choice Controls",
+              path: "systems/choice-controls.html",
+              description: "Checkbox and radio patterns for grouped single-select and multi-select decisions.",
+            },
+            {
+              key: "segmented",
+              title: "Segmented",
+              description: "Compact segmented choices for mutually exclusive options.",
+              planned: true,
+            },
+            {
+              key: "toggles",
+              title: "Toggles",
+              description: "Binary on/off controls for immediate state changes.",
+              planned: true,
+            },
+          ],
+        },
+        {
+          key: "systems-actions",
+          title: "Actions",
+          path: "systems/actions.html",
+          description: "Controls that trigger actions, open menus, and expose overflow commands.",
+          children: [
+            {
+              key: "buttons",
+              title: "Buttons",
+              path: "systems/buttons.html",
+              description: "Action hierarchy, sizing, state behavior, and grouped action patterns.",
+            },
+            {
+              key: "menus",
+              title: "Menus",
+              description: "Structured action lists for contextual or navigational choices.",
+              planned: true,
+            },
+            {
+              key: "dropdown-actions",
+              title: "Dropdown Actions",
+              description: "Overflow and compact action triggers that open action menus.",
+              planned: true,
+            },
+          ],
+        },
+        {
+          key: "systems-layout",
+          title: "Layout",
+          path: "systems/layout.html",
+          description: "Structural containers that group content, actions, and related fields into usable page composition.",
+          children: [
+            {
+              key: "sections",
+              title: "Sections",
+              path: "systems/sections.html",
+              description: "Internal grouping patterns for larger surfaces, including rails and expandable structure.",
+            },
+            {
+              key: "panels",
+              title: "Panels",
+              path: "systems/panels.html",
+              description: "Primary content containers for grouped information, controls, and actions.",
+            },
+            {
+              key: "cards",
+              title: "Cards",
+              path: "systems/cards.html",
+              description: "Summary containers for metadata, tags, actions, and lightweight content groupings.",
+            },
+          ],
+        },
+        {
+          key: "systems-data-display",
+          title: "Data Display",
+          path: "systems/data-display.html",
+          description: "Patterns for repeated records, metadata display, and dense scan-first content.",
+          children: [
+            {
+              key: "record-rows",
+              title: "Record Rows",
+              path: "systems/record-rows.html",
+              description: "Scan-first rows for repeatable records inside larger layouts.",
+            },
+            {
+              key: "tags-badges",
+              title: "Tags and Badges",
+              path: "systems/tags-badges.html",
+              description: "Compact metadata labels for category, type, and status.",
+            },
+            {
+              key: "tables",
+              title: "Tables",
+              description: "Structured tabular display for dense comparable data.",
+              planned: true,
+            },
+          ],
+        },
+        {
+          key: "systems-feedback",
+          title: "Feedback",
+          path: "systems/feedback.html",
+          description: "Patterns that communicate status, guidance, interruption, and confirmation.",
+          children: [
+            {
+              key: "inline-notices",
+              title: "Inline Notices",
+              path: "systems/inline-notices.html",
+              description: "In-context feedback for info, success, warning, and error states.",
+            },
+            {
+              key: "modals",
+              title: "Modals",
+              description: "Interruptive surfaces for focused decisions and required acknowledgment.",
+              planned: true,
+            },
+            {
+              key: "snack-bar",
+              title: "Snack Bar",
+              description: "Transient confirmation and status messaging.",
+              planned: true,
+            },
+          ],
+        },
+      ],
+    },
+    {
+      key: "patterns",
+      title: "Patterns",
+      path: "patterns/index.html",
+      description: "Composed workflows built from multiple systems and foundations.",
+    },
+    {
+      key: "archive",
+      title: "Archive",
+      path: "archive/index.html",
+      description: "Legacy documentation and preserved historical variants.",
+    },
+  ],
+};

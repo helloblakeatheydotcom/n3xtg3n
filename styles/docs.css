@@ -102,13 +102,31 @@ body.docs-v2-page {
 
 .docs-v2-nav {
   display: grid;
-  gap: 16px;
+  gap: 8px;
   padding-bottom: 12px;
 }
 
 .docs-v2-nav-group {
   display: grid;
   gap: 8px;
+}
+
+.docs-v2-nav-level {
+  display: grid;
+  gap: 6px;
+}
+
+.docs-v2-nav-level--1,
+.docs-v2-nav-level--2 {
+  margin-top: 2px;
+  margin-left: 10px;
+  padding-left: 8px;
+  border-left: 1px solid var(--docs-v2-border);
+}
+
+.docs-v2-nav-node {
+  display: grid;
+  gap: 4px;
 }
 
 .docs-v2-nav-label {
@@ -139,6 +157,13 @@ body.docs-v2-page {
   font-weight: 600;
   text-decoration: none;
   transition: background-color 0.14s ease, color 0.14s ease, box-shadow 0.14s ease;
+}
+
+.docs-v2-nav-link--nested {
+  min-height: 32px;
+  padding-left: 14px;
+  font-size: 13px;
+  font-weight: 500;
 }
 
 .docs-v2-nav-link:hover {
@@ -341,6 +366,80 @@ body.docs-v2-page {
 .docs-v2-card-grid--home-feature {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 18px;
+}
+
+.docs-v2-directory-list {
+  display: grid;
+  gap: 0;
+}
+
+.docs-v2-directory-item {
+  display: grid;
+  gap: 8px;
+  padding: 16px 0;
+  border-top: 1px solid var(--docs-v2-border);
+}
+
+.docs-v2-directory-item:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.docs-v2-directory-item-head {
+  display: grid;
+  gap: 8px;
+}
+
+.docs-v2-directory-link {
+  color: var(--docs-v2-text);
+  font-size: 18px;
+  line-height: 1.25;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.docs-v2-directory-link:hover {
+  color: var(--docs-v2-accent-hover);
+}
+
+.docs-v2-directory-link--static {
+  color: var(--docs-v2-text);
+}
+
+.docs-v2-directory-description {
+  margin: 0;
+  max-width: var(--docs-v2-prose-measure);
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--docs-v2-text-secondary);
+}
+
+.docs-v2-directory-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.docs-v2-directory-badge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  padding: 0 10px;
+  border: 1px solid var(--docs-v2-border);
+  border-radius: 999px;
+  background: #FFFFFF;
+  font-size: 12px;
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--docs-v2-text-muted);
+}
+
+.docs-v2-directory-meta-text {
+  font-size: 13px;
+  line-height: 20px;
+  color: var(--docs-v2-text-muted);
 }
 
 .docs-v2-card {

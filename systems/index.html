@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Components</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../styles/tokens.css" />
+  <link rel="stylesheet" href="../styles/base.css" />
+  <link rel="stylesheet" href="../styles/docs.css" />
+  <style>
+    .components-page .component-card-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .components-page .component-card {
+      display: grid;
+      gap: 18px;
+      padding: 22px;
+      border: 1px solid var(--docs-v2-border);
+      border-radius: 20px;
+      background:
+        radial-gradient(circle at top right, rgba(37, 103, 244, 0.08), transparent 32%),
+        linear-gradient(180deg, #FFFFFF 0%, #FBFCFF 100%);
+      text-decoration: none;
+      transition: border-color 0.16s ease, transform 0.16s ease, box-shadow 0.16s ease;
+    }
+
+    .components-page .component-card:hover {
+      border-color: #D7E1F2;
+      transform: translateY(-1px);
+      box-shadow: 0 14px 28px rgba(17, 24, 39, 0.07);
+    }
+
+    .components-page .component-card:focus-visible {
+      outline: none;
+      box-shadow: inset 0 0 0 1.5px #2567F4, 0 0 0 2px rgba(37, 103, 244, 0.12);
+    }
+
+    .components-page .component-card-head {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 14px;
+      align-items: start;
+    }
+
+    .components-page .component-card-icon {
+      width: 48px;
+      height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 14px;
+      background: #EEF4FF;
+      color: #2567F4;
+      box-shadow: inset 0 0 0 1px #DCE7FF;
+      flex: 0 0 auto;
+    }
+
+    .components-page .component-card-icon svg {
+      width: 24px;
+      height: 24px;
+      stroke: currentColor;
+      stroke-width: 2;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .components-page .component-card-title {
+      margin: 0;
+      color: var(--docs-v2-text);
+      font-size: 20px;
+      line-height: 1.15;
+      font-weight: 700;
+    }
+
+    .components-page .component-card-copy {
+      margin: 0;
+      color: var(--docs-v2-text-secondary);
+      font-size: 14px;
+      line-height: 1.6;
+      max-width: 34ch;
+    }
+
+    .components-page .component-card-meta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--docs-v2-accent-hover);
+      font-size: 13px;
+      line-height: 20px;
+      font-weight: 600;
+    }
+
+    .components-page .component-card-meta svg {
+      width: 14px;
+      height: 14px;
+      stroke: currentColor;
+      stroke-width: 2;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    @media (max-width: 900px) {
+      .components-page .component-card-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+  </style>
+</head>
+<body class="docs-v2-page components-page" data-docs-v2-nav-title="Design System" data-docs-v2-nav-copy="Components organize reusable product UI into scalable domains so the library can grow cleanly over time." data-docs-v2-nav-kicker="EdPlan NextGen">
+  <div class="docs-v2-layout">
+    <aside class="docs-v2-sidebar" data-docs-v2-nav></aside>
+
+    <main class="docs-v2-main">
+      <section class="docs-v2-hero">
+        <p class="docs-v2-eyebrow">Components</p>
+        <h2 class="docs-v2-title">Reusable product UI organized by category.</h2>
+        <p class="docs-v2-copy">Components group related product UI together so the library can grow cleanly over time. Start with the category that matches the problem you are solving, then go deeper into the specific component page you need.</p>
+      </section>
+
+      <section class="docs-v2-panel">
+        <div class="docs-v2-section-head">
+          <h3 class="docs-v2-section-title">Component Categories</h3>
+          <p class="docs-v2-section-copy">Each category groups related product UI patterns so the library stays extensible as more components are added.</p>
+        </div>
+
+        <div class="component-card-grid">
+          <a class="component-card" href="./inputs.html">
+            <div class="component-card-head">
+              <span class="component-card-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="M17 22h-1a4 4 0 0 1-4-4V6a4 4 0 0 1 4-4h1"></path>
+                  <path d="M7 22h1a4 4 0 0 0 4-4v-1"></path>
+                  <path d="M7 2h1a4 4 0 0 1 4 4v1"></path>
+                </svg>
+              </span>
+              <div>
+                <h4 class="component-card-title">Inputs</h4>
+                <p class="component-card-copy">Text entry, grouped choices, and future input controls used for structured data entry.</p>
+              </div>
+            </div>
+            <span class="component-card-meta">
+              <span>Open Inputs</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14" /><path d="m13 5 7 7-7 7" /></svg>
+            </span>
+          </a>
+
+          <a class="component-card" href="./actions.html">
+            <div class="component-card-head">
+              <span class="component-card-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="M15 4V2"></path>
+                  <path d="M15 16v-2"></path>
+                  <path d="M8 9h2"></path>
+                  <path d="M20 9h2"></path>
+                  <path d="M17.8 11.8 19 13"></path>
+                  <path d="M15 9h.01"></path>
+                  <path d="M17.8 6.2 19 5"></path>
+                  <path d="m3 21 9-9"></path>
+                  <path d="M12.2 6.2 11 5"></path>
+                </svg>
+              </span>
+              <div>
+                <h4 class="component-card-title">Actions</h4>
+                <p class="component-card-copy">Buttons, menus, and action patterns that trigger work and expose commands.</p>
+              </div>
+            </div>
+            <span class="component-card-meta">
+              <span>Open Actions</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14" /><path d="m13 5 7 7-7 7" /></svg>
+            </span>
+          </a>
+
+          <a class="component-card" href="./layout.html">
+            <div class="component-card-head">
+              <span class="component-card-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <rect x="4" y="5" width="16" height="14" rx="2"></rect>
+                  <path d="M4 10h16"></path>
+                  <path d="M10 10v9"></path>
+                </svg>
+              </span>
+              <div>
+                <h4 class="component-card-title">Layout</h4>
+                <p class="component-card-copy">Panels, sections, and cards that structure content and group related information.</p>
+              </div>
+            </div>
+            <span class="component-card-meta">
+              <span>Open Layout</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14" /><path d="m13 5 7 7-7 7" /></svg>
+            </span>
+          </a>
+
+          <a class="component-card" href="./data-display.html">
+            <div class="component-card-head">
+              <span class="component-card-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="M3 6h18"></path>
+                  <path d="M3 12h18"></path>
+                  <path d="M3 18h18"></path>
+                  <path d="M8 6v12"></path>
+                  <path d="M16 6v12"></path>
+                </svg>
+              </span>
+              <div>
+                <h4 class="component-card-title">Data Display</h4>
+                <p class="component-card-copy">Rows, metadata labels, and future dense display patterns for repeatable information.</p>
+              </div>
+            </div>
+            <span class="component-card-meta">
+              <span>Open Data Display</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14" /><path d="m13 5 7 7-7 7" /></svg>
+            </span>
+          </a>
+
+          <a class="component-card" href="./feedback.html">
+            <div class="component-card-head">
+              <span class="component-card-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="M5 7a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2h-6l-4 3v-3H7a2 2 0 0 1-2-2z"></path>
+                  <path d="M12 8v3"></path>
+                  <path d="M12 13h.01"></path>
+                </svg>
+              </span>
+              <div>
+                <h4 class="component-card-title">Feedback</h4>
+                <p class="component-card-copy">Inline notices and future interruption patterns that communicate status, guidance, and confirmation.</p>
+              </div>
+            </div>
+            <span class="component-card-meta">
+              <span>Open Feedback</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14" /><path d="m13 5 7 7-7 7" /></svg>
+            </span>
+          </a>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="../scripts/docs-config.js"></script>
+  <script src="../scripts/docs.js"></script>
+</body>
+</html>

@@ -1,39 +1,87 @@
+function escapeHtml(value) {
+  return String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/\"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+function flattenEntries(entries, result = []) {
+  entries.forEach((entry) => {
+    result.push(entry);
+    if (entry.children && entry.children.length) {
+      flattenEntries(entry.children, result);
+    }
+  });
+  return result;
+}
+
+function findEntryByKey(entries, key) {
+  for (const entry of entries) {
+    if (entry.key === key) return entry;
+    if (entry.children && entry.children.length) {
+      const match = findEntryByKey(entry.children, key);
+      if (match) return match;
+    }
+  }
+  return null;
+}
+
+function renderDirectoryList(items, toSiteHref) {
+  if (!items || !items.length) return "";
+
+  return `
+    <div class="docs-v2-directory-list">
+      ${items.map((item) => {
+        const title = escapeHtml(item.title);
+        const description = item.description ? `<p class="docs-v2-directory-description">${escapeHtml(item.description)}</p>` : "";
+        const metaItems = [];
+
+        if (item.planned) {
+          metaItems.push('<span class="docs-v2-directory-badge">Planned</span>');
+        }
+
+        if (item.children && item.children.length) {
+          const childNames = item.children.map((child) => child.planned ? `${child.title} (planned)` : child.title);
+          metaItems.push(`<span class="docs-v2-directory-meta-text">Includes ${escapeHtml(childNames.join(", "))}</span>`);
+        }
+
+        const meta = metaItems.length
+          ? `<div class="docs-v2-directory-meta">${metaItems.join("")}</div>`
+          : "";
+
+        const titleMarkup = item.path
+          ? `<a class="docs-v2-directory-link" href="${toSiteHref(item.path)}">${title}</a>`
+          : `<span class="docs-v2-directory-link docs-v2-directory-link--static">${title}</span>`;
+
+        return `
+          <article class="docs-v2-directory-item">
+            <div class="docs-v2-directory-item-head">
+              ${titleMarkup}
+              ${meta}
+            </div>
+            ${description}
+          </article>
+        `;
+      }).join("")}
+    </div>
+  `;
+}
+
 document.addEventListener("DOMContentLoaded", () => {
-  const SITE_SECTIONS = new Set(["components", "foundations", "archive", "patterns"]);
-  const NAV_GROUPS = [
-    {
-      label: "Overview",
-      links: [
-        { label: "Home", path: "index.html" },
-      ],
-    },
-    {
-      label: "Foundations",
-      links: [
-        { label: "Spacing", path: "foundations/spacing.html" },
-        { label: "Typography", path: "foundations/typography.html" },
-        { label: "Color", path: "foundations/color.html" },
-        { label: "Decorative Color", path: "foundations/decorative-color.html" },
-      ],
-    },
-    {
-      label: "Components",
-      links: [
-        { label: "Buttons", path: "components/buttons.html" },
-        { label: "Fields", path: "components/forms.html" },
-        { label: "Inline Notices", path: "components/inline-notices.html" },
-        { label: "Panels", path: "components/panels.html" },
-        { label: "Sections", path: "components/sections.html" },
-        { label: "Cards", path: "components/cards.html" },
-        { label: "Badges and Tags", path: "components/badges-tags.html" },
-        { label: "Record Rows", path: "components/record-rows.html" },
-      ],
-    },
-  ];
+  const docsConfig = window.DOCS_CONFIG || { pages: [] };
+  const topLevelPages = docsConfig.pages || [];
+  const allEntries = flattenEntries(topLevelPages);
+  const siteSections = new Set(
+    topLevelPages
+      .map((page) => (page.path || "").split("/")[0])
+      .filter((part) => part && !part.endsWith(".html")),
+  );
 
   const currentPath = window.location.pathname.replace(/\/+$/, "");
   const currentPathParts = currentPath.split("/").filter(Boolean);
-  const firstSectionIndex = currentPathParts.findIndex((part) => SITE_SECTIONS.has(part));
+  const firstSectionIndex = currentPathParts.findIndex((part) => siteSections.has(part));
   let siteBaseParts = firstSectionIndex >= 0
     ? currentPathParts.slice(0, firstSectionIndex)
     : [...currentPathParts];
@@ -43,44 +91,73 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   const siteBasePath = siteBaseParts.length ? `/${siteBaseParts.join("/")}` : "";
+  const toSiteHref = (path) => `${siteBasePath}/${path}`;
   const navMount = document.querySelector("[data-docs-v2-nav]");
   const navTitle = document.body.dataset.docsV2NavTitle || "Design System";
-  const navCopy = document.body.dataset.docsV2NavCopy || "Shared foundations and reusable components for the product UI.";
+  const navCopy = document.body.dataset.docsV2NavCopy || "Shared foundations and reusable systems for the product UI.";
   const navKicker = document.body.dataset.docsV2NavKicker || "EdPlan NextGen";
+
+  const renderNavTree = (entries, level = 0) => {
+    const visibleEntries = (entries || []).filter((entry) => entry.path);
+    if (!visibleEntries.length) return "";
+
+    return `
+      <div class="docs-v2-nav-level docs-v2-nav-level--${level}">
+        ${visibleEntries.map((entry) => {
+          const childMarkup = renderNavTree(entry.children || [], level + 1);
+          const label = escapeHtml(entry.navLabel || entry.title);
+          const href = toSiteHref(entry.path);
+          const linkClass = level === 0 ? "docs-v2-nav-link" : "docs-v2-nav-link docs-v2-nav-link--nested";
+          return `
+            <div class="docs-v2-nav-node docs-v2-nav-node--${level}">
+              <a class="${linkClass}" href="${href}" data-docs-v2-link>${label}</a>
+              ${childMarkup}
+            </div>
+          `;
+        }).join("")}
+      </div>
+    `;
+  };
 
   if (navMount) {
     navMount.setAttribute("aria-label", "Design system navigation");
     navMount.innerHTML = `
       <div class="docs-v2-brand">
-        <p class="docs-v2-kicker">${navKicker}</p>
-        <h1 class="docs-v2-brand-title">${navTitle}</h1>
-        <p class="docs-v2-brand-copy">${navCopy}</p>
+        <p class="docs-v2-kicker">${escapeHtml(navKicker)}</p>
+        <h1 class="docs-v2-brand-title">${escapeHtml(navTitle)}</h1>
+        <p class="docs-v2-brand-copy">${escapeHtml(navCopy)}</p>
       </div>
       <nav class="docs-v2-nav">
-        ${NAV_GROUPS.map((group) => `
-          <div class="docs-v2-nav-group">
-            <p class="docs-v2-nav-label">${group.label}</p>
-            <div class="docs-v2-nav-list">
-              ${group.links.map((link) => {
-                const href = `${siteBasePath}/${link.path}`;
-                return `<a class="docs-v2-nav-link" href="${href}" data-docs-v2-link>${link.label}</a>`;
-              }).join("")}
-            </div>
-          </div>
-        `).join("")}
+        ${renderNavTree(topLevelPages)}
       </nav>
     `;
   }
 
-  const navLinks = document.querySelectorAll("[data-docs-v2-link]");
-
-  navLinks.forEach((link) => {
+  document.querySelectorAll("[data-docs-v2-link]").forEach((link) => {
     const href = new URL(link.href, window.location.href).pathname.replace(/\/+$/, "");
     if (href === currentPath) {
       link.setAttribute("aria-current", "page");
     } else {
       link.removeAttribute("aria-current");
     }
+  });
+
+  document.querySelectorAll("[data-docs-directory]").forEach((mount) => {
+    const key = mount.getAttribute("data-docs-directory");
+    const entry = findEntryByKey(topLevelPages, key);
+    if (!entry) return;
+
+    const title = entry.directoryTitle || entry.title;
+    const copy = entry.directoryCopy || entry.description || "";
+    const items = entry.children || [];
+
+    mount.innerHTML = `
+      <div class="docs-v2-section-head">
+        <h3 class="docs-v2-section-title">${escapeHtml(title)}</h3>
+        <p class="docs-v2-section-copy">${escapeHtml(copy)}</p>
+      </div>
+      ${renderDirectoryList(items, toSiteHref)}
+    `;
   });
 
   const pageNavLinks = Array.from(document.querySelectorAll(".docs-v2-page-nav-link"));
