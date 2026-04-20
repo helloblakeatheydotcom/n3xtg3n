@@ -10,29 +10,212 @@
   <link rel="stylesheet" href="../styles/tokens.css" />
   <link rel="stylesheet" href="../styles/base.css" />
   <link rel="stylesheet" href="../styles/docs.css" />
+  <style>
+    .patterns-page .pattern-card-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .patterns-page .pattern-card {
+      display: grid;
+      gap: 18px;
+      padding: 22px;
+      border: 1px solid var(--docs-v2-border);
+      border-radius: 20px;
+      background:
+        radial-gradient(circle at top right, rgba(37, 103, 244, 0.08), transparent 32%),
+        linear-gradient(180deg, #FFFFFF 0%, #FBFCFF 100%);
+      text-decoration: none;
+      transition: border-color 0.16s ease, transform 0.16s ease, box-shadow 0.16s ease;
+    }
+
+    .patterns-page .pattern-card:hover {
+      border-color: #D7E1F2;
+      transform: translateY(-1px);
+      box-shadow: 0 14px 28px rgba(17, 24, 39, 0.07);
+    }
+
+    .patterns-page .pattern-card:focus-visible {
+      outline: none;
+      box-shadow: inset 0 0 0 1.5px #2567F4, 0 0 0 2px rgba(37, 103, 244, 0.12);
+    }
+
+    .patterns-page .pattern-card--planned {
+      align-content: start;
+      background:
+        radial-gradient(circle at top right, rgba(107, 114, 128, 0.06), transparent 32%),
+        linear-gradient(180deg, #FFFFFF 0%, #FBFCFF 100%);
+      cursor: default;
+    }
+
+    .patterns-page .pattern-card--planned:hover {
+      border-color: var(--docs-v2-border);
+      transform: none;
+      box-shadow: none;
+    }
+
+    .patterns-page .pattern-card-head {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 14px;
+      align-items: start;
+    }
+
+    .patterns-page .pattern-card-icon {
+      width: 48px;
+      height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 14px;
+      background: #EEF4FF;
+      color: #2567F4;
+      box-shadow: inset 0 0 0 1px #DCE7FF;
+      flex: 0 0 auto;
+    }
+
+    .patterns-page .pattern-card-icon svg {
+      width: 24px;
+      height: 24px;
+      stroke: currentColor;
+      stroke-width: 2;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .patterns-page .pattern-card-title {
+      margin: 0;
+      color: var(--docs-v2-text);
+      font-size: 20px;
+      line-height: 1.15;
+      font-weight: 700;
+    }
+
+    .patterns-page .pattern-card-copy {
+      margin: 0;
+      color: var(--docs-v2-text-secondary);
+      font-size: 14px;
+      line-height: 1.6;
+      max-width: 36ch;
+    }
+
+    .patterns-page .pattern-card-meta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--docs-v2-accent-hover);
+      font-size: 13px;
+      line-height: 20px;
+      font-weight: 600;
+      flex-wrap: wrap;
+    }
+
+    .patterns-page .pattern-card-meta svg {
+      width: 14px;
+      height: 14px;
+      stroke: currentColor;
+      stroke-width: 2;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    @media (max-width: 900px) {
+      .patterns-page .pattern-card-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+  </style>
 </head>
-<body class="docs-v2-page" data-docs-v2-nav-title="Design System" data-docs-v2-nav-copy="Patterns will document composed workflows and repeated screen structures built from the system." data-docs-v2-nav-kicker="EdPlan NextGen">
+<body class="docs-v2-page patterns-page" data-docs-v2-nav-title="Design System" data-docs-v2-nav-copy="Patterns document reusable page-level compositions built from multiple components working together." data-docs-v2-nav-kicker="EdPlan NextGen">
   <div class="docs-v2-layout">
     <aside class="docs-v2-sidebar" data-docs-v2-nav></aside>
 
     <main class="docs-v2-main">
       <section class="docs-v2-hero">
         <p class="docs-v2-eyebrow">Patterns</p>
-        <h2 class="docs-v2-title">Composed workflows built from components and foundations.</h2>
-        <p class="docs-v2-copy">Patterns are where this system can grow beyond isolated parts. Use this section to document recurring screen-level compositions, multi-step editing workflows, and higher-order arrangements that combine panels, sections, fields, rows, and notices into repeatable product patterns.</p>
+        <h2 class="docs-v2-title">Repeatable page-level compositions built from the system.</h2>
+        <p class="docs-v2-copy">Patterns document higher-order arrangements that combine multiple components into a reusable screen structure. Use them when the question is no longer about a single component, but about how multiple parts should work together as one repeatable layout.</p>
       </section>
 
       <section class="docs-v2-panel">
         <div class="docs-v2-section-head">
-          <h3 class="docs-v2-section-title">Planned Pattern Areas</h3>
-          <p class="docs-v2-section-copy">This section is intentionally light today, but the structure is in place for higher-order documentation as the system grows.</p>
+          <h3 class="docs-v2-section-title">Pattern Library</h3>
+          <p class="docs-v2-section-copy">Start with Form Layout for the primary process-page composition. Additional pattern pages can grow here without expanding the Home page into another long component list.</p>
         </div>
-        <ul class="docs-v2-list">
-          <li>Multi-panel process pages with grouped editing flows</li>
-          <li>Form entry with validation, inline notices, and required-state guidance</li>
-          <li>Record management patterns that combine cards, record rows, badges, and tags</li>
-          <li>Review, approval, and summary flows built from shared components</li>
-        </ul>
+
+        <div class="pattern-card-grid">
+          <a class="pattern-card" href="./form-layout.html">
+            <div class="pattern-card-head">
+              <span class="pattern-card-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="M15 10V9"></path>
+                  <path d="M15 15v-1"></path>
+                  <path d="M15 21v-2"></path>
+                  <path d="M15 5V3"></path>
+                  <path d="M9 10V9"></path>
+                  <path d="M9 15v-1"></path>
+                  <path d="M9 21v-2"></path>
+                  <path d="M9 5V3"></path>
+                  <rect x="3" y="3" width="18" height="18" rx="2"></rect>
+                </svg>
+              </span>
+              <div>
+                <h4 class="pattern-card-title">Form Layout</h4>
+                <p class="pattern-card-copy">The standard process-page composition for grouped form entry, panel stacking, supporting content, and predictable editing structure.</p>
+              </div>
+            </div>
+            <span class="pattern-card-meta">
+              <span>Open Form Layout</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 12h14"></path>
+                <path d="m13 5 7 7-7 7"></path>
+              </svg>
+            </span>
+          </a>
+
+          <div class="pattern-card pattern-card--planned">
+            <div class="pattern-card-head">
+              <span class="pattern-card-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <rect x="3" y="4" width="18" height="16" rx="2"></rect>
+                  <path d="M7 8h10"></path>
+                  <path d="M7 12h6"></path>
+                  <path d="M7 16h8"></path>
+                </svg>
+              </span>
+              <div>
+                <h4 class="pattern-card-title">Page Layout</h4>
+                <p class="pattern-card-copy">Reserved for larger page-level structure patterns such as multi-region workflows, persistent summaries, and repeated shell arrangements.</p>
+              </div>
+            </div>
+            <span class="pattern-card-meta">
+              <span class="docs-v2-directory-badge">Later</span>
+            </span>
+          </div>
+
+          <div class="pattern-card pattern-card--planned">
+            <div class="pattern-card-head">
+              <span class="pattern-card-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="M4 6h16"></path>
+                  <path d="M4 12h16"></path>
+                  <path d="M4 18h16"></path>
+                  <path d="M8 6v12"></path>
+                </svg>
+              </span>
+              <div>
+                <h4 class="pattern-card-title">Data List Layout</h4>
+                <p class="pattern-card-copy">Reserved for repeatable list screens that combine filters, row presentation, bulk actions, metadata, and supporting detail regions.</p>
+              </div>
+            </div>
+            <span class="pattern-card-meta">
+              <span class="docs-v2-directory-badge">Later</span>
+            </span>
+          </div>
+        </div>
       </section>
     </main>
   </div>

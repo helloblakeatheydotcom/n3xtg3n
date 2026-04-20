@@ -333,7 +333,7 @@
   --field-border-hover: var(--color-interactive-border-hover);
   --field-border-focus: var(--color-interactive-border-focus);
   --field-bg: var(--color-surface);
-  --field-bg-hover: var(--color-interactive-surface-hover);
+  --field-bg-hover: var(--color-interactive-surface);
   --field-stepper-bg: var(--color-surface-subtle);
   --field-stepper-hover-bg: var(--color-surface-subtle-hover);
   --field-select-icon-color: var(--color-text-muted);
@@ -349,6 +349,7 @@
   --choice-control-bg: var(--color-surface);
   --choice-control-checked-bg: var(--color-interactive-primary);
   --choice-control-checked-border: var(--color-interactive-primary);
+  --choice-option-hover-bg: var(--color-interactive-surface);
   --choice-control-hover-border: var(--color-interactive-border-focus);
   --choice-control-hover-checked: var(--color-interactive-primary-hover);
   --choice-label-color: var(--color-text-primary);
@@ -403,6 +404,18 @@
   --panel-icon-color: var(--color-info-fg);
   --panel-utility-icon-color: var(--color-text-muted);
   --panel-utility-icon-hover-color: var(--color-text-secondary);
+
+  /* Layout tokens */
+  --layout-grid-columns: 12;
+  --layout-grid-gutter: var(--space-4);
+  --layout-columns-desktop: 4;
+  --layout-columns-tablet: 2;
+  --layout-columns-mobile: 1;
+  --layout-container-panel-max-width: 1100px;
+  --layout-field-span-sm: 3;
+  --layout-field-span-md: 4;
+  --layout-field-span-lg: 6;
+  --layout-field-span-full: 12;
 
   /* Card tokens */
   --color-card-bg: var(--color-surface);

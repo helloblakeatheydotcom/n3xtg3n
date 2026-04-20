@@ -95,6 +95,77 @@
       align-items: center;
     }
 
+    .draft-choice-hover-comparison {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-6);
+    }
+
+    .draft-choice-hover-card {
+      display: grid;
+      gap: var(--space-4);
+      padding: var(--space-6);
+      border: 1px solid var(--color-border-subtle);
+      border-radius: 12px;
+      background: var(--color-surface-default);
+    }
+
+    .draft-choice-hover-heading {
+      display: grid;
+      gap: 4px;
+    }
+
+    .draft-choice-hover-kicker {
+      margin: 0;
+      color: var(--color-text-muted);
+      font-size: 12px;
+      font-weight: 600;
+      line-height: 16px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .draft-choice-hover-title {
+      margin: 0;
+      color: var(--color-text-primary);
+      font-size: 16px;
+      line-height: 24px;
+      font-weight: 600;
+    }
+
+    .draft-choice-hover-note {
+      margin: 0;
+      color: var(--color-text-secondary);
+      font-size: 13px;
+      line-height: 20px;
+    }
+
+    .draft-choice-hover-preview .choice-option.is-preview-hover {
+      background: var(--choice-option-hover-bg);
+    }
+
+    .draft-choice-hover-preview .choice-option.is-preview-hover .choice-label {
+      color: var(--choice-label-hover);
+    }
+
+    .draft-choice-hover-preview .choice-option.is-preview-hover input:not(:checked) {
+      border-color: var(--choice-control-hover-border);
+      background-color: var(--color-surface);
+    }
+
+    .draft-choice-hover-preview .choice-option.is-preview-hover input:checked {
+      background-color: var(--choice-control-hover-checked);
+      border-color: var(--choice-control-hover-checked);
+    }
+
+    .draft-choice-hover-card--blue-50 {
+      --choice-option-hover-bg: var(--color-interactive-surface);
+    }
+
+    .draft-choice-hover-card--blue-100 {
+      --choice-option-hover-bg: var(--color-interactive-surface-hover);
+    }
+
     .draft-button-note {
       margin: 0;
       color: var(--color-text-secondary);
@@ -2101,6 +2172,12 @@
       opacity: 1;
     }
 
+    @media (max-width: 900px) {
+      .draft-choice-hover-comparison {
+        grid-template-columns: 1fr;
+      }
+    }
+
     @media (max-width: 640px) {
       .draft-page-heading {
         margin-left: 0;
@@ -2142,6 +2219,77 @@
   </header>
 
   <main class="draft-components">
+    <article class="panel">
+      <header class="panel-header">
+        <div class="panel-left">
+          <h2 class="panel-title">Choice Option Hover Comparison</h2>
+        </div>
+      </header>
+      <div class="panel-body">
+        <div class="draft-choice-hover-comparison">
+          <section class="draft-choice-hover-card draft-choice-hover-card--blue-50" aria-labelledby="draft-choice-hover-blue-50-title">
+            <div class="draft-choice-hover-heading">
+              <p class="draft-choice-hover-kicker">Comparison A</p>
+              <h3 id="draft-choice-hover-blue-50-title" class="draft-choice-hover-title">Blue 50 Row Hover</h3>
+              <p class="draft-choice-hover-note">Previewing <code>--choice-option-hover-bg</code> as Blue 50 (#F7FAFF).</p>
+            </div>
+            <div class="choice-group draft-choice-hover-preview">
+              <label class="field-label">Service Delivery Model</label>
+              <div class="field-helper-slot">
+                <p class="field-helper">First option is shown in a forced hover state for comparison.</p>
+              </div>
+              <div class="choice-options">
+                <label class="choice-option is-preview-hover">
+                  <input type="radio" name="draft-choice-hover-blue-50" />
+                  <div>
+                    <div class="choice-label">Direct</div>
+                    <div class="choice-desc">Provided directly to the student during scheduled service time.</div>
+                  </div>
+                </label>
+                <label class="choice-option">
+                  <input type="radio" name="draft-choice-hover-blue-50" />
+                  <div>
+                    <div class="choice-label">Indirect</div>
+                    <div class="choice-desc">Delivered through consultation, planning, or coaching with staff.</div>
+                  </div>
+                </label>
+              </div>
+            </div>
+          </section>
+
+          <section class="draft-choice-hover-card draft-choice-hover-card--blue-100" aria-labelledby="draft-choice-hover-blue-100-title">
+            <div class="draft-choice-hover-heading">
+              <p class="draft-choice-hover-kicker">Comparison B</p>
+              <h3 id="draft-choice-hover-blue-100-title" class="draft-choice-hover-title">Blue 100 Row Hover</h3>
+              <p class="draft-choice-hover-note">Previewing <code>--choice-option-hover-bg</code> as Blue 100 (#EFF3FE).</p>
+            </div>
+            <div class="choice-group draft-choice-hover-preview">
+              <label class="field-label">Service Delivery Model</label>
+              <div class="field-helper-slot">
+                <p class="field-helper">First option is shown in a forced hover state for comparison.</p>
+              </div>
+              <div class="choice-options">
+                <label class="choice-option is-preview-hover">
+                  <input type="radio" name="draft-choice-hover-blue-100" />
+                  <div>
+                    <div class="choice-label">Direct</div>
+                    <div class="choice-desc">Provided directly to the student during scheduled service time.</div>
+                  </div>
+                </label>
+                <label class="choice-option">
+                  <input type="radio" name="draft-choice-hover-blue-100" />
+                  <div>
+                    <div class="choice-label">Indirect</div>
+                    <div class="choice-desc">Delivered through consultation, planning, or coaching with staff.</div>
+                  </div>
+                </label>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </article>
+
     <div class="draft-page-heading" aria-label="Testing page heading">
       <h1 class="draft-page-title">IEP Services</h1>
       <span class="draft-page-badge">Overdue</span>

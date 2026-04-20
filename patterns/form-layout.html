@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Form Layout</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../styles/tokens.css" />
+  <link rel="stylesheet" href="../styles/base.css" />
+  <link rel="stylesheet" href="../styles/forms.css" />
+  <link rel="stylesheet" href="../styles/panels.css" />
+  <link rel="stylesheet" href="../styles/docs.css" />
+  <style>
+    .form-layout-docs-page .form-layout-docs-stack {
+      display: grid;
+      gap: 0;
+    }
+
+    .form-layout-docs-page .form-layout-docs-stack > .docs-section,
+    .form-layout-docs-page .form-layout-docs-stack > .example-block {
+      padding: 40px 0 32px;
+      border-top: 1px solid var(--docs-v2-border);
+    }
+
+    .form-layout-docs-page .form-layout-docs-stack > .example-block {
+      padding-left: 16px;
+    }
+
+    .form-layout-docs-page .form-layout-docs-stack > :first-child {
+      padding-top: 0;
+      border-top: 0;
+    }
+
+    .form-layout-docs-page .form-layout-docs-stack > :last-child {
+      padding-bottom: 0;
+    }
+
+    .form-layout-docs-page .panel-example-title {
+      margin: 0;
+      font-size: 20px;
+      line-height: 24px;
+      font-weight: 700;
+    }
+
+    .form-layout-docs-page .example-block .panel-example-title {
+      font-size: 18px;
+      line-height: 22px;
+      font-weight: 600;
+    }
+
+    .form-layout-docs-page .docs-section-header {
+      display: grid;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .form-layout-docs-page .docs-section-header > .panel-example-title + .docs-lead {
+      margin-top: 0;
+    }
+
+    .form-layout-docs-page .docs-lead,
+    .form-layout-docs-page .example-caption,
+    .form-layout-docs-page .docs-card-caption,
+    .form-layout-docs-page .docs-list {
+      max-width: var(--docs-v2-prose-measure);
+    }
+
+    .form-layout-docs-page .docs-lead,
+    .form-layout-docs-page .example-caption {
+      margin: 0;
+      font-size: 14px;
+      line-height: 22px;
+      color: var(--docs-v2-text-secondary);
+    }
+
+    .form-layout-docs-page .example-block {
+      display: grid;
+      gap: 0;
+    }
+
+    .form-layout-docs-page .example-block > .panel-example-title,
+    .form-layout-docs-page .example-block > .example-caption {
+      max-width: var(--docs-v2-prose-measure);
+    }
+
+    .form-layout-docs-page .example-block > .panel-example-title + .example-caption {
+      margin-top: 6px;
+    }
+
+    .form-layout-docs-page .example-caption + .example-caption,
+    .form-layout-docs-page .docs-lead + .docs-lead,
+    .form-layout-docs-page .docs-card-caption + .docs-card-caption {
+      margin-top: 10px;
+    }
+
+    .form-layout-docs-page .example-caption + .layout-example-stack,
+    .form-layout-docs-page .example-caption + .layout-example-block {
+      margin-top: 20px;
+    }
+
+    .form-layout-docs-page .example-block > .panel {
+      margin-top: 18px;
+    }
+
+    .form-layout-docs-page .form-layout-overview-grid,
+    .form-layout-docs-page .form-layout-guidance-grid,
+    .form-layout-docs-page .form-layout-column-grid,
+    .form-layout-docs-page .form-layout-pattern-grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .form-layout-docs-page .form-layout-overview-grid,
+    .form-layout-docs-page .form-layout-guidance-grid,
+    .form-layout-docs-page .form-layout-pattern-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .form-layout-docs-page .form-layout-column-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .form-layout-docs-page .form-layout-overview-card,
+    .form-layout-docs-page .form-layout-guidance-card {
+      border: 1px solid var(--docs-v2-border);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.8);
+      box-shadow: none;
+    }
+
+    .form-layout-docs-page .form-layout-overview-card,
+    .form-layout-docs-page .form-layout-guidance-card {
+      padding: 18px;
+    }
+
+    .form-layout-docs-page .form-layout-kicker {
+      margin: 0 0 12px;
+      font-size: 12px;
+      line-height: 16px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--docs-v2-text-muted);
+    }
+
+    .form-layout-docs-page .form-layout-overview-list,
+    .form-layout-docs-page .form-layout-guidance-list {
+      display: grid;
+      gap: 0;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .form-layout-docs-page .form-layout-overview-item,
+    .form-layout-docs-page .form-layout-guidance-item {
+      margin: 0;
+      padding: 12px 0;
+      border-top: 1px solid var(--docs-v2-border);
+      font-size: 14px;
+      line-height: 20px;
+      color: var(--docs-v2-text-secondary);
+    }
+
+    .form-layout-docs-page .form-layout-overview-item:first-child,
+    .form-layout-docs-page .form-layout-guidance-item:first-child {
+      padding-top: 0;
+      border-top: 0;
+    }
+
+    .form-layout-docs-page .form-layout-label {
+      display: block;
+      margin-bottom: 2px;
+      font-weight: 600;
+      color: var(--docs-v2-text);
+    }
+
+    .form-layout-docs-page .form-layout-spec-block {
+      display: grid;
+      gap: 10px;
+    }
+
+    .form-layout-docs-page .form-layout-spec-title {
+      margin: 0;
+      font-size: 16px;
+      line-height: 20px;
+      font-weight: 600;
+    }
+
+    .form-layout-docs-page .form-layout-spec-copy {
+      margin: 0;
+      max-width: var(--docs-v2-prose-measure);
+      font-size: 13px;
+      line-height: 20px;
+      color: var(--docs-v2-text-secondary);
+    }
+
+    .form-layout-docs-page .layout-example-panel.panel:hover {
+      border-color: var(--color-panel-border);
+      box-shadow: var(--shadow-panel);
+    }
+
+    .form-layout-docs-page .layout-example-panel {
+      width: 100%;
+    }
+
+    .form-layout-docs-page .layout-example-stack {
+      display: grid;
+      gap: 28px;
+    }
+
+    .form-layout-docs-page .layout-example-block {
+      display: grid;
+      gap: 14px;
+    }
+
+    .form-layout-docs-page .layout-example-meta {
+      display: grid;
+      gap: 4px;
+      max-width: 100%;
+      padding-left: 16px;
+      border-left: 1px solid var(--docs-v2-border);
+    }
+
+    .form-layout-docs-page .layout-example-label {
+      margin: 0;
+    }
+
+    .form-layout-docs-page .layout-example-subtext {
+      margin: 0;
+    }
+
+    .form-layout-docs-page .layout-example-panel--max {
+      max-width: 1100px;
+    }
+
+    .form-layout-docs-page .layout-example-panel--ipad {
+      max-width: 980px;
+    }
+
+    .form-layout-docs-page .layout-example-panel--tablet {
+      max-width: 680px;
+    }
+
+    .form-layout-docs-page .layout-example-panel--mobile {
+      max-width: 390px;
+    }
+
+    .form-layout-docs-page .layout-example-panel .panel-body {
+      padding-top: 24px;
+    }
+
+    .form-layout-docs-page .layout-example-grid {
+      display: grid;
+      gap: var(--space-6);
+      align-items: start;
+    }
+
+    .form-layout-docs-page .layout-example-grid--desktop {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .form-layout-docs-page .layout-example-grid--tablet {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .form-layout-docs-page .layout-example-grid--mobile {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .form-layout-docs-page .layout-example-grid--single-measured {
+      grid-template-columns: minmax(0, 1fr);
+      justify-items: start;
+    }
+
+    .form-layout-docs-page .layout-span-2 {
+      grid-column: span 2;
+    }
+
+    .form-layout-docs-page .layout-example-grid .field-body {
+      max-width: none;
+    }
+
+    .form-layout-docs-page .layout-example-grid--single-measured .field-body {
+      width: min(100%, var(--layout-example-field-width, 100%));
+    }
+
+    .form-layout-docs-page .layout-example-grid--single-measured .field-input-wrapper {
+      width: 100%;
+    }
+
+    .form-layout-docs-page .layout-example-field--span-1 {
+      --layout-example-field-width: calc((100% - (var(--layout-grid-gutter) * 3)) / 4);
+    }
+
+    .form-layout-docs-page .layout-example-field--span-2 {
+      --layout-example-field-width: calc((((100% - (var(--layout-grid-gutter) * 3)) / 4) * 2) + var(--layout-grid-gutter));
+    }
+
+    .form-layout-docs-page .layout-example-field--span-3 {
+      --layout-example-field-width: calc((((100% - (var(--layout-grid-gutter) * 3)) / 4) * 3) + (var(--layout-grid-gutter) * 2));
+    }
+
+    .form-layout-docs-page .layout-example-field--grid-span-4 {
+      --layout-example-field-width: calc((((100% - (var(--layout-grid-gutter) * 11)) / 12) * 4) + (var(--layout-grid-gutter) * 3));
+    }
+
+    .form-layout-docs-page .layout-example-field--grid-span-6 {
+      --layout-example-field-width: calc((((100% - (var(--layout-grid-gutter) * 11)) / 12) * 6) + (var(--layout-grid-gutter) * 5));
+    }
+
+    .form-layout-docs-page .layout-example-grid .field-input,
+    .form-layout-docs-page .layout-example-grid .field-select {
+      pointer-events: none;
+    }
+
+    .form-layout-docs-page .layout-example-grid .field-input {
+      background: var(--color-surface);
+    }
+
+    .form-layout-docs-page .layout-example-note {
+      margin: 0 0 18px;
+      font-size: 13px;
+      line-height: 20px;
+      color: var(--docs-v2-text-secondary);
+    }
+
+    @media (max-width: 900px) {
+      .form-layout-docs-page .form-layout-overview-grid,
+      .form-layout-docs-page .form-layout-guidance-grid,
+      .form-layout-docs-page .form-layout-column-grid,
+      .form-layout-docs-page .form-layout-pattern-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+  </style>
+</head>
+<body class="docs-v2-page form-layout-docs-page" data-docs-v2-nav-title="Design System" data-docs-v2-nav-copy="Form Layout starts from a stacked field baseline, adds grouped rows only when they improve clarity, and arranges all fields inside panels." data-docs-v2-nav-kicker="Patterns">
+  <div class="docs-v2-layout">
+    <aside class="docs-v2-sidebar" data-docs-v2-nav></aside>
+
+    <main class="docs-v2-main">
+      <section class="docs-v2-hero">
+        <p class="docs-v2-eyebrow">Patterns / Form Layout</p>
+        <h2 class="docs-v2-title">Form Layout</h2>
+        <p class="docs-v2-copy">Form Layout defines how fields are grouped inside panels for clear, accurate completion. This pattern applies the shared <a class="docs-v2-inline-link" href="../foundations/layout.html">Layout foundation</a> to form content, starting from a stacked field baseline and adding denser groupings only when the fields naturally support them.</p>
+        <div class="docs-v2-chip-row">
+          <span class="docs-v2-chip">Single-column-first</span>
+          <span class="docs-v2-chip">Grouping by meaning</span>
+          <span class="docs-v2-chip">Built on 12-column layout</span>
+          <span class="docs-v2-chip">All fields live inside panels</span>
+        </div>
+      </section>
+
+      <div class="docs-v2-page-shell docs-v2-page-shell--with-page-nav">
+        <div class="docs-v2-page-content">
+          <div class="form-layout-docs-stack" aria-label="Form layout documentation">
+            <section class="docs-section" id="overview">
+              <div class="docs-section-header">
+                <h2 class="panel-example-title">Overview</h2>
+                <p class="docs-lead">A stacked field layout is the preferred baseline for most form flows. Add side-by-side fields only when they form a natural group and can still be completed clearly. The goal is accurate completion and readable structure, not maximum density.</p>
+              </div>
+              <div class="form-layout-overview-grid">
+                <article class="form-layout-overview-card">
+                  <p class="form-layout-kicker">Baseline Pattern</p>
+                  <div class="form-layout-overview-list">
+                    <p class="form-layout-overview-item"><span class="form-layout-label">Start with stacked rows</span>Most form flows should read top to bottom so labels, helper text, and inputs remain easy to scan and complete.</p>
+                    <p class="form-layout-overview-item"><span class="form-layout-label">Add columns only for natural groups</span>Use side-by-side placement when fields belong together semantically and users benefit from seeing them in the same row.</p>
+                    <p class="form-layout-overview-item"><span class="form-layout-label">Prefer clarity over compactness</span>Do not increase density unless the field types, labels, and values remain readable at the chosen width.</p>
+                  </div>
+                </article>
+
+                <article class="form-layout-overview-card">
+                  <p class="form-layout-kicker">Foundation Relationship</p>
+                  <div class="form-layout-overview-list">
+                    <p class="form-layout-overview-item"><span class="form-layout-label">Built on the Layout foundation</span>Use the shared <a class="docs-v2-inline-link" href="../foundations/layout.html">12-column Layout foundation</a> as the base structure for gutters, containers, and spans.</p>
+                    <p class="form-layout-overview-item"><span class="form-layout-label">Fields stay inside panels</span>Apply the grid inside each panel body rather than placing loose fields directly on the page.</p>
+                    <p class="form-layout-overview-item"><span class="form-layout-label">Completion order stays stable</span>As layouts expand or collapse, preserve a predictable reading and completion order rather than rearranging fields for visual balance alone.</p>
+                  </div>
+                </article>
+              </div>
+            </section>
+
+            <section class="docs-section" id="grid-system">
+              <div class="docs-section-header">
+                <h2 class="panel-example-title">Grid System</h2>
+                <p class="docs-lead">Form Layout uses the shared 12-column Layout foundation inside panel bodies. Depending on available width and field structure, the pattern can present content as one, two, or four visible groupings while preserving the same underlying grid.</p>
+              </div>
+              <div class="form-layout-spec-block">
+                <h3 class="form-layout-spec-title">Common Responsive Presentations</h3>
+                <p class="form-layout-spec-copy">Apply the grid inside the panel body. See <a class="docs-v2-inline-link" href="../foundations/layout.html">Foundations / Layout</a> for the underlying 12-column base grid, 16px gutters, and field span system.</p>
+                <table class="docs-v2-table">
+                  <thead>
+                    <tr>
+                      <th>Context</th>
+                      <th>Grouping</th>
+                      <th>Guidance</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Wider surfaces</td>
+                      <td>4 columns</td>
+                      <td>Use only for short, structured sets when labels, values, and controls remain immediately clear.</td>
+                    </tr>
+                    <tr>
+                      <td>Medium-width surfaces</td>
+                      <td>2 columns</td>
+                      <td>Supports natural pairs and related groups without pushing controls too narrow.</td>
+                    </tr>
+                    <tr>
+                      <td>Narrow surfaces</td>
+                      <td>1 column</td>
+                      <td>Preserves the clearest top-to-bottom completion flow and remains the preferred baseline for most forms.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+
+            <section class="docs-section" id="field-placement">
+              <div class="docs-section-header">
+                <h2 class="panel-example-title">Field Placement Rules</h2>
+                <p class="docs-lead">Field spans and row groupings should support meaning, completion order, and readability. Use the grid to clarify relationships, not to make the layout feel tighter.</p>
+              </div>
+              <div class="form-layout-guidance-grid">
+                <article class="form-layout-guidance-card">
+                  <h3 class="docs-card-title">Column Span</h3>
+                  <ul class="form-layout-guidance-list">
+                    <li class="form-layout-guidance-item"><span class="form-layout-label">Start standalone fields at span 4</span>Use span 4 as the standard readable width for standalone inputs inside a panel-contained form layout.</li>
+                    <li class="form-layout-guidance-item"><span class="form-layout-label">Use span 6 for longer grouped fields</span>Place fields at span 6 when they need more room or when a paired grouping benefits from added width.</li>
+                    <li class="form-layout-guidance-item"><span class="form-layout-label">Use span 3 for compact structured sets</span>Reserve span 3 for short, structured inputs such as compact date parts, title and suffix, or other metadata-like fields.</li>
+                    <li class="form-layout-guidance-item"><span class="form-layout-label">Use span 12 for full-row content</span>Expand to the full row when labels, helper text, or control complexity require the widest available measure.</li>
+                  </ul>
+                </article>
+
+                <article class="form-layout-guidance-card">
+                  <h3 class="docs-card-title">Row Grouping</h3>
+                  <ul class="form-layout-guidance-list">
+                    <li class="form-layout-guidance-item"><span class="form-layout-label">Group only meaningful pairs</span>Place fields on the same row only when they form one conceptual unit, such as name parts, address fields, or linked dates.</li>
+                    <li class="form-layout-guidance-item"><span class="form-layout-label">Follow completion order</span>Shared rows should support how users read and complete the form, not just how the layout can be packed.</li>
+                  </ul>
+                </article>
+              </div>
+            </section>
+
+            <section class="docs-section" id="column-guidance">
+              <div class="docs-section-header">
+                <h2 class="panel-example-title">Layout Patterns</h2>
+                <p class="docs-lead">Choose the pattern based on meaning, field length, and completion clarity. Do not increase density unless the group clearly benefits from it.</p>
+              </div>
+              <div class="form-layout-column-grid">
+                <article class="form-layout-guidance-card">
+                  <h3 class="docs-card-title">Stacked Layout</h3>
+                  <ul class="form-layout-guidance-list">
+                    <li class="form-layout-guidance-item"><span class="form-layout-label">Preferred default</span>Use stacked rows for most form flows so fields read in a straightforward top-to-bottom order.</li>
+                    <li class="form-layout-guidance-item"><span class="form-layout-label">Best for longer or support-heavy fields</span>Use stacked placement when labels, helper text, or values need space to remain clear.</li>
+                  </ul>
+                </article>
+                <article class="form-layout-guidance-card">
+                  <h3 class="docs-card-title">Paired Layout</h3>
+                  <ul class="form-layout-guidance-list">
+                    <li class="form-layout-guidance-item"><span class="form-layout-label">Use for natural pairs</span>Use paired rows when two fields belong together and benefit from being compared or completed side by side.</li>
+                    <li class="form-layout-guidance-item"><span class="form-layout-label">Keep the pairing obvious</span>Do not create paired rows from unrelated fields just to shorten the page.</li>
+                  </ul>
+                </article>
+                <article class="form-layout-guidance-card">
+                  <h3 class="docs-card-title">Dense Structured Layout</h3>
+                  <ul class="form-layout-guidance-list">
+                    <li class="form-layout-guidance-item"><span class="form-layout-label">Use sparingly</span>Reserve dense structured rows for short, structured sets where each field remains easy to scan and complete.</li>
+                    <li class="form-layout-guidance-item"><span class="form-layout-label">Back off quickly when fields grow</span>Do not keep dense groupings if labels wrap, controls narrow, or the row becomes harder to understand.</li>
+                  </ul>
+                </article>
+              </div>
+            </section>
+
+            <section class="docs-section" id="grouping-strategies">
+              <div class="docs-section-header">
+                <h2 class="panel-example-title">Grouping Strategies</h2>
+                <p class="docs-lead">Group fields by shared meaning first, then arrange them within the grid. Panel boundaries, row composition, and completion order should all reinforce the same structure.</p>
+              </div>
+              <div class="form-layout-pattern-grid">
+                <article class="form-layout-guidance-card">
+                  <h3 class="docs-card-title">Group by Shared Meaning</h3>
+                  <ul class="form-layout-guidance-list">
+                    <li class="form-layout-guidance-item"><span class="form-layout-label">Keep meaningful groups intact</span>Names, addresses, titles, and linked dates should read as one cluster rather than being split across unrelated rows.</li>
+                    <li class="form-layout-guidance-item"><span class="form-layout-label">Use panels to separate major groups</span>Do not rely on spacing alone to create major workflow boundaries. Panels should hold distinct related sets of content.</li>
+                  </ul>
+                </article>
+                <article class="form-layout-guidance-card">
+                  <h3 class="docs-card-title">Preserve Completion Flow</h3>
+                  <ul class="form-layout-guidance-list">
+                    <li class="form-layout-guidance-item"><span class="form-layout-label">Keep natural pairs on the same row</span>Fields users mentally compare or complete together should stay aligned when width allows.</li>
+                    <li class="form-layout-guidance-item"><span class="form-layout-label">Do not optimize for symmetry alone</span>Balanced rows matter less than preserving meaning, sequence, and accurate completion.</li>
+                  </ul>
+                </article>
+              </div>
+            </section>
+
+            <section class="docs-section" id="density-guidance">
+              <div class="docs-section-header">
+                <h2 class="panel-example-title">Density Guidance</h2>
+                <p class="docs-lead">Choose density intentionally. Compact layouts are acceptable only when field types, labels, and values remain immediately understandable.</p>
+              </div>
+              <div class="form-layout-pattern-grid">
+                <article class="form-layout-guidance-card">
+                  <h3 class="docs-card-title">Increase Density Carefully</h3>
+                  <ul class="form-layout-guidance-list">
+                    <li class="form-layout-guidance-item"><span class="form-layout-label">Increase density only for short structured content</span>Compact grouped fields work well when values are brief and the row is still easy to read at a glance.</li>
+                    <li class="form-layout-guidance-item"><span class="form-layout-label">Reduce density as soon as clarity drops</span>Long labels, helper text, or verbose values should trigger wider spans or fewer visible columns.</li>
+                  </ul>
+                </article>
+                <article class="form-layout-guidance-card">
+                  <h3 class="docs-card-title">Protect Readability</h3>
+                  <ul class="form-layout-guidance-list">
+                    <li class="form-layout-guidance-item"><span class="form-layout-label">Maintain stable rhythm</span>Keep consistent gutters and panel body padding so dense groups still feel ordered.</li>
+                    <li class="form-layout-guidance-item"><span class="form-layout-label">Collapse early</span>Reduce visible columns before inputs become hard to read, scan, or interact with confidently.</li>
+                  </ul>
+                </article>
+              </div>
+            </section>
+
+            <section class="docs-section" id="anti-patterns">
+              <div class="docs-section-header">
+                <h2 class="panel-example-title">Anti-Patterns</h2>
+                <p class="docs-lead">Avoid layout decisions that prioritize compactness over readability or that break the grouping logic users rely on while completing forms.</p>
+              </div>
+              <div class="form-layout-guidance-grid">
+                <article class="form-layout-guidance-card">
+                  <h3 class="docs-card-title">What to Avoid</h3>
+                  <ul class="form-layout-guidance-list">
+                    <li class="form-layout-guidance-item"><span class="form-layout-label">Do not leave fields loose on the page</span>Fields should live inside panels rather than floating directly in page layout.</li>
+                    <li class="form-layout-guidance-item"><span class="form-layout-label">Do not mix unrelated fields just to fill rows</span>Shared rows should reflect shared meaning, not visual packing.</li>
+                    <li class="form-layout-guidance-item"><span class="form-layout-label">Do not use dense rows as the default</span>Stacked field layout should remain the starting point unless grouping clearly improves comprehension.</li>
+                    <li class="form-layout-guidance-item"><span class="form-layout-label">Do not force dense grouping for every set</span>Dense layouts are appropriate only for short, structured sets.</li>
+                    <li class="form-layout-guidance-item"><span class="form-layout-label">Do not invent one-off gutters</span>Use the shared layout gutter instead of custom spacing values between fields.</li>
+                  </ul>
+                </article>
+              </div>
+            </section>
+
+            <section class="docs-section" id="examples">
+              <div class="docs-section-header">
+                <h2 class="panel-example-title">Examples</h2>
+                <p class="docs-lead">Each example uses the same panel-contained field group and shows how the pattern can present the content at different densities. These examples illustrate capability, not a required progression or default state.</p>
+              </div>
+            </section>
+
+            <section class="example-block" id="example-mobile" aria-label="Stacked field layout example">
+              <h2 class="panel-example-title">Stacked Field Layout</h2>
+              <p class="example-caption">This pattern keeps one field on each row while sizing each field against the shared 12-column layout system. Use it when completion order matters more than dense row composition.</p>
+              <div class="layout-example-stack">
+                <div class="layout-example-block">
+                  <div class="layout-example-meta">
+                    <h3 class="docs-v2-card-title layout-example-label">Desktop</h3>
+                    <p class="docs-v2-card-copy layout-example-subtext">Wide panel container showing one field per row with span-based field sizing.</p>
+                  </div>
+                  <section class="panel layout-example-panel layout-example-panel--max" aria-label="Max width stacked field form layout example panel">
+                    <div class="panel-header">
+                      <div class="panel-left">
+                        <h3 class="panel-title">Student Information</h3>
+                      </div>
+                    </div>
+                    <div class="panel-body">
+                      <div class="layout-example-grid layout-example-grid--single-measured">
+                        <div class="field-body layout-example-field--grid-span-4">
+                          <label class="field-label">First Name</label>
+                          <div class="field-input-wrapper">
+                            <input class="field-input" type="text" value="Jordan" />
+                          </div>
+                        </div>
+                        <div class="field-body layout-example-field--grid-span-4">
+                          <label class="field-label">Last Name</label>
+                          <div class="field-input-wrapper">
+                            <input class="field-input" type="text" value="Ramsey" />
+                          </div>
+                        </div>
+                        <div class="field-body layout-example-field--grid-span-4">
+                          <label class="field-label">Title</label>
+                          <div class="field-input-wrapper">
+                            <input class="field-input" type="text" value="Mx." />
+                          </div>
+                        </div>
+                        <div class="field-body layout-example-field--grid-span-4">
+                          <label class="field-label">Suffix</label>
+                          <div class="field-input-wrapper">
+                            <input class="field-input" type="text" value="Jr." />
+                          </div>
+                        </div>
+                        <div class="field-body layout-example-field--grid-span-6">
+                          <label class="field-label">School Name</label>
+                          <div class="field-input-wrapper">
+                            <input class="field-input" type="text" value="North Valley Middle School" />
+                          </div>
+                        </div>
+                        <div class="field-body layout-example-field--grid-span-4">
+                          <label class="field-label">IEP Type</label>
+                          <div class="field-input-wrapper field-select-wrapper">
+                            <select class="field-select">
+                              <option selected>Annual Review</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="field-body layout-example-field--grid-span-4">
+                          <label class="field-label">Case Manager</label>
+                          <div class="field-input-wrapper">
+                            <input class="field-input" type="text" value="A. Torres" />
+                          </div>
+                        </div>
+                        <div class="field-body layout-example-field--grid-span-4">
+                          <label class="field-label">Meeting Date</label>
+                          <div class="field-input-wrapper">
+                            <input class="field-input" type="text" value="06/17/2026" />
+                          </div>
+                        </div>
+                        <div class="field-body layout-example-field--grid-span-4">
+                          <label class="field-label">Start Date</label>
+                          <div class="field-input-wrapper">
+                            <input class="field-input" type="text" value="07/01/2026" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+                </div>
+
+                <div class="layout-example-block">
+                  <div class="layout-example-meta">
+                    <h3 class="docs-v2-card-title layout-example-label">Mobile</h3>
+                    <p class="docs-v2-card-copy layout-example-subtext">Narrow panel container collapsed to a single field per row.</p>
+                  </div>
+                  <section class="panel layout-example-panel layout-example-panel--mobile" aria-label="Mobile width stacked field form layout example panel">
+                    <div class="panel-header">
+                      <div class="panel-left">
+                        <h3 class="panel-title">Student Information</h3>
+                      </div>
+                    </div>
+                    <div class="panel-body">
+                      <div class="layout-example-grid layout-example-grid--mobile">
+                        <div class="field-body">
+                          <label class="field-label">First Name</label>
+                          <div class="field-input-wrapper">
+                            <input class="field-input" type="text" value="Jordan" />
+                          </div>
+                        </div>
+                        <div class="field-body">
+                          <label class="field-label">Last Name</label>
+                          <div class="field-input-wrapper">
+                            <input class="field-input" type="text" value="Ramsey" />
+                          </div>
+                        </div>
+                        <div class="field-body">
+                          <label class="field-label">Title</label>
+                          <div class="field-input-wrapper">
+                            <input class="field-input" type="text" value="Mx." />
+                          </div>
+                        </div>
+                        <div class="field-body">
+                          <label class="field-label">Suffix</label>
+                          <div class="field-input-wrapper">
+                            <input class="field-input" type="text" value="Jr." />
+                          </div>
+                        </div>
+                        <div class="field-body">
+                          <label class="field-label">School Name</label>
+                          <div class="field-input-wrapper">
+                            <input class="field-input" type="text" value="North Valley Middle School" />
+                          </div>
+                        </div>
+                        <div class="field-body">
+                          <label class="field-label">IEP Type</label>
+                          <div class="field-input-wrapper field-select-wrapper">
+                            <select class="field-select">
+                              <option selected>Annual Review</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="field-body">
+                          <label class="field-label">Case Manager</label>
+                          <div class="field-input-wrapper">
+                            <input class="field-input" type="text" value="A. Torres" />
+                          </div>
+                        </div>
+                        <div class="field-body">
+                          <label class="field-label">Meeting Date</label>
+                          <div class="field-input-wrapper">
+                            <input class="field-input" type="text" value="06/17/2026" />
+                          </div>
+                        </div>
+                        <div class="field-body">
+                          <label class="field-label">Start Date</label>
+                          <div class="field-input-wrapper">
+                            <input class="field-input" type="text" value="07/01/2026" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+                </div>
+              </div>
+            </section>
+
+            <section class="example-block" id="example-tablet" aria-label="Paired field layout example">
+              <h2 class="panel-example-title">Paired Field Layout</h2>
+              <p class="example-caption">This pattern places natural pairs and related field groups side by side without making the form feel compressed. On narrow surfaces, these groups should collapse back to one field per row.</p>
+              <div class="layout-example-stack">
+                <div class="layout-example-block">
+                  <div class="layout-example-meta">
+                    <h3 class="docs-v2-card-title layout-example-label">Desktop</h3>
+                    <p class="docs-v2-card-copy layout-example-subtext">Wider panel container showing natural field pairs and longer fields spanning the row.</p>
+                  </div>
+                  <section class="panel layout-example-panel layout-example-panel--max" aria-label="Max width two column form layout example panel">
+                    <div class="panel-header">
+                      <div class="panel-left">
+                        <h3 class="panel-title">Student Information</h3>
+                      </div>
+                    </div>
+                    <div class="panel-body">
+                      <div class="layout-example-grid layout-example-grid--tablet">
+                        <div class="field-body">
+                          <label class="field-label">First Name</label>
+                          <div class="field-input-wrapper">
+                            <input class="field-input" type="text" value="Jordan" />
+                          </div>
+                        </div>
+                        <div class="field-body">
+                          <label class="field-label">Last Name</label>
+                          <div class="field-input-wrapper">
+                            <input class="field-input" type="text" value="Ramsey" />
+                          </div>
+                        </div>
+                        <div class="field-body">
+                          <label class="field-label">Title</label>
+                          <div class="field-input-wrapper">
+                            <input class="field-input" type="text" value="Mx." />
+                          </div>
+                        </div>
+                        <div class="field-body">
+                          <label class="field-label">Suffix</label>
+                          <div class="field-input-wrapper">
+                            <input class="field-input" type="text" value="Jr." />
+                          </div>
+                        </div>
+                        <div class="field-body layout-span-2">
+                          <label class="field-label">School Name</label>
+                          <div class="field-input-wrapper">
+                            <input class="field-input" type="text" value="North Valley Middle School" />
+                          </div>
+                        </div>
+                        <div class="field-body">
+                          <label class="field-label">IEP Type</label>
+                          <div class="field-input-wrapper field-select-wrapper">
+                            <select class="field-select">
+                              <option selected>Annual Review</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="field-body">
+                          <label class="field-label">Case Manager</label>
+                          <div class="field-input-wrapper">
+                            <input class="field-input" type="text" value="A. Torres" />
+                          </div>
+                        </div>
+                        <div class="field-body">
+                          <label class="field-label">Meeting Date</label>
+                          <div class="field-input-wrapper">
+                            <input class="field-input" type="text" value="06/17/2026" />
+                          </div>
+                        </div>
+                        <div class="field-body">
+                          <label class="field-label">Start Date</label>
+                          <div class="field-input-wrapper">
+                            <input class="field-input" type="text" value="07/01/2026" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+                </div>
+                <div class="layout-example-block">
+                  <div class="layout-example-meta">
+                    <h3 class="docs-v2-card-title layout-example-label">Tablet</h3>
+                    <p class="docs-v2-card-copy layout-example-subtext">Medium-width panel container preserving paired fields before collapsing further on mobile.</p>
+                  </div>
+                  <section class="panel layout-example-panel layout-example-panel--tablet" aria-label="Tablet width two column form layout example panel">
+                    <div class="panel-header">
+                      <div class="panel-left">
+                        <h3 class="panel-title">Student Information</h3>
+                      </div>
+                    </div>
+                    <div class="panel-body">
+                      <div class="layout-example-grid layout-example-grid--tablet">
+                        <div class="field-body">
+                          <label class="field-label">First Name</label>
+                          <div class="field-input-wrapper">
+                            <input class="field-input" type="text" value="Jordan" />
+                          </div>
+                        </div>
+                        <div class="field-body">
+                          <label class="field-label">Last Name</label>
+                          <div class="field-input-wrapper">
+                            <input class="field-input" type="text" value="Ramsey" />
+                          </div>
+                        </div>
+                        <div class="field-body">
+                          <label class="field-label">Title</label>
+                          <div class="field-input-wrapper">
+                            <input class="field-input" type="text" value="Mx." />
+                          </div>
+                        </div>
+                        <div class="field-body">
+                          <label class="field-label">Suffix</label>
+                          <div class="field-input-wrapper">
+                            <input class="field-input" type="text" value="Jr." />
+                          </div>
+                        </div>
+                        <div class="field-body layout-span-2">
+                          <label class="field-label">School Name</label>
+                          <div class="field-input-wrapper">
+                            <input class="field-input" type="text" value="North Valley Middle School" />
+                          </div>
+                        </div>
+                        <div class="field-body">
+                          <label class="field-label">IEP Type</label>
+                          <div class="field-input-wrapper field-select-wrapper">
+                            <select class="field-select">
+                              <option selected>Annual Review</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="field-body">
+                          <label class="field-label">Case Manager</label>
+                          <div class="field-input-wrapper">
+                            <input class="field-input" type="text" value="A. Torres" />
+                          </div>
+                        </div>
+                        <div class="field-body">
+                          <label class="field-label">Meeting Date</label>
+                          <div class="field-input-wrapper">
+                            <input class="field-input" type="text" value="06/17/2026" />
+                          </div>
+                        </div>
+                        <div class="field-body">
+                          <label class="field-label">Start Date</label>
+                          <div class="field-input-wrapper">
+                            <input class="field-input" type="text" value="07/01/2026" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+                </div>
+              </div>
+            </section>
+
+            <section class="example-block" id="example-desktop" aria-label="Dense structured layout example">
+              <h2 class="panel-example-title">Dense Structured Layout</h2>
+              <p class="example-caption">Use this pattern sparingly for short, structured sets on wide surfaces. Longer inputs still need wider spans so the row remains readable.</p>
+              <div class="layout-example-block">
+                <div class="layout-example-meta">
+                  <h3 class="docs-v2-card-title layout-example-label">Desktop</h3>
+                  <p class="docs-v2-card-copy layout-example-subtext">Wide panel container for short, structured fields shown at the densest supported grouping.</p>
+                </div>
+                <section class="panel layout-example-panel layout-example-panel--ipad" aria-label="Desktop form layout example panel">
+                  <div class="panel-header">
+                    <div class="panel-left">
+                      <h3 class="panel-title">Student Information</h3>
+                    </div>
+                  </div>
+                  <div class="panel-body">
+                    <div class="layout-example-grid layout-example-grid--desktop">
+                      <div class="field-body">
+                        <label class="field-label">First Name</label>
+                        <div class="field-input-wrapper">
+                          <input class="field-input" type="text" value="Jordan" />
+                        </div>
+                      </div>
+                      <div class="field-body">
+                        <label class="field-label">Last Name</label>
+                        <div class="field-input-wrapper">
+                          <input class="field-input" type="text" value="Ramsey" />
+                        </div>
+                      </div>
+                      <div class="field-body">
+                        <label class="field-label">Title</label>
+                        <div class="field-input-wrapper">
+                          <input class="field-input" type="text" value="Mx." />
+                        </div>
+                      </div>
+                      <div class="field-body">
+                        <label class="field-label">Suffix</label>
+                        <div class="field-input-wrapper">
+                          <input class="field-input" type="text" value="Jr." />
+                        </div>
+                      </div>
+                      <div class="field-body layout-span-2">
+                        <label class="field-label">School Name</label>
+                        <div class="field-input-wrapper">
+                          <input class="field-input" type="text" value="North Valley Middle School" />
+                        </div>
+                      </div>
+                      <div class="field-body">
+                        <label class="field-label">IEP Type</label>
+                        <div class="field-input-wrapper field-select-wrapper">
+                          <select class="field-select">
+                            <option selected>Annual Review</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="field-body">
+                        <label class="field-label">Case Manager</label>
+                        <div class="field-input-wrapper">
+                          <input class="field-input" type="text" value="A. Torres" />
+                        </div>
+                      </div>
+                      <div class="field-body">
+                        <label class="field-label">Meeting Date</label>
+                        <div class="field-input-wrapper">
+                          <input class="field-input" type="text" value="06/17/2026" />
+                        </div>
+                      </div>
+                      <div class="field-body">
+                        <label class="field-label">Start Date</label>
+                        <div class="field-input-wrapper">
+                          <input class="field-input" type="text" value="07/01/2026" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+              </div>
+            </section>
+          </div>
+        </div>
+
+        <aside class="docs-v2-page-nav" aria-label="Page navigation">
+          <p class="docs-v2-page-nav-title">On This Page</p>
+          <nav class="docs-v2-page-nav-list">
+            <a class="docs-v2-page-nav-link" href="#overview">Overview</a>
+            <a class="docs-v2-page-nav-link" href="#grid-system">Grid System</a>
+            <a class="docs-v2-page-nav-link" href="#field-placement">Field Placement Rules</a>
+            <a class="docs-v2-page-nav-link" href="#column-guidance">Layout Patterns</a>
+            <a class="docs-v2-page-nav-link" href="#grouping-strategies">Grouping Strategies</a>
+            <a class="docs-v2-page-nav-link" href="#density-guidance">Density Guidance</a>
+            <a class="docs-v2-page-nav-link" href="#anti-patterns">Anti-Patterns</a>
+            <a class="docs-v2-page-nav-link" href="#examples">Examples</a>
+            <a class="docs-v2-page-nav-link docs-v2-page-nav-link--sub" href="#example-mobile">Stacked Field Layout</a>
+            <a class="docs-v2-page-nav-link docs-v2-page-nav-link--sub" href="#example-tablet">Paired Field Layout</a>
+            <a class="docs-v2-page-nav-link docs-v2-page-nav-link--sub" href="#example-desktop">Dense Structured Layout</a>
+          </nav>
+        </aside>
+      </div>
+    </main>
+  </div>
+
+  <script src="../scripts/docs-config.js"></script>
+  <script src="../scripts/docs.js"></script>
+</body>
+</html>

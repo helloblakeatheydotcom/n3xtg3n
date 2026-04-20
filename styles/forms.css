@@ -403,7 +403,7 @@ input[type="radio"]:checked:focus-visible {
 }
 
 .choice-option:hover {
-  background: var(--color-accent-tint-hover);
+  background: var(--choice-option-hover-bg);
 }
 
 .choice-option:hover input:not(:checked) {
@@ -425,7 +425,7 @@ input[type="radio"]:checked:focus-visible {
 }
 
 .demo-cell--hover .choice-option:first-child {
-  background: var(--color-accent-tint-hover);
+  background: var(--choice-option-hover-bg);
 }
 
 .demo-cell--hover .choice-option:first-child input {
@@ -443,12 +443,16 @@ input[type="radio"]:checked:focus-visible {
 }
 
 .demo-cell--selected-hover .choice-option:first-child {
-  background: var(--color-accent-tint-hover);
+  background: var(--choice-option-hover-bg);
 }
 
 .demo-cell--selected-hover .choice-option:first-child input {
   background-color: var(--choice-control-hover-checked);
   border-color: var(--choice-control-hover-checked);
+}
+
+.demo-cell--focus .choice-option:first-child input {
+  box-shadow: var(--focus-ring-shadow);
 }
 
 .demo-cell--error .error-wrap {

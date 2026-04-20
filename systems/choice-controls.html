@@ -22,7 +22,7 @@
     }
 
     .field-docs-page .choice-option:hover {
-      background: var(--color-accent-tint-hover);
+      background: var(--choice-option-hover-bg);
     }
 
     .field-docs-page .field-docs-stack {
@@ -664,7 +664,24 @@
                     </div>
                     <div class="field-caption">Error</div>
                   </div>
-                  <div class="demo-cell"></div>
+
+                  <div class="demo-cell demo-cell--panel demo-cell--static demo-cell--focus">
+                    <div class="choice-group">
+                      <label class="field-label">Stocking Stuffers</label>
+                      <div class="field-helper-slot"><p class="field-helper">First option focused via keyboard.</p></div>
+                      <div class="choice-options">
+                        <label class="choice-option">
+                          <input type="checkbox" />
+                          <span class="choice-label">Apple sauce</span>
+                        </label>
+                        <label class="choice-option">
+                          <input type="checkbox" />
+                          <span class="choice-label">Peppermint patties</span>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="field-caption">Focus</div>
+                  </div>
                 </div>
               </section>
             </section>
@@ -818,7 +835,24 @@
                     </div>
                     <div class="field-caption">Error</div>
                   </div>
-                  <div class="demo-cell"></div>
+
+                  <div class="demo-cell demo-cell--panel demo-cell--static demo-cell--focus">
+                    <div class="choice-group">
+                      <label class="field-label">Holiday Drinks</label>
+                      <div class="field-helper-slot"><p class="field-helper">First option focused via keyboard.</p></div>
+                      <div class="choice-options">
+                        <label class="choice-option">
+                          <input type="radio" name="v2-focus-drink" />
+                          <span class="choice-label">Hot chocolate</span>
+                        </label>
+                        <label class="choice-option">
+                          <input type="radio" name="v2-focus-drink" />
+                          <span class="choice-label">Spiced cider</span>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="field-caption">Focus</div>
+                  </div>
                 </div>
               </section>
             </section>
@@ -884,6 +918,7 @@
                       <tr><td>Control background</td><td><code>--choice-control-bg</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#FFFFFF"></span>#FFFFFF</span></td></tr>
                       <tr><td>Checked background</td><td><code>--choice-control-checked-bg</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#2567F4"></span>Blue 500 (#2567F4)</span></td></tr>
                       <tr><td>Checked border</td><td><code>--choice-control-checked-border</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#2567F4"></span>Blue 500 (#2567F4)</span></td></tr>
+                      <tr><td>Option hover background</td><td><code>--choice-option-hover-bg</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#F7FAFF"></span>Blue 50 (#F7FAFF)</span></td></tr>
                       <tr><td>Hover border</td><td><code>--choice-control-hover-border</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#2567F4"></span>Blue 500 (#2567F4)</span></td></tr>
                       <tr><td>Checked hover</td><td><code>--choice-control-hover-checked</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#2251C5"></span>Blue 600 (#2251C5)</span></td></tr>
                       <tr><td>Label color</td><td><code>--choice-label-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#111827"></span>Gray 800 (#111827)</span></td></tr>

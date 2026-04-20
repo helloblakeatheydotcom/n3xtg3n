@@ -22,7 +22,7 @@
     }
 
     .field-docs-page .choice-option:hover {
-      background: var(--color-accent-tint-hover);
+      background: var(--choice-option-hover-bg);
     }
 
     .field-docs-page .field-docs-stack {
@@ -368,9 +368,10 @@
       <section class="docs-v2-hero">
         <p class="docs-v2-eyebrow">Components / Fields</p>
         <h2 class="docs-v2-title">Fields</h2>
-        <p class="docs-v2-copy">Use fields for structured text entry, helper text, validation, placeholder text, and view-only states inside panels and longer process forms.</p>
+        <p class="docs-v2-copy">Use fields for structured text entry, helper text, validation, placeholder text, and view-only states inside panels and longer process forms. Fields size within the shared <a class="docs-v2-inline-link" href="../foundations/layout.html">Layout foundation</a> rather than defining their own width system.</p>
         <div class="docs-v2-chip-row">
           <span class="docs-v2-chip">Text-based fields</span>
+          <span class="docs-v2-chip">Shared layout spans</span>
           <span class="docs-v2-chip">State grids and validation behavior</span>
           <span class="docs-v2-chip">Anatomy and token reference</span>
         </div>
@@ -382,7 +383,7 @@
             <section class="docs-section" id="overview">
               <div class="docs-section-header">
                 <h2 class="panel-example-title">Overview</h2>
-                <p class="docs-lead">Fields provide the shared entry patterns for text controls, helper text, validation, placeholder text, and view-only states. They should feel consistent whether they appear in compact forms, long process pages, or grouped panels.</p>
+                <p class="docs-lead">Fields provide the shared entry patterns for text controls, helper text, validation, placeholder text, and view-only states. They should feel consistent whether they appear in compact forms, long process pages, or grouped panels, and they should size within the shared span system defined in <a class="docs-v2-inline-link" href="../foundations/layout.html">Foundations / Layout</a>.</p>
               </div>
               <div class="field-overview-grid">
                 <article class="field-overview-card">
@@ -402,6 +403,7 @@
                     <p class="field-overview-item"><span class="field-overview-label">Selection stays explicit</span>Use a select list, date picker, or other dedicated field pattern when users choose from a constrained value set.</p>
                     <p class="field-overview-item"><span class="field-overview-label">Validation stays local</span>Field errors should explain what needs correction at the point of entry rather than relying on distant page-level messages.</p>
                     <p class="field-overview-item"><span class="field-overview-label">Managed values stay visible</span>When a required value is controlled elsewhere, keep it visible here and direct the user to the source of truth.</p>
+                    <p class="field-overview-item"><span class="field-overview-label">Width stays shared</span>Fields support the shared layout spans of 3, 4, 6, and 12. Use Layout to define the span system and patterns to decide when each span is appropriate.</p>
                   </div>
                 </article>
               </div>
@@ -738,7 +740,7 @@
                       <tr><td>Hover border</td><td><code>--field-border-hover</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#7EA6FB"></span>Blue 400 (#7EA6FB)</span></td></tr>
                       <tr><td>Focus border</td><td><code>--field-border-focus</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#2567F4"></span>Blue 500 (#2567F4)</span></td></tr>
                       <tr><td>Field background</td><td><code>--field-bg</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#FFFFFF"></span>#FFFFFF</span></td></tr>
-                      <tr><td>Hover background</td><td><code>--field-bg-hover</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#EFF3FE"></span>Blue 100 (#EFF3FE)</span></td></tr>
+                      <tr><td>Hover background</td><td><code>--field-bg-hover</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#F7FAFF"></span>Blue 50 (#F7FAFF)</span></td></tr>
                       <tr><td>Stepper background</td><td><code>--field-stepper-bg</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#F7F9FC"></span>Slate 50 (#F7F9FC)</span></td></tr>
                       <tr><td>Stepper hover</td><td><code>--field-stepper-hover-bg</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#EEF2F7"></span>Slate 100 (#EEF2F7)</span></td></tr>
                     </tbody>

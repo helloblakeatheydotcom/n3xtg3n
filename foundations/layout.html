@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Layout</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../styles/tokens.css" />
+  <link rel="stylesheet" href="../styles/base.css" />
+  <link rel="stylesheet" href="../styles/docs.css" />
+  <style>
+    .layout-foundation-page .layout-docs-stack {
+      display: grid;
+      gap: 0;
+    }
+
+    .layout-foundation-page .layout-docs-stack > .docs-section {
+      padding: 40px 0 32px;
+      border-top: 1px solid var(--docs-v2-border);
+    }
+
+    .layout-foundation-page .layout-docs-stack > :first-child {
+      padding-top: 0;
+      border-top: 0;
+    }
+
+    .layout-foundation-page .layout-docs-stack > :last-child {
+      padding-bottom: 0;
+    }
+
+    .layout-foundation-page .panel-example-title {
+      margin: 0;
+      font-size: 20px;
+      line-height: 24px;
+      font-weight: 700;
+      color: var(--docs-v2-text);
+    }
+
+    .layout-foundation-page .docs-section-header {
+      display: grid;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .layout-foundation-page .docs-lead,
+    .layout-foundation-page .docs-card-caption {
+      max-width: var(--docs-v2-prose-measure);
+    }
+
+    .layout-foundation-page .docs-lead {
+      margin: 0;
+      font-size: 14px;
+      line-height: 22px;
+      color: var(--docs-v2-text-secondary);
+    }
+
+    .layout-foundation-page .docs-card-caption {
+      margin-top: 8px;
+      margin-bottom: 0;
+      font-size: 13px;
+      line-height: 20px;
+      color: var(--docs-v2-text-secondary);
+    }
+
+    .layout-foundation-page .layout-overview-grid,
+    .layout-foundation-page .layout-breakpoint-grid,
+    .layout-foundation-page .layout-span-grid,
+    .layout-foundation-page .layout-model-grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .layout-foundation-page .layout-overview-grid,
+    .layout-foundation-page .layout-model-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .layout-foundation-page .layout-breakpoint-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .layout-foundation-page .layout-span-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .layout-foundation-page .layout-card,
+    .layout-foundation-page .layout-diagram-card,
+    .layout-foundation-page .layout-span-card,
+    .layout-foundation-page .layout-breakpoint-card {
+      border: 1px solid var(--docs-v2-border);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.82);
+      box-shadow: none;
+    }
+
+    .layout-foundation-page .layout-card,
+    .layout-foundation-page .layout-diagram-card,
+    .layout-foundation-page .layout-span-card,
+    .layout-foundation-page .layout-breakpoint-card {
+      padding: 18px;
+    }
+
+    .layout-foundation-page .layout-kicker {
+      margin: 0 0 12px;
+      font-size: 12px;
+      line-height: 16px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--docs-v2-text-muted);
+    }
+
+    .layout-foundation-page .layout-list {
+      display: grid;
+      gap: 0;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .layout-foundation-page .layout-list-item {
+      margin: 0;
+      padding: 12px 0;
+      border-top: 1px solid var(--docs-v2-border);
+      font-size: 14px;
+      line-height: 20px;
+      color: var(--docs-v2-text-secondary);
+    }
+
+    .layout-foundation-page .layout-list-item:first-child {
+      padding-top: 0;
+      border-top: 0;
+    }
+
+    .layout-foundation-page .layout-label {
+      display: block;
+      margin-bottom: 2px;
+      font-weight: 600;
+      color: var(--docs-v2-text);
+    }
+
+    .layout-foundation-page .layout-diagram-card {
+      display: grid;
+      gap: 18px;
+    }
+
+    .layout-foundation-page .layout-grid-demo {
+      display: grid;
+      gap: 16px;
+    }
+
+    .layout-foundation-page .layout-grid-surface {
+      overflow-x: auto;
+      padding: 16px;
+      border: 1px solid #D7DEE8;
+      border-radius: 14px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(247, 250, 255, 0.98) 100%);
+    }
+
+    .layout-foundation-page .layout-grid-ruler {
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: var(--layout-grid-gutter);
+      margin-bottom: 12px;
+    }
+
+    .layout-foundation-page .layout-grid-ruler-item {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 24px;
+      border-radius: 999px;
+      background: rgba(239, 243, 254, 0.96);
+      color: var(--docs-v2-text-muted);
+      font-size: 11px;
+      line-height: 16px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+
+    .layout-foundation-page .layout-grid-track {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: var(--layout-grid-gutter);
+      min-height: 172px;
+    }
+
+    .layout-foundation-page .layout-grid-track::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 12px;
+      background: repeating-linear-gradient(
+        to bottom,
+        transparent 0 35px,
+        rgba(215, 222, 232, 0.78) 35px 36px
+      );
+      pointer-events: none;
+    }
+
+    .layout-foundation-page .layout-grid-cell {
+      position: relative;
+      z-index: 1;
+      border: 1px dashed rgba(37, 103, 244, 0.22);
+      border-radius: 10px;
+      background: linear-gradient(180deg, rgba(247, 250, 255, 0.98) 0%, rgba(239, 243, 254, 0.98) 100%);
+    }
+
+    .layout-foundation-page .layout-grid-caption {
+      margin: 12px 0 0;
+      font-size: 13px;
+      line-height: 20px;
+      color: var(--docs-v2-text-secondary);
+    }
+
+    .layout-foundation-page .layout-grid-meter {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      font-size: 12px;
+      line-height: 16px;
+      font-weight: 600;
+      color: var(--docs-v2-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .layout-foundation-page .layout-span-demo {
+      display: grid;
+      gap: 12px;
+    }
+
+    .layout-foundation-page .layout-span-row {
+      display: grid;
+      grid-template-columns: 70px 1fr;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .layout-foundation-page .layout-span-name {
+      font-size: 13px;
+      line-height: 18px;
+      font-weight: 600;
+      color: var(--docs-v2-text);
+    }
+
+    .layout-foundation-page .layout-span-track {
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: var(--layout-grid-gutter);
+      align-items: center;
+    }
+
+    .layout-foundation-page .layout-span-bar {
+      display: block;
+      height: 18px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #2567F4 0%, #7EA6FB 100%);
+    }
+
+    .layout-foundation-page .layout-span-bar--3 { grid-column: span 3; }
+    .layout-foundation-page .layout-span-bar--4 { grid-column: span 4; }
+    .layout-foundation-page .layout-span-bar--6 { grid-column: span 6; }
+    .layout-foundation-page .layout-span-bar--12 { grid-column: span 12; }
+
+    .layout-foundation-page .layout-breakpoint-card .docs-card-title,
+    .layout-foundation-page .layout-span-card .docs-card-title,
+    .layout-foundation-page .layout-card .docs-card-title {
+      margin: 0;
+    }
+
+    .layout-foundation-page .layout-breakpoint-card .docs-card-caption,
+    .layout-foundation-page .layout-span-card .docs-card-caption,
+    .layout-foundation-page .layout-card .docs-card-caption {
+      margin: 8px 0 0;
+      font-size: 13px;
+      line-height: 20px;
+      color: var(--docs-v2-text-secondary);
+    }
+
+    .layout-foundation-page .layout-chip-row {
+      margin-top: 0;
+      margin-bottom: 14px;
+    }
+
+    .layout-foundation-page .layout-followup-card {
+      margin-top: 16px;
+    }
+
+    .layout-foundation-page .docs-token-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 16px;
+    }
+
+    .layout-foundation-page .docs-token-block + .docs-token-block {
+      margin-top: 24px;
+    }
+
+    .layout-foundation-page .docs-token-block .docs-card-title,
+    .layout-foundation-page .docs-token-block .docs-card-caption {
+      max-width: var(--docs-v2-prose-measure);
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    .layout-foundation-page .docs-token-block .docs-card-title {
+      margin-top: 0;
+      margin-bottom: 8px;
+    }
+
+    .layout-foundation-page .docs-token-block .docs-card-caption {
+      margin-top: 0;
+    }
+
+    .layout-foundation-page .docs-token-table {
+      width: 100%;
+      margin: 16px 0 0;
+      border-collapse: separate;
+      border-spacing: 0;
+      border: 1px solid #D7DEE8;
+      border-radius: 8px;
+      overflow: hidden;
+      background: var(--docs-v2-table-surface);
+      box-shadow: none;
+    }
+
+    .layout-foundation-page .docs-token-table th,
+    .layout-foundation-page .docs-token-table td {
+      padding: 14px 12px;
+      border-bottom: 1px solid var(--docs-v2-border);
+      vertical-align: middle;
+      font-size: 14px;
+      line-height: 20px;
+      text-align: left;
+    }
+
+    .layout-foundation-page .docs-token-table th {
+      font-size: 12px;
+      line-height: 16px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--docs-v2-text-muted);
+      background: var(--docs-v2-table-header-surface);
+    }
+
+    .layout-foundation-page .docs-token-table tbody tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .layout-foundation-page .docs-token-block .docs-token-table th:first-child {
+      border-top-left-radius: 10px;
+    }
+
+    .layout-foundation-page .docs-token-block .docs-token-table th:last-child {
+      border-top-right-radius: 10px;
+    }
+
+    @media (max-width: 980px) {
+      .layout-foundation-page .layout-overview-grid,
+      .layout-foundation-page .layout-model-grid,
+      .layout-foundation-page .layout-breakpoint-grid,
+      .layout-foundation-page .layout-span-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+  </style>
+</head>
+<body class="docs-v2-page layout-foundation-page" data-docs-v2-nav-title="Design System" data-docs-v2-nav-copy="Layout defines the shared grid, gutters, containers, breakpoints, and field span rules used across the product." data-docs-v2-nav-kicker="Foundations">
+  <div class="docs-v2-layout">
+    <aside class="docs-v2-sidebar" data-docs-v2-nav></aside>
+
+    <main class="docs-v2-main">
+      <section class="docs-v2-hero">
+        <p class="docs-v2-eyebrow">Foundations / Layout</p>
+        <h2 class="docs-v2-title">Layout</h2>
+        <p class="docs-v2-copy">Layout defines the shared structural rules used across the system: the 12-column base grid, 16px gutters, container widths, responsive breakpoint behavior, and supported field spans. Components and patterns build on this foundation.</p>
+        <div class="docs-v2-chip-row">
+          <span class="docs-v2-chip">12-column grid</span>
+          <span class="docs-v2-chip">16px gutters</span>
+          <span class="docs-v2-chip">Responsive grouping behavior</span>
+          <span class="docs-v2-chip">1100px panel container</span>
+          <span class="docs-v2-chip">Span 3 / 4 / 6 / 12</span>
+        </div>
+      </section>
+
+      <div class="docs-v2-page-shell docs-v2-page-shell--with-page-nav">
+        <div class="docs-v2-page-content">
+          <div class="layout-docs-stack" aria-label="Layout foundation documentation">
+            <section class="docs-section" id="overview">
+              <div class="docs-section-header">
+                <h2 class="panel-example-title">Overview</h2>
+                <p class="docs-lead">Layout defines the shared mechanics of the system. It sets how content aligns to the base grid, how gutters are applied, how wide panel-contained forms may grow, and how widths are expressed as field spans. Pattern pages decide when to use specific compositions.</p>
+              </div>
+              <div class="layout-overview-grid">
+                <article class="layout-card">
+                  <p class="layout-kicker">Base Structure</p>
+                  <div class="layout-list">
+                    <p class="layout-list-item"><span class="layout-label">12-column foundation</span>All structural placement maps back to a 12-column grid, even when the visible grouping simplifies at smaller widths.</p>
+                    <p class="layout-list-item"><span class="layout-label">16px gutters</span>Columns are separated by a consistent 16px gutter so spacing remains stable across components and patterns.</p>
+                    <p class="layout-list-item"><span class="layout-label">Container width is layout-controlled</span>Panels may grow to full width, while layout constrains common panel-contained form surfaces to the approved maximum width.</p>
+                  </div>
+                </article>
+
+                <article class="layout-card">
+                  <p class="layout-kicker">Responsive Capability</p>
+                  <div class="layout-list">
+                    <p class="layout-list-item"><span class="layout-label">Viewport width changes visual grouping</span>The same base grid can present broader or narrower groupings as available width changes.</p>
+                    <p class="layout-list-item"><span class="layout-label">Breakpoints define capacity</span>The system supports wider, medium, and narrow presentations without redefining the underlying grid.</p>
+                    <p class="layout-list-item"><span class="layout-label">Patterns choose composition</span>Whether a form is presented as one column, paired columns, or denser grouped rows is a pattern decision, not a layout rule.</p>
+                  </div>
+                </article>
+
+                <article class="layout-card">
+                  <p class="layout-kicker">Nested Contexts</p>
+                  <div class="layout-list">
+                    <p class="layout-list-item"><span class="layout-label">Nested containers follow the same rules</span>Indented or progressively disclosed content creates a new container context, but it still uses the same grid, gutter, and spacing rules within its available width.</p>
+                    <p class="layout-list-item"><span class="layout-label">Structural consistency is preserved</span>Nested content should align and size fields with the same span system rather than introducing a separate layout model.</p>
+                  </div>
+                </article>
+              </div>
+            </section>
+
+            <section class="docs-section" id="grid-model">
+              <div class="docs-section-header">
+                <h2 class="panel-example-title">Grid Model</h2>
+                <p class="docs-lead">The 12-column grid is the structural base for panels, forms, and other layout surfaces. Responsive presentations may simplify to fewer visible groupings, but placement continues to align to this shared grid.</p>
+              </div>
+              <div class="layout-model-grid">
+                <article class="layout-diagram-card">
+                  <h3 class="docs-card-title">12-Column Grid</h3>
+                  <div class="layout-grid-demo" aria-hidden="true">
+                    <div class="layout-grid-meter">
+                      <span>12 columns</span>
+                      <span>16px gutters</span>
+                    </div>
+                    <div class="layout-grid-surface">
+                      <div class="layout-grid-ruler">
+                        <span class="layout-grid-ruler-item">1</span>
+                        <span class="layout-grid-ruler-item">2</span>
+                        <span class="layout-grid-ruler-item">3</span>
+                        <span class="layout-grid-ruler-item">4</span>
+                        <span class="layout-grid-ruler-item">5</span>
+                        <span class="layout-grid-ruler-item">6</span>
+                        <span class="layout-grid-ruler-item">7</span>
+                        <span class="layout-grid-ruler-item">8</span>
+                        <span class="layout-grid-ruler-item">9</span>
+                        <span class="layout-grid-ruler-item">10</span>
+                        <span class="layout-grid-ruler-item">11</span>
+                        <span class="layout-grid-ruler-item">12</span>
+                      </div>
+                      <div class="layout-grid-track">
+                        <span class="layout-grid-cell"></span>
+                        <span class="layout-grid-cell"></span>
+                        <span class="layout-grid-cell"></span>
+                        <span class="layout-grid-cell"></span>
+                        <span class="layout-grid-cell"></span>
+                        <span class="layout-grid-cell"></span>
+                        <span class="layout-grid-cell"></span>
+                        <span class="layout-grid-cell"></span>
+                        <span class="layout-grid-cell"></span>
+                        <span class="layout-grid-cell"></span>
+                        <span class="layout-grid-cell"></span>
+                        <span class="layout-grid-cell"></span>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="layout-grid-caption">Columns remain fixed to the shared grid. Gutters define the spacing between columns, and the same structure continues to apply as the visible grouping compresses at narrower widths.</p>
+                </article>
+
+                <article class="layout-card">
+                  <h3 class="docs-card-title">Grid Rules</h3>
+                  <div class="layout-list">
+                    <p class="layout-list-item"><span class="layout-label">Columns are structural</span>Columns define placement capacity and alignment. They are not a prescription for how many fields must appear on a row.</p>
+                    <p class="layout-list-item"><span class="layout-label">Gutters remain consistent</span>The same 16px gutter is used between columns so spacing stays stable across surfaces and nested containers.</p>
+                    <p class="layout-list-item"><span class="layout-label">Breakpoints change presentation</span>Responsive changes adjust visible grouping while preserving the same underlying grid logic.</p>
+                  </div>
+                </article>
+              </div>
+            </section>
+
+            <section class="docs-section" id="breakpoints">
+              <div class="docs-section-header">
+                <h2 class="panel-example-title">Breakpoints and Containers</h2>
+                <p class="docs-lead">Breakpoints describe how the shared grid can be presented across wider and narrower viewports. Container widths define the maximum working width for panel-contained form surfaces.</p>
+              </div>
+              <div class="layout-breakpoint-grid">
+                <article class="layout-breakpoint-card">
+                  <div class="docs-v2-chip-row layout-chip-row">
+                    <span class="docs-v2-chip">4 visual columns</span>
+                  </div>
+                  <h3 class="docs-card-title">Desktop</h3>
+                  <p class="docs-card-caption">At larger widths, the system can support up to four visual columns while remaining aligned to the same 12-column base grid.</p>
+                </article>
+                <article class="layout-breakpoint-card">
+                  <div class="docs-v2-chip-row layout-chip-row">
+                    <span class="docs-v2-chip">2 visual columns</span>
+                  </div>
+                  <h3 class="docs-card-title">Tablet</h3>
+                  <p class="docs-card-caption">At medium widths, the same structure can compress to two visual columns without changing the underlying span system.</p>
+                </article>
+                <article class="layout-breakpoint-card">
+                  <div class="docs-v2-chip-row layout-chip-row">
+                    <span class="docs-v2-chip">1 visual column</span>
+                  </div>
+                  <h3 class="docs-card-title">Mobile</h3>
+                  <p class="docs-card-caption">At narrow widths, content may collapse to a single visual column while preserving grid alignment and span logic within the available container.</p>
+                </article>
+              </div>
+              <article class="layout-card layout-followup-card">
+                <h3 class="docs-card-title">Container Width</h3>
+                <p class="docs-card-caption">Use <code>1100px</code> as the maximum layout-controlled panel container width for larger form surfaces. Layout owns that constraint; the panel component remains width-agnostic.</p>
+              </article>
+            </section>
+
+            <section class="docs-section" id="field-spans">
+              <div class="docs-section-header">
+                <h2 class="panel-example-title">Field Span System</h2>
+                <p class="docs-lead">Field widths are expressed as spans within the 12-column grid. The system supports spans of 3, 4, 6, and 12. Use span 4 as the standard standalone field width, span 6 for longer paired or grouped fields, span 3 for compact structured inputs, and span 12 for full-row content.</p>
+              </div>
+              <div class="layout-model-grid">
+                <article class="layout-diagram-card">
+                  <h3 class="docs-card-title">Span Examples</h3>
+                  <div class="layout-span-demo" aria-hidden="true">
+                    <div class="layout-span-row">
+                      <span class="layout-span-name">Span 3</span>
+                      <div class="layout-span-track"><span class="layout-span-bar layout-span-bar--3"></span></div>
+                    </div>
+                    <div class="layout-span-row">
+                      <span class="layout-span-name">Span 4</span>
+                      <div class="layout-span-track"><span class="layout-span-bar layout-span-bar--4"></span></div>
+                    </div>
+                    <div class="layout-span-row">
+                      <span class="layout-span-name">Span 6</span>
+                      <div class="layout-span-track"><span class="layout-span-bar layout-span-bar--6"></span></div>
+                    </div>
+                    <div class="layout-span-row">
+                      <span class="layout-span-name">Span 12</span>
+                      <div class="layout-span-track"><span class="layout-span-bar layout-span-bar--12"></span></div>
+                    </div>
+                  </div>
+                </article>
+
+                <div class="layout-span-grid">
+                  <article class="layout-span-card">
+                    <div class="docs-v2-chip-row layout-chip-row">
+                      <span class="docs-v2-chip">Span 3</span>
+                    </div>
+                    <h3 class="docs-card-title">Compact Fields</h3>
+                    <p class="docs-card-caption">Supports short, structured inputs that can fit comfortably in a narrower column allocation.</p>
+                  </article>
+                  <article class="layout-span-card">
+                    <div class="docs-v2-chip-row layout-chip-row">
+                      <span class="docs-v2-chip">Span 4</span>
+                    </div>
+                    <h3 class="docs-card-title">Standard Fields</h3>
+                    <p class="docs-card-caption">Supports the default readable field width for most standalone inputs inside a panel-contained form surface.</p>
+                  </article>
+                  <article class="layout-span-card">
+                    <div class="docs-v2-chip-row layout-chip-row">
+                      <span class="docs-v2-chip">Span 6</span>
+                    </div>
+                    <h3 class="docs-card-title">Extended Fields</h3>
+                    <p class="docs-card-caption">Supports longer inputs and paired groupings that need additional width while still participating in the shared grid.</p>
+                  </article>
+                  <article class="layout-span-card">
+                    <div class="docs-v2-chip-row layout-chip-row">
+                      <span class="docs-v2-chip">Span 12</span>
+                    </div>
+                    <h3 class="docs-card-title">Full-Row Content</h3>
+                    <p class="docs-card-caption">Supports fields or content blocks that should occupy the full available row within the current container.</p>
+                  </article>
+                </div>
+              </div>
+            </section>
+
+            <section class="docs-section" id="token-reference">
+              <div class="docs-section-header">
+                <h2 class="panel-example-title">Token Reference</h2>
+                <p class="docs-lead">These tokens define the shared layout values used across foundations, components, and patterns.</p>
+              </div>
+              <div class="docs-token-grid">
+                <article class="docs-token-block">
+                  <h3 class="docs-card-title">Grid and Containers</h3>
+                  <p class="docs-card-caption">Core structural values for the base grid and the panel-contained form surface.</p>
+                  <table class="docs-token-table">
+                    <thead>
+                      <tr><th>Role</th><th>Token</th><th>Value</th></tr>
+                    </thead>
+                    <tbody>
+                      <tr><td>Base grid columns</td><td><code>--layout-grid-columns</code></td><td>12</td></tr>
+                      <tr><td>Grid gutter</td><td><code>--layout-grid-gutter</code></td><td>16px</td></tr>
+                      <tr><td>Panel container max width</td><td><code>--layout-container-panel-max-width</code></td><td>1100px</td></tr>
+                    </tbody>
+                  </table>
+                </article>
+
+                <article class="docs-token-block">
+                  <h3 class="docs-card-title">Responsive Grouping</h3>
+                  <p class="docs-card-caption">Supported visual grouping capacities across wider and narrower viewport ranges.</p>
+                  <table class="docs-token-table">
+                    <thead>
+                      <tr><th>Role</th><th>Token</th><th>Value</th></tr>
+                    </thead>
+                    <tbody>
+                      <tr><td>Large viewport grouping</td><td><code>--layout-columns-desktop</code></td><td>4</td></tr>
+                      <tr><td>Medium viewport grouping</td><td><code>--layout-columns-tablet</code></td><td>2</td></tr>
+                      <tr><td>Small viewport grouping</td><td><code>--layout-columns-mobile</code></td><td>1</td></tr>
+                    </tbody>
+                  </table>
+                </article>
+
+                <article class="docs-token-block">
+                  <h3 class="docs-card-title">Field Spans</h3>
+                  <p class="docs-card-caption">Supported span values within the 12-column grid.</p>
+                  <table class="docs-token-table">
+                    <thead>
+                      <tr><th>Role</th><th>Token</th><th>Value</th></tr>
+                    </thead>
+                    <tbody>
+                      <tr><td>Compact span</td><td><code>--layout-field-span-sm</code></td><td>3</td></tr>
+                      <tr><td>Standard span</td><td><code>--layout-field-span-md</code></td><td>4</td></tr>
+                      <tr><td>Extended span</td><td><code>--layout-field-span-lg</code></td><td>6</td></tr>
+                      <tr><td>Full-row span</td><td><code>--layout-field-span-full</code></td><td>12</td></tr>
+                    </tbody>
+                  </table>
+                </article>
+              </div>
+            </section>
+          </div>
+        </div>
+
+        <aside class="docs-v2-page-nav" aria-label="Page navigation">
+          <p class="docs-v2-page-nav-title">On This Page</p>
+          <nav class="docs-v2-page-nav-list">
+            <a class="docs-v2-page-nav-link" href="#overview">Overview</a>
+            <a class="docs-v2-page-nav-link" href="#grid-model">Grid Model</a>
+            <a class="docs-v2-page-nav-link" href="#breakpoints">Breakpoints and Containers</a>
+            <a class="docs-v2-page-nav-link" href="#field-spans">Field Span System</a>
+            <a class="docs-v2-page-nav-link" href="#token-reference">Token Reference</a>
+          </nav>
+        </aside>
+      </div>
+    </main>
+  </div>
+
+  <script src="../scripts/docs-config.js"></script>
+  <script src="../scripts/docs.js"></script>
+</body>
+</html>

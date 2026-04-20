@@ -320,6 +320,44 @@ body.docs-v2-page {
   color: var(--docs-v2-text-secondary);
 }
 
+.docs-v2-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: var(--docs-v2-table-surface);
+  box-shadow: inset 0 0 0 1px var(--docs-v2-border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.docs-v2-table th,
+.docs-v2-table td {
+  padding: 14px 12px;
+  border-bottom: 1px solid var(--docs-v2-border);
+  vertical-align: middle;
+  text-align: left;
+}
+
+.docs-v2-table th {
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--docs-v2-text-muted);
+  background: var(--docs-v2-table-header-surface);
+}
+
+.docs-v2-table td {
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--docs-v2-text-secondary);
+}
+
+.docs-v2-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
 .docs-v2-panel {
   padding: 24px;
   display: grid;
@@ -366,6 +404,10 @@ body.docs-v2-page {
 .docs-v2-card-grid--home-feature {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 18px;
+}
+
+.docs-v2-card-grid--home-feature-single {
+  grid-template-columns: minmax(0, 1fr);
 }
 
 .docs-v2-directory-list {
@@ -472,6 +514,10 @@ body.docs-v2-page {
   box-shadow: 0 14px 28px rgba(17, 24, 39, 0.07);
 }
 
+.docs-v2-home-card--pattern {
+  min-height: 188px;
+}
+
 .docs-v2-home-card-media {
   position: relative;
   display: grid;
@@ -488,6 +534,11 @@ body.docs-v2-page {
 .docs-v2-home-card-media--badges {
   border-right-color: var(--docs-v2-border);
   background: transparent;
+}
+
+.docs-v2-home-card-media--pattern {
+  min-height: 132px;
+  padding: 10px 14px;
 }
 
 .docs-v2-home-card-media--badges::before,
@@ -590,7 +641,8 @@ body.docs-v2-page {
 }
 
 .docs-v2-home-illustration.docs-v2-illus-color-grid,
-.docs-v2-home-illustration.docs-v2-illus-decorative-scene {
+.docs-v2-home-illustration.docs-v2-illus-decorative-scene,
+.docs-v2-home-illustration.docs-v2-illus-pattern-scene {
   width: 100%;
   max-width: none;
   justify-items: stretch;
@@ -1018,6 +1070,117 @@ body.docs-v2-page {
   margin-inline: -12px;
   display: grid;
   place-items: center;
+}
+
+.docs-v2-illus-pattern-scene {
+  width: min(100%, 188px);
+  min-height: 84px;
+}
+
+.docs-v2-illus-pattern-page {
+  display: grid;
+  gap: 8px;
+  width: 100%;
+  padding: 0;
+  background: none;
+  box-shadow: none;
+}
+
+.docs-v2-illus-pattern-stack {
+  display: grid;
+  gap: 8px;
+}
+
+.docs-v2-illus-pattern-panel {
+  display: grid;
+  gap: 6px;
+  padding: 7px 8px 8px;
+  border: 1px solid #DCE5F2;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.97);
+  box-shadow: 0 4px 10px rgba(17, 24, 39, 0.035);
+}
+
+.docs-v2-illus-pattern-panel-head {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.docs-v2-illus-pattern-icon {
+  width: 15px;
+  height: 15px;
+  border-radius: 999px;
+  background: #DCE9FF;
+  box-shadow: inset 0 0 0 1px rgba(61, 99, 221, 0.08);
+}
+
+.docs-v2-illus-pattern-title {
+  display: block;
+  width: 46px;
+  height: 6px;
+  border-radius: 999px;
+  background: #C0CEE4;
+}
+
+.docs-v2-illus-pattern-title--short {
+  width: 34px;
+}
+
+.docs-v2-illus-pattern-guide-grid {
+  display: grid;
+  align-items: end;
+  border: 1px dashed #D5DFEE;
+  border-radius: 8px;
+  background:
+    linear-gradient(180deg, rgba(249, 251, 255, 0.88) 0%, rgba(255, 255, 255, 0.96) 100%);
+  overflow: hidden;
+}
+
+.docs-v2-illus-pattern-guide-grid--4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.docs-v2-illus-pattern-guide-grid--3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.docs-v2-illus-pattern-guide-cell {
+  display: grid;
+  gap: 3px;
+  min-height: 28px;
+  padding: 6px 5px;
+  background-image: linear-gradient(180deg, transparent calc(100% - 1px), rgba(213, 223, 238, 0.72) calc(100% - 1px));
+  background-size: 100% 100%;
+}
+
+.docs-v2-illus-pattern-guide-cell + .docs-v2-illus-pattern-guide-cell {
+  border-left: 1px dashed #D5DFEE;
+}
+
+.docs-v2-illus-pattern-label {
+  display: block;
+  width: 18px;
+  height: 3px;
+  border-radius: 999px;
+  background: #B7C5D8;
+}
+
+.docs-v2-illus-pattern-label--short {
+  width: 14px;
+}
+
+.docs-v2-illus-pattern-control {
+  display: block;
+  width: 100%;
+  height: 9px;
+  border: 1px solid #E5EAF3;
+  border-radius: 4px;
+  background: linear-gradient(180deg, #FFFFFF 0%, #FBFCFE 100%);
+}
+
+.docs-v2-illus-pattern-control--short {
+  width: 74%;
 }
 
 .docs-v2-illus-burst-mark {

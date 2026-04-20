@@ -21,6 +21,12 @@ window.DOCS_CONFIG = {
           description: "Scale, rhythm, inset, and gap patterns reused across the system.",
         },
         {
+          key: "layout-foundation",
+          title: "Layout",
+          path: "foundations/layout.html",
+          description: "Grid structure, gutters, containers, breakpoints, and field span rules for page composition.",
+        },
+        {
           key: "typography",
           title: "Typography",
           path: "foundations/typography.html",
@@ -58,7 +64,7 @@ window.DOCS_CONFIG = {
               key: "fields",
               title: "Fields",
               path: "systems/fields.html",
-              description: "Text-based input patterns for entry, helper text, validation, and view-only states.",
+              description: "Text-based input patterns for entry, helper text, validation, and view-only states. Fields support spans of 3, 6, 9, and 12, with span 6 as the default.",
             },
             {
               key: "choice-controls",
@@ -191,6 +197,28 @@ window.DOCS_CONFIG = {
       title: "Patterns",
       path: "patterns/index.html",
       description: "Composed workflows built from multiple systems and foundations.",
+      directoryTitle: "Pattern Library",
+      directoryCopy: "Patterns document repeatable screen-level compositions built from foundations and components.",
+      children: [
+        {
+          key: "form-layout",
+          title: "Form Layout",
+          path: "patterns/form-layout.html",
+          description: "Reusable structure for process pages that group related fields into panels and supporting regions.",
+        },
+        {
+          key: "page-layout",
+          title: "Page Layout",
+          description: "Higher-order page structure patterns for full-screen workflow composition.",
+          planned: true,
+        },
+        {
+          key: "data-list-layout",
+          title: "Data List Layout",
+          description: "Patterns for list-heavy screens that combine filters, rows, metadata, and actions.",
+          planned: true,
+        },
+      ],
     },
     {
       key: "archive",
