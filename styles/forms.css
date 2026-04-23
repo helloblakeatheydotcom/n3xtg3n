@@ -159,7 +159,9 @@
   box-shadow: var(--focus-ring-shadow-field-error);
 }
 
-.is-hover .field-input {
+.is-hover .field-input:not([aria-invalid="true"]),
+.is-hover .field-select:not([aria-invalid="true"]),
+.is-hover .field-textarea:not([aria-invalid="true"]) {
   border-color: var(--field-border-focus);
   background-color: var(--field-bg-hover);
 }
@@ -203,7 +205,9 @@
   padding-right: 32px;
 }
 
-.states-demo .demo-cell:not(.demo-cell--interactive) .field-input {
+.states-demo .demo-cell:not(.demo-cell--interactive) .field-input,
+.states-demo .demo-cell:not(.demo-cell--interactive) .field-select,
+.states-demo .demo-cell:not(.demo-cell--interactive) .field-textarea {
   pointer-events: none;
 }
 
@@ -254,14 +258,14 @@
 
 .stepper-controls {
   position: absolute;
-  right: 4px;
-  top: 4px;
-  bottom: 4px;
+  right: 1px;
+  top: 1px;
+  bottom: 1px;
   width: 28px;
   display: flex;
   flex-direction: column;
   border-left: 1px solid var(--color-divider);
-  border-radius: 0 var(--radius-field) var(--radius-field) 0;
+  border-radius: 0 calc(var(--radius-field) - 1px) calc(var(--radius-field) - 1px) 0;
   overflow: hidden;
   background: var(--field-stepper-bg);
 }

@@ -3,47 +3,230 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Inputs</title>
+  <title>Form Controls</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../styles/tokens.css" />
   <link rel="stylesheet" href="../styles/base.css" />
+  <link rel="stylesheet" href="../styles/forms.css" />
+  <link rel="stylesheet" href="../styles/panels.css" />
   <link rel="stylesheet" href="../styles/docs.css" />
+  <link rel="stylesheet" href="../styles/form-controls-docs.css" />
 </head>
-<body class="docs-v2-page" data-docs-v2-nav-title="Design System" data-docs-v2-nav-copy="Inputs cover text entry, guided choice, and related form control patterns used across the product." data-docs-v2-nav-kicker="EdPlan NextGen">
+<body class="docs-v2-page form-control-docs-page" data-docs-v2-nav-title="Design System" data-docs-v2-nav-copy="Form Controls define how users enter, select, confirm, and submit information." data-docs-v2-nav-kicker="Components">
   <div class="docs-v2-layout">
     <aside class="docs-v2-sidebar" data-docs-v2-nav></aside>
-
     <main class="docs-v2-main">
       <section class="docs-v2-hero">
-        <p class="docs-v2-eyebrow">Components / Inputs</p>
-        <h2 class="docs-v2-title">Input systems for text entry and selection.</h2>
-        <p class="docs-v2-copy">Inputs cover structured entry, grouped choices, and future compact input controls. Use this section to distinguish text-based fields from selection-based controls before choosing the specific pattern.</p>
+        <p class="docs-v2-eyebrow">Components / Form Controls</p>
+        <h2 class="docs-v2-title">Form Controls</h2>
+        <p class="docs-v2-copy">Form Controls define the reusable controls users interact with to enter, select, confirm, and submit information. Controls are organized by interaction model: text entry, formatted entry, selection, boolean state, and specialized capture.</p>
+        <div class="docs-v2-chip-row">
+          <span class="docs-v2-chip">Text entry</span>
+          <span class="docs-v2-chip">Selection</span>
+          <span class="docs-v2-chip">Boolean state</span>
+          <span class="docs-v2-chip">Specialized capture</span>
+        </div>
       </section>
 
-      <section class="docs-v2-panel">
-        <div class="docs-v2-section-head">
-          <h3 class="docs-v2-section-title">Layout Relationship</h3>
-          <p class="docs-v2-section-copy">Fields participate in the shared layout system rather than defining their own widths in isolation.</p>
-        </div>
-        <div class="docs-v2-card-grid docs-v2-card-grid--compact">
-          <article class="docs-v2-card">
-            <h4 class="docs-v2-card-title">Field Spans</h4>
-            <p class="docs-v2-card-copy">Fields support spans of 3, 6, 9, and 12 within the shared 12-column layout system. Use span 6 by default, then use 3 for short structured pairs, 9 for long inputs, and 12 for full-width content.</p>
-          </article>
-          <article class="docs-v2-card">
-            <h4 class="docs-v2-card-title">Foundation Reference</h4>
-            <p class="docs-v2-card-copy">Use the Layout foundation for the 12-column grid, 16px gutters, panel container width, and responsive 4 / 2 / 1 column behavior that input layouts follow.</p>
-          </article>
-        </div>
-        <p class="docs-v2-note">See <a class="docs-v2-inline-link" href="../foundations/layout.html">Foundations / Layout</a> for the shared grid, gutters, breakpoints, containers, and span system.</p>
-      </section>
+      <div class="docs-v2-page-shell docs-v2-page-shell--with-page-nav">
+        <div class="docs-v2-page-content">
+          <div class="form-control-docs-stack">
+            <section class="docs-section" id="overview">
+              <div class="docs-section-header">
+                <h2 class="panel-example-title">Overview</h2>
+                <p class="docs-lead">Use this section to choose the right control, understand its behavior, and apply consistent validation, accessibility, and layout rules across process pages.</p>
+              </div>
+              <div class="control-overview-grid">
+                <article class="control-overview-card">
+                  <p class="control-kicker">Model</p>
+                  <div class="control-list">
+                    <p class="control-list-item"><span class="control-label">Base control</span>The reusable component surface and shared anatomy, such as Text Input or Text Area.</p>
+                    <p class="control-list-item"><span class="control-label">Value format</span>The data type, parsing, keyboard, masking, and validation rules applied to a base control.</p>
+                    <p class="control-list-item"><span class="control-label">Interaction model</span>The way a user provides a value: direct entry, selection, boolean state, or specialized capture.</p>
+                  </div>
+                </article>
+                <article class="control-overview-card">
+                  <p class="control-kicker">Layout</p>
+                  <div class="control-list">
+                    <p class="control-list-item"><span class="control-label">Fields stay inside panels</span>Process-page form controls should be grouped inside panels with related content.</p>
+                    <p class="control-list-item"><span class="control-label">Widths use Layout</span>Controls participate in the shared <a class="docs-v2-inline-link" href="../foundations/layout.html">Layout foundation</a> spans instead of defining one-off widths.</p>
+                    <p class="control-list-item"><span class="control-label">Patterns decide composition</span>Use <a class="docs-v2-inline-link" href="../patterns/form-layout.html">Form Layout</a> for stacked, paired, and dense structured field arrangements.</p>
+                  </div>
+                </article>
+              </div>
+            </section>
 
-      <section class="docs-v2-panel" data-docs-directory="systems-inputs"></section>
+            <section class="docs-section" id="choosing-controls">
+              <div class="docs-section-header">
+                <h2 class="panel-example-title">Choosing the Right Control</h2>
+                <p class="docs-lead">Start with the user task. Use direct entry when users know the value, selection when valid values are constrained, and specialized controls only when the interaction requires additional behavior.</p>
+              </div>
+              <div class="control-guidance-grid">
+                <article class="control-guidance-card"><h3 class="docs-v2-card-title">Direct Entry</h3><p class="docs-v2-card-copy">Use Text Input, Text Area, or Formatted Inputs when the user enters a value directly.</p></article>
+                <article class="control-guidance-card"><h3 class="docs-v2-card-title">Selection</h3><p class="docs-v2-card-copy">Use Select for simple native lists. Use Combobox when filtering or designed option presentation is required.</p></article>
+                <article class="control-guidance-card"><h3 class="docs-v2-card-title">Boolean State</h3><p class="docs-v2-card-copy">Use Toggle when a setting changes immediately and has a clear on/off state.</p></article>
+                <article class="control-guidance-card"><h3 class="docs-v2-card-title">Specialized Capture</h3><p class="docs-v2-card-copy">Use Electronic Signature when the workflow requires signature capture, consent, or audit-ready confirmation.</p></article>
+              </div>
+            </section>
+
+            <section class="docs-section" id="control-categories">
+              <div class="docs-section-header">
+                <h2 class="panel-example-title">Control Categories</h2>
+                <p class="docs-lead">Choose a control category by the kind of user action required, then choose the specific control or formatted variant inside that category.</p>
+              </div>
+              <div class="docs-v2-card-grid docs-v2-card-grid--compact">
+                <a class="docs-v2-card docs-v2-home-card" href="./text-input.html"><h3 class="docs-v2-card-title">Text Input</h3><p class="docs-v2-card-copy">Single-line direct text entry and the base surface for many formatted values.</p></a>
+                <a class="docs-v2-card docs-v2-home-card" href="./text-area.html"><h3 class="docs-v2-card-title">Text Area</h3><p class="docs-v2-card-copy">Multi-line narrative entry for longer user-provided content.</p></a>
+                <a class="docs-v2-card docs-v2-home-card" href="./formatted-inputs.html"><h3 class="docs-v2-card-title">Formatted Inputs</h3><p class="docs-v2-card-copy">Date, time, number, phone, and other constrained value formats.</p></a>
+                <a class="docs-v2-card docs-v2-home-card" href="./select.html"><h3 class="docs-v2-card-title">Select</h3><p class="docs-v2-card-copy">Native single-value selection for short, simple option lists.</p></a>
+                <a class="docs-v2-card docs-v2-home-card" href="./combobox.html"><h3 class="docs-v2-card-title">Combobox</h3><p class="docs-v2-card-copy">Typed filtering and controlled option presentation for searchable lists.</p></a>
+                <a class="docs-v2-card docs-v2-home-card" href="./choice-controls.html"><h3 class="docs-v2-card-title">Choice Controls</h3><p class="docs-v2-card-copy">Checkbox and radio groups for explicit multi-select and single-select choices.</p></a>
+                <a class="docs-v2-card docs-v2-home-card" href="./segmented-control.html"><h3 class="docs-v2-card-title">Segmented Control</h3><p class="docs-v2-card-copy">Compact mutually exclusive choices for modes, filters, or views.</p></a>
+                <a class="docs-v2-card docs-v2-home-card" href="./toggle.html"><h3 class="docs-v2-card-title">Toggle</h3><p class="docs-v2-card-copy">Immediate on/off state changes with a visible binary value.</p></a>
+                <a class="docs-v2-card docs-v2-home-card" href="./electronic-signature.html"><h3 class="docs-v2-card-title">Electronic Signature</h3><p class="docs-v2-card-copy">Specialized capture for signing, consent, and required confirmation.</p></a>
+              </div>
+            </section>
+
+            <section class="docs-section" id="shared-field-anatomy">
+              <div class="docs-section-header">
+                <h2 class="panel-example-title">Shared Field Anatomy</h2>
+                <p class="docs-lead">Field-shaped controls use the same structural parts so labels, help text, validation, and disabled states behave consistently across Text Input, Text Area, Select, Combobox, and formatted inputs.</p>
+              </div>
+              <div class="control-anatomy-grid">
+                <article class="control-anatomy-card">
+                  <h3 class="docs-v2-card-title">Required Parts</h3>
+                  <div class="control-list">
+                    <p class="control-list-item"><span class="control-label">Label</span>Identifies the value and communicates required, optional, read-only, or managed status when needed.</p>
+                    <p class="control-list-item"><span class="control-label">Control surface</span>The interactive field surface for typing, selecting, filtering, or entering a formatted value.</p>
+                    <p class="control-list-item"><span class="control-label">Validation message</span>Error text replaces helper text when the field is invalid and explains what must be corrected.</p>
+                  </div>
+                </article>
+                <article class="control-anatomy-card">
+                  <h3 class="docs-v2-card-title">Optional Parts</h3>
+                  <div class="control-list">
+                    <p class="control-list-item"><span class="control-label">Helper text</span>Provides short guidance before validation is triggered.</p>
+                    <p class="control-list-item"><span class="control-label">Status icon</span>Used when the control needs a persistent visual cue, such as read-only or managed-required.</p>
+                    <p class="control-list-item"><span class="control-label">Next-step link</span>Used for managed-required fields when the value must be corrected somewhere else.</p>
+                  </div>
+                </article>
+              </div>
+            </section>
+
+            <section class="docs-section" id="shared-field-states">
+              <div class="docs-section-header">
+                <h2 class="panel-example-title">Shared Field States</h2>
+                <p class="docs-lead">These states are shared by field-shaped controls. Component pages should show the states in context, but the token usage is defined here.</p>
+              </div>
+              <article class="docs-token-block">
+                <h3 class="docs-card-title">State Token Usage</h3>
+                <p class="docs-card-caption">Field states describe the user-visible condition of the control and the visual tokens used to communicate that condition.</p>
+                <table class="docs-token-table">
+                  <thead>
+                    <tr><th>State</th><th>When It Applies</th><th>Visual Changes</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Default</td><td>Field is idle with no interaction</td><td><code>--field-bg</code>, <code>--field-border-color</code>, <code>--field-text-color</code></td></tr>
+                    <tr><td>Hover</td><td>Pointer moves over the field, but the field is not focused</td><td><code>--field-bg-hover</code>, <code>--field-border-hover</code></td></tr>
+                    <tr><td>Focus</td><td>Field is active and ready for input</td><td><code>--field-border-focus</code>, <code>--focus-ring-shadow-field</code></td></tr>
+                    <tr><td>Error</td><td>Field contains invalid or missing required input</td><td><code>--field-error-color</code>; error message replaces helper text</td></tr>
+                    <tr><td>Error Hover</td><td>Pointer moves over an invalid field</td><td><code>--field-error-color</code>, <code>--color-danger-bg</code></td></tr>
+                    <tr><td>Error Focus</td><td>Invalid field is focused</td><td><code>--field-error-color</code>, <code>--focus-ring-shadow-field-error</code></td></tr>
+                    <tr><td>Read Only / Disabled</td><td>Field is not editable</td><td><code>--color-disabled-bg</code>, <code>--color-disabled-text</code>, <code>--color-disabled-icon</code></td></tr>
+                    <tr><td>Required and Disabled</td><td>Required value is missing but controlled elsewhere</td><td><code>--field-error-color</code>, <code>--color-disabled-bg</code>, <code>--field-error-link-color</code></td></tr>
+                  </tbody>
+                </table>
+              </article>
+            </section>
+
+            <section class="docs-section" id="shared-field-tokens">
+              <div class="docs-section-header">
+                <h2 class="panel-example-title">Shared Field Token Reference</h2>
+                <p class="docs-lead">These tokens define the field surface, typography, validation, focus, and sizing behavior used by all field-shaped controls.</p>
+              </div>
+              <div class="control-token-grid">
+                <article class="docs-token-block">
+                  <h3 class="docs-card-title">Surface</h3>
+                  <p class="docs-card-caption">Background, border, hover, error, and disabled surface values.</p>
+                  <table class="docs-token-table">
+                    <thead><tr><th>Role</th><th>Token</th><th>Value</th></tr></thead>
+                    <tbody>
+                      <tr><td>Default background</td><td><code>--field-bg</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#FFFFFF"></span>White (#FFFFFF)</span></td></tr>
+                      <tr><td>Hover background</td><td><code>--field-bg-hover</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#F7FAFF"></span>Blue 50 (#F7FAFF)</span></td></tr>
+                      <tr><td>Default border</td><td><code>--field-border-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#D1D5DB"></span>Gray 300 (#D1D5DB)</span></td></tr>
+                      <tr><td>Hover / interaction border</td><td><code>--field-border-focus</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#2567F4"></span>Blue 500 (#2567F4)</span></td></tr>
+                      <tr><td>Error border</td><td><code>--field-error-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#EE031D"></span>Red 500 (#EE031D)</span></td></tr>
+                      <tr><td>Error hover background</td><td><code>--color-danger-bg</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#FFF9FA"></span>Red 50 (#FFF9FA)</span></td></tr>
+                      <tr><td>Disabled background</td><td><code>--color-disabled-bg</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#F3F4F6"></span>Gray 100 (#F3F4F6)</span></td></tr>
+                    </tbody>
+                  </table>
+                </article>
+
+                <article class="docs-token-block">
+                  <h3 class="docs-card-title">Typography</h3>
+                  <p class="docs-card-caption">Text color and type roles for labels, entered values, helper text, errors, and managed-required links.</p>
+                  <table class="docs-token-table">
+                    <thead><tr><th>Role</th><th>Token</th><th>Value</th></tr></thead>
+                    <tbody>
+                      <tr><td>Label font</td><td><code>--font-label-md</code></td><td>600 / 14px / 20px</td></tr>
+                      <tr><td>Control font</td><td><code>--font-control-md</code></td><td>400 / 14px / 20px</td></tr>
+                      <tr><td>Supporting font</td><td><code>--font-supporting-md</code></td><td>400 / 13px / 20px</td></tr>
+                      <tr><td>Label color</td><td><code>--field-label-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#111827"></span>Gray 800 (#111827)</span></td></tr>
+                      <tr><td>Control text</td><td><code>--field-text-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#374151"></span>Gray 700 (#374151)</span></td></tr>
+                      <tr><td>Helper text</td><td><code>--field-helper-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#6B7280"></span>Gray 500 (#6B7280)</span></td></tr>
+                      <tr><td>Error text</td><td><code>--field-error-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#EE031D"></span>Red 500 (#EE031D)</span></td></tr>
+                      <tr><td>Error link</td><td><code>--field-error-link-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#2251C5"></span>Blue 600 (#2251C5)</span></td></tr>
+                    </tbody>
+                  </table>
+                </article>
+
+                <article class="docs-token-block">
+                  <h3 class="docs-card-title">Focus and Validation</h3>
+                  <p class="docs-card-caption">Focus and validation tokens define the visible ring and required/error emphasis used by field-shaped controls.</p>
+                  <table class="docs-token-table">
+                    <thead><tr><th>Role</th><th>Token</th><th>Value</th></tr></thead>
+                    <tbody>
+                      <tr><td>Standard focus ring</td><td><code>--focus-ring-shadow-field</code></td><td>Blue 500 inner ring with subtle blue outer glow</td></tr>
+                      <tr><td>Error focus ring</td><td><code>--focus-ring-shadow-field-error</code></td><td>White separation ring with Red 500 outer ring</td></tr>
+                      <tr><td>Required indicator</td><td><code>--field-error-color</code></td><td><span class="token-value"><span class="token-chip" style="--token-color:#EE031D"></span>Red 500 (#EE031D)</span></td></tr>
+                    </tbody>
+                  </table>
+                </article>
+
+                <article class="docs-token-block">
+                  <h3 class="docs-card-title">Sizing</h3>
+                  <p class="docs-card-caption">Shared height, padding, radius, and layout-span references for field-shaped controls.</p>
+                  <table class="docs-token-table">
+                    <thead><tr><th>Role</th><th>Token</th><th>Value</th></tr></thead>
+                    <tbody>
+                      <tr><td>Field height</td><td><code>--field-height</code></td><td>40px</td></tr>
+                      <tr><td>Horizontal padding</td><td><code>--field-padding-x</code></td><td>12px</td></tr>
+                      <tr><td>Vertical padding</td><td><code>--field-padding-y</code></td><td>8px</td></tr>
+                      <tr><td>Field radius</td><td><code>--radius-field</code></td><td>4px</td></tr>
+                      <tr><td>Supported layout spans</td><td><code>--layout-field-span-*</code></td><td>3 / 4 / 6 / 12</td></tr>
+                    </tbody>
+                  </table>
+                </article>
+              </div>
+            </section>
+
+          </div>
+        </div>
+        <aside class="docs-v2-page-nav" aria-label="Page navigation">
+          <p class="docs-v2-page-nav-title">On This Page</p>
+          <nav class="docs-v2-page-nav-list">
+            <a class="docs-v2-page-nav-link" href="#overview">Overview</a>
+            <a class="docs-v2-page-nav-link" href="#choosing-controls">Choosing Controls</a>
+            <a class="docs-v2-page-nav-link" href="#control-categories">Control Categories</a>
+            <a class="docs-v2-page-nav-link" href="#shared-field-anatomy">Shared Anatomy</a>
+            <a class="docs-v2-page-nav-link" href="#shared-field-states">Shared States</a>
+            <a class="docs-v2-page-nav-link" href="#shared-field-tokens">Shared Tokens</a>
+          </nav>
+        </aside>
+      </div>
     </main>
   </div>
-
   <script src="../scripts/docs-config.js"></script>
   <script src="../scripts/docs.js"></script>
 </body>

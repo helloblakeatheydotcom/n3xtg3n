@@ -1,0 +1,418 @@
+.form-control-docs-page .form-control-docs-stack {
+  display: grid;
+  gap: 0;
+}
+
+.form-control-docs-page .form-control-docs-stack > .docs-section,
+.form-control-docs-page .form-control-docs-stack > .example-block {
+  padding: 40px 0 32px;
+  border-top: 1px solid var(--docs-v2-border);
+}
+
+.form-control-docs-page .form-control-docs-stack > .example-block {
+  padding-left: 16px;
+}
+
+.form-control-docs-page .form-control-docs-stack > :first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.form-control-docs-page .form-control-docs-stack > :last-child {
+  padding-bottom: 0;
+}
+
+.form-control-docs-page .panel-example-title {
+  margin: 0;
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 700;
+  color: var(--docs-v2-text);
+}
+
+.form-control-docs-page .example-block .panel-example-title {
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: 600;
+}
+
+.form-control-docs-page .docs-section-header {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.form-control-docs-page .docs-lead,
+.form-control-docs-page .example-caption,
+.form-control-docs-page .docs-card-caption,
+.form-control-docs-page .control-anatomy-note,
+.form-control-docs-page .docs-list {
+  max-width: var(--docs-v2-prose-measure);
+}
+
+.form-control-docs-page .docs-lead,
+.form-control-docs-page .example-caption {
+  margin: 0;
+  font-size: 14px;
+  line-height: 22px;
+  color: var(--docs-v2-text-secondary);
+}
+
+.form-control-docs-page .example-block {
+  display: grid;
+  gap: 0;
+}
+
+.form-control-docs-page .example-block > .panel-example-title,
+.form-control-docs-page .example-block > .example-caption {
+  max-width: var(--docs-v2-prose-measure);
+}
+
+.form-control-docs-page .example-block > .panel-example-title + .example-caption {
+  margin-top: 6px;
+}
+
+.form-control-docs-page .example-caption + .card,
+.form-control-docs-page .example-caption + .panel,
+.form-control-docs-page .example-caption + .control-example-stack,
+.form-control-docs-page .example-caption + .docs-v2-card-grid {
+  margin-top: 18px;
+}
+
+.form-control-docs-page .control-overview-grid,
+.form-control-docs-page .control-guidance-grid,
+.form-control-docs-page .control-anatomy-grid,
+.form-control-docs-page .control-example-grid {
+  display: grid;
+  gap: 16px;
+}
+
+.form-control-docs-page .control-overview-grid,
+.form-control-docs-page .control-guidance-grid,
+.form-control-docs-page .control-anatomy-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.form-control-docs-page .control-overview-card,
+.form-control-docs-page .control-guidance-card,
+.form-control-docs-page .control-anatomy-card,
+.form-control-docs-page .control-spec-card,
+.form-control-docs-page .card {
+  border-radius: 16px;
+  border: 1px solid var(--docs-v2-border);
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: none;
+}
+
+.form-control-docs-page .control-overview-card,
+.form-control-docs-page .control-guidance-card,
+.form-control-docs-page .control-anatomy-card,
+.form-control-docs-page .control-spec-card {
+  padding: 18px;
+}
+
+.form-control-docs-page .control-kicker {
+  margin: 0 0 12px;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--docs-v2-text-muted);
+}
+
+.form-control-docs-page .control-list {
+  display: grid;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.form-control-docs-page .control-list-item {
+  margin: 0;
+  padding: 12px 0;
+  border-top: 1px solid var(--docs-v2-border);
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--docs-v2-text-secondary);
+}
+
+.form-control-docs-page .control-list-item:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.form-control-docs-page .control-label {
+  display: block;
+  margin-bottom: 2px;
+  font-weight: 600;
+  color: var(--docs-v2-text);
+}
+
+.form-control-docs-page .control-anatomy-stack {
+  display: grid;
+  gap: 16px;
+}
+
+.form-control-docs-page .control-anatomy-panel {
+  padding: 18px;
+  border: 1px dashed var(--docs-v2-border-strong);
+  border-radius: 12px;
+  background: rgba(248, 250, 253, 0.9);
+}
+
+.form-control-docs-page .control-anatomy-panel .field-body,
+.form-control-docs-page .control-anatomy-panel .choice-group {
+  max-width: none;
+}
+
+.form-control-docs-page .control-anatomy-note {
+  margin: 14px 0 0;
+  font-size: 13px;
+  line-height: 20px;
+  color: var(--docs-v2-text-secondary);
+}
+
+.form-control-docs-page .control-example-stack {
+  display: grid;
+  gap: 24px;
+}
+
+.form-control-docs-page .control-context {
+  display: grid;
+  gap: 4px;
+  padding-left: 16px;
+  border-left: 1px solid var(--docs-v2-border);
+}
+
+.form-control-docs-page .control-context + .panel,
+.form-control-docs-page .control-context + .card {
+  margin-top: 14px;
+}
+
+.form-control-docs-page .control-context-title,
+.form-control-docs-page .control-context-copy {
+  margin: 0;
+}
+
+.form-control-docs-page .control-demo-panel .panel-body {
+  padding-top: 24px;
+}
+
+.form-control-docs-page .control-form-stack {
+  display: grid;
+  gap: var(--space-6);
+}
+
+.form-control-docs-page .control-form-row {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: var(--space-6);
+  align-items: start;
+}
+
+.form-control-docs-page .control-span-3 { grid-column: span 3; }
+.form-control-docs-page .control-span-4 { grid-column: span 4; }
+.form-control-docs-page .control-span-6 { grid-column: span 6; }
+.form-control-docs-page .control-span-12 { grid-column: span 12; }
+
+.form-control-docs-page .control-form-row .field-body,
+.form-control-docs-page .control-form-stack .field-body {
+  max-width: none;
+}
+
+.form-control-docs-page .control-token-grid {
+  display: grid;
+  gap: 24px;
+}
+
+.form-control-docs-page .docs-token-block .docs-card-title,
+.form-control-docs-page .docs-token-block .docs-card-caption {
+  max-width: var(--docs-v2-prose-measure);
+}
+
+.form-control-docs-page .docs-token-block .docs-card-title {
+  margin: 0;
+  color: var(--docs-v2-text);
+}
+
+.form-control-docs-page .docs-token-block .docs-card-caption {
+  margin: 6px 0 0;
+  font-size: 13px;
+  line-height: 20px;
+  color: var(--docs-v2-text-secondary);
+}
+
+.form-control-docs-page .docs-token-table {
+  width: 100%;
+  margin: 16px 0 0;
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid #D7DEE8;
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--docs-v2-table-surface);
+  box-shadow: none;
+}
+
+.form-control-docs-page .docs-token-table th,
+.form-control-docs-page .docs-token-table td {
+  padding: 14px 12px;
+  border-bottom: 1px solid var(--docs-v2-border);
+  vertical-align: middle;
+  font-size: 14px;
+  line-height: 20px;
+  text-align: left;
+}
+
+.form-control-docs-page .docs-token-table th {
+  background: var(--docs-v2-table-header-surface);
+  color: var(--docs-v2-text-muted);
+  font-size: 11px;
+  line-height: 16px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.form-control-docs-page .docs-token-table code {
+  padding: 2px 6px;
+  border-radius: 6px;
+  background: #FFFFFF;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.form-control-docs-page .docs-token-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.form-control-docs-page .signature-box {
+  display: grid;
+  align-content: end;
+  min-height: 148px;
+  padding: 16px;
+  border: 1px dashed var(--field-border-color);
+  border-radius: var(--radius-field);
+  background: var(--color-surface);
+  color: var(--field-helper-color);
+  font: var(--font-supporting-md);
+}
+
+.form-control-docs-page .signature-line {
+  display: block;
+  height: 1px;
+  margin-top: 42px;
+  background: var(--color-border-default);
+}
+
+.form-control-docs-page .segmented-control,
+.form-control-docs-page .toggle-row,
+.form-control-docs-page .combobox-results {
+  font: var(--font-control-md);
+}
+
+.form-control-docs-page .segmented-control {
+  display: inline-flex;
+  padding: 3px;
+  border: 1px solid var(--field-border-color);
+  border-radius: var(--radius-button);
+  background: var(--color-surface-subtle);
+}
+
+.form-control-docs-page .segmented-option {
+  min-height: 32px;
+  padding: 0 12px;
+  border: 0;
+  border-radius: var(--radius-field);
+  background: transparent;
+  color: var(--field-text-color);
+  font: inherit;
+  cursor: pointer;
+}
+
+.form-control-docs-page .segmented-option[aria-pressed="true"] {
+  background: var(--color-surface);
+  box-shadow: 0 1px 2px rgba(17, 24, 39, 0.08);
+  color: var(--color-text-primary);
+}
+
+.form-control-docs-page .toggle-row {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  color: var(--field-text-color);
+}
+
+.form-control-docs-page .toggle-switch {
+  position: relative;
+  width: 42px;
+  height: 24px;
+  border: 1px solid var(--field-border-color);
+  border-radius: 999px;
+  background: var(--color-disabled-bg);
+  cursor: pointer;
+}
+
+.form-control-docs-page .toggle-switch::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--color-surface);
+  box-shadow: 0 1px 2px rgba(17, 24, 39, 0.18);
+  transition: transform 0.16s ease;
+}
+
+.form-control-docs-page .toggle-switch[aria-checked="true"] {
+  border-color: var(--color-interactive-primary);
+  background: var(--color-interactive-primary);
+}
+
+.form-control-docs-page .toggle-switch[aria-checked="true"]::after {
+  transform: translateX(18px);
+}
+
+.form-control-docs-page .combobox-results {
+  display: grid;
+  gap: 2px;
+  margin-top: var(--space-2);
+  padding: var(--space-1);
+  border: 1px solid var(--field-border-color);
+  border-radius: var(--radius-field);
+  background: var(--color-surface);
+}
+
+.form-control-docs-page .combobox-option {
+  padding: 7px 8px;
+  border-radius: var(--radius-field);
+  color: var(--field-text-color);
+}
+
+.form-control-docs-page .combobox-option:hover,
+.form-control-docs-page .combobox-option[aria-selected="true"] {
+  background: var(--field-bg-hover);
+}
+
+@media (max-width: 900px) {
+  .form-control-docs-page .control-overview-grid,
+  .form-control-docs-page .control-guidance-grid,
+  .form-control-docs-page .control-anatomy-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .form-control-docs-page .control-form-row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .form-control-docs-page .control-span-3,
+  .form-control-docs-page .control-span-4,
+  .form-control-docs-page .control-span-6,
+  .form-control-docs-page .control-span-12 {
+    grid-column: auto;
+  }
+}
