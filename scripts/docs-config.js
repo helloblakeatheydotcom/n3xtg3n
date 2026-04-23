@@ -56,15 +56,39 @@ window.DOCS_CONFIG = {
       children: [
         {
           key: "systems-inputs",
-          title: "Inputs",
+          title: "Form Controls",
           path: "systems/inputs.html",
-          description: "Text entry and selection controls used for structured input inside panels and process flows.",
+          description: "Controls users interact with to enter, select, confirm, and submit information.",
           children: [
             {
-              key: "fields",
-              title: "Fields",
-              path: "systems/fields.html",
-              description: "Text-based input patterns for entry, helper text, validation, and view-only states. Fields support spans of 3, 6, 9, and 12, with span 6 as the default.",
+              key: "text-input",
+              title: "Text Input",
+              path: "systems/text-input.html",
+              description: "Base single-line control for direct text entry, helper text, validation, and shared field states.",
+            },
+            {
+              key: "text-area",
+              title: "Text Area",
+              path: "systems/text-area.html",
+              description: "Multi-line control for narrative text, notes, descriptions, and longer direct-entry content.",
+            },
+            {
+              key: "formatted-inputs",
+              title: "Formatted Inputs",
+              path: "systems/formatted-inputs.html",
+              description: "Date, time, number, phone, and other constrained value formats built on shared field styling.",
+            },
+            {
+              key: "select",
+              title: "Select",
+              path: "systems/select.html",
+              description: "Single-value selection from a known list of options.",
+            },
+            {
+              key: "combobox",
+              title: "Combobox",
+              path: "systems/combobox.html",
+              description: "Searchable selection control for filtering and choosing from longer option sets.",
             },
             {
               key: "choice-controls",
@@ -73,16 +97,22 @@ window.DOCS_CONFIG = {
               description: "Checkbox and radio patterns for grouped single-select and multi-select decisions.",
             },
             {
-              key: "segmented",
-              title: "Segmented",
-              description: "Compact segmented choices for mutually exclusive options.",
-              planned: true,
+              key: "segmented-control",
+              title: "Segmented Control",
+              path: "systems/segmented-control.html",
+              description: "Compact mutually exclusive choices for modes, filters, or views.",
             },
             {
-              key: "toggles",
-              title: "Toggles",
-              description: "Binary on/off controls for immediate state changes.",
-              planned: true,
+              key: "toggle",
+              title: "Toggle",
+              path: "systems/toggle.html",
+              description: "Boolean on/off control for immediate state changes.",
+            },
+            {
+              key: "electronic-signature",
+              title: "Electronic Signature",
+              path: "systems/electronic-signature.html",
+              description: "Specialized capture control for signatures, consent, and required confirmation.",
             },
           ],
         },
@@ -225,6 +255,14 @@ window.DOCS_CONFIG = {
       title: "Archive",
       path: "archive/index.html",
       description: "Legacy documentation and preserved historical variants.",
+      children: [
+        {
+          key: "legacy-fields",
+          title: "Legacy Fields",
+          path: "archive/fields-legacy.html",
+          description: "Preserved reference copy of the previous Fields page before the Form Controls restructure.",
+        },
+      ],
     },
   ],
 };
