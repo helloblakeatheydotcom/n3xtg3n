@@ -92,10 +92,59 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const siteBasePath = siteBaseParts.length ? `/${siteBaseParts.join("/")}` : "";
   const toSiteHref = (path) => `${siteBasePath}/${path}`;
+  const normalizePath = (path) => String(path || "").replace(/\/+$/, "");
   const navMount = document.querySelector("[data-docs-v2-nav]");
-  const navTitle = document.body.dataset.docsV2NavTitle || "Design System";
-  const navCopy = document.body.dataset.docsV2NavCopy || "Shared foundations and reusable systems for the product UI.";
-  const navKicker = document.body.dataset.docsV2NavKicker || "EdPlan NextGen";
+  const navKicker = "EDPLAN NEXTGEN";
+  const navTitle = "Design System";
+  const navCopy = "Shared foundations, components, and patterns for consistent product UI decisions across the platform.";
+  const navStateKey = "docs-v2-nav-state";
+  const readNavState = () => {
+    try {
+      const raw = window.localStorage.getItem(navStateKey);
+      return raw ? JSON.parse(raw) : {};
+    } catch (error) {
+      return {};
+    }
+  };
+  const writeNavState = (state) => {
+    try {
+      window.localStorage.setItem(navStateKey, JSON.stringify(state));
+    } catch (error) {
+      // Ignore storage write failures and fall back to current-page expansion.
+    }
+  };
+  const navState = readNavState();
+
+  const entryContainsCurrentPage = (entry) => {
+    if (entry.path && normalizePath(toSiteHref(entry.path)) === currentPath) {
+      return true;
+    }
+
+    return Boolean(entry.children && entry.children.some((child) => entryContainsCurrentPage(child)));
+  };
+
+  const seedNavState = (entries) => {
+    let didChange = false;
+
+    const visit = (items) => {
+      (items || []).forEach((entry) => {
+        const visibleChildren = (entry.children || []).filter((child) => child.path);
+        if (visibleChildren.length && !Object.prototype.hasOwnProperty.call(navState, entry.key)) {
+          navState[entry.key] = entryContainsCurrentPage(entry);
+          didChange = true;
+        }
+        visit(visibleChildren);
+      });
+    };
+
+    visit(entries);
+
+    if (didChange) {
+      writeNavState(navState);
+    }
+  };
+
+  seedNavState(topLevelPages);
 
   const renderNavTree = (entries, level = 0) => {
     const visibleEntries = (entries || []).filter((entry) => entry.path);
@@ -106,12 +155,29 @@ document.addEventListener("DOMContentLoaded", () => {
         ${visibleEntries.map((entry) => {
           const childMarkup = renderNavTree(entry.children || [], level + 1);
           const label = escapeHtml(entry.navLabel || entry.title);
+          const status = entry.status ? `<span class="docs-v2-nav-status docs-v2-nav-status--${escapeHtml(String(entry.status).toLowerCase())}">${escapeHtml(entry.status)}</span>` : "";
           const href = toSiteHref(entry.path);
           const linkClass = level === 0 ? "docs-v2-nav-link" : "docs-v2-nav-link docs-v2-nav-link--nested";
+          const hasChildren = Boolean(childMarkup);
+          const childId = hasChildren ? `docs-nav-children-${escapeHtml(entry.key)}` : "";
+          const isExpanded = hasChildren && Boolean(navState[entry.key]);
+          const toggle = hasChildren
+            ? `<button class="docs-v2-nav-toggle" type="button" aria-expanded="${isExpanded ? "true" : "false"}" aria-controls="${childId}" data-docs-v2-nav-toggle data-docs-v2-nav-key="${escapeHtml(entry.key)}">
+                <svg viewBox="0 0 14 7" focusable="false" aria-hidden="true">
+                  <path d="M1 1 7 6 13 1" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </button>`
+            : `<span class="docs-v2-nav-toggle-spacer" aria-hidden="true"></span>`;
           return `
             <div class="docs-v2-nav-node docs-v2-nav-node--${level}">
-              <a class="${linkClass}" href="${href}" data-docs-v2-link>${label}</a>
-              ${childMarkup}
+              <div class="docs-v2-nav-node-head">
+                ${toggle}
+                <a class="${linkClass}" href="${href}" data-docs-v2-link>
+                  <span class="docs-v2-nav-link-text">${label}</span>
+                  ${status}
+                </a>
+              </div>
+              ${hasChildren ? `<div id="${childId}" class="docs-v2-nav-children" ${isExpanded ? "" : "hidden"}>${childMarkup}</div>` : ""}
             </div>
           `;
         }).join("")}
@@ -140,6 +206,24 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
       link.removeAttribute("aria-current");
     }
+  });
+
+  document.querySelectorAll("[data-docs-v2-nav-toggle]").forEach((toggle) => {
+    const controlsId = toggle.getAttribute("aria-controls");
+    const content = controlsId ? document.getElementById(controlsId) : null;
+    const navKey = toggle.getAttribute("data-docs-v2-nav-key");
+    if (!(toggle instanceof HTMLButtonElement) || !content) return;
+
+    toggle.addEventListener("click", () => {
+      const isExpanded = toggle.getAttribute("aria-expanded") === "true";
+      const nextExpanded = !isExpanded;
+      toggle.setAttribute("aria-expanded", String(nextExpanded));
+      content.hidden = !nextExpanded;
+      if (navKey) {
+        navState[navKey] = nextExpanded;
+        writeNavState(navState);
+      }
+    });
   });
 
   document.querySelectorAll("[data-docs-directory]").forEach((mount) => {
