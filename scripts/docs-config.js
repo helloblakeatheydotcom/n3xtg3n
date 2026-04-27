@@ -148,8 +148,8 @@ window.DOCS_CONFIG = {
         },
         {
           key: "systems-layout",
-          title: "Layout",
-          path: "systems/layout.html",
+          title: "Containers",
+          path: "systems/containers.html",
           description: "Structural containers that group content, actions, and related fields into usable page composition.",
           children: [
             {

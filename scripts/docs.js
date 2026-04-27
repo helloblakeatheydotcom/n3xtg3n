@@ -69,7 +69,7 @@ function renderDirectoryList(items, toSiteHref) {
   `;
 }
 
-document.addEventListener("DOMContentLoaded", () => {
+function initDocsPage() {
   const docsConfig = window.DOCS_CONFIG || { pages: [] };
   const topLevelPages = docsConfig.pages || [];
   const allEntries = flattenEntries(topLevelPages);
@@ -98,6 +98,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const navTitle = "Design System";
   const navCopy = "Shared foundations, components, and patterns for consistent product UI decisions across the platform.";
   const navStateKey = "docs-v2-nav-state";
+  const navScrollKey = "docs-v2-nav-scroll";
   const readNavState = () => {
     try {
       const raw = window.localStorage.getItem(navStateKey);
@@ -113,7 +114,25 @@ document.addEventListener("DOMContentLoaded", () => {
       // Ignore storage write failures and fall back to current-page expansion.
     }
   };
+  const readNavScroll = () => {
+    try {
+      const raw = window.sessionStorage.getItem(navScrollKey);
+      if (!raw) return 0;
+      const value = Number.parseInt(raw, 10);
+      return Number.isFinite(value) ? value : 0;
+    } catch (error) {
+      return 0;
+    }
+  };
+  const writeNavScroll = (value) => {
+    try {
+      window.sessionStorage.setItem(navScrollKey, String(Math.max(0, Math.round(value))));
+    } catch (error) {
+      // Ignore storage write failures for sidebar scroll state.
+    }
+  };
   const navState = readNavState();
+  const savedNavScroll = readNavScroll();
 
   const entryContainsCurrentPage = (entry) => {
     if (entry.path && normalizePath(toSiteHref(entry.path)) === currentPath) {
@@ -197,6 +216,10 @@ document.addEventListener("DOMContentLoaded", () => {
         ${renderNavTree(topLevelPages)}
       </nav>
     `;
+    navMount.scrollTop = savedNavScroll;
+    window.requestAnimationFrame(() => {
+      navMount.scrollTop = savedNavScroll;
+    });
   }
 
   document.querySelectorAll("[data-docs-v2-link]").forEach((link) => {
@@ -206,6 +229,12 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
       link.removeAttribute("aria-current");
     }
+
+    link.addEventListener("click", () => {
+      if (navMount) {
+        writeNavScroll(navMount.scrollTop);
+      }
+    });
   });
 
   document.querySelectorAll("[data-docs-v2-nav-toggle]").forEach((toggle) => {
@@ -223,7 +252,22 @@ document.addEventListener("DOMContentLoaded", () => {
         navState[navKey] = nextExpanded;
         writeNavState(navState);
       }
+      if (navMount) {
+        writeNavScroll(navMount.scrollTop);
+      }
     });
+  });
+
+  if (navMount) {
+    navMount.addEventListener("scroll", () => {
+      writeNavScroll(navMount.scrollTop);
+    }, { passive: true });
+  }
+
+  window.addEventListener("pagehide", () => {
+    if (navMount) {
+      writeNavScroll(navMount.scrollTop);
+    }
   });
 
   document.querySelectorAll("[data-docs-directory]").forEach((mount) => {
@@ -296,4 +340,10 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
-});
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initDocsPage, { once: true });
+} else {
+  initDocsPage();
+}
