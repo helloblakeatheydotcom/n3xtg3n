@@ -1,2 +1,290 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>Combobox</title><link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" /><link rel="stylesheet" href="../styles/tokens.css" /><link rel="stylesheet" href="../styles/base.css" /><link rel="stylesheet" href="../styles/forms.css" /><link rel="stylesheet" href="../styles/panels.css" /><link rel="stylesheet" href="../styles/docs.css" /><link rel="stylesheet" href="../styles/form-controls-docs.css" /></head><body class="docs-v2-page form-control-docs-page" data-docs-v2-nav-title="Design System" data-docs-v2-nav-copy="Combobox combines text entry with searchable selection." data-docs-v2-nav-kicker="Components"><div class="docs-v2-layout"><aside class="docs-v2-sidebar" data-docs-v2-nav></aside><main class="docs-v2-main"><section class="docs-v2-hero"><p class="docs-v2-eyebrow">Components / Form Controls</p><h2 class="docs-v2-title">Combobox</h2><p class="docs-v2-copy">Combobox combines text input with a controlled option list. Use it when users need to search, filter, or select from an option set whose open menu and option rows need system styling.</p><div class="docs-v2-chip-row"><span class="docs-v2-chip">Searchable selection</span><span class="docs-v2-chip">Filtering</span><span class="docs-v2-chip">Optional create-new</span></div></section><div class="docs-v2-page-shell docs-v2-page-shell--with-page-nav"><div class="docs-v2-page-content"><div class="form-control-docs-stack"><section class="docs-section" id="overview"><div class="docs-section-header"><h2 class="panel-example-title">Overview</h2><p class="docs-lead">Combobox is the controlled-menu selection pattern. The user types to narrow a constrained list, then commits one of the available values unless create-new behavior is explicitly supported.</p></div><div class="control-guidance-grid"><article class="control-guidance-card"><h3 class="docs-v2-card-title">Combobox vs Select</h3><p class="docs-v2-card-copy">Use Combobox when the list is too long to scan, users benefit from filtering, or the option menu needs consistent system styling.</p></article><article class="control-guidance-card"><h3 class="docs-v2-card-title">Combobox vs Text Input</h3><p class="docs-v2-card-copy">Use Text Input when the value is unconstrained and users do not select from system-defined options.</p></article></div></section><section class="example-block" id="example"><h2 class="panel-example-title">Interactive Structure</h2><p class="example-caption">This example shows the field surface, typed query, and filtered result list using the same field tokens.</p><section class="panel control-demo-panel"><div class="panel-header"><div class="panel-left"><h3 class="panel-title">Assignment</h3></div></div><div class="panel-body"><div class="control-form-row"><div class="field-body control-span-4"><label class="field-label" for="combo-case-manager">Case Manager</label><div class="field-input-wrapper"><input id="combo-case-manager" class="field-input" type="text" value="Tor" role="combobox" aria-expanded="true" aria-controls="combo-results" aria-autocomplete="list" /></div><div id="combo-results" class="combobox-results" role="listbox"><div class="combobox-option" role="option" aria-selected="true">A. Torres</div><div class="combobox-option" role="option">T. Morgan</div><div class="combobox-option" role="option">R. Porter</div></div><div class="field-helper-slot"><p class="field-helper">Type to filter available staff.</p></div></div></div></div></section></section><section class="docs-section" id="behavior"><div class="docs-section-header"><h2 class="panel-example-title">Behavior</h2><p class="docs-lead">Document keyboard navigation, option hover and selected states, empty state, loading state, selected value persistence, and whether unmatched text can be submitted or converted into a new item.</p></div></section></div></div><aside class="docs-v2-page-nav"><p class="docs-v2-page-nav-title">On This Page</p><nav class="docs-v2-page-nav-list"><a class="docs-v2-page-nav-link" href="#overview">Overview</a><a class="docs-v2-page-nav-link" href="#example">Interactive Structure</a><a class="docs-v2-page-nav-link" href="#behavior">Behavior</a></nav></aside></div></main></div><script src="../scripts/docs-config.js"></script><script src="../scripts/docs.js"></script></body></html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Combobox</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../styles/tokens.css" />
+  <link rel="stylesheet" href="../styles/base.css" />
+  <link rel="stylesheet" href="../styles/forms.css" />
+  <link rel="stylesheet" href="../styles/panels.css" />
+  <link rel="stylesheet" href="../styles/docs.css" />
+  <link rel="stylesheet" href="../styles/combobox.css" />
+  <link rel="stylesheet" href="../styles/form-controls-docs.css" />
+</head>
+<body class="docs-v2-page form-control-docs-page" data-docs-v2-nav-title="Design System" data-docs-v2-nav-copy="Combobox is the designed, searchable selection control for richer option lists." data-docs-v2-nav-kicker="Components">
+  <div class="docs-v2-layout">
+    <aside class="docs-v2-sidebar" data-docs-v2-nav></aside>
+
+    <main class="docs-v2-main">
+      <section class="docs-v2-hero">
+        <p class="docs-v2-eyebrow">Components / Form Controls</p>
+        <h2 class="docs-v2-title">Combobox</h2>
+        <p class="docs-v2-copy">Combobox is the designed, searchable selection control for option sets that are too long to scan comfortably with Select, need richer row content, or require controlled popup styling.</p>
+        <div class="docs-v2-chip-row">
+          <span class="docs-v2-chip">Searchable selection</span>
+          <span class="docs-v2-chip">Single or multiple</span>
+          <span class="docs-v2-chip">Optional grouped rows</span>
+        </div>
+      </section>
+
+      <div class="docs-v2-page-shell docs-v2-page-shell--with-page-nav">
+        <div class="docs-v2-page-content">
+          <div class="form-control-docs-stack">
+            <section class="docs-section" id="overview">
+              <div class="docs-section-header">
+                <h2 class="panel-example-title">Overview</h2>
+                <p class="docs-lead">Combobox supports searchable selection from a constrained set of options. It can be configured for single selection or multiple selection, with optional features such as secondary text, grouped options, clear, and create-new behavior.</p>
+              </div>
+              <div class="control-overview-grid">
+                <article class="control-overview-card">
+                  <p class="control-kicker">Use Combobox When</p>
+                  <div class="control-list">
+                    <p class="control-list-item"><span class="control-label">The list is too long to scan quickly</span>Users benefit from typing to narrow a constrained option set.</p>
+                    <p class="control-list-item"><span class="control-label">The popup rows need system styling</span>Use Combobox when rows need secondary text, grouping, selected-state treatment, or custom actions.</p>
+                    <p class="control-list-item"><span class="control-label">The workflow needs richer selection behavior</span>Clear, grouped, multi-select, and create-new behavior all fit inside the Combobox family.</p>
+                  </div>
+                </article>
+                <article class="control-overview-card">
+                  <p class="control-kicker">Use Something Else When</p>
+                  <div class="control-list">
+                    <p class="control-list-item"><span class="control-label">The list is short and native is acceptable</span>Use <a class="docs-v2-inline-link" href="./select.html">Select</a> for short lists where browser and mobile menu behavior is preferred.</p>
+                    <p class="control-list-item"><span class="control-label">The value is unconstrained</span>Use <a class="docs-v2-inline-link" href="./text-input.html">Text Input</a> when users are not choosing from a system-defined list.</p>
+                    <p class="control-list-item"><span class="control-label">All options should remain visible</span>Use visible choice patterns when users need to compare a small set of options without opening a popup or searching.</p>
+                  </div>
+                </article>
+              </div>
+            </section>
+
+            <section class="docs-section" id="component-model">
+              <div class="docs-section-header">
+                <h2 class="panel-example-title">Component Model</h2>
+                <p class="docs-lead">Combobox includes two selection modes and a set of optional presentation and interaction features. Start with the selection mode, then add only the supporting features the workflow needs.</p>
+              </div>
+              <div class="control-guidance-grid">
+                <article class="control-guidance-card">
+                  <h3 class="docs-v2-card-title">Single-Select</h3>
+                  <p class="docs-v2-card-copy">Use for one chosen value. The field shows the selected item and can optionally support clear and create-new behavior.</p>
+                </article>
+                <article class="control-guidance-card">
+                  <h3 class="docs-v2-card-title">Multi-Select</h3>
+                  <p class="docs-v2-card-copy">Use when users need to choose more than one item. Selected values remain visible inside the field as removable chips.</p>
+                </article>
+                <article class="control-guidance-card">
+                  <h3 class="docs-v2-card-title">Optional Features</h3>
+                  <p class="docs-v2-card-copy">Secondary text, grouped options, clear, selected-state checkmarks, and create-new behavior can be added as needed without changing the core interaction model.</p>
+                </article>
+                <article class="control-guidance-card">
+                  <h3 class="docs-v2-card-title">Option Rows</h3>
+                  <p class="docs-v2-card-copy">Rows can include a primary label, optional secondary text, grouped sections, selected-state treatment, and contextual actions such as remove for user-added values.</p>
+                </article>
+              </div>
+            </section>
+
+            <section class="example-block" id="single-select-examples">
+              <h2 class="panel-example-title">Single-Select Examples</h2>
+              <p class="example-caption">These examples use the same interactive Combobox behavior with different option presentation patterns. Search, clear, selected-state treatment, and keyboard movement stay consistent across each variation.</p>
+              <section class="panel control-demo-panel control-demo-panel--overflow-visible">
+                <div class="panel-header">
+                  <div class="panel-left">
+                    <h3 class="panel-title">Student Assignment</h3>
+                  </div>
+                </div>
+                <div class="panel-body">
+                  <div class="control-form-row">
+                    <div class="field-body control-span-4">
+                      <label class="field-label" for="combobox-docs-basic">Case Manager (single select)</label>
+                      <div class="combobox" data-combobox data-combobox-options="Maya Anderson|Lucas Bennett|Priya Chandra|Ethan Coleman|Naomi Diaz|Samuel Foster|Olivia Grant|Marcus Hayes|Elena Ibarra|Daniel Kim|Hannah Lewis|Sofia Martinez|Caleb Nguyen|Grace Owens|Liam Parker|Natalie Quinn|Jordan Rivera|Avery Scott|Chloe Thompson|Adrian Torres|Emma Underwood|Mia Valdez|Owen Walker|Harper Young|Blake Zimmerman">
+                        <div class="field-input-wrapper combobox-input-wrap">
+                          <input id="combobox-docs-basic" class="field-input combobox-input" type="text" autocomplete="off" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="combobox-docs-basic-list" data-combobox-input placeholder="Search staff" />
+                          <button class="combobox-clear" type="button" data-combobox-clear aria-label="Clear case manager">
+                            <svg viewBox="0 0 16 16" focusable="false" aria-hidden="true"><path d="M4.5 4.5l7 7M11.5 4.5l-7 7" fill="none" stroke="currentColor" stroke-linecap="round" /></svg>
+                          </button>
+                        </div>
+                        <div id="combobox-docs-basic-list" class="combobox-list" role="listbox" data-combobox-list hidden></div>
+                      </div>
+                    </div>
+
+                    <div class="field-body control-span-4">
+                      <label class="field-label" for="combobox-docs-secondary">Case Manager (secondary text)</label>
+                      <div class="combobox" data-combobox data-combobox-options="Maya Anderson::Special Education Teacher|Lucas Bennett::School Psychologist|Priya Chandra::Speech-Language Pathologist|Ethan Coleman::Occupational Therapist|Naomi Diaz::Program Coordinator|Samuel Foster::Behavior Specialist|Olivia Grant::Transition Specialist|Marcus Hayes::Social Worker|Elena Ibarra::Bilingual Specialist|Daniel Kim::Physical Therapist|Hannah Lewis::Reading Specialist|Sofia Martinez::Case Manager|Caleb Nguyen::Assistive Technology Specialist|Grace Owens::School Counselor|Liam Parker::Resource Teacher|Natalie Quinn::Instructional Coach|Jordan Rivera::Student Support Coordinator|Avery Scott::Intervention Specialist|Chloe Thompson::Nurse|Adrian Torres::Special Education Teacher|Emma Underwood::Compliance Coordinator|Mia Valdez::Family Liaison|Owen Walker::Autism Specialist|Harper Young::Evaluation Coordinator|Blake Zimmerman::School Psychologist">
+                        <div class="field-input-wrapper combobox-input-wrap">
+                          <input id="combobox-docs-secondary" class="field-input combobox-input" type="text" autocomplete="off" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="combobox-docs-secondary-list" data-combobox-input placeholder="Search staff" />
+                          <button class="combobox-clear" type="button" data-combobox-clear aria-label="Clear case manager with secondary text">
+                            <svg viewBox="0 0 16 16" focusable="false" aria-hidden="true"><path d="M4.5 4.5l7 7M11.5 4.5l-7 7" fill="none" stroke="currentColor" stroke-linecap="round" /></svg>
+                          </button>
+                        </div>
+                        <div id="combobox-docs-secondary-list" class="combobox-list" role="listbox" data-combobox-list hidden></div>
+                      </div>
+                    </div>
+
+                    <div class="field-body control-span-4">
+                      <label class="field-label" for="combobox-docs-grouped">Case Manager (grouped options)</label>
+                      <div class="combobox" data-combobox data-combobox-grouped="true" data-combobox-groups="Student Access=>Maya Anderson::Special Education Teacher|Naomi Diaz::Program Coordinator|Daniel Kim::Physical Therapist|Sofia Martinez::Case Manager|Jordan Rivera::Student Support Coordinator|Adrian Torres::Special Education Teacher|Mia Valdez::Family Liaison|Blake Zimmerman::School Psychologist;School Access=>Lucas Bennett::School Psychologist|Ethan Coleman::Occupational Therapist|Olivia Grant::Transition Specialist|Marcus Hayes::Social Worker|Hannah Lewis::Reading Specialist|Caleb Nguyen::Assistive Technology Specialist|Grace Owens::School Counselor|Chloe Thompson::Nurse|Emma Underwood::Compliance Coordinator;All Schools=>Priya Chandra::Speech-Language Pathologist|Samuel Foster::Behavior Specialist|Elena Ibarra::Bilingual Specialist|Liam Parker::Resource Teacher|Natalie Quinn::Instructional Coach|Avery Scott::Intervention Specialist|Owen Walker::Autism Specialist|Harper Young::Evaluation Coordinator">
+                        <div class="field-input-wrapper combobox-input-wrap">
+                          <input id="combobox-docs-grouped" class="field-input combobox-input" type="text" autocomplete="off" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="combobox-docs-grouped-list" data-combobox-input placeholder="Search staff" />
+                          <button class="combobox-clear" type="button" data-combobox-clear aria-label="Clear grouped case manager">
+                            <svg viewBox="0 0 16 16" focusable="false" aria-hidden="true"><path d="M4.5 4.5l7 7M11.5 4.5l-7 7" fill="none" stroke="currentColor" stroke-linecap="round" /></svg>
+                          </button>
+                        </div>
+                        <div id="combobox-docs-grouped-list" class="combobox-list" role="listbox" data-combobox-list hidden></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </section>
+
+            <section class="example-block" id="multi-select-example">
+              <h2 class="panel-example-title">Multi-Select Example</h2>
+              <p class="example-caption">The multi-select variation keeps the same search and popup behavior while allowing several selected values to remain visible inside the field as removable chips.</p>
+              <section class="panel control-demo-panel control-demo-panel--overflow-visible">
+                <div class="panel-header">
+                  <div class="panel-left">
+                    <h3 class="panel-title">Assessment Supports</h3>
+                  </div>
+                </div>
+                <div class="panel-body">
+                  <div class="control-form-row">
+                    <div class="field-body control-span-8">
+                      <label class="field-label" for="combobox-docs-accommodations">Accommodations (multi-select)</label>
+                      <div class="combobox combobox--multi" data-combobox data-combobox-multiple="true" data-combobox-grouped="true" data-combobox-search-placeholder="Search for accommodations" data-combobox-groups="Presentation=>Audio directions|Enlarged text|Reduced visual clutter|Text-to-speech|Visual schedule;Response=>Calculator access|Graphic organizer|Speech-to-text|Scribe support|Word prediction;Timing and Scheduling=>Breaks as needed|Extended time|Flexible scheduling|Separate testing session|Shortened assignments;Setting=>Preferential seating|Reduced-distraction setting|Small-group testing|Study carrel|Teacher check-ins">
+                        <div class="field-input-wrapper combobox-input-wrap">
+                          <div class="combobox-values" data-combobox-values></div>
+                          <input id="combobox-docs-accommodations" class="field-input combobox-input" type="text" autocomplete="off" readonly role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="combobox-docs-accommodations-list" data-combobox-input placeholder="Select accommodations" />
+                          <button class="combobox-clear" type="button" data-combobox-clear aria-label="Clear accommodations">
+                            <svg viewBox="0 0 16 16" focusable="false" aria-hidden="true"><path d="M4.5 4.5l7 7M11.5 4.5l-7 7" fill="none" stroke="currentColor" stroke-linecap="round" /></svg>
+                          </button>
+                        </div>
+                        <div id="combobox-docs-accommodations-list" class="combobox-list" role="listbox" aria-multiselectable="true" data-combobox-list hidden></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </section>
+
+            <section class="docs-section" id="features">
+              <div class="docs-section-header">
+                <h2 class="panel-example-title">Optional Features</h2>
+                <p class="docs-lead">Use optional features to clarify dense option sets or support richer workflows while keeping the core combobox interaction stable and predictable.</p>
+              </div>
+              <div class="control-guidance-grid">
+                <article class="control-guidance-card">
+                  <h3 class="docs-v2-card-title">Secondary Text</h3>
+                  <p class="docs-v2-card-copy">Add a second line when the primary label alone is not enough, such as a person&apos;s title or role.</p>
+                </article>
+                <article class="control-guidance-card">
+                  <h3 class="docs-v2-card-title">Grouped Options</h3>
+                  <p class="docs-v2-card-copy">Use group headers when users need clear visual segmentation across categories or access scopes.</p>
+                </article>
+                <article class="control-guidance-card">
+                  <h3 class="docs-v2-card-title">Create and Remove Added Options</h3>
+                  <p class="docs-v2-card-copy">Allow create-new only when the product intentionally supports extending the option set. Removable added items should use the same close icon language as the clear affordance.</p>
+                </article>
+                <article class="control-guidance-card">
+                  <h3 class="docs-v2-card-title">Clear and Selected State</h3>
+                  <p class="docs-v2-card-copy">Use the clear action for current selection only. Use background treatment and a checkmark in the popup to show which option is selected.</p>
+                </article>
+              </div>
+            </section>
+
+            <section class="docs-section" id="behavior">
+              <div class="docs-section-header">
+                <h2 class="panel-example-title">Behavior</h2>
+                <p class="docs-lead">Combobox behavior should stay predictable across configurations even when optional features are enabled.</p>
+              </div>
+              <div class="control-overview-grid">
+                <article class="control-overview-card">
+                  <p class="control-kicker">Keyboard</p>
+                  <div class="control-list">
+                    <p class="control-list-item"><span class="control-label">Open and search</span>Focus opens the popup and places the cursor in the search field so typing narrows results immediately.</p>
+                    <p class="control-list-item"><span class="control-label">Move and commit</span>Arrow keys move through options, Enter selects, Escape closes, and Tab leaves the control.</p>
+                    <p class="control-list-item"><span class="control-label">Multi-select flow</span>Multi-select should keep the popup open long enough for several selections before the user exits intentionally.</p>
+                  </div>
+                </article>
+                <article class="control-overview-card">
+                  <p class="control-kicker">Selection Rules</p>
+                  <div class="control-list">
+                    <p class="control-list-item"><span class="control-label">Single-select</span>Selecting an option updates the field value, clears the active search query, and closes the popup.</p>
+                    <p class="control-list-item"><span class="control-label">Multi-select</span>Selected values remain visible as chips inside the field and can be removed individually.</p>
+                    <p class="control-list-item"><span class="control-label">Create-new</span>Only show the add action when the typed value does not already exist and the workflow explicitly permits custom entries.</p>
+                  </div>
+                </article>
+              </div>
+            </section>
+
+            <section class="docs-section" id="token-reference">
+              <div class="docs-section-header">
+                <h2 class="panel-example-title">Token Reference</h2>
+                <p class="docs-lead">Combobox inherits the shared field surface, text color, hover, focus, and validation tokens from <a class="docs-v2-inline-link" href="./inputs.html#shared-field-tokens">Form Controls</a>. The table below lists the combobox-specific additions and the typography tokens used by optional features.</p>
+              </div>
+              <div class="control-token-grid">
+                <article class="docs-token-block">
+                  <h3 class="docs-card-title">Combobox-Specific Tokens</h3>
+                  <p class="docs-card-caption">Use these tokens when implementing the popup surface, search row, grouped headers, and multi-select chip field.</p>
+                  <table class="docs-token-table">
+                    <thead>
+                      <tr><th>Role</th><th>Token</th><th>Value</th></tr>
+                    </thead>
+                    <tbody>
+                      <tr><td>Floating popup shadow</td><td><code>--shadow-surface-floating</code></td><td>0 10px 24px rgba(15, 23, 42, 0.10)</td></tr>
+                      <tr><td>Compact control height</td><td><code>--control-height-sm</code></td><td>32px</td></tr>
+                      <tr><td>Embedded chip / inline input height</td><td><code>--control-height-compact</code></td><td>32px (alias of <code>--control-height-sm</code>)</td></tr>
+                      <tr><td>Trigger endcap reserve</td><td><code>--combobox-endcap-width</code></td><td>64px</td></tr>
+                      <tr><td>Scrollable options viewport</td><td><code>--combobox-list-max-height</code></td><td>320px</td></tr>
+                      <tr><td>Popup max height</td><td><code>--combobox-max-height</code></td><td>360px</td></tr>
+                      <tr><td>Primary label with secondary text</td><td><code>--combobox-option-emphasis-color</code></td><td>Gray 900 (#030712)</td></tr>
+                      <tr><td>Group header typography</td><td><code>--font-group-header-sm</code></td><td>600 / 11px / 14px</td></tr>
+                      <tr><td>Secondary row typography</td><td><code>--font-supporting-sm</code></td><td>400 / 12px / 16px</td></tr>
+                    </tbody>
+                  </table>
+                </article>
+
+                <article class="docs-token-block">
+                  <h3 class="docs-card-title">Shared Field References</h3>
+                  <p class="docs-card-caption">These shared tokens still define most of the combobox surface and should remain consistent with other field-shaped controls.</p>
+                  <table class="docs-token-table">
+                    <thead>
+                      <tr><th>Role</th><th>Reference</th><th>Usage</th></tr>
+                    </thead>
+                    <tbody>
+                      <tr><td>Field surface</td><td><code>--field-bg</code>, <code>--field-border-color</code>, <code>--radius-field</code></td><td>Closed trigger field and search input surface</td></tr>
+                      <tr><td>Hover and selected background</td><td><code>--field-bg-hover</code></td><td>Hovered rows, selected rows, and hover treatment on interactive subparts</td></tr>
+                      <tr><td>Primary text</td><td><code>--field-text-color</code></td><td>Main option label and selected value text</td></tr>
+                      <tr><td>Secondary text</td><td><code>--field-helper-color</code></td><td>Titles, helper-style metadata, and lower-emphasis row content</td></tr>
+                      <tr><td>Focus ring</td><td><code>--focus-ring-shadow-field</code></td><td>Search field and multi-select field focus treatment</td></tr>
+                      <tr><td>Interactive accent</td><td><code>--color-interactive-primary</code></td><td>Selected-state checkmark and add-new action emphasis</td></tr>
+                    </tbody>
+                  </table>
+                </article>
+              </div>
+            </section>
+          </div>
+        </div>
+
+        <aside class="docs-v2-page-nav">
+          <p class="docs-v2-page-nav-title">On This Page</p>
+          <nav class="docs-v2-page-nav-list">
+            <a class="docs-v2-page-nav-link" href="#overview">Overview</a>
+            <a class="docs-v2-page-nav-link" href="#component-model">Component Model</a>
+            <a class="docs-v2-page-nav-link" href="#single-select-examples">Single-Select Examples</a>
+            <a class="docs-v2-page-nav-link" href="#multi-select-example">Multi-Select Example</a>
+            <a class="docs-v2-page-nav-link" href="#features">Optional Features</a>
+            <a class="docs-v2-page-nav-link" href="#behavior">Behavior</a>
+            <a class="docs-v2-page-nav-link" href="#token-reference">Token Reference</a>
+          </nav>
+        </aside>
+      </div>
+    </main>
+  </div>
+
+  <script src="../scripts/docs-config.js"></script>
+  <script src="../scripts/docs.js"></script>
+  <script src="../scripts/form-controls.js"></script>
+  <script src="../scripts/combobox.js"></script>
+</body>
+</html>

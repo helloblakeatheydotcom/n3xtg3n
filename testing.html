@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="styles/cards.css" />
   <link rel="stylesheet" href="styles/forms.css" />
   <link rel="stylesheet" href="styles/panels.css" />
+  <link rel="stylesheet" href="styles/combobox.css" />
   <link rel="stylesheet" href="styles/demos.css" />
   <style>
     .draft-docs-page {
@@ -536,7 +537,7 @@
       border: 1px solid #D5DBE5;
       border-radius: 8px;
       background: #FFFFFF;
-      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.10);
+      box-shadow: var(--shadow-surface-floating);
       overflow: hidden;
     }
 
@@ -632,374 +633,6 @@
 
     .draft-combobox-test-panel {
       overflow: visible;
-    }
-
-    .draft-combobox {
-      position: relative;
-      width: 100%;
-    }
-
-    .draft-combobox-input-wrap {
-      position: relative;
-    }
-
-    .draft-combobox-input-wrap::after {
-      content: "";
-      position: absolute;
-      right: 14px;
-      top: 50%;
-      width: 7px;
-      height: 7px;
-      border-left: 1.5px solid var(--field-select-icon-color);
-      border-bottom: 1.5px solid var(--field-select-icon-color);
-      transform: translateY(-65%) rotate(-45deg);
-      pointer-events: none;
-    }
-
-    .draft-combobox-input {
-      padding-right: 62px;
-    }
-
-    .draft-combobox--multi .draft-combobox-input-wrap {
-      min-height: var(--field-height);
-      align-items: flex-start;
-      flex-wrap: wrap;
-      gap: 4px;
-      padding: 4px 62px 4px 8px;
-      border: 1px solid var(--field-border-color);
-      border-radius: var(--radius-field);
-      background: var(--field-bg);
-      cursor: text;
-      transition: all 0.08s ease;
-    }
-
-    .draft-combobox--multi .draft-combobox-input-wrap:hover:not(:focus-within) {
-      border-color: var(--field-border-focus);
-      background-color: var(--field-bg-hover);
-    }
-
-    .draft-combobox--multi .draft-combobox-input-wrap:focus-within {
-      border-color: var(--field-border-color);
-      background-color: var(--color-surface);
-      box-shadow: var(--focus-ring-shadow-field);
-    }
-
-    .draft-combobox--multi .draft-combobox-input {
-      flex: 1 1 180px;
-      width: auto;
-      min-width: 160px;
-      height: 30px;
-      padding: 4px 0;
-      border: 0;
-      background: transparent;
-      box-shadow: none;
-    }
-
-    .draft-combobox--multi.has-values .draft-combobox-input {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      min-width: 1px;
-      padding: 0;
-      opacity: 0;
-      pointer-events: none;
-    }
-
-    .draft-combobox--multi.has-values .draft-combobox-input::placeholder {
-      color: transparent;
-    }
-
-    .draft-combobox--multi .draft-combobox-input:focus,
-    .draft-combobox--multi .draft-combobox-input:focus-visible {
-      border: 0;
-      box-shadow: none;
-    }
-
-    .draft-combobox-values {
-      display: contents;
-    }
-
-    .draft-combobox-chip {
-      display: inline-flex;
-      align-items: center;
-      min-height: 30px;
-      max-width: 100%;
-      gap: 6px;
-      padding: 4px 6px 4px 8px;
-      border: 1px solid var(--color-border-default);
-      border-radius: var(--radius-field);
-      background: var(--color-surface-subtle);
-      color: var(--field-text-color);
-      font: var(--font-supporting-md);
-    }
-
-    .draft-combobox-chip-label {
-      min-width: 0;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
-
-    .draft-combobox-chip-remove {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 18px;
-      height: 18px;
-      padding: 0;
-      border: 0;
-      border-radius: 999px;
-      background: transparent;
-      color: var(--color-text-helper);
-      cursor: pointer;
-      flex: 0 0 auto;
-    }
-
-    .draft-combobox-chip-remove svg {
-      width: 11px;
-      height: 11px;
-      stroke-width: 2.25;
-    }
-
-    .draft-combobox-chip-remove:hover,
-    .draft-combobox-chip-remove:focus-visible {
-      background: var(--color-border-default);
-      color: var(--field-text-color);
-      outline: none;
-    }
-
-    .draft-combobox-clear {
-      position: absolute;
-      top: 50%;
-      right: 34px;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      width: 20px;
-      height: 20px;
-      padding: 0;
-      border: 0;
-      border-radius: 999px;
-      background: var(--color-surface-subtle);
-      color: var(--color-text-helper);
-      line-height: 1;
-      cursor: pointer;
-      transform: translateY(-50%);
-    }
-
-    .draft-combobox-clear svg {
-      width: 12px;
-      height: 12px;
-      stroke-width: 2.25;
-    }
-
-    .draft-combobox-clear:hover,
-    .draft-combobox-clear:focus-visible {
-      background: var(--color-border-default);
-      color: var(--field-text-color);
-      outline: none;
-    }
-
-    .draft-combobox-clear.is-visible {
-      display: inline-flex;
-    }
-
-    .draft-combobox-list {
-      position: absolute;
-      left: 0;
-      right: 0;
-      top: calc(100% + 4px);
-      z-index: 40;
-      display: grid;
-      grid-template-rows: auto minmax(0, 1fr);
-      max-height: 360px;
-      overflow: hidden;
-      padding: var(--space-1);
-      border: 1px solid var(--field-border-color);
-      border-radius: var(--radius-button);
-      background: var(--color-surface);
-      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.10);
-    }
-
-    .draft-combobox-list[hidden] {
-      display: none;
-    }
-
-    .draft-combobox-search {
-      z-index: 1;
-      padding: 4px;
-      background: var(--color-surface);
-    }
-
-    .draft-combobox-search-input {
-      width: 100%;
-      min-height: 32px;
-      padding: 6px 10px;
-      border: 1px solid var(--field-border-color);
-      border-radius: var(--radius-field);
-      background: var(--field-bg);
-      color: var(--field-text-color);
-      font: var(--font-control-sm);
-    }
-
-    .draft-combobox-search-input:focus,
-    .draft-combobox-search-input:focus-visible {
-      border-color: var(--field-border-color);
-      border-width: 1px;
-      background-color: var(--color-surface);
-      outline: none;
-      box-shadow: var(--focus-ring-shadow-field);
-    }
-
-    .draft-combobox-options {
-      display: grid;
-      max-height: 312px;
-      overflow-y: auto;
-      overscroll-behavior: contain;
-      scrollbar-width: none;
-    }
-
-    .draft-combobox-options::-webkit-scrollbar {
-      display: none;
-    }
-
-    .draft-combobox-group {
-      padding: 21px 10px 6px;
-      border-top: 1px solid var(--color-border-subtle);
-      color: var(--color-text-helper);
-      font-size: 11px;
-      line-height: 14px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-    }
-
-    .draft-combobox-group:first-child {
-      padding-top: 9px;
-      border-top: 0;
-    }
-
-    .draft-combobox-list--grouped .draft-combobox-option {
-      margin-left: 8px;
-      width: calc(100% - 8px);
-    }
-
-    .draft-combobox-option {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      width: 100%;
-      border: 0;
-      border-radius: var(--radius-field);
-      background: transparent;
-      color: var(--field-text-color);
-      font: var(--font-control-md);
-      text-align: left;
-      cursor: pointer;
-    }
-
-    .draft-combobox-option:hover,
-    .draft-combobox-option:focus-visible,
-    .draft-combobox-option:focus-within {
-      background: var(--field-bg-hover);
-      outline: none;
-    }
-
-    .draft-combobox-option[aria-selected="true"] {
-      background: var(--field-bg-hover);
-      color: var(--field-text-color);
-      font-weight: 600;
-    }
-
-    .draft-combobox-option--add {
-      padding: 8px 10px;
-      color: var(--color-interactive-primary);
-      font-weight: 500;
-    }
-
-    .draft-combobox-option-select {
-      flex: 1 1 auto;
-      min-width: 0;
-      padding: 8px 10px;
-      border: 0;
-      background: transparent;
-      color: inherit;
-      font: inherit;
-      text-align: left;
-      cursor: pointer;
-    }
-
-    .draft-combobox-option-select:hover,
-    .draft-combobox-option-select:focus-visible {
-      outline: none;
-    }
-
-    .draft-combobox-option-main {
-      display: block;
-    }
-
-    .draft-combobox-option-main:has(+ .draft-combobox-option-meta) {
-      font-weight: 600;
-    }
-
-    .draft-combobox-option-meta {
-      display: block;
-      margin-top: 2px;
-      color: var(--field-helper-color);
-      font-size: 12px;
-      line-height: 16px;
-      font-weight: 400;
-    }
-
-    .draft-combobox-option-check {
-      display: none;
-      width: 16px;
-      height: 16px;
-      margin-right: 10px;
-      color: var(--color-interactive-primary);
-      flex: 0 0 auto;
-    }
-
-    .draft-combobox-option[aria-selected="true"] .draft-combobox-option-check {
-      display: block;
-    }
-
-    .draft-combobox-option-remove {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 20px;
-      height: 20px;
-      margin-right: 10px;
-      margin-left: 8px;
-      padding: 0;
-      border: 0;
-      border-radius: 999px;
-      background: transparent;
-      color: var(--field-helper-color);
-      font-size: 12px;
-      line-height: 1;
-      cursor: pointer;
-      flex: 0 0 auto;
-    }
-
-    .draft-combobox-option-remove svg {
-      width: 12px;
-      height: 12px;
-      stroke-width: 2.25;
-    }
-
-    .draft-combobox-option-remove:hover,
-    .draft-combobox-option-remove:focus-visible {
-      background: var(--field-bg-hover);
-      color: var(--field-text-color);
-      outline: none;
-    }
-
-    .draft-combobox-empty {
-      padding: 8px 10px;
-      color: var(--field-helper-color);
-      font: var(--font-supporting-md);
     }
 
     .draft-button-blue-primary {
@@ -2230,11 +1863,11 @@
         <div class="draft-combobox-test-grid">
           <div class="field-body">
             <label class="field-label" for="draft-case-manager-combobox">Case Manager</label>
-            <div class="draft-combobox" data-combobox data-combobox-options="Maya Anderson|Lucas Bennett|Priya Chandra|Ethan Coleman|Naomi Diaz|Samuel Foster|Olivia Grant|Marcus Hayes|Elena Ibarra|Daniel Kim|Hannah Lewis|Sofia Martinez|Caleb Nguyen|Grace Owens|Liam Parker|Natalie Quinn|Jordan Rivera|Avery Scott|Chloe Thompson|Adrian Torres|Emma Underwood|Mia Valdez|Owen Walker|Harper Young|Blake Zimmerman">
-              <div class="field-input-wrapper draft-combobox-input-wrap">
+            <div class="combobox" data-combobox data-combobox-options="Maya Anderson|Lucas Bennett|Priya Chandra|Ethan Coleman|Naomi Diaz|Samuel Foster|Olivia Grant|Marcus Hayes|Elena Ibarra|Daniel Kim|Hannah Lewis|Sofia Martinez|Caleb Nguyen|Grace Owens|Liam Parker|Natalie Quinn|Jordan Rivera|Avery Scott|Chloe Thompson|Adrian Torres|Emma Underwood|Mia Valdez|Owen Walker|Harper Young|Blake Zimmerman">
+              <div class="field-input-wrapper combobox-input-wrap">
                 <input
                   id="draft-case-manager-combobox"
-                  class="field-input draft-combobox-input"
+                  class="field-input combobox-input"
                   type="text"
                   autocomplete="off"
                   role="combobox"
@@ -2244,23 +1877,23 @@
                   data-combobox-input
                   placeholder="Search staff"
                 />
-                <button class="draft-combobox-clear" type="button" data-combobox-clear aria-label="Clear case manager">
+                <button class="combobox-clear" type="button" data-combobox-clear aria-label="Clear case manager">
                   <svg viewBox="0 0 16 16" focusable="false" aria-hidden="true">
                     <path d="M4.5 4.5l7 7M11.5 4.5l-7 7" fill="none" stroke="currentColor" stroke-linecap="round" />
                   </svg>
                 </button>
               </div>
-              <div id="draft-case-manager-combobox-list" class="draft-combobox-list" role="listbox" data-combobox-list hidden></div>
+              <div id="draft-case-manager-combobox-list" class="combobox-list" role="listbox" data-combobox-list hidden></div>
             </div>
           </div>
 
           <div class="field-body">
             <label class="field-label" for="draft-case-manager-title-combobox">Case Manager with Title</label>
-            <div class="draft-combobox" data-combobox data-combobox-options="Maya Anderson::Special Education Teacher|Lucas Bennett::School Psychologist|Priya Chandra::Speech-Language Pathologist|Ethan Coleman::Occupational Therapist|Naomi Diaz::Program Coordinator|Samuel Foster::Behavior Specialist|Olivia Grant::Transition Specialist|Marcus Hayes::Social Worker|Elena Ibarra::Bilingual Specialist|Daniel Kim::Physical Therapist|Hannah Lewis::Reading Specialist|Sofia Martinez::Case Manager|Caleb Nguyen::Assistive Technology Specialist|Grace Owens::School Counselor|Liam Parker::Resource Teacher|Natalie Quinn::Instructional Coach|Jordan Rivera::Student Support Coordinator|Avery Scott::Intervention Specialist|Chloe Thompson::Nurse|Adrian Torres::Special Education Teacher|Emma Underwood::Compliance Coordinator|Mia Valdez::Family Liaison|Owen Walker::Autism Specialist|Harper Young::Evaluation Coordinator|Blake Zimmerman::School Psychologist">
-              <div class="field-input-wrapper draft-combobox-input-wrap">
+            <div class="combobox" data-combobox data-combobox-options="Maya Anderson::Special Education Teacher|Lucas Bennett::School Psychologist|Priya Chandra::Speech-Language Pathologist|Ethan Coleman::Occupational Therapist|Naomi Diaz::Program Coordinator|Samuel Foster::Behavior Specialist|Olivia Grant::Transition Specialist|Marcus Hayes::Social Worker|Elena Ibarra::Bilingual Specialist|Daniel Kim::Physical Therapist|Hannah Lewis::Reading Specialist|Sofia Martinez::Case Manager|Caleb Nguyen::Assistive Technology Specialist|Grace Owens::School Counselor|Liam Parker::Resource Teacher|Natalie Quinn::Instructional Coach|Jordan Rivera::Student Support Coordinator|Avery Scott::Intervention Specialist|Chloe Thompson::Nurse|Adrian Torres::Special Education Teacher|Emma Underwood::Compliance Coordinator|Mia Valdez::Family Liaison|Owen Walker::Autism Specialist|Harper Young::Evaluation Coordinator|Blake Zimmerman::School Psychologist">
+              <div class="field-input-wrapper combobox-input-wrap">
                 <input
                   id="draft-case-manager-title-combobox"
-                  class="field-input draft-combobox-input"
+                  class="field-input combobox-input"
                   type="text"
                   autocomplete="off"
                   role="combobox"
@@ -2270,23 +1903,23 @@
                   data-combobox-input
                   placeholder="Search staff"
                 />
-                <button class="draft-combobox-clear" type="button" data-combobox-clear aria-label="Clear case manager with title">
+                <button class="combobox-clear" type="button" data-combobox-clear aria-label="Clear case manager with title">
                   <svg viewBox="0 0 16 16" focusable="false" aria-hidden="true">
                     <path d="M4.5 4.5l7 7M11.5 4.5l-7 7" fill="none" stroke="currentColor" stroke-linecap="round" />
                   </svg>
                 </button>
               </div>
-              <div id="draft-case-manager-title-combobox-list" class="draft-combobox-list" role="listbox" data-combobox-list hidden></div>
+              <div id="draft-case-manager-title-combobox-list" class="combobox-list" role="listbox" data-combobox-list hidden></div>
             </div>
           </div>
 
           <div class="field-body">
             <label class="field-label" for="draft-case-manager-group-combobox">Case Manager by Access</label>
-            <div class="draft-combobox" data-combobox data-combobox-groups="Student Access=>Maya Anderson::Special Education Teacher|Naomi Diaz::Program Coordinator|Daniel Kim::Physical Therapist|Sofia Martinez::Case Manager|Jordan Rivera::Student Support Coordinator|Adrian Torres::Special Education Teacher|Mia Valdez::Family Liaison|Blake Zimmerman::School Psychologist;School Access=>Lucas Bennett::School Psychologist|Ethan Coleman::Occupational Therapist|Olivia Grant::Transition Specialist|Marcus Hayes::Social Worker|Hannah Lewis::Reading Specialist|Caleb Nguyen::Assistive Technology Specialist|Grace Owens::School Counselor|Chloe Thompson::Nurse|Emma Underwood::Compliance Coordinator;All Schools=>Priya Chandra::Speech-Language Pathologist|Samuel Foster::Behavior Specialist|Elena Ibarra::Bilingual Specialist|Liam Parker::Resource Teacher|Natalie Quinn::Instructional Coach|Avery Scott::Intervention Specialist|Owen Walker::Autism Specialist|Harper Young::Evaluation Coordinator">
-              <div class="field-input-wrapper draft-combobox-input-wrap">
+            <div class="combobox" data-combobox data-combobox-grouped="true" data-combobox-groups="Student Access=>Maya Anderson::Special Education Teacher|Naomi Diaz::Program Coordinator|Daniel Kim::Physical Therapist|Sofia Martinez::Case Manager|Jordan Rivera::Student Support Coordinator|Adrian Torres::Special Education Teacher|Mia Valdez::Family Liaison|Blake Zimmerman::School Psychologist;School Access=>Lucas Bennett::School Psychologist|Ethan Coleman::Occupational Therapist|Olivia Grant::Transition Specialist|Marcus Hayes::Social Worker|Hannah Lewis::Reading Specialist|Caleb Nguyen::Assistive Technology Specialist|Grace Owens::School Counselor|Chloe Thompson::Nurse|Emma Underwood::Compliance Coordinator;All Schools=>Priya Chandra::Speech-Language Pathologist|Samuel Foster::Behavior Specialist|Elena Ibarra::Bilingual Specialist|Liam Parker::Resource Teacher|Natalie Quinn::Instructional Coach|Avery Scott::Intervention Specialist|Owen Walker::Autism Specialist|Harper Young::Evaluation Coordinator">
+              <div class="field-input-wrapper combobox-input-wrap">
                 <input
                   id="draft-case-manager-group-combobox"
-                  class="field-input draft-combobox-input"
+                  class="field-input combobox-input"
                   type="text"
                   autocomplete="off"
                   role="combobox"
@@ -2296,24 +1929,24 @@
                   data-combobox-input
                   placeholder="Search staff"
                 />
-                <button class="draft-combobox-clear" type="button" data-combobox-clear aria-label="Clear case manager by access">
+                <button class="combobox-clear" type="button" data-combobox-clear aria-label="Clear case manager by access">
                   <svg viewBox="0 0 16 16" focusable="false" aria-hidden="true">
                     <path d="M4.5 4.5l7 7M11.5 4.5l-7 7" fill="none" stroke="currentColor" stroke-linecap="round" />
                   </svg>
                 </button>
               </div>
-              <div id="draft-case-manager-group-combobox-list" class="draft-combobox-list" role="listbox" data-combobox-list hidden></div>
+              <div id="draft-case-manager-group-combobox-list" class="combobox-list" role="listbox" data-combobox-list hidden></div>
             </div>
           </div>
 
           <div class="field-body draft-combobox-wide">
             <label class="field-label" for="draft-accommodations-combobox">Accommodations</label>
-            <div class="draft-combobox draft-combobox--multi" data-combobox data-combobox-multiple="true" data-combobox-search-placeholder="Search for accommodations" data-combobox-groups="Presentation=>Audio directions|Enlarged text|Reduced visual clutter|Text-to-speech|Visual schedule;Response=>Calculator access|Graphic organizer|Speech-to-text|Scribe support|Word prediction;Timing and Scheduling=>Breaks as needed|Extended time|Flexible scheduling|Separate testing session|Shortened assignments;Setting=>Preferential seating|Reduced-distraction setting|Small-group testing|Study carrel|Teacher check-ins">
-              <div class="field-input-wrapper draft-combobox-input-wrap">
-                <div class="draft-combobox-values" data-combobox-values></div>
+            <div class="combobox combobox--multi" data-combobox data-combobox-multiple="true" data-combobox-grouped="true" data-combobox-search-placeholder="Search for accommodations" data-combobox-groups="Presentation=>Audio directions|Enlarged text|Reduced visual clutter|Text-to-speech|Visual schedule;Response=>Calculator access|Graphic organizer|Speech-to-text|Scribe support|Word prediction;Timing and Scheduling=>Breaks as needed|Extended time|Flexible scheduling|Separate testing session|Shortened assignments;Setting=>Preferential seating|Reduced-distraction setting|Small-group testing|Study carrel|Teacher check-ins">
+              <div class="field-input-wrapper combobox-input-wrap">
+                <div class="combobox-values" data-combobox-values></div>
                 <input
                   id="draft-accommodations-combobox"
-                  class="field-input draft-combobox-input"
+                  class="field-input combobox-input"
                   type="text"
                   autocomplete="off"
                   role="combobox"
@@ -2324,13 +1957,13 @@
                   placeholder="Select accommodations"
                   readonly
                 />
-                <button class="draft-combobox-clear" type="button" data-combobox-clear aria-label="Clear accommodations">
+                <button class="combobox-clear" type="button" data-combobox-clear aria-label="Clear accommodations">
                   <svg viewBox="0 0 16 16" focusable="false" aria-hidden="true">
                     <path d="M4.5 4.5l7 7M11.5 4.5l-7 7" fill="none" stroke="currentColor" stroke-linecap="round" />
                   </svg>
                 </button>
               </div>
-              <div id="draft-accommodations-combobox-list" class="draft-combobox-list" role="listbox" aria-multiselectable="true" data-combobox-list hidden></div>
+              <div id="draft-accommodations-combobox-list" class="combobox-list" role="listbox" aria-multiselectable="true" data-combobox-list hidden></div>
             </div>
           </div>
         </div>
@@ -3526,6 +3159,7 @@
   </main>
 
   <script src="v1/panel-component.js"></script>
+  <script src="scripts/combobox.js"></script>
   <script>
     document.querySelectorAll(".draft-subsection-toggle").forEach((toggle) => {
       const contentId = toggle.getAttribute("aria-controls");
@@ -3606,690 +3240,6 @@
         input.addEventListener("blur", () => {
           requestAnimationFrame(syncState);
         });
-      });
-    });
-
-    const closeDraftCombobox = (combobox) => {
-      const input = combobox.querySelector("[data-combobox-input]");
-      const list = combobox.querySelector("[data-combobox-list]");
-      if (!(input instanceof HTMLInputElement) || !(list instanceof HTMLElement)) {
-        return;
-      }
-
-      input.setAttribute("aria-expanded", "false");
-      list.hidden = true;
-    };
-
-    const syncDraftComboboxClear = (combobox) => {
-      const input = combobox.querySelector("[data-combobox-input]");
-      const clearButton = combobox.querySelector("[data-combobox-clear]");
-      if (!(input instanceof HTMLInputElement) || !(clearButton instanceof HTMLButtonElement)) {
-        return;
-      }
-
-      const hasValue = isDraftComboboxMultiple(combobox)
-        ? getDraftComboboxSelectedValues(combobox).length > 0
-        : Boolean(input.value.trim());
-
-      clearButton.classList.toggle("is-visible", hasValue);
-    };
-
-    const normalizedDraftComboboxValue = (value) => String(value || "").trim().toLowerCase();
-
-    const isDraftComboboxMultiple = (combobox) => combobox.dataset.comboboxMultiple === "true";
-
-    const getDraftComboboxSelectedValues = (combobox) => {
-      return (combobox.dataset.comboboxSelectedValues || "")
-        .split("|")
-        .map((value) => value.trim())
-        .filter(Boolean);
-    };
-
-    const createDraftComboboxXIcon = () => {
-      const icon = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-      icon.setAttribute("viewBox", "0 0 16 16");
-      icon.setAttribute("focusable", "false");
-      icon.setAttribute("aria-hidden", "true");
-
-      const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
-      path.setAttribute("d", "M4.5 4.5l7 7M11.5 4.5l-7 7");
-      path.setAttribute("fill", "none");
-      path.setAttribute("stroke", "currentColor");
-      path.setAttribute("stroke-linecap", "round");
-      icon.appendChild(path);
-
-      return icon;
-    };
-
-    const renderDraftComboboxSelectedValues = (combobox) => {
-      const input = combobox.querySelector("[data-combobox-input]");
-      const valuesContainer = combobox.querySelector("[data-combobox-values]");
-      if (!(input instanceof HTMLInputElement) || !(valuesContainer instanceof HTMLElement)) {
-        return;
-      }
-
-      const selectedValues = getDraftComboboxSelectedValues(combobox);
-      valuesContainer.innerHTML = "";
-
-      selectedValues.forEach((value) => {
-        const chip = document.createElement("span");
-        chip.className = "draft-combobox-chip";
-
-        const chipLabel = document.createElement("span");
-        chipLabel.className = "draft-combobox-chip-label";
-        chipLabel.textContent = value;
-
-        const removeButton = document.createElement("button");
-        removeButton.type = "button";
-        removeButton.className = "draft-combobox-chip-remove";
-        removeButton.dataset.comboboxChipRemove = value;
-        removeButton.setAttribute("aria-label", `Remove ${value}`);
-        removeButton.appendChild(createDraftComboboxXIcon());
-
-        chip.append(chipLabel, removeButton);
-        valuesContainer.appendChild(chip);
-      });
-
-      input.placeholder = selectedValues.length ? "" : "Select accommodations";
-    };
-
-    const setDraftComboboxSelectedValues = (combobox, values) => {
-      const input = combobox.querySelector("[data-combobox-input]");
-      const uniqueValues = [];
-      const seenValues = new Set();
-
-      values.forEach((value) => {
-        const normalizedValue = normalizedDraftComboboxValue(value);
-        if (!normalizedValue || seenValues.has(normalizedValue)) {
-          return;
-        }
-
-        seenValues.add(normalizedValue);
-        uniqueValues.push(value);
-      });
-
-      combobox.dataset.comboboxSelectedValues = uniqueValues.join("|");
-      combobox.classList.toggle("has-values", uniqueValues.length > 0);
-
-      if (input instanceof HTMLInputElement) {
-        input.value = isDraftComboboxMultiple(combobox) ? "" : uniqueValues.join(", ");
-      }
-
-      renderDraftComboboxSelectedValues(combobox);
-      syncDraftComboboxClear(combobox);
-    };
-
-    const isDraftComboboxValueSelected = (combobox, value) => {
-      if (!isDraftComboboxMultiple(combobox)) {
-        const input = combobox.querySelector("[data-combobox-input]");
-        return input instanceof HTMLInputElement && normalizedDraftComboboxValue(input.value) === normalizedDraftComboboxValue(value);
-      }
-
-      return getDraftComboboxSelectedValues(combobox).some((selectedValue) => {
-        return normalizedDraftComboboxValue(selectedValue) === normalizedDraftComboboxValue(value);
-      });
-    };
-
-    const parseDraftComboboxOption = (option, group = "") => {
-      const [value, ...metaParts] = option.split("::");
-
-      return {
-        value: value.trim(),
-        meta: metaParts.join("::").trim(),
-        group,
-      };
-    };
-
-    const getDraftComboboxBaseOptions = (combobox) => {
-      if (combobox.dataset.comboboxGroups) {
-        return combobox.dataset.comboboxGroups
-          .split(";")
-          .flatMap((groupEntry) => {
-            const [groupLabel, optionsText = ""] = groupEntry.split("=>");
-            const group = groupLabel.trim();
-
-            return optionsText
-              .split("|")
-              .map((option) => parseDraftComboboxOption(option, group))
-              .filter((option) => option.value);
-          });
-      }
-
-      return (combobox.dataset.comboboxOptions || "")
-        .split("|")
-        .map(parseDraftComboboxOption)
-        .filter((option) => option.value);
-    };
-
-    const getDraftComboboxAddedOptions = (combobox) => {
-      return (combobox.dataset.comboboxAddedOptions || "")
-        .split("|")
-        .map(parseDraftComboboxOption)
-        .filter((option) => option.value)
-        .map((option) => ({
-          ...option,
-          group: combobox.dataset.comboboxGroups ? "Added" : "",
-        }));
-    };
-
-    const setDraftComboboxAddedOptions = (combobox, options) => {
-      combobox.dataset.comboboxAddedOptions = options.map((option) => option.value).join("|");
-    };
-
-    const getDraftComboboxOptions = (combobox) => {
-      const baseOptions = getDraftComboboxBaseOptions(combobox);
-      const addedOptions = getDraftComboboxAddedOptions(combobox);
-      const seenOptions = new Set();
-
-      return [...baseOptions, ...addedOptions].filter((option) => {
-        const normalizedOption = normalizedDraftComboboxValue(option.value);
-        if (seenOptions.has(normalizedOption)) {
-          return false;
-        }
-
-        seenOptions.add(normalizedOption);
-        return true;
-      });
-    };
-
-    const isDraftComboboxAddedOption = (combobox, value) => {
-      return getDraftComboboxAddedOptions(combobox).some((option) => {
-        return normalizedDraftComboboxValue(option.value) === normalizedDraftComboboxValue(value);
-      });
-    };
-
-    const getDraftComboboxKeyboardTargets = (list) => {
-      return Array.from(list.querySelectorAll('[data-combobox-action="select"], [data-combobox-action="add"]'))
-        .filter((target) => target instanceof HTMLButtonElement);
-    };
-
-    const focusDraftComboboxTarget = (target) => {
-      target.focus();
-      target.scrollIntoView({ block: "nearest" });
-    };
-
-    const focusOutsideDraftCombobox = (combobox, backwards = false) => {
-      const focusableSelector = [
-        'a[href]',
-        'button:not([disabled])',
-        'input:not([disabled])',
-        'select:not([disabled])',
-        'textarea:not([disabled])',
-        '[tabindex]:not([tabindex="-1"])',
-      ].join(",");
-      const focusableElements = Array.from(document.querySelectorAll(focusableSelector))
-        .filter((element) => {
-          return element instanceof HTMLElement
-            && !combobox.contains(element)
-            && !element.closest("[hidden]")
-            && element.offsetParent !== null;
-        });
-
-      const nextElement = backwards
-        ? focusableElements.reverse().find((element) => {
-          return Boolean(element.compareDocumentPosition(combobox) & Node.DOCUMENT_POSITION_FOLLOWING);
-        })
-        : focusableElements.find((element) => {
-          return Boolean(combobox.compareDocumentPosition(element) & Node.DOCUMENT_POSITION_FOLLOWING);
-        });
-
-      if (nextElement instanceof HTMLElement) {
-        nextElement.focus();
-      }
-    };
-
-    const closeDraftComboboxAndFocusInput = (combobox) => {
-      const input = combobox.querySelector("[data-combobox-input]");
-      if (!(input instanceof HTMLInputElement)) {
-        return;
-      }
-
-      combobox.dataset.comboboxSuppressOpen = "true";
-      closeDraftCombobox(combobox);
-      input.focus();
-    };
-
-    const renderDraftComboboxOptions = (combobox, showAll = false, focusSearch = false) => {
-      const input = combobox.querySelector("[data-combobox-input]");
-      const list = combobox.querySelector("[data-combobox-list]");
-      if (!(input instanceof HTMLInputElement) || !(list instanceof HTMLElement)) {
-        return;
-      }
-
-      const rawValue = combobox.dataset.comboboxSearchValue || "";
-      const trimmedValue = rawValue.trim();
-      const query = normalizedDraftComboboxValue(rawValue);
-      const isGrouped = Boolean(combobox.dataset.comboboxGroups);
-      const isMultiple = isDraftComboboxMultiple(combobox);
-      const options = getDraftComboboxOptions(combobox);
-      const matches = options.filter((option) => {
-        return showAll || !query || normalizedDraftComboboxValue(`${option.value} ${option.meta} ${option.group}`).includes(query);
-      });
-      const hasExactMatch = options.some((option) => normalizedDraftComboboxValue(option.value) === query);
-      list.innerHTML = "";
-
-      const searchRow = document.createElement("div");
-      searchRow.className = "draft-combobox-search";
-
-      const searchInput = document.createElement("input");
-      searchInput.type = "text";
-      searchInput.className = "draft-combobox-search-input";
-      searchInput.value = rawValue;
-      searchInput.placeholder = combobox.dataset.comboboxSearchPlaceholder || "Search staff";
-      searchInput.setAttribute("aria-label", combobox.dataset.comboboxSearchPlaceholder || "Search staff options");
-      searchInput.dataset.comboboxSearch = "";
-
-      searchRow.appendChild(searchInput);
-      list.appendChild(searchRow);
-
-      const optionsWrap = document.createElement("div");
-      optionsWrap.className = "draft-combobox-options";
-      optionsWrap.classList.toggle("draft-combobox-list--grouped", isGrouped);
-      list.appendChild(optionsWrap);
-
-      let previousGroup = "";
-
-      matches.forEach((option) => {
-        if (option.group && option.group !== previousGroup) {
-          const groupLabel = document.createElement("div");
-          groupLabel.className = "draft-combobox-group";
-          groupLabel.textContent = option.group;
-          optionsWrap.appendChild(groupLabel);
-          previousGroup = option.group;
-        }
-
-        const isSelected = isDraftComboboxValueSelected(combobox, option.value);
-        const optionRow = document.createElement("div");
-        optionRow.className = "draft-combobox-option";
-        optionRow.setAttribute("role", "option");
-        optionRow.setAttribute("aria-selected", isSelected ? "true" : "false");
-
-        const optionButton = document.createElement("button");
-        optionButton.type = "button";
-        optionButton.className = "draft-combobox-option-select";
-        optionButton.dataset.comboboxAction = "select";
-        optionButton.dataset.comboboxValue = option.value;
-        optionButton.setAttribute("aria-pressed", isMultiple ? String(isSelected) : "false");
-
-        const optionMain = document.createElement("span");
-        optionMain.className = "draft-combobox-option-main";
-        optionMain.textContent = option.value;
-        optionButton.appendChild(optionMain);
-
-        if (option.meta) {
-          const optionMeta = document.createElement("span");
-          optionMeta.className = "draft-combobox-option-meta";
-          optionMeta.textContent = option.meta;
-          optionButton.appendChild(optionMeta);
-        }
-
-        optionRow.appendChild(optionButton);
-
-        const checkIcon = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-        checkIcon.setAttribute("class", "draft-combobox-option-check");
-        checkIcon.setAttribute("viewBox", "0 0 16 16");
-        checkIcon.setAttribute("focusable", "false");
-        checkIcon.setAttribute("aria-hidden", "true");
-
-        const checkPath = document.createElementNS("http://www.w3.org/2000/svg", "path");
-        checkPath.setAttribute("d", "M13 4.5 6.75 11 3 7.25");
-        checkPath.setAttribute("fill", "none");
-        checkPath.setAttribute("stroke", "currentColor");
-        checkPath.setAttribute("stroke-width", "2");
-        checkPath.setAttribute("stroke-linecap", "round");
-        checkPath.setAttribute("stroke-linejoin", "round");
-        checkIcon.appendChild(checkPath);
-        optionRow.appendChild(checkIcon);
-
-        if (isDraftComboboxAddedOption(combobox, option.value)) {
-          const removeButton = document.createElement("button");
-          removeButton.type = "button";
-          removeButton.className = "draft-combobox-option-remove";
-          removeButton.dataset.comboboxAction = "remove";
-          removeButton.dataset.comboboxValue = option.value;
-          removeButton.setAttribute("aria-label", `Remove ${option.value}`);
-
-          const removeIcon = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-          removeIcon.setAttribute("viewBox", "0 0 16 16");
-          removeIcon.setAttribute("focusable", "false");
-          removeIcon.setAttribute("aria-hidden", "true");
-
-          const removePath = document.createElementNS("http://www.w3.org/2000/svg", "path");
-          removePath.setAttribute("d", "M4.5 4.5l7 7M11.5 4.5l-7 7");
-          removePath.setAttribute("fill", "none");
-          removePath.setAttribute("stroke", "currentColor");
-          removePath.setAttribute("stroke-linecap", "round");
-          removeIcon.appendChild(removePath);
-          removeButton.appendChild(removeIcon);
-
-          optionRow.appendChild(removeButton);
-        }
-
-        optionsWrap.appendChild(optionRow);
-      });
-
-      if (!isMultiple && trimmedValue && !hasExactMatch) {
-        const addButton = document.createElement("button");
-        addButton.type = "button";
-        addButton.className = "draft-combobox-option draft-combobox-option--add";
-        addButton.setAttribute("role", "option");
-        addButton.dataset.comboboxAction = "add";
-        addButton.dataset.comboboxValue = trimmedValue;
-        addButton.textContent = `+ Add "${trimmedValue}"`;
-        optionsWrap.appendChild(addButton);
-      }
-
-      if (!matches.length) {
-        const empty = document.createElement("div");
-        empty.className = "draft-combobox-empty";
-        empty.textContent = trimmedValue ? "No existing matches" : "No matches";
-        optionsWrap.insertBefore(empty, optionsWrap.firstChild);
-      }
-
-      if (focusSearch) {
-        requestAnimationFrame(() => {
-          searchInput.focus();
-          searchInput.setSelectionRange(searchInput.value.length, searchInput.value.length);
-        });
-      }
-    };
-
-    const openDraftCombobox = (combobox, showAll = false) => {
-      const input = combobox.querySelector("[data-combobox-input]");
-      const list = combobox.querySelector("[data-combobox-list]");
-      if (!(input instanceof HTMLInputElement) || !(list instanceof HTMLElement)) {
-        return;
-      }
-
-      document.querySelectorAll("[data-combobox]").forEach((otherCombobox) => {
-        if (otherCombobox !== combobox) {
-          closeDraftCombobox(otherCombobox);
-        }
-      });
-
-      renderDraftComboboxOptions(combobox, showAll, true);
-      input.setAttribute("aria-expanded", "true");
-      list.hidden = false;
-    };
-
-    document.querySelectorAll("[data-combobox]").forEach((combobox) => {
-      const input = combobox.querySelector("[data-combobox-input]");
-      const list = combobox.querySelector("[data-combobox-list]");
-      const inputWrap = combobox.querySelector(".draft-combobox-input-wrap");
-      if (!(input instanceof HTMLInputElement) || !(list instanceof HTMLElement)) {
-        return;
-      }
-
-      syncDraftComboboxClear(combobox);
-      renderDraftComboboxSelectedValues(combobox);
-
-      input.addEventListener("focus", () => {
-        if (combobox.dataset.comboboxSuppressOpen === "true") {
-          delete combobox.dataset.comboboxSuppressOpen;
-          return;
-        }
-
-        openDraftCombobox(combobox, true);
-      });
-      input.addEventListener("click", () => openDraftCombobox(combobox, true));
-
-      inputWrap?.addEventListener("pointerdown", (event) => {
-        if (!isDraftComboboxMultiple(combobox)) {
-          return;
-        }
-
-        if (event.target instanceof Element && event.target.closest("button")) {
-          return;
-        }
-
-        event.preventDefault();
-        openDraftCombobox(combobox, true);
-      });
-
-      inputWrap?.addEventListener("click", (event) => {
-        if (event.target instanceof Element && event.target.closest("button")) {
-          return;
-        }
-
-        openDraftCombobox(combobox, true);
-      });
-
-      input.addEventListener("input", () => {
-        if (isDraftComboboxMultiple(combobox)) {
-          return;
-        }
-
-        combobox.dataset.comboboxSearchValue = input.value;
-        syncDraftComboboxClear(combobox);
-        openDraftCombobox(combobox);
-      });
-      input.addEventListener("keydown", (event) => {
-        if (event.key === "Escape") {
-          event.preventDefault();
-          event.stopPropagation();
-          closeDraftCombobox(combobox);
-          return;
-        }
-
-        if (event.key === "Tab" && input.getAttribute("aria-expanded") === "true") {
-          closeDraftCombobox(combobox);
-          return;
-        }
-
-        if (event.key === "ArrowDown" || event.key === "Enter") {
-          event.preventDefault();
-          openDraftCombobox(combobox, true);
-        }
-      });
-
-      combobox.querySelector("[data-combobox-clear]")?.addEventListener("click", () => {
-        if (isDraftComboboxMultiple(combobox)) {
-          setDraftComboboxSelectedValues(combobox, []);
-        } else {
-          input.value = "";
-          syncDraftComboboxClear(combobox);
-        }
-
-        combobox.dataset.comboboxSearchValue = "";
-        closeDraftCombobox(combobox);
-        combobox.dataset.comboboxSuppressOpen = "true";
-        input.focus();
-      });
-
-      combobox.querySelector("[data-combobox-values]")?.addEventListener("click", (event) => {
-        const removeButton = event.target instanceof Element
-          ? event.target.closest("[data-combobox-chip-remove]")
-          : null;
-
-        if (!(removeButton instanceof HTMLElement)) {
-          input.focus();
-          return;
-        }
-
-        event.stopPropagation();
-        const nextValue = removeButton.dataset.comboboxChipRemove;
-        if (!nextValue) {
-          return;
-        }
-
-        const nextValues = getDraftComboboxSelectedValues(combobox).filter((value) => {
-          return normalizedDraftComboboxValue(value) !== normalizedDraftComboboxValue(nextValue);
-        });
-
-        setDraftComboboxSelectedValues(combobox, nextValues);
-
-        if (input.getAttribute("aria-expanded") === "true") {
-          renderDraftComboboxOptions(combobox, false, true);
-        } else {
-          combobox.dataset.comboboxSuppressOpen = "true";
-          input.focus();
-        }
-      });
-
-      combobox.addEventListener("keydown", (event) => {
-        if (event.key !== "Escape") {
-          return;
-        }
-
-        if (input.getAttribute("aria-expanded") !== "true") {
-          return;
-        }
-
-        event.stopPropagation();
-        event.preventDefault();
-        closeDraftComboboxAndFocusInput(combobox);
-      });
-
-      list.addEventListener("mousedown", (event) => {
-        if (event.target instanceof HTMLElement && event.target.closest("[data-combobox-search]")) {
-          return;
-        }
-
-        event.preventDefault();
-      });
-
-      list.addEventListener("input", (event) => {
-        const searchInput = event.target instanceof HTMLElement
-          ? event.target.closest("[data-combobox-search]")
-          : null;
-        if (!(searchInput instanceof HTMLInputElement)) {
-          return;
-        }
-
-        combobox.dataset.comboboxSearchValue = searchInput.value;
-        renderDraftComboboxOptions(combobox, false, true);
-      });
-
-      list.addEventListener("keydown", (event) => {
-        if (event.key === "Escape") {
-          event.preventDefault();
-          event.stopPropagation();
-          closeDraftComboboxAndFocusInput(combobox);
-          return;
-        }
-
-        if (event.key === "Tab") {
-          event.preventDefault();
-          closeDraftCombobox(combobox);
-          focusOutsideDraftCombobox(combobox, event.shiftKey);
-          return;
-        }
-
-        const searchInput = list.querySelector("[data-combobox-search]");
-        const targets = getDraftComboboxKeyboardTargets(list);
-        const activeElement = document.activeElement;
-        const activeTargetIndex = targets.findIndex((target) => target === activeElement);
-
-        if (event.key === "Enter" && activeElement === searchInput && targets.length) {
-          event.preventDefault();
-          targets[0].click();
-          return;
-        }
-
-        if (event.key === "ArrowDown") {
-          event.preventDefault();
-
-          if (!targets.length) {
-            return;
-          }
-
-          if (activeElement === searchInput || activeTargetIndex === -1) {
-            focusDraftComboboxTarget(targets[0]);
-            return;
-          }
-
-          focusDraftComboboxTarget(targets[Math.min(activeTargetIndex + 1, targets.length - 1)]);
-          return;
-        }
-
-        if (event.key === "ArrowUp") {
-          event.preventDefault();
-
-          if (!targets.length || activeElement === searchInput) {
-            return;
-          }
-
-          if (activeTargetIndex <= 0) {
-            searchInput?.focus();
-            return;
-          }
-
-          focusDraftComboboxTarget(targets[activeTargetIndex - 1]);
-          return;
-        }
-
-        if (event.key === "Home") {
-          event.preventDefault();
-          searchInput?.focus();
-          return;
-        }
-
-        if (event.key === "End" && targets.length) {
-          event.preventDefault();
-          focusDraftComboboxTarget(targets[targets.length - 1]);
-        }
-      });
-
-      list.addEventListener("click", (event) => {
-        event.stopPropagation();
-
-        const target = event.target instanceof Element
-          ? event.target.closest("[data-combobox-action]")
-          : null;
-        if (!(target instanceof HTMLElement)) {
-          return;
-        }
-
-        const action = target.dataset.comboboxAction;
-        const nextValue = target.dataset.comboboxValue?.trim();
-        if (!nextValue) {
-          return;
-        }
-
-        if (action === "add") {
-          const exists = getDraftComboboxOptions(combobox).some((option) => {
-            return normalizedDraftComboboxValue(option.value) === normalizedDraftComboboxValue(nextValue);
-          });
-
-          if (!exists) {
-            setDraftComboboxAddedOptions(combobox, [...getDraftComboboxAddedOptions(combobox), { value: nextValue, meta: "" }]);
-          }
-        }
-
-        if (action === "remove") {
-          const nextOptions = getDraftComboboxAddedOptions(combobox).filter((option) => {
-            return normalizedDraftComboboxValue(option.value) !== normalizedDraftComboboxValue(nextValue);
-          });
-          setDraftComboboxAddedOptions(combobox, nextOptions);
-
-          if (normalizedDraftComboboxValue(input.value) === normalizedDraftComboboxValue(nextValue)) {
-            input.value = "";
-            syncDraftComboboxClear(combobox);
-          }
-
-          openDraftCombobox(combobox, true);
-          return;
-        }
-
-        if (isDraftComboboxMultiple(combobox)) {
-          const selectedValues = getDraftComboboxSelectedValues(combobox);
-          const isSelected = selectedValues.some((value) => {
-            return normalizedDraftComboboxValue(value) === normalizedDraftComboboxValue(nextValue);
-          });
-          const nextValues = isSelected
-            ? selectedValues.filter((value) => normalizedDraftComboboxValue(value) !== normalizedDraftComboboxValue(nextValue))
-            : [...selectedValues, nextValue];
-
-          setDraftComboboxSelectedValues(combobox, nextValues);
-          combobox.dataset.comboboxSearchValue = "";
-          renderDraftComboboxOptions(combobox, true, true);
-          return;
-        }
-
-        input.value = nextValue;
-        combobox.dataset.comboboxSearchValue = "";
-        syncDraftComboboxClear(combobox);
-        closeDraftCombobox(combobox);
       });
     });
 
@@ -4477,12 +3427,6 @@
     });
 
     document.addEventListener("click", (event) => {
-      document.querySelectorAll("[data-combobox]").forEach((combobox) => {
-        if (!combobox.contains(event.target)) {
-          closeDraftCombobox(combobox);
-        }
-      });
-
       document.querySelectorAll("[data-location-field]").forEach((field) => {
         if (!field.contains(event.target)) {
           closeLocationField(field);

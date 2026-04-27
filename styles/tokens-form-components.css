@@ -326,6 +326,17 @@
 
   /* Shadows */
   --shadow-panel: 0 1px 3px rgba(0, 0, 0, 0.06);
+  --shadow-surface-floating: 0 10px 24px rgba(15, 23, 42, 0.10);
+
+  /* Control sizing */
+  --control-height-sm: var(--space-8);
+  --control-height-compact: var(--control-height-sm);
+
+  /* Combobox */
+  --combobox-option-emphasis-color: var(--primitive-gray-900);
+  --combobox-endcap-width: var(--space-16);
+  --combobox-list-max-height: calc(var(--space-16) * 5);
+  --combobox-max-height: calc(var(--combobox-list-max-height) + var(--space-10));
 
   /* Field tokens */
   --field-height: 40px;
@@ -377,6 +388,7 @@
   --font-label-xs: 600 0.75rem/1rem "Inter", system-ui, -apple-system, sans-serif;
   --font-control-md: 400 0.875rem/1.25rem "Inter", system-ui, -apple-system, sans-serif;
   --font-control-sm: 500 0.8125rem/1.25rem "Inter", system-ui, -apple-system, sans-serif;
+  --font-group-header-sm: 600 0.6875rem/0.875rem "Inter", system-ui, -apple-system, sans-serif;
   --font-button-md: 600 0.875rem/1.25rem "Inter", system-ui, -apple-system, sans-serif;
   --font-button-sm: 600 0.8125rem/1.125rem "Inter", system-ui, -apple-system, sans-serif;
 

@@ -200,6 +200,10 @@
   padding-top: 24px;
 }
 
+.form-control-docs-page .control-demo-panel--overflow-visible {
+  overflow: visible;
+}
+
 .form-control-docs-page .control-form-stack {
   display: grid;
   gap: var(--space-6);
@@ -215,6 +219,7 @@
 .form-control-docs-page .control-span-3 { grid-column: span 3; }
 .form-control-docs-page .control-span-4 { grid-column: span 4; }
 .form-control-docs-page .control-span-6 { grid-column: span 6; }
+.form-control-docs-page .control-span-8 { grid-column: span 8; }
 .form-control-docs-page .control-span-12 { grid-column: span 12; }
 
 .form-control-docs-page .control-form-row .field-body,
@@ -377,27 +382,6 @@
   transform: translateX(18px);
 }
 
-.form-control-docs-page .combobox-results {
-  display: grid;
-  gap: 2px;
-  margin-top: var(--space-2);
-  padding: var(--space-1);
-  border: 1px solid var(--field-border-color);
-  border-radius: var(--radius-field);
-  background: var(--color-surface);
-}
-
-.form-control-docs-page .combobox-option {
-  padding: 7px 8px;
-  border-radius: var(--radius-field);
-  color: var(--field-text-color);
-}
-
-.form-control-docs-page .combobox-option:hover,
-.form-control-docs-page .combobox-option[aria-selected="true"] {
-  background: var(--field-bg-hover);
-}
-
 @media (max-width: 900px) {
   .form-control-docs-page .control-overview-grid,
   .form-control-docs-page .control-guidance-grid,
@@ -412,7 +396,9 @@
   .form-control-docs-page .control-span-3,
   .form-control-docs-page .control-span-4,
   .form-control-docs-page .control-span-6,
+  .form-control-docs-page .control-span-8,
   .form-control-docs-page .control-span-12 {
     grid-column: auto;
   }
+
 }
