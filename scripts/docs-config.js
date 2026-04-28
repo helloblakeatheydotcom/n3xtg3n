@@ -87,6 +87,7 @@ window.DOCS_CONFIG = {
             {
               key: "combobox",
               title: "Combobox",
+              status: "NEW",
               path: "systems/combobox.html",
               description: "Searchable selection control for filtering and choosing from longer option sets.",
             },
@@ -99,14 +100,14 @@ window.DOCS_CONFIG = {
             {
               key: "segmented-control",
               title: "Segmented Control",
-              status: "Planned",
+              status: "NEW",
               path: "systems/segmented-control.html",
               description: "Compact mutually exclusive choices for modes, filters, or views.",
             },
             {
               key: "toggle",
               title: "Toggle",
-              status: "Planned",
+              status: "PLANNED",
               path: "systems/toggle.html",
               description: "Boolean on/off control for immediate state changes.",
             },
@@ -114,7 +115,7 @@ window.DOCS_CONFIG = {
               key: "electronic-signature",
               title: "Electronic Signature",
               navLabel: "Signature",
-              status: "Planned",
+              status: "PLANNED",
               path: "systems/electronic-signature.html",
               description: "Specialized capture control for signatures, consent, and required confirmation.",
             },

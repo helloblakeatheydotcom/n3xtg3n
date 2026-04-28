@@ -22,12 +22,12 @@
       <section class="docs-v2-hero">
         <p class="docs-v2-eyebrow">Components / Form Controls</p>
         <h2 class="docs-v2-title">Segmented Control</h2>
-        <p class="docs-v2-copy">Segmented Control is a compact selection pattern for mutually exclusive options, usually used for modes, filters, or view switches where all options should remain visible.</p>
+        <p class="docs-v2-copy">Segmented Control is a compact selection pattern for short, mutually exclusive states. Use it when the options are peers, the set has two to four options, and the selected state should remain visible inside a form or dense row.</p>
         <div class="docs-v2-chip-row">
-          <span class="docs-v2-chip docs-v2-chip--planned">PLANNED</span>
           <span class="docs-v2-chip">Selection</span>
+          <span class="docs-v2-chip">Radio-backed</span>
           <span class="docs-v2-chip">Mutually exclusive</span>
-          <span class="docs-v2-chip">Compact options</span>
+          <span class="docs-v2-chip">Form control</span>
         </div>
       </section>
 
@@ -37,24 +37,95 @@
             <section class="docs-section" id="overview">
               <div class="docs-section-header">
                 <h2 class="panel-example-title">Overview</h2>
-                <p class="docs-lead">This page is planned. Guidance and examples are not yet final. Segmented Control belongs with selection controls but should be documented separately from radio groups because its visual density, interaction pattern, and placement rules are different.</p>
+                <p class="docs-lead">Segmented Control belongs with selection controls, but it is visually denser than a standard radio group. Use it for explicit state or mode choices with short labels. Prefer two or three options, and cap the pattern at four options.</p>
               </div>
             </section>
 
             <section class="example-block" id="example">
               <h2 class="panel-example-title">Interactive Example</h2>
-              <p class="example-caption">Click an option to change the selected segment.</p>
+              <p class="example-caption">The default form version uses a radio group so the value submits like a normal single-select field.</p>
               <section class="panel control-demo-panel">
                 <div class="panel-header">
                   <div class="panel-left">
-                    <h3 class="panel-title">View Options</h3>
+                    <h3 class="panel-title">Service Delivery</h3>
                   </div>
                 </div>
                 <div class="panel-body">
-                  <div class="segmented-control" role="group" aria-label="View options">
-                    <button class="segmented-option" type="button" aria-pressed="true">All</button>
-                    <button class="segmented-option" type="button" aria-pressed="false">Active</button>
-                    <button class="segmented-option" type="button" aria-pressed="false">Archived</button>
+                  <div class="segmented-doc-field">
+                    <p id="service-delivery-label" class="field-label">Service delivery</p>
+                    <p id="service-delivery-helper" class="field-helper">Choose how the service will be delivered.</p>
+                    <div class="segmented-control" role="radiogroup" aria-labelledby="service-delivery-label" aria-describedby="service-delivery-helper">
+                      <label class="segmented-option">
+                        <input type="radio" name="service-delivery" value="in-person" checked />
+                        <span class="segmented-text">In Person</span>
+                      </label>
+                      <label class="segmented-option">
+                        <input type="radio" name="service-delivery" value="virtual" />
+                        <span class="segmented-text">Virtual</span>
+                      </label>
+                      <label class="segmented-option">
+                        <input type="radio" name="service-delivery" value="hybrid" />
+                        <span class="segmented-text">Hybrid</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </section>
+
+            <section class="example-block" id="states">
+              <h2 class="panel-example-title">States and Sizes</h2>
+              <p class="example-caption">Use the regular size for standalone form fields and the compact size for repeated rows.</p>
+              <section class="panel control-demo-panel">
+                <div class="panel-body">
+                  <div class="segmented-doc-stack">
+                    <div class="segmented-doc-grid">
+                      <div class="segmented-doc-field">
+                        <p id="attendance-label" class="field-label">Parent attended meeting<span class="required-asterisk">*</span></p>
+                        <p id="attendance-helper" class="field-helper">Required example with no default selection.</p>
+                        <div class="segmented-control" role="radiogroup" aria-labelledby="attendance-label" aria-describedby="attendance-helper attendance-required-error" data-required-segmented>
+                          <label class="segmented-option">
+                            <input type="radio" name="parent-attended-meeting" value="yes" />
+                            <span class="segmented-text">Yes</span>
+                          </label>
+                          <label class="segmented-option">
+                            <input type="radio" name="parent-attended-meeting" value="no" />
+                            <span class="segmented-text">No</span>
+                          </label>
+                        </div>
+                        <p id="attendance-required-error" class="field-error segmented-doc-error-slot" aria-live="polite"></p>
+                      </div>
+
+                      <div class="segmented-doc-transportation">
+                        <p class="field-label" id="transportation-handoff-label">Transportation Hand-off Requirement</p>
+                        <div class="segmented-doc-compact-row">
+                          <p class="segmented-doc-row-label" id="compact-transport-mon-label">MON</p>
+                          <div class="segmented-control segmented-control--compact segmented-control--fill" role="radiogroup" aria-labelledby="transportation-handoff-label compact-transport-mon-label">
+                            <label class="segmented-option">
+                              <input type="radio" name="compact-transport-mon" value="must-be-met" checked />
+                              <span class="segmented-text">Must Be Met</span>
+                            </label>
+                            <label class="segmented-option">
+                              <input type="radio" name="compact-transport-mon" value="can-be-alone" />
+                              <span class="segmented-text">Can Be Alone</span>
+                            </label>
+                          </div>
+                        </div>
+                        <div class="segmented-doc-compact-row">
+                          <p class="segmented-doc-row-label" id="compact-transport-tue-label">TUE</p>
+                          <div class="segmented-control segmented-control--compact segmented-control--fill" role="radiogroup" aria-labelledby="transportation-handoff-label compact-transport-tue-label">
+                            <label class="segmented-option">
+                              <input type="radio" name="compact-transport-tue" value="must-be-met" />
+                              <span class="segmented-text">Must Be Met</span>
+                            </label>
+                            <label class="segmented-option">
+                              <input type="radio" name="compact-transport-tue" value="can-be-alone" checked />
+                              <span class="segmented-text">Can Be Alone</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </section>
@@ -63,7 +134,38 @@
             <section class="docs-section" id="behavior">
               <div class="docs-section-header">
                 <h2 class="panel-example-title">Behavior</h2>
-                <p class="docs-lead">Use segmented controls for short, stable option sets. Use radio groups when labels or descriptions need more space, or when the choice is part of a larger form question.</p>
+                <p class="docs-lead">Use segmented controls for short, stable option sets with two or more choices. Do not exceed four options; if the labels are long, the choice needs helper text per option, or the list grows beyond four, use radio buttons, radio cards, or a select instead.</p>
+              </div>
+            </section>
+
+            <section class="docs-section" id="tokens">
+              <div class="docs-section-header">
+                <h2 class="panel-example-title">Token Reference</h2>
+                <p class="docs-lead">Segmented Control uses component tokens that reference existing primitives and semantic tokens wherever possible.</p>
+              </div>
+              <div class="docs-token-grid">
+                <article class="docs-token-block">
+                  <h3 class="docs-card-title">Segmented Control</h3>
+                  <p class="docs-card-caption">Core sizing, state, and color tokens for the radio-backed segmented control.</p>
+                  <table class="docs-token-table">
+                    <thead>
+                      <tr><th>Role</th><th>Token</th><th>Value</th></tr>
+                    </thead>
+                    <tbody>
+                      <tr><td>Height</td><td><code>--segmented-control-height</code></td><td>36px</td></tr>
+                      <tr><td>Compact height</td><td><code>--segmented-control-height-compact</code></td><td><code>--control-height-compact</code></td></tr>
+                      <tr><td>Radius</td><td><code>--segmented-control-radius</code></td><td><code>--radius-button</code></td></tr>
+                      <tr><td>Background</td><td><code>--segmented-control-bg</code></td><td><code>--primitive-slate-100</code></td></tr>
+                      <tr><td>Border/divider</td><td><code>--segmented-control-border</code></td><td><code>--primitive-slate-300</code></td></tr>
+                      <tr><td>Text</td><td><code>--segmented-control-text</code></td><td><code>--primitive-slate-900</code></td></tr>
+                      <tr><td>Hover background</td><td><code>--segmented-control-hover-bg</code></td><td><code>--color-interactive-surface-hover</code></td></tr>
+                      <tr><td>Hover text</td><td><code>--segmented-control-hover-text</code></td><td><code>--color-interactive-primary</code></td></tr>
+                      <tr><td>Selected background</td><td><code>--segmented-control-selected-bg</code></td><td><code>--color-interactive-primary-hover</code></td></tr>
+                      <tr><td>Selected text</td><td><code>--segmented-control-selected-text</code></td><td><code>--primitive-white</code></td></tr>
+                      <tr><td>Error border</td><td><code>--segmented-control-error-border</code></td><td><code>--primitive-red-600</code></td></tr>
+                    </tbody>
+                  </table>
+                </article>
               </div>
             </section>
           </div>
@@ -74,7 +176,9 @@
           <nav class="docs-v2-page-nav-list">
             <a class="docs-v2-page-nav-link" href="#overview">Overview</a>
             <a class="docs-v2-page-nav-link" href="#example">Interactive Example</a>
+            <a class="docs-v2-page-nav-link" href="#states">States and Sizes</a>
             <a class="docs-v2-page-nav-link" href="#behavior">Behavior</a>
+            <a class="docs-v2-page-nav-link" href="#tokens">Token Reference</a>
           </nav>
         </aside>
       </div>

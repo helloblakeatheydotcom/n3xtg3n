@@ -420,6 +420,127 @@ input[type="radio"]:checked:focus-visible {
   border-color: var(--choice-control-hover-checked);
 }
 
+.segmented-control {
+  position: relative;
+  display: flex;
+  width: 100%;
+  max-width: var(--segmented-control-max-width);
+  height: var(--segmented-control-height);
+  overflow: hidden;
+  border-radius: var(--segmented-control-radius);
+  background: var(--segmented-control-bg);
+  box-shadow: inset 0 0 0 1px var(--segmented-control-border);
+  font: var(--segmented-control-font);
+  transition: box-shadow 0.16s ease;
+}
+
+.segmented-control--compact {
+  height: var(--segmented-control-height-compact);
+  font: var(--segmented-control-font-compact);
+}
+
+.segmented-control--fill {
+  max-width: none;
+}
+
+.segmented-option {
+  position: relative;
+  display: flex;
+  flex: 1 1 0;
+  min-width: 0;
+  height: 100%;
+  margin: 0;
+  cursor: pointer;
+  background: transparent;
+  transition: background-color 0.16s ease, color 0.16s ease;
+}
+
+.segmented-option + .segmented-option {
+  box-shadow: inset 1px 0 0 var(--segmented-control-border);
+}
+
+.segmented-option input {
+  position: absolute;
+  inset: 0;
+  width: auto;
+  height: auto;
+  margin: 0;
+  border: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.segmented-text {
+  display: flex;
+  flex: 1 1 0;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  min-width: 0;
+  padding: 0 var(--segmented-control-padding-x);
+  color: var(--segmented-control-text);
+  text-align: center;
+  white-space: nowrap;
+  transition: background-color 0.16s ease, color 0.16s ease;
+}
+
+.segmented-control--compact .segmented-text {
+  padding: 0 var(--segmented-control-padding-x-compact);
+}
+
+.segmented-control:not(:has(input:focus-visible)):not([aria-invalid="true"]) .segmented-option:not(:has(input:checked)):hover {
+  background: var(--segmented-control-hover-bg);
+}
+
+.segmented-control:not(:has(input:focus-visible)):not([aria-invalid="true"]) .segmented-option:not(:has(input:checked)):hover .segmented-text {
+  color: var(--segmented-control-hover-text);
+}
+
+.segmented-option:has(input:checked) {
+  background: var(--segmented-control-selected-bg);
+}
+
+.segmented-option:has(input:checked) .segmented-text {
+  color: var(--segmented-control-selected-text);
+}
+
+.segmented-option:first-child:has(input:checked) {
+  border-radius: var(--segmented-control-selected-radius) 0 0 var(--segmented-control-selected-radius);
+}
+
+.segmented-option:last-child:has(input:checked) {
+  border-radius: 0 var(--segmented-control-selected-radius) var(--segmented-control-selected-radius) 0;
+}
+
+.segmented-control:has(input:focus-visible) {
+  box-shadow: var(--focus-ring-shadow-field);
+}
+
+.segmented-control[aria-invalid="true"]:not(:has(input:focus-visible)) {
+  box-shadow: inset 0 0 0 1px var(--segmented-control-error-border);
+}
+
+.segmented-control[aria-invalid="true"]:has(input:focus-visible) {
+  box-shadow: var(--focus-ring-shadow-choice-error);
+}
+
+.segmented-control:has(input:disabled) {
+  background: var(--color-disabled-bg);
+  box-shadow: inset 0 0 0 1px var(--color-disabled-border);
+}
+
+.segmented-control:has(input:disabled) .segmented-option {
+  cursor: not-allowed;
+}
+
+.segmented-control:has(input:disabled) .segmented-option input {
+  cursor: not-allowed;
+}
+
+.segmented-control:has(input:disabled) .segmented-text {
+  color: var(--color-disabled-text);
+}
+
 .demo-cell--static .choice-option {
   pointer-events: none;
 }

@@ -154,6 +154,14 @@
     }
 
     .draft-segmented-control {
+      --draft-segmented-bg: var(--segmented-control-bg);
+      --draft-segmented-border: var(--segmented-control-border);
+      --draft-segmented-text: var(--segmented-control-text);
+      --draft-segmented-hover-bg: var(--segmented-control-hover-bg);
+      --draft-segmented-hover-text: var(--segmented-control-hover-text);
+      --draft-segmented-selected-bg: var(--segmented-control-selected-bg);
+      --draft-segmented-selected-text: var(--segmented-control-selected-text);
+      --draft-segmented-error-border: var(--segmented-control-error-border);
       position: relative;
       display: flex;
       width: 100%;
@@ -162,26 +170,26 @@
 
     .draft-segmented-control--flat {
       border-radius: 6px;
-      background: #EEF2F7;
+      background: var(--draft-segmented-bg);
       overflow: hidden;
-      box-shadow: inset 0 0 0 1px #DDE3EC;
+      box-shadow: inset 0 0 0 1px var(--draft-segmented-border);
       transition: box-shadow 0.16s ease, border-color 0.16s ease;
     }
 
     .draft-segmented-control--flat .draft-segmented-option + .draft-segmented-option {
-      box-shadow: inset 1px 0 0 #DDE3EC;
+      box-shadow: inset 1px 0 0 var(--draft-segmented-border);
     }
 
-    .draft-segmented-control--flat:focus-within {
-      box-shadow: inset 0 0 0 1.5px #2567F4, 0 0 0 2px rgba(37, 103, 244, 0.18);
+    .draft-segmented-control--flat:has(input:focus-visible) {
+      box-shadow: var(--focus-ring-shadow-field);
     }
 
-    .draft-segmented-control--flat.is-invalid:not(:focus-within) {
-      box-shadow: inset 0 0 0 1px #DC2626;
+    .draft-segmented-control--flat.is-invalid:not(:has(input:focus-visible)) {
+      box-shadow: inset 0 0 0 1px var(--draft-segmented-error-border);
     }
 
-    .draft-segmented-control--flat.is-invalid:focus-within {
-      box-shadow: inset 0 0 0 1px #DC2626, 0 0 0 2px rgba(37, 103, 244, 0.18);
+    .draft-segmented-control--flat.is-invalid:has(input:focus-visible) {
+      box-shadow: var(--focus-ring-shadow-choice-error);
     }
 
     .draft-segmented-option {
@@ -210,7 +218,7 @@
       justify-content: center;
       height: 100%;
       padding: 0 16px;
-      color: #475467;
+      color: var(--draft-segmented-text);
       font-size: 14px;
       font-weight: 600;
       border-radius: 0;
@@ -220,23 +228,23 @@
     }
 
     .draft-segmented-control--flat .draft-segmented-text {
-      color: #47505C;
+      color: var(--draft-segmented-text);
     }
 
-    .draft-segmented-control--flat .draft-segmented-option:hover {
-      background: #EEF3FF;
+    .draft-segmented-control--flat:not(:has(input:focus-visible)):not(.is-invalid) .draft-segmented-option:not(:has(input:checked)):hover {
+      background: var(--draft-segmented-hover-bg);
     }
 
-    .draft-segmented-control--flat .draft-segmented-option:hover .draft-segmented-text {
-      color: #2567F4;
+    .draft-segmented-control--flat:not(:has(input:focus-visible)):not(.is-invalid) .draft-segmented-option:not(:has(input:checked)):hover .draft-segmented-text {
+      color: var(--draft-segmented-hover-text);
     }
 
     .draft-segmented-control--flat .draft-segmented-option:has(input:checked) {
-      background: #2F5DCC;
+      background: var(--draft-segmented-selected-bg);
     }
 
     .draft-segmented-control--flat .draft-segmented-option:has(input:checked) .draft-segmented-text {
-      color: #FFFFFF;
+      color: var(--draft-segmented-selected-text);
     }
 
     .draft-segmented-control--flat .draft-segmented-option:first-child:has(input:checked) {
@@ -3224,22 +3232,23 @@
       const syncState = () => {
         const hasSelection = inputs.some((input) => input.checked);
         control.classList.toggle("is-invalid", touched && !hasSelection);
+        control.setAttribute("aria-invalid", String(touched && !hasSelection));
       };
 
       inputs.forEach((input) => {
-        input.addEventListener("focus", () => {
-          touched = true;
-          syncState();
-        });
-
         input.addEventListener("change", () => {
           touched = true;
           syncState();
         });
+      });
 
-        input.addEventListener("blur", () => {
-          requestAnimationFrame(syncState);
-        });
+      control.addEventListener("focusout", (event) => {
+        if (control.contains(event.relatedTarget)) {
+          return;
+        }
+
+        touched = true;
+        syncState();
       });
     });
 

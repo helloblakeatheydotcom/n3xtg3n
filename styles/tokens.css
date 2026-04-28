@@ -370,6 +370,25 @@
   --choice-option-gap: 8px;
   --choice-option-spacing-y: var(--space-2);
 
+  /* Segmented control tokens */
+  --segmented-control-height: 36px;
+  --segmented-control-height-compact: var(--control-height-compact);
+  --segmented-control-radius: var(--radius-button);
+  --segmented-control-selected-radius: calc(var(--segmented-control-radius) - 1px);
+  --segmented-control-bg: var(--primitive-slate-100);
+  --segmented-control-border: var(--primitive-slate-300);
+  --segmented-control-text: var(--primitive-slate-900);
+  --segmented-control-hover-bg: var(--color-interactive-surface-hover);
+  --segmented-control-hover-text: var(--color-interactive-primary);
+  --segmented-control-selected-bg: var(--color-interactive-primary-hover);
+  --segmented-control-selected-text: var(--primitive-white);
+  --segmented-control-error-border: var(--primitive-red-600);
+  --segmented-control-padding-x: var(--space-4);
+  --segmented-control-padding-x-compact: 14px;
+  --segmented-control-font: var(--font-label-md);
+  --segmented-control-font-compact: 600 0.8125rem/1.125rem "Inter", system-ui, -apple-system, sans-serif;
+  --segmented-control-max-width: 280px;
+
   /* Typography: composite heading tokens */
   --font-heading-xl: 600 1.375rem/1.75rem "Inter", system-ui, -apple-system, sans-serif;
   --font-heading-lg: 600 1.125rem/1.375rem "Inter", system-ui, -apple-system, sans-serif;

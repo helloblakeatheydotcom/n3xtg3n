@@ -235,8 +235,13 @@ body.docs-v2-page {
 }
 
 .docs-v2-nav-status--planned {
-  background: #DCFCE7;
-  color: #166534;
+  background: var(--badge-purple-bg);
+  color: var(--badge-purple-color);
+}
+
+.docs-v2-nav-status--new {
+  background: var(--badge-emerald-bg);
+  color: var(--badge-emerald-color);
 }
 
 .docs-v2-nav-link:hover {
@@ -394,9 +399,15 @@ body.docs-v2-page {
 }
 
 .docs-v2-chip--planned {
-  border-color: #BBF7D0;
-  background: #F0FDF4;
-  color: #166534;
+  border-color: var(--badge-purple-bg);
+  background: var(--badge-purple-bg);
+  color: var(--badge-purple-color);
+}
+
+.docs-v2-chip--new {
+  border-color: var(--badge-emerald-bg);
+  background: var(--badge-emerald-bg);
+  color: var(--badge-emerald-color);
 }
 
 .docs-v2-table {

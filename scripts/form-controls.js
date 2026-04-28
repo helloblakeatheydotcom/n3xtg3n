@@ -49,11 +49,45 @@ document.querySelectorAll('.number-stepper').forEach((wrapper) => {
 });
 
 document.querySelectorAll('.segmented-control').forEach((group) => {
-  group.querySelectorAll('.segmented-option').forEach((button) => {
+  group.querySelectorAll('button.segmented-option').forEach((button) => {
     button.addEventListener('click', () => {
-      group.querySelectorAll('.segmented-option').forEach((item) => item.setAttribute('aria-pressed', String(item === button)));
+      group.querySelectorAll('button.segmented-option').forEach((item) => item.setAttribute('aria-pressed', String(item === button)));
     });
   });
+});
+
+document.querySelectorAll('[data-required-segmented]').forEach((control) => {
+  const inputs = Array.from(control.querySelectorAll('input[type="radio"]'));
+  if (!inputs.length) return;
+
+  const describedByIds = (control.getAttribute('aria-describedby') || '').split(/\s+/).filter(Boolean);
+  const error = describedByIds
+    .map((id) => document.getElementById(id))
+    .find((element) => element && element.classList.contains('field-error'));
+  const errorMessage = control.dataset.requiredMessage || 'A selection is required.';
+  let touched = control.getAttribute('aria-invalid') === 'true';
+
+  const validate = () => {
+    const isInvalid = touched && !inputs.some((input) => input.checked);
+    control.setAttribute('aria-invalid', String(isInvalid));
+    if (error) error.textContent = isInvalid ? errorMessage : '';
+  };
+
+  inputs.forEach((input) => {
+    input.addEventListener('change', () => {
+      touched = true;
+      validate();
+    });
+  });
+
+  control.addEventListener('focusout', (event) => {
+    if (control.contains(event.relatedTarget)) return;
+
+    touched = true;
+    validate();
+  });
+
+  validate();
 });
 
 document.querySelectorAll('.toggle-switch').forEach((toggle) => {
